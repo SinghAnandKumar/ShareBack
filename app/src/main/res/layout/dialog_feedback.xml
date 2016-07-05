@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feedback"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/textFeedback"/>
+    <View
+        android:layout_width="20dp"
+        android:layout_height="3dp"
+        android:background="@color/colorAccent"
+        android:layout_gravity="center"
+        android:layout_marginBottom="7dp"/>
+
+        <android.support.v7.widget.AppCompatRatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            style="?android:attr/ratingBarStyle"
+            android:stepSize="1"
+            android:id="@+id/ratingBar" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:inputType="textMultiLine"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:ems="10"
+            android:textSize="16dp"
+            android:maxLines="20"
+            android:background="@drawable/bg_edit_text"
+            android:gravity="bottom"
+            android:padding="10dp"
+            android:hint="Comment (Optional)..."
+            android:id="@+id/etFeedbackComment" />
+
+    </LinearLayout>
