@@ -1,4 +1,4 @@
-package com.fantasticfive.shareback;
+package com.fantasticfive.shareback.newshareback.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.adapters.RecyclerViewAdapter;
 
 public class NewMainActivity extends AppCompatActivity {

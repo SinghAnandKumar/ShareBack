@@ -50,7 +50,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<ItemHolder> {
     }
 
     public interface OnItemClickListener {
-        public void onItemClick(ItemHolder item, int position);
+        void onItemClick(ItemHolder item, int position);
     }
 
     public void add(int location, String iName) {
