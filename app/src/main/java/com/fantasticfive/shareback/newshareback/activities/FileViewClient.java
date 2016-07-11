@@ -19,7 +19,7 @@ import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.adapters.SnackbarThumbnailAdapter;
 import com.fantasticfive.shareback.beans.ThumbnailItem;
 import com.fantasticfive.shareback.utils.EventReciever;
-import com.fantasticfive.shareback.utils.FileRender;
+import com.fantasticfive.shareback.utils.FileRenderer;
 import com.github.barteksc.pdfviewer.PDFView;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
@@ -77,7 +77,7 @@ public class FileViewClient extends AppCompatActivity {
         ivThumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FileRender.render(FileViewClient.this, container, new File(item.getFilePath()));
+                FileRenderer.render(FileViewClient.this, container, new File(item.getFilePath()));
             }
         });
 
@@ -129,7 +129,7 @@ public class FileViewClient extends AppCompatActivity {
                     addFileThumbnail(item);
 
                     //Open File
-                    FileRender.render(this, container, new File(filePath));
+                    FileRenderer.render(this, container, new File(filePath));
                     //-- Open File
                 }
                 break;
