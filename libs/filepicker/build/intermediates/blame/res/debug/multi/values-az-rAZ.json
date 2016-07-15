@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\debug\\values-az-rAZ\\values-az-rAZ.xml",
+        "outputFile": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\debug\\values-az-rAZ\\values-az-rAZ.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 148
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 256
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 379
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 478
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -87,7 +87,7 @@
                     "endOffset": 588
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -106,7 +106,7 @@
                     "endOffset": 676
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -125,7 +125,7 @@
                     "endOffset": 783
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -144,7 +144,7 @@
                     "endOffset": 897
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -163,7 +163,7 @@
                     "endOffset": 978
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -182,7 +182,7 @@
                     "endOffset": 1057
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -201,7 +201,7 @@
                     "endOffset": 1142
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -220,7 +220,7 @@
                     "endOffset": 1249
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -239,7 +239,7 @@
                     "endOffset": 1356
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -258,7 +258,7 @@
                     "endOffset": 1456
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -277,7 +277,7 @@
                     "endOffset": 1565
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -296,7 +296,7 @@
                     "endOffset": 1669
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -315,7 +315,7 @@
                     "endOffset": 1779
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -334,7 +334,7 @@
                     "endOffset": 1876
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
@@ -353,7 +353,7 @@
                     "endOffset": 1977
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
@@ -366,7 +366,7 @@
         ]
     },
     {
-        "outputFile": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\debug\\values-az-rAZ\\values-az-rAZ.xml",
+        "outputFile": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/debug/values-az-rAZ/values-az-rAZ.xml",
         "map": [
             {
                 "to": {
@@ -377,13 +377,13 @@
                     "endOffset": 148
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 291,
+                        "startOffset": 55,
                         "endColumn": 97,
-                        "endOffset": 384
+                        "endOffset": 148
                     }
                 }
             },
@@ -396,13 +396,13 @@
                     "endOffset": 256
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 389,
+                        "startOffset": 153,
                         "endColumn": 107,
-                        "endOffset": 492
+                        "endOffset": 256
                     }
                 }
             },
@@ -415,13 +415,13 @@
                     "endOffset": 379
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 6,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 497,
+                        "startOffset": 261,
                         "endColumn": 122,
-                        "endOffset": 615
+                        "endOffset": 379
                     }
                 }
             },
@@ -434,13 +434,13 @@
                     "endOffset": 478
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 620,
+                        "startOffset": 384,
                         "endColumn": 98,
-                        "endOffset": 714
+                        "endOffset": 478
                     }
                 }
             },
@@ -449,17 +449,17 @@
                     "startLine": 6,
                     "startColumn": 4,
                     "startOffset": 483,
-                    "endColumn": 109,
-                    "endOffset": 588
+                    "endColumn": 111,
+                    "endOffset": 590
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 719,
-                        "endColumn": 109,
-                        "endOffset": 824
+                        "startOffset": 483,
+                        "endColumn": 111,
+                        "endOffset": 590
                     }
                 }
             },
@@ -467,18 +467,18 @@
                 "to": {
                     "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 593,
+                    "startOffset": 595,
                     "endColumn": 87,
-                    "endOffset": 676
+                    "endOffset": 678
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 9,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 829,
+                        "startOffset": 595,
                         "endColumn": 87,
-                        "endOffset": 912
+                        "endOffset": 678
                     }
                 }
             },
@@ -486,18 +486,18 @@
                 "to": {
                     "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 681,
+                    "startOffset": 683,
                     "endColumn": 106,
-                    "endOffset": 783
+                    "endOffset": 785
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 10,
+                        "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 917,
+                        "startOffset": 683,
                         "endColumn": 106,
-                        "endOffset": 1019
+                        "endOffset": 785
                     }
                 }
             },
@@ -505,18 +505,18 @@
                 "to": {
                     "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 788,
+                    "startOffset": 790,
                     "endColumn": 113,
-                    "endOffset": 897
+                    "endOffset": 899
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 1024,
+                        "startOffset": 790,
                         "endColumn": 113,
-                        "endOffset": 1133
+                        "endOffset": 899
                     }
                 }
             },
@@ -524,18 +524,18 @@
                 "to": {
                     "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 902,
+                    "startOffset": 904,
                     "endColumn": 80,
-                    "endOffset": 978
+                    "endOffset": 980
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 12,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 1138,
+                        "startOffset": 904,
                         "endColumn": 80,
-                        "endOffset": 1214
+                        "endOffset": 980
                     }
                 }
             },
@@ -543,18 +543,18 @@
                 "to": {
                     "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 983,
+                    "startOffset": 985,
                     "endColumn": 78,
-                    "endOffset": 1057
+                    "endOffset": 1059
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 13,
+                        "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 1219,
+                        "startOffset": 985,
                         "endColumn": 78,
-                        "endOffset": 1293
+                        "endOffset": 1059
                     }
                 }
             },
@@ -562,18 +562,18 @@
                 "to": {
                     "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 1062,
+                    "startOffset": 1064,
                     "endColumn": 84,
-                    "endOffset": 1142
+                    "endOffset": 1144
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 1298,
+                        "startOffset": 1064,
                         "endColumn": 84,
-                        "endOffset": 1378
+                        "endOffset": 1144
                     }
                 }
             },
@@ -581,18 +581,18 @@
                 "to": {
                     "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 1147,
+                    "startOffset": 1149,
                     "endColumn": 106,
-                    "endOffset": 1249
+                    "endOffset": 1251
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 15,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 1383,
+                        "startOffset": 1149,
                         "endColumn": 106,
-                        "endOffset": 1485
+                        "endOffset": 1251
                     }
                 }
             },
@@ -600,18 +600,18 @@
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 1254,
+                    "startOffset": 1256,
                     "endColumn": 106,
-                    "endOffset": 1356
+                    "endOffset": 1358
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 16,
+                        "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 1490,
+                        "startOffset": 1256,
                         "endColumn": 106,
-                        "endOffset": 1592
+                        "endOffset": 1358
                     }
                 }
             },
@@ -619,18 +619,18 @@
                 "to": {
                     "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 1361,
+                    "startOffset": 1363,
                     "endColumn": 99,
-                    "endOffset": 1456
+                    "endOffset": 1458
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 17,
+                        "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1597,
+                        "startOffset": 1363,
                         "endColumn": 99,
-                        "endOffset": 1692
+                        "endOffset": 1458
                     }
                 }
             },
@@ -638,18 +638,18 @@
                 "to": {
                     "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 1461,
+                    "startOffset": 1463,
                     "endColumn": 108,
-                    "endOffset": 1565
+                    "endOffset": 1567
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 18,
+                        "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 1697,
+                        "startOffset": 1463,
                         "endColumn": 108,
-                        "endOffset": 1801
+                        "endOffset": 1567
                     }
                 }
             },
@@ -657,18 +657,18 @@
                 "to": {
                     "startLine": 17,
                     "startColumn": 4,
-                    "startOffset": 1570,
+                    "startOffset": 1572,
                     "endColumn": 103,
-                    "endOffset": 1669
+                    "endOffset": 1671
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 19,
+                        "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 1806,
+                        "startOffset": 1572,
                         "endColumn": 103,
-                        "endOffset": 1905
+                        "endOffset": 1671
                     }
                 }
             },
@@ -676,18 +676,18 @@
                 "to": {
                     "startLine": 18,
                     "startColumn": 4,
-                    "startOffset": 1674,
+                    "startOffset": 1676,
                     "endColumn": 109,
-                    "endOffset": 1779
+                    "endOffset": 1781
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 20,
+                        "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1910,
+                        "startOffset": 1676,
                         "endColumn": 109,
-                        "endOffset": 2015
+                        "endOffset": 1781
                     }
                 }
             },
@@ -695,18 +695,18 @@
                 "to": {
                     "startLine": 19,
                     "startColumn": 4,
-                    "startOffset": 1784,
+                    "startOffset": 1786,
                     "endColumn": 96,
-                    "endOffset": 1876
+                    "endOffset": 1878
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 21,
+                        "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 2020,
+                        "startOffset": 1786,
                         "endColumn": 96,
-                        "endOffset": 2112
+                        "endOffset": 1878
                     }
                 }
             },
@@ -714,18 +714,384 @@
                 "to": {
                     "startLine": 20,
                     "startColumn": 4,
-                    "startOffset": 1881,
+                    "startOffset": 1883,
                     "endColumn": 100,
-                    "endOffset": 1977
+                    "endOffset": 1979
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-az-rAZ/values-az-rAZ.xml",
                     "position": {
-                        "startLine": 22,
+                        "startLine": 20,
                         "startColumn": 4,
-                        "startOffset": 2117,
+                        "startOffset": 1883,
                         "endColumn": 100,
-                        "endOffset": 2213
+                        "endOffset": 1979
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\debug\\values-az-rAZ\\values-az-rAZ.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 97,
+                    "endOffset": 148
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 97,
+                        "endOffset": 148
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 153,
+                    "endColumn": 107,
+                    "endOffset": 256
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 153,
+                        "endColumn": 107,
+                        "endOffset": 256
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 261,
+                    "endColumn": 122,
+                    "endOffset": 379
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 261,
+                        "endColumn": 122,
+                        "endOffset": 379
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 384,
+                    "endColumn": 98,
+                    "endOffset": 478
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 384,
+                        "endColumn": 98,
+                        "endOffset": 478
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 483,
+                    "endColumn": 111,
+                    "endOffset": 590
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 483,
+                        "endColumn": 111,
+                        "endOffset": 590
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 595,
+                    "endColumn": 87,
+                    "endOffset": 678
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 595,
+                        "endColumn": 87,
+                        "endOffset": 678
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 683,
+                    "endColumn": 106,
+                    "endOffset": 785
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 683,
+                        "endColumn": 106,
+                        "endOffset": 785
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 790,
+                    "endColumn": 113,
+                    "endOffset": 899
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 790,
+                        "endColumn": 113,
+                        "endOffset": 899
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 904,
+                    "endColumn": 80,
+                    "endOffset": 980
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 904,
+                        "endColumn": 80,
+                        "endOffset": 980
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 985,
+                    "endColumn": 78,
+                    "endOffset": 1059
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 985,
+                        "endColumn": 78,
+                        "endOffset": 1059
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1064,
+                    "endColumn": 84,
+                    "endOffset": 1144
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1064,
+                        "endColumn": 84,
+                        "endOffset": 1144
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1149,
+                    "endColumn": 106,
+                    "endOffset": 1251
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1149,
+                        "endColumn": 106,
+                        "endOffset": 1251
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1256,
+                    "endColumn": 106,
+                    "endOffset": 1358
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1256,
+                        "endColumn": 106,
+                        "endOffset": 1358
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1363,
+                    "endColumn": 99,
+                    "endOffset": 1458
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1363,
+                        "endColumn": 99,
+                        "endOffset": 1458
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1463,
+                    "endColumn": 108,
+                    "endOffset": 1567
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1463,
+                        "endColumn": 108,
+                        "endOffset": 1567
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1572,
+                    "endColumn": 103,
+                    "endOffset": 1671
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1572,
+                        "endColumn": 103,
+                        "endOffset": 1671
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1676,
+                    "endColumn": 109,
+                    "endOffset": 1781
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1676,
+                        "endColumn": 109,
+                        "endOffset": 1781
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1786,
+                    "endColumn": 96,
+                    "endOffset": 1878
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1786,
+                        "endColumn": 96,
+                        "endOffset": 1878
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1883,
+                    "endColumn": 100,
+                    "endOffset": 1979
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-az-rAZ\\values-az-rAZ.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1883,
+                        "endColumn": 100,
+                        "endOffset": 1979
                     }
                 }
             }

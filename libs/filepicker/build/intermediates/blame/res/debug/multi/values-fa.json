@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\debug\\values-fa\\values-fa.xml",
+        "outputFile": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\debug\\values-fa\\values-fa.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 160
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 270
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 396
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 499
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -87,7 +87,7 @@
                     "endOffset": 610
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -106,7 +106,7 @@
                     "endOffset": 694
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -125,7 +125,7 @@
                     "endOffset": 797
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -144,7 +144,7 @@
                     "endOffset": 912
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -163,7 +163,7 @@
                     "endOffset": 991
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -182,7 +182,7 @@
                     "endOffset": 1069
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -201,7 +201,7 @@
                     "endOffset": 1150
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -220,7 +220,7 @@
                     "endOffset": 1262
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -239,7 +239,7 @@
                     "endOffset": 1365
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -258,7 +258,7 @@
                     "endOffset": 1463
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -277,7 +277,7 @@
                     "endOffset": 1573
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -296,7 +296,7 @@
                     "endOffset": 1676
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -315,7 +315,7 @@
                     "endOffset": 1785
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -334,7 +334,7 @@
                     "endOffset": 1910
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
@@ -353,7 +353,7 @@
                     "endOffset": 2011
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
@@ -372,7 +372,7 @@
                     "endOffset": 2112
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
                     "position": {
                         "startLine": 23,
                         "startColumn": 4,
@@ -385,7 +385,7 @@
         ]
     },
     {
-        "outputFile": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\debug\\values-fa\\values-fa.xml",
+        "outputFile": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/debug/values-fa/values-fa.xml",
         "map": [
             {
                 "to": {
@@ -396,13 +396,13 @@
                     "endOffset": 160
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 287,
+                        "startOffset": 55,
                         "endColumn": 109,
-                        "endOffset": 392
+                        "endOffset": 160
                     }
                 }
             },
@@ -415,13 +415,13 @@
                     "endOffset": 270
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 397,
+                        "startOffset": 165,
                         "endColumn": 109,
-                        "endOffset": 502
+                        "endOffset": 270
                     }
                 }
             },
@@ -434,13 +434,13 @@
                     "endOffset": 396
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 6,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 507,
+                        "startOffset": 275,
                         "endColumn": 125,
-                        "endOffset": 628
+                        "endOffset": 396
                     }
                 }
             },
@@ -453,13 +453,13 @@
                     "endOffset": 499
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 633,
+                        "startOffset": 401,
                         "endColumn": 102,
-                        "endOffset": 731
+                        "endOffset": 499
                     }
                 }
             },
@@ -472,13 +472,13 @@
                     "endOffset": 610
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 736,
+                        "startOffset": 504,
                         "endColumn": 110,
-                        "endOffset": 842
+                        "endOffset": 610
                     }
                 }
             },
@@ -491,13 +491,13 @@
                     "endOffset": 694
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 9,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 847,
+                        "startOffset": 615,
                         "endColumn": 83,
-                        "endOffset": 926
+                        "endOffset": 694
                     }
                 }
             },
@@ -510,13 +510,13 @@
                     "endOffset": 797
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 10,
+                        "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 931,
+                        "startOffset": 699,
                         "endColumn": 102,
-                        "endOffset": 1029
+                        "endOffset": 797
                     }
                 }
             },
@@ -529,13 +529,13 @@
                     "endOffset": 912
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 1034,
+                        "startOffset": 802,
                         "endColumn": 114,
-                        "endOffset": 1144
+                        "endOffset": 912
                     }
                 }
             },
@@ -548,13 +548,13 @@
                     "endOffset": 991
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 12,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 1149,
+                        "startOffset": 917,
                         "endColumn": 78,
-                        "endOffset": 1223
+                        "endOffset": 991
                     }
                 }
             },
@@ -567,13 +567,13 @@
                     "endOffset": 1069
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 13,
+                        "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 1228,
+                        "startOffset": 996,
                         "endColumn": 77,
-                        "endOffset": 1301
+                        "endOffset": 1069
                     }
                 }
             },
@@ -586,13 +586,13 @@
                     "endOffset": 1150
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 1306,
+                        "startOffset": 1074,
                         "endColumn": 80,
-                        "endOffset": 1382
+                        "endOffset": 1150
                     }
                 }
             },
@@ -605,13 +605,13 @@
                     "endOffset": 1262
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 15,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 1387,
+                        "startOffset": 1155,
                         "endColumn": 111,
-                        "endOffset": 1494
+                        "endOffset": 1262
                     }
                 }
             },
@@ -624,13 +624,13 @@
                     "endOffset": 1365
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 16,
+                        "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 1499,
+                        "startOffset": 1267,
                         "endColumn": 102,
-                        "endOffset": 1597
+                        "endOffset": 1365
                     }
                 }
             },
@@ -643,13 +643,13 @@
                     "endOffset": 1463
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 17,
+                        "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1602,
+                        "startOffset": 1370,
                         "endColumn": 97,
-                        "endOffset": 1695
+                        "endOffset": 1463
                     }
                 }
             },
@@ -662,13 +662,13 @@
                     "endOffset": 1573
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 18,
+                        "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 1700,
+                        "startOffset": 1468,
                         "endColumn": 109,
-                        "endOffset": 1805
+                        "endOffset": 1573
                     }
                 }
             },
@@ -681,13 +681,13 @@
                     "endOffset": 1676
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 19,
+                        "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 1810,
+                        "startOffset": 1578,
                         "endColumn": 102,
-                        "endOffset": 1908
+                        "endOffset": 1676
                     }
                 }
             },
@@ -700,13 +700,13 @@
                     "endOffset": 1785
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 20,
+                        "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1913,
+                        "startOffset": 1681,
                         "endColumn": 108,
-                        "endOffset": 2017
+                        "endOffset": 1785
                     }
                 }
             },
@@ -719,13 +719,13 @@
                     "endOffset": 1910
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 21,
+                        "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 2022,
+                        "startOffset": 1790,
                         "endColumn": 124,
-                        "endOffset": 2142
+                        "endOffset": 1910
                     }
                 }
             },
@@ -738,13 +738,13 @@
                     "endOffset": 2011
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 22,
+                        "startLine": 20,
                         "startColumn": 4,
-                        "startOffset": 2147,
+                        "startOffset": 1915,
                         "endColumn": 100,
-                        "endOffset": 2243
+                        "endOffset": 2011
                     }
                 }
             },
@@ -757,13 +757,398 @@
                     "endOffset": 2112
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-fa\\values-fa.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-fa/values-fa.xml",
                     "position": {
-                        "startLine": 23,
+                        "startLine": 21,
                         "startColumn": 4,
-                        "startOffset": 2248,
+                        "startOffset": 2016,
                         "endColumn": 100,
-                        "endOffset": 2344
+                        "endOffset": 2112
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\debug\\values-fa\\values-fa.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 109,
+                    "endOffset": 160
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 109,
+                        "endOffset": 160
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 165,
+                    "endColumn": 109,
+                    "endOffset": 270
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 165,
+                        "endColumn": 109,
+                        "endOffset": 270
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 275,
+                    "endColumn": 125,
+                    "endOffset": 396
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 275,
+                        "endColumn": 125,
+                        "endOffset": 396
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 401,
+                    "endColumn": 102,
+                    "endOffset": 499
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 401,
+                        "endColumn": 102,
+                        "endOffset": 499
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 504,
+                    "endColumn": 110,
+                    "endOffset": 610
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 504,
+                        "endColumn": 110,
+                        "endOffset": 610
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 615,
+                    "endColumn": 83,
+                    "endOffset": 694
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 615,
+                        "endColumn": 83,
+                        "endOffset": 694
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 699,
+                    "endColumn": 102,
+                    "endOffset": 797
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 699,
+                        "endColumn": 102,
+                        "endOffset": 797
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 802,
+                    "endColumn": 114,
+                    "endOffset": 912
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 802,
+                        "endColumn": 114,
+                        "endOffset": 912
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 917,
+                    "endColumn": 78,
+                    "endOffset": 991
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 917,
+                        "endColumn": 78,
+                        "endOffset": 991
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 996,
+                    "endColumn": 77,
+                    "endOffset": 1069
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 996,
+                        "endColumn": 77,
+                        "endOffset": 1069
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1074,
+                    "endColumn": 80,
+                    "endOffset": 1150
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1074,
+                        "endColumn": 80,
+                        "endOffset": 1150
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1155,
+                    "endColumn": 111,
+                    "endOffset": 1262
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1155,
+                        "endColumn": 111,
+                        "endOffset": 1262
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1267,
+                    "endColumn": 102,
+                    "endOffset": 1365
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1267,
+                        "endColumn": 102,
+                        "endOffset": 1365
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1370,
+                    "endColumn": 97,
+                    "endOffset": 1463
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1370,
+                        "endColumn": 97,
+                        "endOffset": 1463
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1468,
+                    "endColumn": 109,
+                    "endOffset": 1573
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1468,
+                        "endColumn": 109,
+                        "endOffset": 1573
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1578,
+                    "endColumn": 102,
+                    "endOffset": 1676
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1578,
+                        "endColumn": 102,
+                        "endOffset": 1676
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1681,
+                    "endColumn": 108,
+                    "endOffset": 1785
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1681,
+                        "endColumn": 108,
+                        "endOffset": 1785
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1790,
+                    "endColumn": 124,
+                    "endOffset": 1910
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1790,
+                        "endColumn": 124,
+                        "endOffset": 1910
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1915,
+                    "endColumn": 100,
+                    "endOffset": 2011
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1915,
+                        "endColumn": 100,
+                        "endOffset": 2011
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 2016,
+                    "endColumn": 100,
+                    "endOffset": 2112
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-fa\\values-fa.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 2016,
+                        "endColumn": 100,
+                        "endOffset": 2112
                     }
                 }
             }

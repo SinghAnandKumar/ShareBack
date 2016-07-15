@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\release\\values-ky-rKG\\values-ky-rKG.xml",
+        "outputFile": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\release\\values-ky-rKG\\values-ky-rKG.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 154
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 262
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 385
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 480
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -87,7 +87,7 @@
                     "endOffset": 599
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -106,7 +106,7 @@
                     "endOffset": 683
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -125,7 +125,7 @@
                     "endOffset": 790
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -144,7 +144,7 @@
                     "endOffset": 907
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -163,7 +163,7 @@
                     "endOffset": 985
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -182,7 +182,7 @@
                     "endOffset": 1064
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -201,7 +201,7 @@
                     "endOffset": 1145
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -220,7 +220,7 @@
                     "endOffset": 1255
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -239,7 +239,7 @@
                     "endOffset": 1362
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -258,7 +258,7 @@
                     "endOffset": 1460
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -277,7 +277,7 @@
                     "endOffset": 1566
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -296,7 +296,7 @@
                     "endOffset": 1673
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,
@@ -315,7 +315,7 @@
                     "endOffset": 1774
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 20,
                         "startColumn": 4,
@@ -334,7 +334,7 @@
                     "endOffset": 1898
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
@@ -353,7 +353,7 @@
                     "endOffset": 2001
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
@@ -372,7 +372,7 @@
                     "endOffset": 2102
                 },
                 "from": {
-                    "file": "E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
                         "startLine": 23,
                         "startColumn": 4,
@@ -385,7 +385,7 @@
         ]
     },
     {
-        "outputFile": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\release\\values-ky-rKG\\values-ky-rKG.xml",
+        "outputFile": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\release\\values-ky-rKG\\values-ky-rKG.xml",
         "map": [
             {
                 "to": {
@@ -396,13 +396,13 @@
                     "endOffset": 154
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 291,
+                        "startOffset": 55,
                         "endColumn": 103,
-                        "endOffset": 390
+                        "endOffset": 154
                     }
                 }
             },
@@ -415,13 +415,13 @@
                     "endOffset": 262
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 395,
+                        "startOffset": 159,
                         "endColumn": 107,
-                        "endOffset": 498
+                        "endOffset": 262
                     }
                 }
             },
@@ -434,13 +434,13 @@
                     "endOffset": 385
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 6,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 503,
+                        "startOffset": 267,
                         "endColumn": 122,
-                        "endOffset": 621
+                        "endOffset": 385
                     }
                 }
             },
@@ -453,13 +453,13 @@
                     "endOffset": 480
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 626,
+                        "startOffset": 390,
                         "endColumn": 94,
-                        "endOffset": 716
+                        "endOffset": 480
                     }
                 }
             },
@@ -472,13 +472,13 @@
                     "endOffset": 599
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 721,
+                        "startOffset": 485,
                         "endColumn": 118,
-                        "endOffset": 835
+                        "endOffset": 599
                     }
                 }
             },
@@ -491,13 +491,13 @@
                     "endOffset": 683
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 9,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 840,
+                        "startOffset": 604,
                         "endColumn": 83,
-                        "endOffset": 919
+                        "endOffset": 683
                     }
                 }
             },
@@ -510,13 +510,13 @@
                     "endOffset": 790
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 10,
+                        "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 924,
+                        "startOffset": 688,
                         "endColumn": 106,
-                        "endOffset": 1026
+                        "endOffset": 790
                     }
                 }
             },
@@ -529,13 +529,13 @@
                     "endOffset": 907
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 1031,
+                        "startOffset": 795,
                         "endColumn": 116,
-                        "endOffset": 1143
+                        "endOffset": 907
                     }
                 }
             },
@@ -548,13 +548,13 @@
                     "endOffset": 985
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 12,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 1148,
+                        "startOffset": 912,
                         "endColumn": 77,
-                        "endOffset": 1221
+                        "endOffset": 985
                     }
                 }
             },
@@ -567,13 +567,13 @@
                     "endOffset": 1064
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 13,
+                        "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 1226,
+                        "startOffset": 990,
                         "endColumn": 78,
-                        "endOffset": 1300
+                        "endOffset": 1064
                     }
                 }
             },
@@ -586,13 +586,13 @@
                     "endOffset": 1145
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 1305,
+                        "startOffset": 1069,
                         "endColumn": 80,
-                        "endOffset": 1381
+                        "endOffset": 1145
                     }
                 }
             },
@@ -605,13 +605,13 @@
                     "endOffset": 1255
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 15,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 1386,
+                        "startOffset": 1150,
                         "endColumn": 109,
-                        "endOffset": 1491
+                        "endOffset": 1255
                     }
                 }
             },
@@ -624,13 +624,13 @@
                     "endOffset": 1362
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 16,
+                        "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 1496,
+                        "startOffset": 1260,
                         "endColumn": 106,
-                        "endOffset": 1598
+                        "endOffset": 1362
                     }
                 }
             },
@@ -643,13 +643,13 @@
                     "endOffset": 1460
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 17,
+                        "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1603,
+                        "startOffset": 1367,
                         "endColumn": 97,
-                        "endOffset": 1696
+                        "endOffset": 1460
                     }
                 }
             },
@@ -662,13 +662,13 @@
                     "endOffset": 1566
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 18,
+                        "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 1701,
+                        "startOffset": 1465,
                         "endColumn": 105,
-                        "endOffset": 1802
+                        "endOffset": 1566
                     }
                 }
             },
@@ -681,13 +681,13 @@
                     "endOffset": 1673
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 19,
+                        "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 1807,
+                        "startOffset": 1571,
                         "endColumn": 106,
-                        "endOffset": 1909
+                        "endOffset": 1673
                     }
                 }
             },
@@ -700,13 +700,13 @@
                     "endOffset": 1774
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 20,
+                        "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1914,
+                        "startOffset": 1678,
                         "endColumn": 100,
-                        "endOffset": 2010
+                        "endOffset": 1774
                     }
                 }
             },
@@ -719,13 +719,13 @@
                     "endOffset": 1898
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 21,
+                        "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 2015,
+                        "startOffset": 1779,
                         "endColumn": 123,
-                        "endOffset": 2134
+                        "endOffset": 1898
                     }
                 }
             },
@@ -738,13 +738,13 @@
                     "endOffset": 2001
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 22,
+                        "startLine": 20,
                         "startColumn": 4,
-                        "startOffset": 2139,
+                        "startOffset": 1903,
                         "endColumn": 102,
-                        "endOffset": 2237
+                        "endOffset": 2001
                     }
                 }
             },
@@ -757,13 +757,398 @@
                     "endOffset": 2102
                 },
                 "from": {
-                    "file": "F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\values-ky-rKG\\values-ky-rKG.xml",
                     "position": {
-                        "startLine": 23,
+                        "startLine": 21,
                         "startColumn": 4,
-                        "startOffset": 2242,
+                        "startOffset": 2006,
                         "endColumn": 100,
-                        "endOffset": 2338
+                        "endOffset": 2102
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/release/values-ky-rKG/values-ky-rKG.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 103,
+                    "endOffset": 154
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 103,
+                        "endOffset": 154
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 159,
+                    "endColumn": 107,
+                    "endOffset": 262
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 159,
+                        "endColumn": 107,
+                        "endOffset": 262
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 267,
+                    "endColumn": 122,
+                    "endOffset": 385
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 267,
+                        "endColumn": 122,
+                        "endOffset": 385
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 390,
+                    "endColumn": 94,
+                    "endOffset": 480
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 390,
+                        "endColumn": 94,
+                        "endOffset": 480
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 485,
+                    "endColumn": 118,
+                    "endOffset": 599
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 485,
+                        "endColumn": 118,
+                        "endOffset": 599
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 604,
+                    "endColumn": 83,
+                    "endOffset": 683
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 604,
+                        "endColumn": 83,
+                        "endOffset": 683
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 688,
+                    "endColumn": 106,
+                    "endOffset": 790
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 688,
+                        "endColumn": 106,
+                        "endOffset": 790
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 795,
+                    "endColumn": 116,
+                    "endOffset": 907
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 795,
+                        "endColumn": 116,
+                        "endOffset": 907
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 912,
+                    "endColumn": 77,
+                    "endOffset": 985
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 912,
+                        "endColumn": 77,
+                        "endOffset": 985
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 990,
+                    "endColumn": 78,
+                    "endOffset": 1064
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 990,
+                        "endColumn": 78,
+                        "endOffset": 1064
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 1069,
+                    "endColumn": 80,
+                    "endOffset": 1145
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 1069,
+                        "endColumn": 80,
+                        "endOffset": 1145
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 1150,
+                    "endColumn": 109,
+                    "endOffset": 1255
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 1150,
+                        "endColumn": 109,
+                        "endOffset": 1255
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1260,
+                    "endColumn": 106,
+                    "endOffset": 1362
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 1260,
+                        "endColumn": 106,
+                        "endOffset": 1362
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1367,
+                    "endColumn": 97,
+                    "endOffset": 1460
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 1367,
+                        "endColumn": 97,
+                        "endOffset": 1460
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1465,
+                    "endColumn": 105,
+                    "endOffset": 1566
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1465,
+                        "endColumn": 105,
+                        "endOffset": 1566
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1571,
+                    "endColumn": 106,
+                    "endOffset": 1673
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1571,
+                        "endColumn": 106,
+                        "endOffset": 1673
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1678,
+                    "endColumn": 100,
+                    "endOffset": 1774
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1678,
+                        "endColumn": 100,
+                        "endOffset": 1774
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1779,
+                    "endColumn": 123,
+                    "endOffset": 1898
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1779,
+                        "endColumn": 123,
+                        "endOffset": 1898
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1903,
+                    "endColumn": 102,
+                    "endOffset": 2001
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1903,
+                        "endColumn": 102,
+                        "endOffset": 2001
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 2006,
+                    "endColumn": 100,
+                    "endOffset": 2102
+                },
+                "from": {
+                    "file": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/values-ky-rKG/values-ky-rKG.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 2006,
+                        "endColumn": 100,
+                        "endOffset": 2102
                     }
                 }
             }

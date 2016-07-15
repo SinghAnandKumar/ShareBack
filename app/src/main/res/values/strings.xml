@@ -104,4 +104,6 @@
     <string name="title_activity_test_dialog">TestDialogActivity</string>
     <string name="title_activity_session_details">SessionDetailsActivity</string>
 
+    <string name="title_activity_file_view_client">FileViewClient</string>
+
 </resources>

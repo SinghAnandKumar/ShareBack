@@ -17,7 +17,6 @@ import android.widget.Toast;
 import com.fantasticfive.shareback.Events;
 import com.fantasticfive.shareback.Globals;
 import com.fantasticfive.shareback.R;
-import com.fantasticfive.shareback.TestDialogActivity;
 import com.fantasticfive.shareback.alertDialogs.SessionCloseAlert;
 import com.fantasticfive.shareback.db.QueriesComments;
 import com.fantasticfive.shareback.db.QueriesSessions;
@@ -88,8 +87,7 @@ public class FileViewerActivityServer
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FileViewerActivityServer.this, TestDialogActivity.class);
-                startActivity(intent);
+
             }
         });
 

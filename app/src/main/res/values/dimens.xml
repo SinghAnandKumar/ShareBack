@@ -7,4 +7,7 @@
     <dimen name="text_margin">16dp</dimen>
 
     <dimen name="table_row_dis">5dp</dimen>
+    <dimen name="inner_snackbar_height">120dp</dimen>
+    <dimen name="inner_snackbar_margin">8dp</dimen>
+    <dimen name="inner_snackbar_width">80dp</dimen>
 </resources>
