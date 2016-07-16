@@ -2,8 +2,6 @@ package com.fantasticfive.shareback.newshareback.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -11,12 +9,13 @@ import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.newshareback.adapters.DirListAdapter;
 import com.fantasticfive.shareback.newshareback.beans.DirContentsBean;
 import com.fantasticfive.shareback.newshareback.utils.DirLister;
-import com.fantasticfive.shareback.utils.DirTracker;
+import com.fantasticfive.shareback.newshareback.utils.FileReceiver;
+import com.fantasticfive.shareback.newshareback.utils.DirTracker;
 
-import java.util.concurrent.ExecutionException;
+import java.io.File;
 
 public class DirExplorerActivity extends AppCompatActivity
-        implements DirTracker.Callback, DirListAdapter.Callback {
+        implements DirTracker.Callback, DirListAdapter.Callback{
 
     ListView dirList = null;
 
@@ -42,6 +41,7 @@ public class DirExplorerActivity extends AppCompatActivity
     @Override
     public void onFileClicked(String item) {
         Toast.makeText(DirExplorerActivity.this, "Clicked File: "+item, Toast.LENGTH_SHORT).show();
+        tracker.getFile(item);
     }
 
     @Override
@@ -54,5 +54,10 @@ public class DirExplorerActivity extends AppCompatActivity
     public void onListReceive(DirContentsBean bean) {
             adapter = new DirListAdapter(this, bean, this);
             dirList.setAdapter(adapter);
+    }
+
+    @Override
+    public void onFileReceive(File file) {
+        Toast.makeText(DirExplorerActivity.this, "File Downloaded", Toast.LENGTH_SHORT).show();
     }
 }

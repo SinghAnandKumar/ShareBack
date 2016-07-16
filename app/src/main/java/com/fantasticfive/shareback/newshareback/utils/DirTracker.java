@@ -1,4 +1,4 @@
-package com.fantasticfive.shareback.utils;
+package com.fantasticfive.shareback.newshareback.utils;
 
 import android.content.Context;
 import android.widget.ListAdapter;
@@ -6,12 +6,13 @@ import android.widget.ListAdapter;
 import com.fantasticfive.shareback.newshareback.beans.DirContentsBean;
 import com.fantasticfive.shareback.newshareback.utils.DirLister;
 
+import java.io.File;
 import java.util.concurrent.ExecutionException;
 
 /**
  * Created by sagar on 14/7/16.
  */
-public class DirTracker implements DirLister.Callback{
+public class DirTracker implements DirLister.Callback, FileReceiver.Callback{
 
     String currDir = "";
     DirLister lister = null;
@@ -42,7 +43,18 @@ public class DirTracker implements DirLister.Callback{
         }
     }
 
+    public void getFile(String fileName){
+        FileReceiver receiver = new FileReceiver(context, this);
+        receiver.execute(currDir + fileName);
+    }
+
+    @Override
+    public void onFileReceive(String location) {
+        callback.onFileReceive(new File(location));
+    }
+
     public interface Callback{
         void onListReceive(DirContentsBean bean);
+        void onFileReceive(File f);
     }
 }
