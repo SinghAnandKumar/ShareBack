@@ -3,7 +3,7 @@
     package="com.joanzapata.pdfview.test" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="17" />
 
     <instrumentation
