@@ -9,9 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.fantasticfive.shareback.newshareback.utils.FileSender;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
-public class FileUploadActivity extends AppCompatActivity {
+public class FileUploadActivity extends AppCompatActivity implements FileSender.Callback {
 
     private final int FILE_SELECT_CODE = 1;
     Button bChoose;
@@ -51,11 +52,19 @@ public class FileUploadActivity extends AppCompatActivity {
                     Uri uri = data.getData();
                     String filePath = uri.getPath();
 
-                   // startSession( filePath );
+                    (new FileSender(FileUploadActivity.this)).execute(filePath, ""); //Test Line
                 }
                 break;
             default: Toast.makeText(this, "Cannot Start Session: Unsupported File Type", Toast.LENGTH_LONG).show();
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onFileUploaded(boolean status) {
+        if (status)
+            Toast.makeText(FileUploadActivity.this, "File Uploaded", Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(FileUploadActivity.this, "Uploading Failed", Toast.LENGTH_SHORT).show();
     }
 }

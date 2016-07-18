@@ -67,13 +67,14 @@
             android:label="@string/title_activity_file_view_client"
             android:theme="@style/FullscreenTheme"></activity>
         <activity android:name=".newshareback.activities.DirExplorerActivity">
+        </activity>
+        <activity android:name=".FileUploadActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FileUploadActivity"></activity>
     </application>
 
 </manifest>

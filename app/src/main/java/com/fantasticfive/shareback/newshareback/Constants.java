@@ -7,7 +7,7 @@ import android.os.Environment;
  */
 public class Constants {
 
-    public static final String IP_FILE_SERVER = "172.16.160.122";
+    public static final String IP_FILE_SERVER = "192.168.43.128";
 
     public static final int PORT_FILE_C2S = 8110;
     public static final int PORT_LS = 8103;
