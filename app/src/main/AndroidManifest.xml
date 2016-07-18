@@ -51,7 +51,7 @@
         <activity
             android:name=".activity.StartActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SplashActivity"
             android:label="@string/title_activity_splash"
@@ -65,10 +65,11 @@
             android:name=".newshareback.activities.FileViewClient"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_file_view_client"
-            android:theme="@style/FullscreenTheme"></activity>
-        <activity android:name=".newshareback.activities.DirExplorerActivity">
-        </activity>
+            android:theme="@style/FullscreenTheme" />
+        <activity android:name=".newshareback.activities.DirExplorerActivity"></activity>
         <activity android:name=".FileUploadActivity">
+        </activity>
+        <activity android:name=".NsdActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
