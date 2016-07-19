@@ -29,6 +29,7 @@ public class ConnectionHelper
     public ConnectionHelper(Context context){
         sktHelper = new SocketHelper(this);
         this.context = context;
+        nsdHelper = new NsdHelper(context, this);
     }
 
     @Override
@@ -38,7 +39,6 @@ public class ConnectionHelper
 
     public void openSocket(){  //To be called by root Node and ConnectionHelper internally
         sktHelper.openSocket(Constants.PORT_TOKEN_DIST);
-        nsdHelper = new NsdHelper(context, this);
         nsdHelper.registerService(nsdName, Constants.PORT_TOKEN_DIST);
     }
 

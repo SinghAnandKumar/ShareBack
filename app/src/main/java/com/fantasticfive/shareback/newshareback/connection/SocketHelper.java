@@ -21,7 +21,7 @@ import java.net.Socket;
 /**
  * Created by sagar on 19/7/16.
  */
-public class SocketHelper {
+public class SocketHelper{
 
     ServerSocket servSkt;
 
@@ -33,23 +33,31 @@ public class SocketHelper {
     public void openSocket(int port){
         try {
             servSkt = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    public void acceptConnections(){
+        try {
             //Sending Tokens
-            while(true) {
+            while (true) {
+                Log.e("My Tag", "Waiting...");
                 Socket skt = servSkt.accept();
+                Log.e("My Tag", "Connected");
                 int token = callback.onRequestReceived(skt);
                 boolean success = sendToken(skt, token);
                 if (!success)
                     callback.onTokenSendFailed();
-                else if(token <= 1) {
+                else if (token <= 1) {
                     servSkt.close();
                     callback.onServerSocketClosed();
                 }
             }
             //-- Sending Tokens
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
         }
     }
 
