@@ -26,8 +26,7 @@ public class NsdActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ConnectionHelper connectionHelper = new ConnectionHelper(NsdActivity.this);
-                Handler handler = new Handler();
-                handler.post(connectionHelper);
+                (new Thread(connectionHelper)).start();
             }
         });
 
