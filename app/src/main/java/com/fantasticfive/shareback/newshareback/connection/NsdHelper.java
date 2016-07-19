@@ -1,12 +1,16 @@
 package com.fantasticfive.shareback.newshareback.connection;
 
 import android.content.Context;
+import android.content.pm.ServiceInfo;
 import android.net.nsd.NsdManager;
 import android.net.nsd.NsdServiceInfo;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.fantasticfive.shareback.newshareback.Constants;
+
 import java.net.ServerSocket;
+import java.util.ArrayList;
 
 /**
  * Created by sagar on 18/7/16.
@@ -14,24 +18,28 @@ import java.net.ServerSocket;
 public class NsdHelper {
 
     Context context;
+    Callback callback;
     NsdManager mNsdManager;
     NsdManager.RegistrationListener mRegistrationListener;
     NsdManager.DiscoveryListener mDiscoveryListener;
 
     String serviceName = "";
 
-    final String SERVICE_TYPE = ".http._tcp.";
+    NsdServiceInfo nearestServ = null;
+    int serviceCounter = 0;
 
-    public NsdHelper(Context context, String serviceName){
-        this.serviceName = serviceName;
+    final String SERVICE_TYPE = "_http._tcp.";
+
+    public NsdHelper(Context context, Callback callback){
         this.context = context;
-
+        this.callback = callback;
         mNsdManager = (NsdManager) context.getSystemService(Context.NSD_SERVICE);
     }
 
-    public void registerService(int port){
+    public void registerService(String serviceName, int port){
         NsdServiceInfo serviceInfo = new NsdServiceInfo();
         serviceInfo.setServiceName(serviceName);
+        this.serviceName = serviceName;
         serviceInfo.setServiceType(SERVICE_TYPE);
         serviceInfo.setPort(port);
 
@@ -45,12 +53,20 @@ public class NsdHelper {
         mNsdManager.discoverServices(SERVICE_TYPE, NsdManager.PROTOCOL_DNS_SD, mDiscoveryListener );
     }
 
+    public void unregisterService(){
+        mNsdManager.unregisterService(mRegistrationListener);
+    }
+
+    public void stopDiscovery(){
+        mNsdManager.stopServiceDiscovery(mDiscoveryListener);
+    }
+
     void initDiscoveryListener(){
 
         mDiscoveryListener = new NsdManager.DiscoveryListener(){
             @Override
             public void onStartDiscoveryFailed(String s, int i) {
-                Toast.makeText(context, "Discovery Start Failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Discovery Start Failed", Toast.LENGTH_SHORT).show();http://mr-jatt.com/album/hindi-single-songs/amjad-nadeem-bandeyaa-jazbaa-hlux.html
                 Log.e("My Tag", s);
             }
 
@@ -74,15 +90,39 @@ public class NsdHelper {
 
             @Override
             public void onServiceFound(NsdServiceInfo nsdServiceInfo) {
-                Toast.makeText(context, "Service Found: "+nsdServiceInfo.getServiceName(), Toast.LENGTH_SHORT).show();
+
+                if(!nsdServiceInfo.getServiceName().equals(serviceName)) {
+                    Toast.makeText(context, "Service Found: " + nsdServiceInfo.getServiceName(), Toast.LENGTH_SHORT).show();
+
+                    //Computing Shortest Service
+                    serviceCounter++;
+                    if(nsdServiceInfo.getServiceName().equals(Constants.NSD_BASE_NAME)){
+                        callback.onServiceDiscovered(nsdServiceInfo);
+                    }else{
+                        nearestServ = (nearestServ == null) ? nsdServiceInfo : getNearestServ(nearestServ, nsdServiceInfo);
+                        if(serviceCounter >= Constants.MAX_CONNECTS){
+                            callback.onServiceDiscovered(nsdServiceInfo);
+                        }
+                    }
+                    //-- Computing Shortest Service
+
+                }
             }
 
             @Override
             public void onServiceLost(NsdServiceInfo nsdServiceInfo) {
-                Toast.makeText(context, nsdServiceInfo.getServiceName()+ " Service Lost", Toast.LENGTH_SHORT).show();
+                if(!nsdServiceInfo.getServiceName().equals(serviceName)) {
+                    Toast.makeText(context, nsdServiceInfo.getServiceName()+ " Service Lost", Toast.LENGTH_SHORT).show();
+                }
             }
         };
 
+    }
+
+    NsdServiceInfo getNearestServ(NsdServiceInfo serv1, NsdServiceInfo serv2){
+        int a = serv1.getServiceName().length();
+        int b = serv2.getServiceName().length();
+        return (a<b ? serv1 : serv2);
     }
 
     void initRegistrationListener(){
@@ -111,6 +151,10 @@ public class NsdHelper {
             }
         };
 
+    }
+
+    public interface Callback{
+        void onServiceDiscovered(NsdServiceInfo service);
     }
 
 }

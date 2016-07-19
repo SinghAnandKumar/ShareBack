@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.fantasticfive.shareback.newshareback.connection.ConnectionHelper;
 import com.fantasticfive.shareback.newshareback.connection.NsdHelper;
 
 public class NsdActivity extends AppCompatActivity {
@@ -20,18 +21,19 @@ public class NsdActivity extends AppCompatActivity {
 
         init();
 
-        final NsdHelper nsdHelper = new NsdHelper(this, "EShareback");
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nsdHelper.registerService(1024);
+                ConnectionHelper connectionHelper = new ConnectionHelper(NsdActivity.this);
+                connectionHelper.openSocket();
             }
         });
 
         btnDiscover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nsdHelper.discoverServices();
+                ConnectionHelper connectionHelper = new ConnectionHelper(NsdActivity.this);
+                connectionHelper.startDiscovery();
             }
         });
     }

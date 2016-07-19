@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 
 import com.fantasticfive.shareback.R;
 import com.github.barteksc.pdfviewer.PDFView;
-import com.itsrts.pptviewer.PPTViewer;
 
 import java.io.File;
 
@@ -26,8 +25,6 @@ public class FileRenderer {
         //Check File Type
         if(name.toLowerCase().contains(".pdf"))
             view = renderPdf(activity, file);
-        else if(name.toLowerCase().contains(".ppt"))
-            view = renderPpt(activity, file);
         //-- Check File Type
 
         if(view != null) {
@@ -47,13 +44,5 @@ public class FileRenderer {
                 .enableSwipe(true);
         con.load();
         return pdfView;
-    }
-
-    private static View renderPpt(Activity activity, File file){
-        LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        PPTViewer pptViewer = (PPTViewer) inflater.inflate(R.layout.innerlayout_ppt, null);
-        Log.e("My tag", "Rendering PPT");
-        pptViewer.loadPPT(activity, file.getPath());
-        return pptViewer;
     }
 }
