@@ -1,5 +1,6 @@
 package com.fantasticfive.shareback;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +26,8 @@ public class NsdActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ConnectionHelper connectionHelper = new ConnectionHelper(NsdActivity.this);
-                connectionHelper.openSocket();
+                Handler handler = new Handler();
+                handler.post(connectionHelper);
             }
         });
 

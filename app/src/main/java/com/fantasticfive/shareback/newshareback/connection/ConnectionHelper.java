@@ -3,6 +3,7 @@ package com.fantasticfive.shareback.newshareback.connection;
 import android.content.Context;
 import android.content.pm.ServiceInfo;
 import android.net.nsd.NsdServiceInfo;
+import android.os.Handler;
 import android.widget.Toast;
 
 import com.fantasticfive.shareback.newshareback.Constants;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
  * Created by sagar on 18/7/16.
  */
 public class ConnectionHelper
-        implements SocketHelper.Callback, NsdHelper.Callback {
+        implements Runnable, SocketHelper.Callback, NsdHelper.Callback {
 
     int connections = Constants.MAX_CONNECTS;
     SocketHelper sktHelper;
@@ -28,6 +29,11 @@ public class ConnectionHelper
     public ConnectionHelper(Context context){
         sktHelper = new SocketHelper(this);
         this.context = context;
+    }
+
+    @Override
+    public void run() {
+        openSocket();
     }
 
     public void openSocket(){  //To be called by root Node and ConnectionHelper internally
@@ -67,6 +73,7 @@ public class ConnectionHelper
         Toast.makeText(context, "Connecting to "+service.getServiceName(), Toast.LENGTH_SHORT).show();
         nsdName = sktHelper.receiveToken(service);
         nsdHelper.stopDiscovery();
-        openSocket();
+        Handler handler = new Handler();
+        handler.post(this);
     }
 }
