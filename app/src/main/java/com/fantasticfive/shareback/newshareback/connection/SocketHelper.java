@@ -71,10 +71,11 @@ public class SocketHelper{
 
     public String receiveToken(NsdServiceInfo serviceInfo){
         String parentName = serviceInfo.getServiceName();
-        InetAddress ip = serviceInfo.getHost();
+        String ip = serviceInfo.getHost().getHostAddress();
         int port = serviceInfo.getPort();
 
         try {
+            Log.e("My Tag", "Connecting to "+ip);
             Socket skt = new Socket(ip, port);
             //Reading Response
             BufferedReader br = new BufferedReader(new InputStreamReader(skt.getInputStream()));

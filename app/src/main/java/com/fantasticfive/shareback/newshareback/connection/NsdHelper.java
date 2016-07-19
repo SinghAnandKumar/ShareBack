@@ -22,8 +22,10 @@ public class NsdHelper {
     NsdManager mNsdManager;
     NsdManager.RegistrationListener mRegistrationListener;
     NsdManager.DiscoveryListener mDiscoveryListener;
+    NsdManager.ResolveListener mResolveListener;
 
     String serviceName = "";
+    String TAG = "My Tag";
 
     NsdServiceInfo nearestServ = null;
     int serviceCounter = 0;
@@ -93,19 +95,8 @@ public class NsdHelper {
 
                 if(!nsdServiceInfo.getServiceName().equals(serviceName)) {
                     Toast.makeText(context, "Service Found: " + nsdServiceInfo.getServiceName(), Toast.LENGTH_SHORT).show();
-
-                    //Computing Shortest Service
-                    serviceCounter++;
-                    if(nsdServiceInfo.getServiceName().equals(Constants.NSD_BASE_NAME)){
-                        callback.onServiceDiscovered(nsdServiceInfo);
-                    }else{
-                        nearestServ = (nearestServ == null) ? nsdServiceInfo : getNearestServ(nearestServ, nsdServiceInfo);
-                        if(serviceCounter >= Constants.MAX_CONNECTS){
-                            callback.onServiceDiscovered(nsdServiceInfo);
-                        }
-                    }
-                    //-- Computing Shortest Service
-
+                    initResolveListener();
+                    mNsdManager.resolveService(nsdServiceInfo, mResolveListener);
                 }
             }
 
@@ -125,6 +116,20 @@ public class NsdHelper {
         return (a<b ? serv1 : serv2);
     }
 
+    void computeShortestService(NsdServiceInfo nsdServiceInfo){
+        //Computing Shortest Service
+        serviceCounter++;
+        if(nsdServiceInfo.getServiceName().equals(Constants.NSD_BASE_NAME)){
+            callback.onServiceDiscovered(nsdServiceInfo);
+        }else{
+            nearestServ = (nearestServ == null) ? nsdServiceInfo : getNearestServ(nearestServ, nsdServiceInfo);
+            if(serviceCounter >= Constants.MAX_CONNECTS){
+                callback.onServiceDiscovered(nsdServiceInfo);
+            }
+        }
+        //-- Computing Shortest Service
+    }
+
     void initRegistrationListener(){
 
         mRegistrationListener = new NsdManager.RegistrationListener(){
@@ -132,7 +137,7 @@ public class NsdHelper {
             @Override
             public void onRegistrationFailed(NsdServiceInfo nsdServiceInfo, int i) {
                 Toast.makeText(context, "Registration Failed", Toast.LENGTH_SHORT).show();
-                Log.e("My Tag", nsdServiceInfo.toString());
+                Log.e(TAG, nsdServiceInfo.toString());
             }
 
             @Override
@@ -151,6 +156,21 @@ public class NsdHelper {
             }
         };
 
+    }
+
+    void initResolveListener(){
+        mResolveListener = new NsdManager.ResolveListener() {
+            @Override
+            public void onResolveFailed(NsdServiceInfo nsdServiceInfo, int errorCode) {
+                Log.e(TAG, "Resolve failed" + errorCode);
+            }
+
+            @Override
+            public void onServiceResolved(NsdServiceInfo nsdServiceInfo) {
+                Log.e(TAG, "Resolve Succeeded. " + nsdServiceInfo);
+                computeShortestService(nsdServiceInfo);
+            }
+        };
     }
 
     public interface Callback{
