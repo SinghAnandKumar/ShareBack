@@ -22,6 +22,8 @@ public class Constants {
     public static final String JSON_FILES = "files"; // "files" : [ "file1" , "file2", ... ] }
     public static final String JSON_FILE_DWNLD = "filename"; // for downloading file { "filename" : "abc.pdf" }
     public static final String JSON_TOKEN_NO = "token_no";
+    public static final String JSON_PAGE_NOS = "page_nos";
+    public static final String JSON_CURR_FILE = "curr_file";
 
     public static final String END_OF_MSG = "iluvuanand#wtf";
     public static final String NSD_BASE_NAME = "EShareback";

@@ -6,13 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.fantasticfive.shareback.newshareback.ShareBucket;
 import com.fantasticfive.shareback.newshareback.connection.ConnectionHelper;
-import com.fantasticfive.shareback.newshareback.connection.NsdHelper;
 
 public class NsdActivity extends AppCompatActivity {
 
     Button btnStart;
     Button btnDiscover;
+    com.fantasticfive.shareback.newshareback.ShareBucket shareBucket;
 
 
     @Override
@@ -21,11 +22,13 @@ public class NsdActivity extends AppCompatActivity {
         setContentView(R.layout.activity_nsd);
 
         init();
+        shareBucket = new ShareBucket();
+        shareBucket.testCode();
 
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ConnectionHelper connectionHelper = new ConnectionHelper(NsdActivity.this);
+                ConnectionHelper connectionHelper = new ConnectionHelper(NsdActivity.this, shareBucket);
                 (new Thread(connectionHelper)).start();
             }
         });
@@ -33,7 +36,7 @@ public class NsdActivity extends AppCompatActivity {
         btnDiscover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ConnectionHelper connectionHelper = new ConnectionHelper(NsdActivity.this);
+                ConnectionHelper connectionHelper = new ConnectionHelper(NsdActivity.this, shareBucket);
                 connectionHelper.startDiscovery();
             }
         });

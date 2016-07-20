@@ -47,13 +47,13 @@ public class SocketHelper{
                 Log.e("My Tag", "Waiting...");
                 Socket skt = servSkt.accept();
                 Log.e("My Tag", "Connected");
-                int token = callback.onRequestReceived(skt);
-                boolean success = sendToken(skt, token);
-                if (!success)
+                JSONObject msg = callback.onRequestReceived(skt);
+                boolean success = sendMsg(skt, msg);
+                if (success) {
+                    callback.onTokenSendSuccess();
+                }
+                else {
                     callback.onTokenSendFailed();
-                else if (token <= 1) {
-                    servSkt.close();
-                    callback.onServerSocketClosed();
                 }
             }
             //-- Sending Tokens
@@ -71,7 +71,7 @@ public class SocketHelper{
         }
     }
 
-    public String receiveToken(NsdServiceInfo serviceInfo){
+    public JSONObject receiveToken(NsdServiceInfo serviceInfo){
         String parentName = serviceInfo.getServiceName();
         String ip = serviceInfo.getHost().getHostAddress();
         int port = serviceInfo.getPort();
@@ -94,33 +94,27 @@ public class SocketHelper{
             }
             //-- Reading Response
 
-            String token = (new JSONObject(result)).getString(Constants.JSON_TOKEN_NO);
-            Log.e("My Tag", "Token Received:"+token);
-            return parentName + "." + token; //Returning new NSD Name
+            JSONObject main = new JSONObject(result);
+            return main;
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        return "TOKEN_RECEIVE_ERROR";
+       return null;
     }
 
-    private boolean sendToken(Socket skt, int token){   //For Server node
+    private boolean sendMsg(Socket skt, JSONObject msg){   //For Server node
         //Sending Request
-        JSONObject main = new JSONObject();
         try {
-            main.put(Constants.JSON_TOKEN_NO, token);
             PrintWriter out = new PrintWriter(
                     new BufferedWriter(
                             new OutputStreamWriter(skt.getOutputStream())
                     ), true);
-            out.println( main.toString() + Constants.END_OF_MSG );
-            Log.e("My Tag", "Token Sent: "+main.toString());
+            out.println( msg.toString() + Constants.END_OF_MSG );
+            Log.e("My Tag", "Msg Sent: "+msg.toString());
             out.flush();
             return true;
-        } catch (JSONException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -129,8 +123,8 @@ public class SocketHelper{
     }
 
     public interface Callback{
-        int onRequestReceived(Socket skt);
+        JSONObject onRequestReceived(Socket skt);
+        void onTokenSendSuccess();
         void onTokenSendFailed();
-        void onServerSocketClosed();
     }
 }

@@ -96,8 +96,11 @@ public class NsdHelper {
                 if(!nsdServiceInfo.getServiceName().equals(serviceName)) {
                     Log.e(TAG, "Service Found: "+nsdServiceInfo.getServiceName());
                     Toast.makeText(context, "Service Found: " + nsdServiceInfo.getServiceName(), Toast.LENGTH_SHORT).show();
-                    initResolveListener();
-                    mNsdManager.resolveService(nsdServiceInfo, mResolveListener);
+
+                    if(nsdServiceInfo.getServiceName().contains(Constants.NSD_BASE_NAME)) {  //If EShareback service then resolve
+                        initResolveListener();
+                        mNsdManager.resolveService(nsdServiceInfo, mResolveListener);
+                    }
                 }
             }
 
@@ -125,7 +128,7 @@ public class NsdHelper {
         }else{
             nearestServ = (nearestServ == null) ? nsdServiceInfo : getNearestServ(nearestServ, nsdServiceInfo);
             if(serviceCounter >= Constants.MAX_CONNECTS){
-                callback.onServiceDiscovered(nsdServiceInfo);
+                callback.onServiceDiscovered(nearestServ);
             }
         }
         //-- Computing Shortest Service
@@ -169,7 +172,7 @@ public class NsdHelper {
             @Override
             public void onServiceResolved(NsdServiceInfo nsdServiceInfo) {
                 Log.e(TAG, "Resolve Succeeded. " + nsdServiceInfo);
-                computeShortestService(nsdServiceInfo);
+                computeShortestService(nsdServiceInfo); //Find Nearest Service
             }
         };
     }
