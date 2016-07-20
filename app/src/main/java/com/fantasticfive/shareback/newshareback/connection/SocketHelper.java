@@ -32,7 +32,9 @@ public class SocketHelper{
 
     public void openSocket(int port){
         try {
+            Log.e("My Tag", "Opening Port: "+port);
             servSkt = new ServerSocket(port);
+            Log.e("My Tag", "Server Started");
         } catch (IOException e) {
             e.printStackTrace();
         }

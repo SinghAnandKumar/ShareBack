@@ -148,7 +148,7 @@ public class NsdHelper {
 
             @Override
             public void onServiceRegistered(NsdServiceInfo nsdServiceInfo) {
-                Toast.makeText(context, "Service Registered", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Service Registered "+nsdServiceInfo.getServiceName(), Toast.LENGTH_SHORT).show();
             }
 
             @Override

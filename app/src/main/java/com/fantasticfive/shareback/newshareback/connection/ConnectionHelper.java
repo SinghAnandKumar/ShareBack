@@ -23,7 +23,6 @@ public class ConnectionHelper
     NsdHelper nsdHelper;
 
     Context context;
-    ArrayList<Socket> clients;
     String nsdName = Constants.NSD_BASE_NAME;
 
     public ConnectionHelper(Context context){
@@ -49,9 +48,6 @@ public class ConnectionHelper
 
     @Override
     public int onRequestReceived(Socket skt) {
-
-        clients.add(skt);
-
         if(connections>0)
             return connections--;
         else
