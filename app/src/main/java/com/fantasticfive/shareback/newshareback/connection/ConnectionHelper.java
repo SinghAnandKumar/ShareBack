@@ -69,6 +69,7 @@ public class ConnectionHelper
 
         Toast.makeText(context, "Connecting to "+service.getServiceName(), Toast.LENGTH_SHORT).show();
         nsdName = sktHelper.receiveToken(service);
+        sktHelper.closeSocket();
         nsdHelper.stopDiscovery();
 
         (new Thread(this)).start();
