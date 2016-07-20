@@ -80,8 +80,8 @@ public class NsdHelper {
 
             @Override
             public void onDiscoveryStarted(String s) {
-                Toast.makeText(context, "Discovery Started", Toast.LENGTH_SHORT).show();
-                Log.e("My Tag", s);
+                //Toast.makeText(context, "Discovery Started", Toast.LENGTH_SHORT).show();
+                Log.e("My Tag", "Discovery Started: "+s);
             }
 
             @Override
@@ -94,6 +94,7 @@ public class NsdHelper {
             public void onServiceFound(NsdServiceInfo nsdServiceInfo) {
 
                 if(!nsdServiceInfo.getServiceName().equals(serviceName)) {
+                    Log.e(TAG, "Service Found: "+nsdServiceInfo.getServiceName());
                     Toast.makeText(context, "Service Found: " + nsdServiceInfo.getServiceName(), Toast.LENGTH_SHORT).show();
                     initResolveListener();
                     mNsdManager.resolveService(nsdServiceInfo, mResolveListener);

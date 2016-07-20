@@ -75,8 +75,9 @@ public class SocketHelper{
         int port = serviceInfo.getPort();
 
         try {
-            Log.e("My Tag", "Connecting to "+ip);
+            Log.e("My Tag", "Connecting to "+serviceInfo.getServiceName());
             Socket skt = new Socket(ip, port);
+            Log.e("My String", "Connected");
             //Reading Response
             BufferedReader br = new BufferedReader(new InputStreamReader(skt.getInputStream()));
             String temp = "";
@@ -92,6 +93,7 @@ public class SocketHelper{
             //-- Reading Response
 
             String token = (new JSONObject(result)).getString(Constants.JSON_TOKEN_NO);
+            Log.e("My Tag", "Token Received:"+token);
             return parentName + "." + token; //Returning new NSD Name
         } catch (IOException e) {
             e.printStackTrace();
@@ -112,7 +114,7 @@ public class SocketHelper{
                             new OutputStreamWriter(skt.getOutputStream())
                     ), true);
             out.println( main.toString() + Constants.END_OF_MSG );
-            Log.e("My Tag", "Request: "+main.toString());
+            Log.e("My Tag", "Token Sent: "+main.toString());
             out.flush();
             return true;
         } catch (JSONException e) {

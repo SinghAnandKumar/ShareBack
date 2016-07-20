@@ -40,6 +40,7 @@ public class ConnectionHelper
     public void openSocket(){  //To be called by root Node and ConnectionHelper internally
         sktHelper.openSocket(Constants.PORT_TOKEN_DIST);
         nsdHelper.registerService(nsdName, Constants.PORT_TOKEN_DIST);
+        sktHelper.acceptConnections();
     }
 
     public void startDiscovery(){ //To be Called by Joining Node
