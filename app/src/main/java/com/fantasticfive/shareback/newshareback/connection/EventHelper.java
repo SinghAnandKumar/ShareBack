@@ -20,8 +20,10 @@ public class EventHelper implements EventsPhysical.Callback{
 
     int eventId = 1;
     Context context;
-    public EventHelper(Context context){
+    Callback callback;
+    public EventHelper(Context context, Callback callback){
         this.context = context;
+        this.callback = callback;
     }
 
     public void sendEvent(String eventName, String eventFile, int eventValue, ArrayList<InetAddress> clients){
@@ -47,5 +49,25 @@ public class EventHelper implements EventsPhysical.Callback{
     public void onEventSent(JSONObject errMsg, int failedMsgs) {
         Toast.makeText(context, "Message sent. Failed:"+failedMsgs, Toast.LENGTH_SHORT).show();
         Log.e("My Tag", errMsg.toString());
+    }
+
+    @Override
+    public void onEventReceive(JSONObject main) throws JSONException {
+        int eventType = main.getInt(Constants.JSON_EVENT_NAME);
+        String fileName = main.getString(Constants.JSON_EVENT_FILE);
+        int pageNo = main.getInt(Constants.JSON_EVENT_PAGE);
+        switch (eventType){
+            case Constants.EVENT_PAGE_CHANGED: callback.onPageChanged(fileName, pageNo); break;
+            case Constants.EVENT_FILE_CHANGED: callback.onFileChanged(fileName, pageNo);break;
+            case Constants.EVENT_FILE_ADDED: callback.onFileAdded(fileName); break;
+            case Constants.EVENT_SESSION_CLOSED: callback.onSessionClosed(); break;
+        }
+    }
+
+    public interface Callback{
+        void onPageChanged(String fileName, int pageNo);
+        void onFileChanged(String fileName, int pageNo);
+        void onFileAdded(String fileName);
+        void onSessionClosed();
     }
 }

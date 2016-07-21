@@ -15,7 +15,8 @@ import org.json.JSONObject;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-public class NsdActivity extends AppCompatActivity {
+public class NsdActivity extends AppCompatActivity
+                        implements EventHelper.Callback{
 
     Button btnStart;
     Button btnDiscover;
@@ -56,7 +57,7 @@ public class NsdActivity extends AppCompatActivity {
         btnSendEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EventHelper eventHelper = new EventHelper(NsdActivity.this);
+                EventHelper eventHelper = new EventHelper(NsdActivity.this, NsdActivity.this);
 
 
                 testCode();
@@ -84,5 +85,26 @@ public class NsdActivity extends AppCompatActivity {
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onPageChanged(String fileName, int pageNo) {
+        shareBucket.updatePageNo(fileName, pageNo);
+    }
+
+    @Override
+    public void onFileChanged(String fileName, int pageNo) {
+        shareBucket.setCurrentFile(fileName, pageNo);
+    }
+
+    @Override
+    public void onFileAdded(String fileName) {
+        shareBucket.pushFile(fileName);
+    }
+
+    @Override
+    public void onSessionClosed() {
+        //Close Session and Take Feedback
+        //-- Close Session and Take Feedback
     }
 }

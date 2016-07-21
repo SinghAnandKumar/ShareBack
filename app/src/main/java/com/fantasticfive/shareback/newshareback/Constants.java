@@ -19,6 +19,11 @@ public class Constants {
     public static final int MAX_CONNECTS = 4;
     public static final int SKT_TIME_OUT = 2 * 1000; //(2 secs)
 
+    public static final int EVENT_PAGE_CHANGED = 1;
+    public static final int EVENT_FILE_CHANGED = 2;
+    public static final int EVENT_FILE_ADDED = 3;
+    public static final int EVENT_SESSION_CLOSED = 4;
+
     public static final String JSON_LIST_DIR = "path"; //for ls json object { "path" : "/Data Structure/"} incoming
     public static final String JSON_DIRS = "dirs"; // response { "dirs" : ["dir1","dir2",...] ,
     public static final String JSON_FILES = "files"; // "files" : [ "file1" , "file2", ... ] }

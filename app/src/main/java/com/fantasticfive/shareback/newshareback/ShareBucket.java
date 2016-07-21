@@ -41,8 +41,9 @@ public class ShareBucket {
         return pageNos;
     }
 
-    public void setCurrentFile(String filePath){
+    public void setCurrentFile(String filePath, int pageNo){
         currentFile = filePath;
+        updatePageNo(filePath, pageNo);
     }
 
     public String getCurrentFile(){
@@ -66,6 +67,10 @@ public class ShareBucket {
             e.printStackTrace();
         }
         //-- Decode JSON and create ShareBucket
+    }
+
+    private void setCurrentFile(String file){
+        this.currentFile = file;
     }
 
     private void init(){
