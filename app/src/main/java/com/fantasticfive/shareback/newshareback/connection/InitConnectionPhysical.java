@@ -21,12 +21,12 @@ import java.net.Socket;
 /**
  * Created by sagar on 19/7/16.
  */
-public class SocketHelper{
+public class InitConnectionPhysical {
 
     ServerSocket servSkt;
 
     Callback callback;
-    public SocketHelper(Callback callback){
+    public InitConnectionPhysical(Callback callback){
         this.callback = callback;
     }
 

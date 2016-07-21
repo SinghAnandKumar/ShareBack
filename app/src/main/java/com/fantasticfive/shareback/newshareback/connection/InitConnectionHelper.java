@@ -1,9 +1,7 @@
 package com.fantasticfive.shareback.newshareback.connection;
 
 import android.content.Context;
-import android.content.pm.ServiceInfo;
 import android.net.nsd.NsdServiceInfo;
-import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -15,19 +13,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.InetAddress;
-import java.net.InterfaceAddress;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
 /**
  * Created by sagar on 18/7/16.
  */
-public class ConnectionHelper
-        implements Runnable, SocketHelper.Callback, NsdHelper.Callback {
+public class InitConnectionHelper
+        implements Runnable, InitConnectionPhysical.Callback, NsdHelper.Callback {
 
     int connections = Constants.MAX_CONNECTS;
-    SocketHelper sktHelper;
+    InitConnectionPhysical sktHelper;
     NsdHelper nsdHelper;
 
     Context context;
@@ -36,10 +32,10 @@ public class ConnectionHelper
 
     ArrayList<InetAddress> alClients = new ArrayList<>();
 
-    public ConnectionHelper(Context context, ShareBucket shareBucket){
+    public InitConnectionHelper(Context context, ShareBucket shareBucket){
         this.context = context;
         this.shareBucket = shareBucket;
-        sktHelper = new SocketHelper(this);
+        sktHelper = new InitConnectionPhysical(this);
         nsdHelper = new NsdHelper(context, this);
     }
 
@@ -48,7 +44,7 @@ public class ConnectionHelper
         openSocket();
     }
 
-    public void openSocket(){  //To be called by root Node and ConnectionHelper internally
+    public void openSocket(){  //To be called by root Node and InitConnectionHelper internally
         sktHelper.openSocket(Constants.PORT_TOKEN_DIST);
         nsdHelper.registerService(nsdName, Constants.PORT_TOKEN_DIST);
         sktHelper.acceptConnections();
@@ -121,5 +117,9 @@ public class ConnectionHelper
             Toast.makeText(context, "TOKEN_RECEIVE_ERR: IMPROPER JSON FORMAT ", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public ArrayList<InetAddress> getClientList(){
+        return alClients;
     }
 }

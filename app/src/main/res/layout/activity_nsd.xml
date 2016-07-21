@@ -22,4 +22,10 @@
         android:text="Discover"
         android:id="@+id/btnDiscover"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Event"
+        android:id="@+id/btnSendEvent"/>
+
 </LinearLayout>
