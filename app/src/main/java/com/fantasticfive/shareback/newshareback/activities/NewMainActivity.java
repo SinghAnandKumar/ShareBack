@@ -37,6 +37,13 @@ public class NewMainActivity extends AppCompatActivity {
             }
         });
 
+        btnJoinSession.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(NewMainActivity.this, FileViewStudent.class);
+                startActivity(intent);
+            }
+        });
 
         ListView recyclerView = (ListView) findViewById(R.id.cachedFiles);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
