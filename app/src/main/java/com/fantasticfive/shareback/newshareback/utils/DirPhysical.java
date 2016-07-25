@@ -25,11 +25,11 @@ import java.util.List;
 /**
  * Created by sagar on 13/7/16.
  */
-public class DirLister extends AsyncTask<String, Void, DirContentsBean> {
+public class DirPhysical extends AsyncTask<String, Void, DirContentsBean> {
 
     Context context = null;
     Callback callback;
-    public DirLister(Context context, Callback callback) {
+    public DirPhysical(Context context, Callback callback) {
         this.context = context;
         this.callback = callback;
     }

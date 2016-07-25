@@ -1,22 +1,18 @@
-package com.fantasticfive.shareback;
+package com.fantasticfive.shareback.newshareback.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.ShareBucket;
 import com.fantasticfive.shareback.newshareback.connection.EventHelper;
 import com.fantasticfive.shareback.newshareback.connection.InitConnectionHelper;
 
-import org.json.JSONObject;
-
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
 public class NsdActivity extends AppCompatActivity
-                        implements EventHelper.Callback{
+                        implements EventHelper.EventReceiveCallback{
 
     Button btnStart;
     Button btnDiscover;
@@ -37,7 +33,7 @@ public class NsdActivity extends AppCompatActivity
         shareBucket = new ShareBucket();
 
         connectionHelper = new InitConnectionHelper(NsdActivity.this, shareBucket);
-        shareBucket.testCode();
+        //shareBucket.testCode();
 
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,10 +56,10 @@ public class NsdActivity extends AppCompatActivity
                 EventHelper eventHelper = new EventHelper(NsdActivity.this, NsdActivity.this);
 
 
-                testCode();
+                //testCode();
 
 
-                eventHelper.sendEvent("PAGE_CHANGED", currFile, pageNo, connectionHelper.getClientList() );
+                eventHelper.sendEvent(Constants.EVENT_PAGE_CHANGED, currFile, pageNo, connectionHelper.getClientList() );
             }
         });
     }
@@ -74,7 +70,7 @@ public class NsdActivity extends AppCompatActivity
         btnSendEvent = (Button) findViewById(R.id.btnSendEvent);
     }
 
-    private void testCode(){
+    /*private void testCode(){
         currFile = "/test/Abc.pdf";
         pageNo++;
         //connectionHelper.
@@ -85,7 +81,7 @@ public class NsdActivity extends AppCompatActivity
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     @Override
     public void onPageChanged(String fileName, int pageNo) {
@@ -99,7 +95,7 @@ public class NsdActivity extends AppCompatActivity
 
     @Override
     public void onFileAdded(String fileName) {
-        shareBucket.pushFile(fileName);
+        //shareBucket.pushFile(fileName);
     }
 
     @Override

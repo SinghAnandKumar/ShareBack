@@ -60,21 +60,21 @@
             android:name=".activity.SessionDetailsActivity"
             android:label="@string/title_activity_session_details"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".newshareback.activities.NewMainActivity" />
-        <activity
-            android:name=".newshareback.activities.FileViewClient"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_file_view_client"
-            android:theme="@style/FullscreenTheme" />
-        <activity android:name=".newshareback.activities.DirExplorerActivity"></activity>
-        <activity android:name=".FileUploadActivity">
-        </activity>
-        <activity android:name=".NsdActivity">
+        <activity android:name=".newshareback.activities.NewMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".newshareback.activities.FileViewClient"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_file_view_client"
+            android:theme="@style/FullscreenTheme" />
+        <activity android:name=".FileUploadActivity">
+        </activity>
+        <activity android:name=".newshareback.activities.NsdActivity">
         </activity>
     </application>
 

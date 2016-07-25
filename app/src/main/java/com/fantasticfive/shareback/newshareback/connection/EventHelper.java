@@ -20,13 +20,18 @@ public class EventHelper implements EventsPhysical.Callback{
 
     int eventId = 1;
     Context context;
-    Callback callback;
-    public EventHelper(Context context, Callback callback){
+    EventReceiveCallback callback;
+
+    public EventHelper(Context context, EventReceiveCallback callback){
         this.context = context;
         this.callback = callback;
     }
 
-    public void sendEvent(String eventName, String eventFile, int eventValue, ArrayList<InetAddress> clients){
+    public EventHelper(Context context){
+        this.context = context;
+    }
+
+    public void sendEvent(int eventName, String eventFile, int eventValue, ArrayList<InetAddress> clients){
         //Encode data
         JSONObject main = new JSONObject();
         try {
@@ -64,7 +69,7 @@ public class EventHelper implements EventsPhysical.Callback{
         }
     }
 
-    public interface Callback{
+    public interface EventReceiveCallback{
         void onPageChanged(String fileName, int pageNo);
         void onFileChanged(String fileName, int pageNo);
         void onFileAdded(String fileName);

@@ -9,9 +9,24 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".newshareback.activities.DirExplorerActivity">
 
-    <ListView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id = "@+id/list_dir"/>
+        android:orientation="vertical">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.9"
+            android:divider="#e0e0e0"
+            android:dividerHeight="3dp"
+            android:id = "@+id/list_dir"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:text="OK"
+            android:id="@+id/btnOk"/>
+    </LinearLayout>
 
 </RelativeLayout>

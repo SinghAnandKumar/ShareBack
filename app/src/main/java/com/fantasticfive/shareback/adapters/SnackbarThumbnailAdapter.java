@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fantasticfive.shareback.R;
-import com.fantasticfive.shareback.beans.ThumbnailItem;
+import com.fantasticfive.shareback.beans.BucketItem;
 
 import java.util.ArrayList;
 
@@ -19,10 +19,10 @@ import java.util.ArrayList;
 public class SnackbarThumbnailAdapter extends BaseAdapter {
 
     Context context;
-    ArrayList<ThumbnailItem> thumbnailArray;
+    ArrayList<BucketItem> thumbnailArray;
     private LayoutInflater inflater = null;
 
-    public SnackbarThumbnailAdapter(Context context, ArrayList<ThumbnailItem> thumbnailArray){
+    public SnackbarThumbnailAdapter(Context context, ArrayList<BucketItem> thumbnailArray){
         this.context = context;
         this.thumbnailArray = thumbnailArray;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -66,7 +66,7 @@ public class SnackbarThumbnailAdapter extends BaseAdapter {
             holder = (ViewHolder) vi.getTag();
         }
 
-        ThumbnailItem item = thumbnailArray.get(position);
+        BucketItem item = thumbnailArray.get(position);
         holder.fileName.setText(item.getFileName());
         holder.thumbnail.setImageDrawable(item.getThumbnail());
 

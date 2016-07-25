@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -63,7 +64,7 @@ public class DirListAdapter extends BaseAdapter implements View.OnClickListener 
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, final View convertView, ViewGroup parent) {
         View vi = convertView;
         ViewHolder holder;
 
@@ -71,6 +72,10 @@ public class DirListAdapter extends BaseAdapter implements View.OnClickListener 
             vi = inflater.inflate(R.layout.inner_dirlist, null);
             holder = new ViewHolder();
             holder.fileName = (TextView) vi.findViewById(R.id.dir_name);
+            holder.checkBox = (CheckBox) vi.findViewById(R.id.checkBox);
+            if(!isFile(position)){
+                holder.checkBox.setVisibility(View.INVISIBLE);
+            }
             vi.setTag(holder);
             vi.setId(position);
         }
@@ -79,7 +84,13 @@ public class DirListAdapter extends BaseAdapter implements View.OnClickListener 
         }
 
         holder.fileName.setText(getContent(position));
-
+        holder.checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean isChecked = ((CheckBox)view).isChecked();
+                callback.onFileClicked(getContent(position), isChecked);
+            }
+        });
         vi.setOnClickListener(this);
         return vi;
     }
@@ -96,9 +107,13 @@ public class DirListAdapter extends BaseAdapter implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         String name = ((TextView)view.findViewById(R.id.dir_name)).getText().toString();
+        boolean isChecked = ((CheckBox)view.findViewById(R.id.checkBox)).isChecked();
+
+        ((CheckBox)view.findViewById(R.id.checkBox)).setChecked(!isChecked);
+
         Log.e("My Tag", "Position: "+ view.getId());
         if(isFile(view.getId()))
-            callback.onFileClicked(name);
+            callback.onFileClicked(name, !isChecked);
         else
             callback.onDirClicked(name);
     }
@@ -109,10 +124,11 @@ public class DirListAdapter extends BaseAdapter implements View.OnClickListener 
 
     class ViewHolder{
         TextView fileName;
+        CheckBox checkBox;
     }
 
     public interface Callback{
-        void onFileClicked(String item);
+        void onFileClicked(String item, boolean isChecked);
         void onDirClicked(String item);
     }
 }

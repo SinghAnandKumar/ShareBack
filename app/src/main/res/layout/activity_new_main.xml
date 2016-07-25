@@ -26,12 +26,14 @@
         <android.support.v7.widget.AppCompatButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create Session"/>
+            android:text="Create Session"
+            android:id="@+id/btnCreateSession"/>
 
         <android.support.v7.widget.AppCompatButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Join Session"/>
+            android:text="Join Session"
+            android:id="@+id/btnJoinSession"/>
     </LinearLayout>
 
 </LinearLayout>

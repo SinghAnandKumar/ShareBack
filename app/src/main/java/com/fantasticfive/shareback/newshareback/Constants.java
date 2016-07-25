@@ -7,7 +7,9 @@ import android.os.Environment;
  */
 public class Constants {
 
-    public static final String IP_FILE_SERVER = "192.168.43.128";
+    public static String IP_FILE_SERVER = "192.168.0.2";
+    public static final String PREFERENCES = "MyPrefs";
+    public static final String PREF_SERVER_IP = "ip";
 
     public static final int PORT_FILE_C2S = 8110;
     public static final int PORT_LS = 8103;
@@ -31,7 +33,7 @@ public class Constants {
     public static final String JSON_TOKEN_NO = "token_no";
     public static final String JSON_PAGE_NOS = "page_nos";
     public static final String JSON_CURR_FILE = "curr_file";
-    public static final String JSON_EVENT_ID = "id";
+    public static final String JSON_EVENT_ID = "event_no";
     public static final String JSON_EVENT_NAME = "event_name";
     public static final String JSON_EVENT_FILE = "file";
     public static final String JSON_EVENT_PAGE = "value";

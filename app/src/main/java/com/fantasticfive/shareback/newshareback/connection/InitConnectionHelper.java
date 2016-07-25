@@ -39,6 +39,7 @@ public class InitConnectionHelper
         nsdHelper = new NsdHelper(context, this);
     }
 
+    //Sending Methods
     @Override
     public void run() {
         openSocket();
@@ -50,8 +51,22 @@ public class InitConnectionHelper
         sktHelper.acceptConnections();
     }
 
-    public void startDiscovery(){ //To be Called by Joining Node
-        nsdHelper.discoverServices();
+    @Override
+    public void onTokenSendSuccess() {
+        if(connections <= 0){ //Check if Max tokens sent
+            sktHelper.closeSocket();
+            nsdHelper.unregisterService();
+        }
+    }
+
+    @Override
+    public void onTokenSendFailed() {
+        connections++;
+    }
+
+
+    public ArrayList<InetAddress> getClientList(){
+        return alClients;
     }
 
     @Override
@@ -78,19 +93,11 @@ public class InitConnectionHelper
         else
             return null; //No space to connect then reject request
     }
+    //-- Sending Methods
 
-    @Override
-    public void onTokenSendSuccess() {
-        if(connections <= 0){ //Check if Max tokens sent
-            sktHelper.closeSocket();
-            nsdHelper.unregisterService();
-        }
-    }
-
-
-    @Override
-    public void onTokenSendFailed() {
-        connections++;
+    //Receiving Methods
+    public void startDiscovery(){ //To be Called by Joining Node
+        nsdHelper.discoverServices();
     }
 
     @Override
@@ -118,8 +125,5 @@ public class InitConnectionHelper
         }
 
     }
-
-    public ArrayList<InetAddress> getClientList(){
-        return alClients;
-    }
+    //-- Receiving Methods
 }

@@ -35,9 +35,9 @@ public class FileReceiver extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... strings) {
         String path = strings[0];   //{ /d1/d2/t1.txt }
 
-        String filename = downloadFile(path);
+        String relPath = downloadFile(path);
 
-        return filename;
+        return relPath;
     }
 
     @Override
@@ -84,7 +84,6 @@ public class FileReceiver extends AsyncTask<String, Void, String> {
             //Downloading File
             fos = new FileOutputStream(file);//---actual fileName
             while((readSize=is.read(fileByte))>0) {
-                Log.e("My Tag", "I am Here");
                 fos.write(fileByte, 0, readSize);
                 fos.flush();
             }
@@ -95,7 +94,7 @@ public class FileReceiver extends AsyncTask<String, Void, String> {
             Log.e("My Tag", ex.getMessage());
         }
 
-        return Constants.DIR_ROOT + path; //{ /opt/phone/Shareback/d1/d2/t1.txt }
+        return path; //{ /opt/phone/Shareback/d1/d2/t1.txt }
     }
 
     public String encode(String path){

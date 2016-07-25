@@ -1,9 +1,14 @@
 package com.fantasticfive.shareback.newshareback;
 
+import android.view.View;
+
+import com.fantasticfive.shareback.beans.BucketItem;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
@@ -14,18 +19,34 @@ import java.util.LinkedHashMap;
 public class ShareBucket {
 
     String currentFile = "";
-    LinkedHashMap<String, Integer> openedFileSet = new LinkedHashMap<>();
+    int DEFAULT_PAGE = 1;
 
-    public void pushFile(String file){
-        openedFileSet.put(file, 0);
+
+    public ShareBucket(){
+
     }
 
+    LinkedHashMap<String, BucketItem> openedFileSet = new LinkedHashMap<>();
+
+    public void add(String file, BucketItem item){
+        openedFileSet.put(file, item);
+    }
+
+    public void popFile(String file) { openedFileSet.remove(file); }
+
     public void updatePageNo(String file, int pageNo){
-        openedFileSet.put(file, pageNo);
+        BucketItem item  = openedFileSet.get(file);
+        item.setPageNo(pageNo);
+        openedFileSet.put(file, item);
     }
 
     public LinkedHashMap<String, Integer> getOpenedFileSet(){
-        return openedFileSet;
+        LinkedHashMap<String, Integer> set = new LinkedHashMap<String, Integer>();
+        for(String filePath : openedFileSet.keySet()){
+            BucketItem item = openedFileSet.get(filePath);
+            set.put(filePath, item.getPageNo());
+        }
+        return set;
     }
 
     public Collection<String> getFiles(){
@@ -36,7 +57,8 @@ public class ShareBucket {
         Collection<Integer> pageNos = new ArrayList<>();
         Collection<String> files = openedFileSet.keySet();
         for(String s : files){
-            pageNos.add(openedFileSet.get(s));
+            BucketItem item = openedFileSet.get(s);
+            pageNos.add(item.getPageNo());
         }
         return pageNos;
     }
@@ -44,6 +66,15 @@ public class ShareBucket {
     public void setCurrentFile(String filePath, int pageNo){
         currentFile = filePath;
         updatePageNo(filePath, pageNo);
+    }
+
+    public void setCurrentFile(String filePath){
+        currentFile = filePath;
+    }
+
+    public int getCurrFilePage(){
+        int a = openedFileSet.get(currentFile).getPageNo();
+        return  a;
     }
 
     public String getCurrentFile(){
@@ -67,20 +98,36 @@ public class ShareBucket {
             e.printStackTrace();
         }
         //-- Decode JSON and create ShareBucket
+
+
+        /*
+        *
+        * Remaining Code:-
+         * Bucket created callback
+        *
+         */
     }
 
-    private void setCurrentFile(String file){
-        this.currentFile = file;
+    public View getView(String filePath){
+        return openedFileSet.get(filePath).getView();
+    }
+
+    public boolean contains(String filePath){
+        return openedFileSet.containsKey(filePath);
+    }
+
+    public void setDownloadFlag( String filePath){
+        openedFileSet.get(filePath).setDownloadFlag(true);
     }
 
     private void init(){
         openedFileSet.clear();
     }
-    public void testCode(){
-        pushFile("/folder/fist.pdf");
-        pushFile("/folder/tick.pdf");
-        pushFile("/folder/tock.pdf");
-        pushFile("/folder/clock.pdf");
+    /*public void testCode(){
+        add("/folder/fist.pdf");
+        add("/folder/tick.pdf");
+        add("/folder/tock.pdf");
+        add("/folder/clock.pdf");
         setCurrentFile("/folder/tock.pdf");
-    }
+    }*/
 }

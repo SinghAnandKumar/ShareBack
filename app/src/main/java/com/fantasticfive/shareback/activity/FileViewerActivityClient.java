@@ -54,44 +54,6 @@ public class FileViewerActivityClient
 
         //Main Content
 
-        /*
-        * Initialize Socket
-        *   Shift to another socket if port not available
-        * Get data from socket and put in bucket
-        * Repeat above step till data is available in bucket
-        * */
-
-        /*File f;
-        try {
-            //Prepare Pdf
-            f = ShareBucketBuilder.getFile();
-            //-- Prepare Pdf
-
-            //Open Pdf
-            final PDFView pdfView = (PDFView) findViewById(R.id.pdfviewLib);
-            con = pdfView.fromFile(f)
-                    .defaultPage(1)
-                    .showMinimap(false)
-                    .enableSwipe(false);    //Disabled Swipe
-            con.load();
-            //-- Open Pdf
-        } catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(FileViewerActivityClient.this, "Error: "+e.getMessage(), Toast.LENGTH_SHORT).show();
-        }*/
-
-        /*
-        * Wait for event to occur
-        *   if event == CLOSE_SESSION
-        *       popup feedback
-        *       send ratings to server
-        *       close Sockets
-        *   if event == PAGE_CHANGE
-        *       change the current page
-        */
-
-
-
         //-- Main Content
         String ip = getIntent().getStringExtra("ip");
         DocReceiver builder = new DocReceiver(ip, this);
