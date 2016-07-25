@@ -24,7 +24,9 @@ import java.util.LinkedHashSet;
  * status bar and navigation/system bar) with user interaction.
  */
 public class FileViewInstructor extends AppCompatActivity
-        implements DirHelper.FileDwnldCallback, PdfViewHelper.PdfHelperCallback, DirExplorerActivity.DirExplorerActivityCallback {
+        implements DirHelper.FileDwnldCallback
+        ,PdfViewHelper.PdfHelperCallback
+        ,DirExplorerActivity.DirExplorerActivityCallback {
 
     LinearLayout scrollView = null;
     ImageButton addFileButton = null;

@@ -39,11 +39,22 @@ public class EventsPhysical {
         (new AsyncEventSender(main, eventId, clients)).execute();
     }
 
-    public void waitForEvent(){
+    public void listenForEvents(){
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                waitForEvent();
+            }
+        });
+        t.start();
+    }
+
+    private void waitForEvent(){
         try {
             servSkt = new ServerSocket(Constants.PORT_EVENT_DIST);
             Log.e("My Tag", "Waiting For Event...");
             Socket skt = servSkt.accept();
+            readAndCheck(skt);
             Log.e("My String", "Connected");
 
         } catch (IOException e) {
@@ -104,6 +115,7 @@ public class EventsPhysical {
                 SocketAddress sktAddress = new InetSocketAddress(address, Constants.PORT_EVENT_DIST);
                 Socket skt = new Socket();
                 skt.connect(sktAddress, Constants.SKT_TIME_OUT);
+                Log.e("My Tag", "Sending Message..."+main.toString());
                 sendMsg(skt, main.toString());
                 skt.close();
             } catch (IOException e) {

@@ -13,10 +13,13 @@ import com.fantasticfive.shareback.newshareback.connection.EventHelper;
 import com.fantasticfive.shareback.newshareback.connection.InitConnectionHelper;
 import com.fantasticfive.shareback.newshareback.helpers.PdfViewHelper;
 
+import java.net.InetAddress;
 import java.util.LinkedHashSet;
 
 public class FileViewStudent extends AppCompatActivity
-        implements PdfViewHelper.PdfHelperCallback, EventHelper.EventReceiveCallback {
+        implements PdfViewHelper.PdfHelperCallback
+        ,EventHelper.EventReceiveCallback
+        ,InitConnectionHelper.InitConnectionHelperCallback{
 
     LinearLayout container = null;
 
@@ -80,5 +83,10 @@ public class FileViewStudent extends AppCompatActivity
     @Override
     public void onSessionClosedS() {
         pdfViewHelper.onSessionClosedS();
+    }
+
+    @Override
+    public void onServerFound(InetAddress serverAddress) {
+        eventHelper.listenForEvents();
     }
 }

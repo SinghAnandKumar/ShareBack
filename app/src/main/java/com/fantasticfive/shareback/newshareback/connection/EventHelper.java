@@ -25,6 +25,9 @@ public class EventHelper implements EventsPhysical.Callback{
     Context context;
     EventReceiveCallback callback;
 
+    EventsPhysical sender;
+    EventsPhysical receiver;
+
     //Constructor for Instructor
     public EventHelper(Context context){
         this.context = context;
@@ -37,6 +40,8 @@ public class EventHelper implements EventsPhysical.Callback{
         this.callback = callback;
         this.initConnectionHelper = initConnectionHelper;
 
+        receiver = new EventsPhysical(this);
+        sender = new EventsPhysical(this);
     }
     //-- Constructor for Student
 
@@ -82,6 +87,10 @@ public class EventHelper implements EventsPhysical.Callback{
         //-- Send Data
     }
 
+    public void listenForEvents(){
+        receiver.listenForEvents();
+    }
+
     @Override
     public void onEventSent(JSONObject errMsg, int failedMsgs) {
         Toast.makeText(context, "Message sent. Failed:"+failedMsgs, Toast.LENGTH_SHORT).show();
@@ -95,7 +104,7 @@ public class EventHelper implements EventsPhysical.Callback{
         int pageNo = -1;
         LinkedHashSet<String> arrFiles = new LinkedHashSet<>();
 
-
+        //Check if event is FILE_ADDED
         int eventType = main.getInt(Constants.JSON_EVENT_NAME);
         if(eventType == Constants.EVENT_FILES_ADDED){
             JSONArray arr = main.getJSONArray(Constants.JSON_EVENT_FILE);
@@ -107,7 +116,9 @@ public class EventHelper implements EventsPhysical.Callback{
             fileName = main.getString(Constants.JSON_EVENT_FILE);
             pageNo = main.getInt(Constants.JSON_EVENT_PAGE);
         }
+        //-- Check if event is FILE_ADDED
 
+        //Perform corresponding action
         switch (eventType){
             case Constants.EVENT_PAGE_CHANGED:
                 callback.onPageChangedS(fileName, pageNo);
@@ -126,6 +137,7 @@ public class EventHelper implements EventsPhysical.Callback{
                 sendEvent(Constants.EVENT_SESSION_CLOSED, fileName, pageNo, initConnectionHelper.getClientList());
                 break;
         }
+        //-- Perform corresponding action
     }
 
     public interface EventReceiveCallback{

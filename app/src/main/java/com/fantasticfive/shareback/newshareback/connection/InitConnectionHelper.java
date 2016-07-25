@@ -1,5 +1,6 @@
 package com.fantasticfive.shareback.newshareback.connection;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.nsd.NsdServiceInfo;
 import android.util.Log;
@@ -23,19 +24,21 @@ public class InitConnectionHelper
         implements Runnable, InitConnectionPhysical.Callback, NsdHelper.Callback {
 
     int connections = Constants.MAX_CONNECTS;
-    InitConnectionPhysical sktHelper;
+    InitConnectionPhysical conPhysical;
     NsdHelper nsdHelper;
 
     Context context;
+    InitConnectionHelperCallback callback;
     ShareBucket shareBucket;
     String nsdName = Constants.NSD_BASE_NAME;
 
     ArrayList<InetAddress> alClients = new ArrayList<>();
 
-    public InitConnectionHelper(Context context, ShareBucket shareBucket){
-        this.context = context;
+    public InitConnectionHelper(Activity activity, ShareBucket shareBucket){
+        this.context = activity;
+        callback = (InitConnectionHelperCallback) activity;
         this.shareBucket = shareBucket;
-        sktHelper = new InitConnectionPhysical(this);
+        conPhysical = new InitConnectionPhysical(this);
         nsdHelper = new NsdHelper(context, this);
     }
 
@@ -46,15 +49,15 @@ public class InitConnectionHelper
     }
 
     public void openSocket(){  //To be called by root Node and InitConnectionHelper internally
-        sktHelper.openSocket(Constants.PORT_TOKEN_DIST);
+        conPhysical.openSocket(Constants.PORT_TOKEN_DIST);
         nsdHelper.registerService(nsdName, Constants.PORT_TOKEN_DIST);
-        sktHelper.acceptConnections();
+        conPhysical.acceptConnections();
     }
 
     @Override
     public void onTokenSendSuccess() {
         if(connections <= 0){ //Check if Max tokens sent
-            sktHelper.closeSocket();
+            conPhysical.closeSocket();
             nsdHelper.unregisterService();
         }
     }
@@ -103,18 +106,32 @@ public class InitConnectionHelper
     @Override
     public void onServiceDiscovered(NsdServiceInfo service) {
 
+        //Receive Token from Server
         Toast.makeText(context, "Connecting to "+service.getServiceName(), Toast.LENGTH_SHORT).show();
-        JSONObject main = sktHelper.receiveToken(service);
+        JSONObject main = conPhysical.receiveToken(service);
         if(main == null){
             Toast.makeText(context, "TOKEN_RECEIVE_ERROR", Toast.LENGTH_SHORT).show();
             return;
         }
+        //-- Receive Token from Server
+
         try {
             int token = main.getInt(Constants.JSON_TOKEN_NO);
             if(token > 0){
+
+                //Create ShareBucket
                 Log.e("My Tag", "Creating ShareBucket...");
                 shareBucket.copyFromJson(main);
-                (new Thread(this)).start(); //Now Act as a server node
+                //-- Create ShareBucket
+
+                //Register own Services
+                (new Thread(this)).start();
+                //-- Register own Services
+
+                //Callback to Activity
+                callback.onServerFound(service.getHost());
+                //-- Callback to Activity
+
             }
             else{
                 Toast.makeText(context, "No Slot To Connect, Try Again.", Toast.LENGTH_SHORT).show();
@@ -124,6 +141,11 @@ public class InitConnectionHelper
             Toast.makeText(context, "TOKEN_RECEIVE_ERR: IMPROPER JSON FORMAT ", Toast.LENGTH_SHORT).show();
         }
 
+
     }
     //-- Receiving Methods
+
+    public interface InitConnectionHelperCallback{
+        void onServerFound( InetAddress serverAddress);
+    }
 }
