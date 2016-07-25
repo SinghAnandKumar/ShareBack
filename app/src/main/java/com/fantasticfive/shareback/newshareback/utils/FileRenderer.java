@@ -45,6 +45,10 @@ public class FileRenderer implements OnPageChangeListener{
 
     }
 
+    public void jumpTo(int pageNo){
+        pdfView.jumpTo(pageNo);
+    }
+
     private View renderPdf(Context context, File file, int pageNo){
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         pdfView = (PDFView) inflater.inflate(R.layout.innerlayout_pdf, null);

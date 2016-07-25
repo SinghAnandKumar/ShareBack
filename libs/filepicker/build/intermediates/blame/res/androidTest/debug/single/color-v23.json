@@ -4,40 +4,16 @@
         "source": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/color-v23/abc_btn_colored_borderless_text_material.xml"
     },
     {
-        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_color_highlight_material.xml",
-        "source": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\color-v23\\abc_color_highlight_material.xml"
-    },
-    {
         "merged": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/androidTest/debug/color-v23/abc_color_highlight_material.xml",
         "source": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/color-v23/abc_color_highlight_material.xml"
-    },
-    {
-        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_btn_checkable.xml",
-        "source": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\color-v23\\abc_tint_btn_checkable.xml"
-    },
-    {
-        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_spinner.xml",
-        "source": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\color-v23\\abc_tint_spinner.xml"
     },
     {
         "merged": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_switch_track.xml",
         "source": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/color-v23/abc_tint_switch_track.xml"
     },
     {
-        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_seek_thumb.xml",
-        "source": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\color-v23\\abc_tint_seek_thumb.xml"
-    },
-    {
-        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_default.xml",
-        "source": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\color-v23\\abc_tint_default.xml"
-    },
-    {
         "merged": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_default.xml",
         "source": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/color-v23/abc_tint_default.xml"
-    },
-    {
-        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_edittext.xml",
-        "source": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\color-v23\\abc_tint_edittext.xml"
     },
     {
         "merged": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_spinner.xml",
@@ -52,27 +28,11 @@
         "source": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/color-v23/abc_tint_edittext.xml"
     },
     {
-        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_color_highlight_material.xml",
-        "source": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\color-v23\\abc_color_highlight_material.xml"
-    },
-    {
         "merged": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_btn_checkable.xml",
         "source": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/color-v23/abc_tint_btn_checkable.xml"
     },
     {
-        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_switch_thumb.xml",
-        "source": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\color-v23\\abc_tint_switch_thumb.xml"
-    },
-    {
         "merged": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/androidTest/debug/color-v23/abc_tint_seek_thumb.xml",
         "source": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/color-v23/abc_tint_seek_thumb.xml"
-    },
-    {
-        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_btn_colored_borderless_text_material.xml",
-        "source": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
-    },
-    {
-        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\androidTest\\debug\\color-v23\\abc_tint_switch_track.xml",
-        "source": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\color-v23\\abc_tint_switch_track.xml"
     }
 ]

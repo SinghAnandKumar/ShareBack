@@ -24,7 +24,9 @@ public class Constants {
     public static final int EVENT_PAGE_CHANGED = 1;
     public static final int EVENT_FILE_CHANGED = 2;
     public static final int EVENT_FILE_ADDED = 3;
-    public static final int EVENT_SESSION_CLOSED = 4;
+    public static final int EVENT_FILES_ADDED = 4;
+    public static final int EVENT_SESSION_CLOSED = 5;
+    public static final int EVENT_FILE_REMOVED = 6;
 
     public static final String JSON_LIST_DIR = "path"; //for ls json object { "path" : "/Data Structure/"} incoming
     public static final String JSON_DIRS = "dirs"; // response { "dirs" : ["dir1","dir2",...] ,

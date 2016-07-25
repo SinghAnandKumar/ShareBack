@@ -11,6 +11,8 @@ import com.fantasticfive.shareback.newshareback.ShareBucket;
 import com.fantasticfive.shareback.newshareback.connection.EventHelper;
 import com.fantasticfive.shareback.newshareback.connection.InitConnectionHelper;
 
+import java.util.LinkedHashSet;
+
 public class NsdActivity extends AppCompatActivity
                         implements EventHelper.EventReceiveCallback{
 
@@ -53,7 +55,7 @@ public class NsdActivity extends AppCompatActivity
         btnSendEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EventHelper eventHelper = new EventHelper(NsdActivity.this, NsdActivity.this);
+                EventHelper eventHelper = new EventHelper(NsdActivity.this);
 
 
                 //testCode();
@@ -84,22 +86,22 @@ public class NsdActivity extends AppCompatActivity
     }*/
 
     @Override
-    public void onPageChanged(String fileName, int pageNo) {
+    public void onPageChangedS(String fileName, int pageNo) {
         shareBucket.updatePageNo(fileName, pageNo);
     }
 
     @Override
-    public void onFileChanged(String fileName, int pageNo) {
+    public void onFileChangedS(String fileName, int pageNo) {
         shareBucket.setCurrentFile(fileName, pageNo);
     }
 
     @Override
-    public void onFileAdded(String fileName) {
+    public void onFilesAddedS(LinkedHashSet<String> fileName) {
         //shareBucket.pushFile(fileName);
     }
 
     @Override
-    public void onSessionClosed() {
+    public void onSessionClosedS() {
         //Close Session and Take Feedback
         //-- Close Session and Take Feedback
     }

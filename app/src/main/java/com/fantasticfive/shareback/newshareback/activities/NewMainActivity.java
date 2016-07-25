@@ -1,24 +1,19 @@
 package com.fantasticfive.shareback.newshareback.activities;
 
-import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.fantasticfive.shareback.R;
-import com.fantasticfive.shareback.adapters.RecyclerViewAdapter;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.dialogs.DialogIp;
 
@@ -37,7 +32,7 @@ public class NewMainActivity extends AppCompatActivity {
         btnCreateSession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(NewMainActivity.this, FileViewClient.class);
+                Intent intent = new Intent(NewMainActivity.this, FileViewInstructor.class);
                 startActivity(intent);
             }
         });

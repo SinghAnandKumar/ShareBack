@@ -15,6 +15,7 @@ import com.fantasticfive.shareback.newshareback.ShareBucket;
 import com.fantasticfive.shareback.newshareback.utils.FileRenderer;
 
 import java.io.File;
+import java.util.LinkedHashSet;
 
 /**
  * Created by sagar on 24/7/16.
@@ -110,6 +111,36 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
     public boolean isDownloaded(BucketItem item){
         return item.getDownloadFlag();
     }
+
+    //Event Receiving Methods
+    public void onPageChangedS(String fileName, int pageNo){
+
+        if(fileName.equals(bucket.getCurrentFile())){//If Same file then JumpTo page else render
+            renderer.jumpTo(pageNo);
+        }
+        else{
+            renderer.render(activity, pdfParent, fileName, pageNo);
+        }
+
+        bucket.setCurrentFile(fileName, pageNo);//Changing page no in bucket
+    }
+
+    public void onFileChangedS(String fileName, int pageNo){
+        //Add to bucket and show
+        bucket.setCurrentFile(fileName, pageNo);
+        renderer.render(activity, pdfParent, fileName, pageNo);
+        //-- Add to bucket and show
+    }
+
+    public void onFilesAddedS(LinkedHashSet<String> arrFiles){
+        for(String filePath : arrFiles)
+            addFile(filePath);
+    }
+
+    public void onSessionClosedS(){
+        bucket.deleteData();
+    }
+    //-- Event Receiving Methods
 
     @Override
     public void onPageChanged(int pageNo) {

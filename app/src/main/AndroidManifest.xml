@@ -7,7 +7,9 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:required="true" android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.INTERNET"
+        android:required="true" />
 
     <supports-screens
         android:anyDensity="true"
@@ -68,14 +70,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".newshareback.activities.FileViewClient"
+            android:name=".newshareback.activities.FileViewInstructor"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_file_view_client"
             android:theme="@style/FullscreenTheme" />
-        <activity android:name=".FileUploadActivity">
-        </activity>
-        <activity android:name=".newshareback.activities.NsdActivity">
-        </activity>
+        <activity android:name=".FileUploadActivity"></activity>
+        <activity android:name=".newshareback.activities.NsdActivity"></activity>
+        <activity android:name=".newshareback.activities.FileViewStudent"></activity>
     </application>
 
 </manifest>

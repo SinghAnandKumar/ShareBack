@@ -14,30 +14,38 @@ import com.fantasticfive.shareback.newshareback.adapters.DirListAdapter;
 import com.fantasticfive.shareback.newshareback.beans.DirContentsBean;
 import com.fantasticfive.shareback.newshareback.utils.DirHelper;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+
 public class DirExplorerActivity extends Dialog
         implements DirHelper.Callback, DirListAdapter.Callback{
 
     ListView dirList = null;
     AppCompatButton btnOk;
     Context context;
+    DirExplorerActivityCallback callback;
 
     DirListAdapter adapter = null;
-    DirHelper tracker;
+    DirHelper helper;
+    LinkedHashSet<String> set = new LinkedHashSet<>();
 
-    public DirExplorerActivity(Activity activity, DirHelper.FileDwnldCallback fdCallback){
+    public DirExplorerActivity(Activity activity){
         super(activity);
-        this.context = activity;
-        setContentView(R.layout.activity_explorer);
 
+        this.context = activity;
+        this.callback = (DirExplorerActivityCallback) activity;
+
+        setContentView(R.layout.activity_explorer);
         init();
 
-        tracker = new DirHelper(context, this, fdCallback);
-        tracker.getItemList("");
+        helper = new DirHelper(context, this, (DirHelper.FileDwnldCallback) activity);
+        helper.getItemList("");
 
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                closeAndDownload();
+                closeAndSendEvent();
             }
         });
     }
@@ -48,14 +56,15 @@ public class DirExplorerActivity extends Dialog
     }
 
 
-    public void closeAndDownload(){
+    public void closeAndSendEvent(){
+        callback.onFileFinallySelected(set);
         dismiss();
     }
 
     @Override
     public void onBackPressed() {
         Log.e("My Tag", "back presssed");
-        tracker.getParentList();
+        helper.getParentList();
     }
 
     //Callbacks
@@ -63,13 +72,20 @@ public class DirExplorerActivity extends Dialog
     public void onFileClicked(String item, boolean isChecked) {
         Toast.makeText(context, "Clicked File: "+item, Toast.LENGTH_SHORT).show();
 
-        tracker.downloadFile(item, isChecked);
+        if(isChecked){
+            set.add(item);
+        }
+        else{
+            set.remove(item);
+        }
+
+        helper.downloadFile(item, isChecked);
     }
 
     @Override
     public void onDirClicked(String item) {
         Toast.makeText(context, "Clicked Dir: "+item, Toast.LENGTH_SHORT).show();
-        tracker.getItemList(item);
+        helper.getItemList(item);
     }
 
     @Override
@@ -78,4 +94,8 @@ public class DirExplorerActivity extends Dialog
             dirList.setAdapter(adapter);
     }
     //-- Callbacks
+
+    public interface DirExplorerActivityCallback{
+        void onFileFinallySelected(LinkedHashSet<String> files);
+    }
 }

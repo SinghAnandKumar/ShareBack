@@ -1,14 +1,6 @@
 [
     {
-        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\debug\\menu\\picker_actions.xml",
-        "source": "/home/sagar/AndroidStudioProjects/ShareBack/F:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\src\\main\\res\\menu\\picker_actions.xml"
-    },
-    {
         "merged": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/debug/menu/picker_actions.xml",
         "source": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/src/main/res/menu/picker_actions.xml"
-    },
-    {
-        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\build\\intermediates\\res\\merged\\debug\\menu\\picker_actions.xml",
-        "source": "/home/sagar/AndroidStudioProjects/ShareBack/E:\\Android_Studio_Workspace\\ShareBack\\libs\\filepicker\\src\\main\\res\\menu\\picker_actions.xml"
     }
 ]

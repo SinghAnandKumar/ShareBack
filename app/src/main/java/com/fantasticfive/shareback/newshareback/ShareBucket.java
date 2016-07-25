@@ -20,16 +20,28 @@ public class ShareBucket {
 
     String currentFile = "";
     int DEFAULT_PAGE = 1;
+//    ShareBucketCallback callback = null;
 
-
+    //Constructor for Instructor
     public ShareBucket(){
 
     }
+    //-- Constructor for Instructor
+
+   /* //Constructor for Student
+    public ShareBucket(ShareBucketCallback callback){
+        this.callback = callback;
+    }
+    //-- Constructor for Student*/
 
     LinkedHashMap<String, BucketItem> openedFileSet = new LinkedHashMap<>();
 
     public void add(String file, BucketItem item){
         openedFileSet.put(file, item);
+
+        /*if(isStudent()){
+            callback.
+        }*/
     }
 
     public void popFile(String file) { openedFileSet.remove(file); }
@@ -38,6 +50,9 @@ public class ShareBucket {
         BucketItem item  = openedFileSet.get(file);
         item.setPageNo(pageNo);
         openedFileSet.put(file, item);
+
+        /*if(isStudent())
+            callback.onPageChanged(file, pageNo);*/
     }
 
     public LinkedHashMap<String, Integer> getOpenedFileSet(){
@@ -120,14 +135,40 @@ public class ShareBucket {
         openedFileSet.get(filePath).setDownloadFlag(true);
     }
 
+    public void deleteData(){
+        File f = new File(Constants.DIR_ROOT);
+        deleteRecursive(f);
+    }
+
+    private void deleteRecursive(File file) {
+        File[] contents = file.listFiles();
+        if (contents != null) {
+            for (File f : contents) {
+                deleteRecursive(f);
+            }
+        }
+        file.delete();
+    }
+
     private void init(){
         openedFileSet.clear();
     }
+
+    /*private boolean isStudent(){
+        return ((callback != null) ? true : false);
+    }*/
     /*public void testCode(){
         add("/folder/fist.pdf");
         add("/folder/tick.pdf");
         add("/folder/tock.pdf");
         add("/folder/clock.pdf");
         setCurrentFile("/folder/tock.pdf");
+    }*/
+
+    /*public interface ShareBucketCallback{
+        void onPageChanged(String filePath, int pageNo);
+        void onFileChanged(String filePath, int pageNo);
+        void onFileAdded(String filePath);
+
     }*/
 }

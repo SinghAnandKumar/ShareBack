@@ -84,30 +84,34 @@ public class EventsPhysical {
         }
     }
 
-    private int checkAndSend(JSONObject main, int eventId, ArrayList<InetAddress> clients){
+    private int checkAndSend(JSONObject main, int eventId, ArrayList<InetAddress> clients) throws JSONException {
 
-        if(eventId > latestEvent){  //Check for latest event
+        if((main.getInt(Constants.JSON_EVENT_NAME) == Constants.EVENT_PAGE_CHANGED) && eventId > latestEvent  ){  //Check for latest event
             latestEvent = eventId;
 
-            int failed = 0;
-            for(InetAddress address : clients){
-                try {
-
-                    SocketAddress sktAddress = new InetSocketAddress(address, Constants.PORT_EVENT_DIST);
-                    Socket skt = new Socket();
-                    skt.connect(sktAddress, Constants.SKT_TIME_OUT);
-                    sendMsg(skt, main.toString());
-                    skt.close();
-                } catch (IOException e) {
-                    failed++;
-                    e.printStackTrace();
-                }
-            }
-            return failed;
+            return send(main, clients);
         }
         else{
-            return 0;
+            return send(main, clients);
         }
+    }
+
+    private int send(JSONObject main, ArrayList<InetAddress> clients){
+        int failed = 0;
+        for(InetAddress address : clients){
+            try {
+
+                SocketAddress sktAddress = new InetSocketAddress(address, Constants.PORT_EVENT_DIST);
+                Socket skt = new Socket();
+                skt.connect(sktAddress, Constants.SKT_TIME_OUT);
+                sendMsg(skt, main.toString());
+                skt.close();
+            } catch (IOException e) {
+                failed++;
+                e.printStackTrace();
+            }
+        }
+        return failed;
     }
 
     private void sendMsg(Socket skt, String msg) throws IOException {
@@ -135,7 +139,13 @@ public class EventsPhysical {
 
         @Override
         protected Integer doInBackground(Void... voids) {
-            int failed = checkAndSend(main, eventId, clients);
+            int failed=clients.size();
+            try {
+                failed = checkAndSend(main, eventId, clients);
+            }
+            catch (JSONException ex){
+                ex.printStackTrace();
+            }
             return failed;
         }
 
