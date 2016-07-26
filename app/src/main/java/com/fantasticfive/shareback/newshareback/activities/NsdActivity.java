@@ -40,7 +40,7 @@ public class NsdActivity extends AppCompatActivity
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                (new Thread(connectionHelper)).start();
+                connectionHelper.openSocket();
             }
         });
 

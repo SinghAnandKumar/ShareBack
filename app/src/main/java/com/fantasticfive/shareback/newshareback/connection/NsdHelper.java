@@ -120,20 +120,6 @@ public class NsdHelper {
         return (a<b ? serv1 : serv2);
     }
 
-    void computeShortestService(NsdServiceInfo nsdServiceInfo){
-        //Computing Shortest Service
-        serviceCounter++;
-        if(nsdServiceInfo.getServiceName().equals(Constants.NSD_BASE_NAME)){
-            callback.onServiceDiscovered(nsdServiceInfo);
-        }else{
-            nearestServ = (nearestServ == null) ? nsdServiceInfo : getNearestServ(nearestServ, nsdServiceInfo);
-            if(serviceCounter >= Constants.MAX_CONNECTS){
-                callback.onServiceDiscovered(nearestServ);
-            }
-        }
-        //-- Computing Shortest Service
-    }
-
     void initRegistrationListener(){
 
         mRegistrationListener = new NsdManager.RegistrationListener(){
@@ -175,6 +161,20 @@ public class NsdHelper {
                 computeShortestService(nsdServiceInfo); //Find Nearest Service
             }
         };
+    }
+
+    void computeShortestService(NsdServiceInfo nsdServiceInfo){
+        //Computing Shortest Service
+        serviceCounter++;
+        if(nsdServiceInfo.getServiceName().equals(Constants.NSD_BASE_NAME)){  //If service name is Shareback
+            callback.onServiceDiscovered(nsdServiceInfo);
+        }else{
+            nearestServ = (nearestServ == null) ? nsdServiceInfo : getNearestServ(nearestServ, nsdServiceInfo);
+            if(serviceCounter >= Constants.MAX_CONNECTS){
+                callback.onServiceDiscovered(nearestServ);
+            }
+        }
+        //-- Computing Shortest Service
     }
 
     public interface Callback{

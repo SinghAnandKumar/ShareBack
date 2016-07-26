@@ -52,7 +52,7 @@ public class EventsPhysical {
     private void waitForEvent(){
         try {
             servSkt = new ServerSocket(Constants.PORT_EVENT_DIST);
-            Log.e("My Tag", "Waiting For Event...");
+            Log.e("My Tag", "Waiting For Events...");
             Socket skt = servSkt.accept();
             readAndCheck(skt);
             Log.e("My String", "Connected");

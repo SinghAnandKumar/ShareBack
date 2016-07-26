@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * Created by sagar on 18/7/16.
  */
 public class InitConnectionHelper
-        implements Runnable, InitConnectionPhysical.Callback, NsdHelper.Callback {
+        implements InitConnectionPhysical.Callback, NsdHelper.Callback {
 
     int connections = Constants.MAX_CONNECTS;
     InitConnectionPhysical conPhysical;
@@ -34,21 +34,44 @@ public class InitConnectionHelper
 
     ArrayList<InetAddress> alClients = new ArrayList<>();
 
-    public InitConnectionHelper(Activity activity, ShareBucket shareBucket){
-        this.context = activity;
-        callback = (InitConnectionHelperCallback) activity;
+    //Constructor for Instructor
+    public InitConnectionHelper(Context context, ShareBucket shareBucket){
+        this.context = context;
         this.shareBucket = shareBucket;
         conPhysical = new InitConnectionPhysical(this);
         nsdHelper = new NsdHelper(context, this);
     }
+    //-- Constructor for Instructor
+
+    //Constructor for Student
+    public InitConnectionHelper(Context context, InitConnectionHelperCallback callback, ShareBucket shareBucket){
+        this.context = context;
+        this.callback = callback;
+        this.shareBucket = shareBucket;
+        conPhysical = new InitConnectionPhysical(this);
+        nsdHelper = new NsdHelper(context, this);
+    }
+    //Constructor for Student
 
     //Sending Methods
-    @Override
-    public void run() {
-        openSocket();
-    }
 
     public void openSocket(){  //To be called by root Node and InitConnectionHelper internally
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                socketOpenByInstructor();
+            }
+        });
+        t.start();
+    }
+
+    private void socketOpenByInstructor(){
+        conPhysical.openSocket(Constants.PORT_TOKEN_DIST);
+        nsdHelper.registerService(nsdName, Constants.PORT_TOKEN_DIST);
+        conPhysical.acceptConnections();
+    }
+
+    private void socketOpenByStudent(String nsdName){
         conPhysical.openSocket(Constants.PORT_TOKEN_DIST);
         nsdHelper.registerService(nsdName, Constants.PORT_TOKEN_DIST);
         conPhysical.acceptConnections();
@@ -104,7 +127,7 @@ public class InitConnectionHelper
     }
 
     @Override
-    public void onServiceDiscovered(NsdServiceInfo service) {
+    public void onServiceDiscovered(final NsdServiceInfo service) {
 
         //Receive Token from Server
         Toast.makeText(context, "Connecting to "+service.getServiceName(), Toast.LENGTH_SHORT).show();
@@ -116,7 +139,7 @@ public class InitConnectionHelper
         //-- Receive Token from Server
 
         try {
-            int token = main.getInt(Constants.JSON_TOKEN_NO);
+            final int token = main.getInt(Constants.JSON_TOKEN_NO);
             if(token > 0){
 
                 //Create ShareBucket
@@ -125,7 +148,13 @@ public class InitConnectionHelper
                 //-- Create ShareBucket
 
                 //Register own Services
-                (new Thread(this)).start();
+                Thread t = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        socketOpenByStudent(service.getServiceName() + "." + token);
+                    }
+                });
+                t.start();
                 //-- Register own Services
 
                 //Callback to Activity

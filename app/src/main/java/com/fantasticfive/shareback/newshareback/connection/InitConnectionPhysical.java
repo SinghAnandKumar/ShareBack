@@ -92,6 +92,7 @@ public class InitConnectionPhysical {
                 }
                 result += temp;
             }
+            Log.e("My Tag", "Msg Received:"+result);
             //-- Reading Response
 
             JSONObject main = new JSONObject(result);

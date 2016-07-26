@@ -46,7 +46,7 @@ public class FileViewStudent extends AppCompatActivity
 
         bucket = new ShareBucket();
         pdfViewHelper = new PdfViewHelper(this, bucket, this);
-        initConnectionHelper = new InitConnectionHelper(this, bucket);
+        initConnectionHelper = new InitConnectionHelper(this,this, bucket);
         eventHelper = new EventHelper(this, this, initConnectionHelper);
     }
 

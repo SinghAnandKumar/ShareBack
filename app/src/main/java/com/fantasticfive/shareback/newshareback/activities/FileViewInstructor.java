@@ -26,7 +26,7 @@ import java.util.LinkedHashSet;
 public class FileViewInstructor extends AppCompatActivity
         implements DirHelper.FileDwnldCallback
         ,PdfViewHelper.PdfHelperCallback
-        ,DirExplorerActivity.DirExplorerActivityCallback {
+        ,DirExplorerActivity.DirExplorerActivityCallback{
 
     LinearLayout scrollView = null;
     ImageButton addFileButton = null;
@@ -46,7 +46,13 @@ public class FileViewInstructor extends AppCompatActivity
         init();
 
         //Opening Socket and Services
-        initConnectionHelper.openSocket();
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                initConnectionHelper.openSocket();
+            }
+        });
+        t.start();
         //-- Opening Socket and Services
 
         addFileButton.setOnClickListener(new View.OnClickListener() {
