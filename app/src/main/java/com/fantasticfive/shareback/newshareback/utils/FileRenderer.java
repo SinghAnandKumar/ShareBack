@@ -23,6 +23,8 @@ public class FileRenderer implements OnPageChangeListener{
     PDFView pdfView;
     PdfViewCallback callback;
 
+    boolean fakePageChangedFlag = true;
+
     public FileRenderer(PdfViewCallback callback) {
         this.callback = callback;
     }
@@ -70,12 +72,19 @@ public class FileRenderer implements OnPageChangeListener{
                 .enableSwipe(true);
         con.onPageChange(this);
         con.load();
+        fakePageChangedFlag = true;
         return pdfView;
     }
 
     @Override
     public void onPageChanged(int page, int pageCount) {
-        callback.onPageChanged(page);
+
+        if(!fakePageChangedFlag) {
+            callback.onPageChanged(page);
+        }else {
+            fakePageChangedFlag = false;
+        }
+
     }
 
     public interface PdfViewCallback{
