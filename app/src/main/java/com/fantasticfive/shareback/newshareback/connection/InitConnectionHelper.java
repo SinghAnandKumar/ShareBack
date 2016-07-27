@@ -147,6 +147,11 @@ public class InitConnectionHelper
                 shareBucket.copyFromJson(main);
                 //-- Create ShareBucket
 
+                //Stop Discovery
+                nsdHelper.stopDiscovery();
+                //-- Stop Discovery
+
+
                 //Register own Services
                 Thread t = new Thread(new Runnable() {
                     @Override
