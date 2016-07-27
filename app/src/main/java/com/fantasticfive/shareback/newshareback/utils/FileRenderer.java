@@ -27,6 +27,18 @@ public class FileRenderer implements OnPageChangeListener{
         this.callback = callback;
     }
 
+    public void renderS(Activity activity, LinearLayout parent, String filePath, int pageNo){
+        File file = new File(Constants.DIR_ROOT + filePath);
+
+        pdfView = (PDFView) activity.findViewById(R.id.pdfview);
+        PDFView.Configurator con = pdfView.fromFile(file)
+                .defaultPage(pageNo)
+                .showMinimap(false)
+                .enableSwipe(true);
+        con.onPageChange(this);
+        con.load();
+    }
+
     public void render(Activity activity, LinearLayout parent, String filePath, int pageNo){
         File file = new File(Constants.DIR_ROOT + filePath);
         String name = file.getName();
@@ -34,7 +46,7 @@ public class FileRenderer implements OnPageChangeListener{
 
         //Check File Type
         if(name.toLowerCase().contains(".pdf"))
-            view = renderPdf(activity, file, pageNo);
+            view = renderPdf(activity.getApplicationContext(), file, pageNo);
         //-- Check File Type
 
         if(view != null) {

@@ -121,18 +121,22 @@ public class EventHelper implements EventsPhysical.Callback{
         //Perform corresponding action
         switch (eventType){
             case Constants.EVENT_PAGE_CHANGED:
+                Log.e("My Tag", "EventHelper: EVENT_PAGE_CHANGED");
                 callback.onPageChangedS(fileName, pageNo);
                 sendEvent(Constants.EVENT_PAGE_CHANGED, fileName, pageNo, initConnectionHelper.getClientList());
                 break;
             case Constants.EVENT_FILE_CHANGED:
+                Log.e("My Tag", "EventHelper: EVENT_FILE_CHANGED");
                 callback.onFileChangedS(fileName, pageNo);
                 sendEvent(Constants.EVENT_FILE_CHANGED, fileName, pageNo, initConnectionHelper.getClientList());
                 break;
             case Constants.EVENT_FILES_ADDED:
+                Log.e("My Tag", "EventHelper: EVENT_FILES_ADDED");
                 callback.onFilesAddedS(arrFiles);
                 sendFiles(arrFiles, initConnectionHelper.getClientList());
                 break;
             case Constants.EVENT_SESSION_CLOSED:
+                Log.e("My Tag", "EventHelper: EVENT_SESSION_CLOSED");
                 callback.onSessionClosedS();
                 sendEvent(Constants.EVENT_SESSION_CLOSED, fileName, pageNo, initConnectionHelper.getClientList());
                 break;

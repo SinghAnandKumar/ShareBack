@@ -100,9 +100,9 @@ public class FileViewInstructor extends AppCompatActivity
     @Override
     public void onPageChanged(String filePath, int pageNo) {
 
-        //Toast.makeText(FileViewInstructor.this, "Page Changed: "+pageNo, Toast.LENGTH_SHORT).show();
+        Toast.makeText(FileViewInstructor.this, "Page Changed: "+pageNo, Toast.LENGTH_SHORT).show();
         //Send Event PAGE_CHANGED
-        //eventHelper.sendEvent(Constants.EVENT_PAGE_CHANGED, filePath, pageNo, initConnectionHelper.getClientList());
+        eventHelper.sendEvent(Constants.EVENT_PAGE_CHANGED, filePath, pageNo, initConnectionHelper.getClientList());
         //-- Send Event PAGE_CHANGED
 
     }

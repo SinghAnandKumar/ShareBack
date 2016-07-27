@@ -142,7 +142,7 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
         if(bucket.isFileDownloaded(fileName)) {
             //Add to bucket and show
             bucket.setCurrentFile(fileName, pageNo);
-            renderer.render(activity, pdfParent, fileName, pageNo);
+            renderer.renderS(activity, pdfParent, fileName, pageNo);
             //-- Add to bucket and show
         }
         else{
