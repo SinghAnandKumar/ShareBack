@@ -82,6 +82,7 @@ public class FileReceiver extends AsyncTask<String, Void, String> {
             //-- Sending File Name
 
             //Downloading File
+            Log.e("My Tag", "Downloading File...");
             fos = new FileOutputStream(file);//---actual fileName
             while((readSize=is.read(fileByte))>0) {
                 fos.write(fileByte, 0, readSize);
@@ -89,6 +90,7 @@ public class FileReceiver extends AsyncTask<String, Void, String> {
             }
             fos.close();
             skt.close();
+            Log.e("My Tag", "File Downloaded.");
             //--Downloading File
         } catch (IOException ex) {
             Log.e("My Tag", ex.getMessage());

@@ -12,6 +12,7 @@ import com.fantasticfive.shareback.newshareback.ShareBucket;
 import com.fantasticfive.shareback.newshareback.connection.EventHelper;
 import com.fantasticfive.shareback.newshareback.connection.InitConnectionHelper;
 import com.fantasticfive.shareback.newshareback.helpers.PdfViewHelper;
+import com.fantasticfive.shareback.newshareback.utils.DirHelper;
 
 import java.net.InetAddress;
 import java.util.LinkedHashSet;
@@ -19,7 +20,8 @@ import java.util.LinkedHashSet;
 public class FileViewStudent extends AppCompatActivity
         implements PdfViewHelper.PdfHelperCallback
         ,EventHelper.EventReceiveCallback
-        ,InitConnectionHelper.InitConnectionHelperCallback{
+        ,InitConnectionHelper.InitConnectionHelperCallback
+        ,DirHelper.FileDwnldCallback{
 
     LinearLayout container = null;
 
@@ -27,6 +29,7 @@ public class FileViewStudent extends AppCompatActivity
     EventHelper eventHelper;
     ShareBucket bucket;
     InitConnectionHelper initConnectionHelper;
+    DirHelper dirHelper;
 
 
     @Override
@@ -48,6 +51,7 @@ public class FileViewStudent extends AppCompatActivity
         pdfViewHelper = new PdfViewHelper(this, bucket, this);
         initConnectionHelper = new InitConnectionHelper(this,this, bucket);
         eventHelper = new EventHelper(this, this, initConnectionHelper);
+        dirHelper = new DirHelper(this, this);
     }
 
     @Override
@@ -77,7 +81,16 @@ public class FileViewStudent extends AppCompatActivity
 
     @Override
     public void onFilesAddedS(LinkedHashSet<String> arrFiles) {
+
+        //Add Files to Bucket
         pdfViewHelper.onFilesAddedS(arrFiles);
+        //-- Add Files to Bucket
+
+        //Download File
+        for(String file:  arrFiles) {
+            dirHelper.downloadFile(file, true);
+        }
+        //-- Download File
     }
 
     @Override
@@ -88,5 +101,15 @@ public class FileViewStudent extends AppCompatActivity
     @Override
     public void onServerFound(InetAddress serverAddress) {
         eventHelper.listenForEvents();
+    }
+
+    @Override
+    public void onFileDownloaded(String relLocation) {
+        pdfViewHelper.setDownloadFlag(relLocation);
+    }
+
+    @Override
+    public void onFileAdded(String fileName, boolean isSessionFile) {
+
     }
 }

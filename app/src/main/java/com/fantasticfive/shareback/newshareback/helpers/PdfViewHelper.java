@@ -2,6 +2,7 @@ package com.fantasticfive.shareback.newshareback.helpers;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -138,10 +139,15 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
     }
 
     public void onFileChangedS(String fileName, int pageNo){
-        //Add to bucket and show
-        bucket.setCurrentFile(fileName, pageNo);
-        renderer.render(activity, pdfParent, fileName, pageNo);
-        //-- Add to bucket and show
+        if(bucket.isFileDownloaded(fileName)) {
+            //Add to bucket and show
+            bucket.setCurrentFile(fileName, pageNo);
+            renderer.render(activity, pdfParent, fileName, pageNo);
+            //-- Add to bucket and show
+        }
+        else{
+            Log.e("My Tag", "File Still Downloading....");
+        }
     }
 
     public void onFilesAddedS(LinkedHashSet<String> arrFiles){

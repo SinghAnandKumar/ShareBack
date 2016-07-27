@@ -22,11 +22,22 @@ public class DirHelper implements DirPhysical.Callback, FileReceiver.Callback{
     FileDwnldCallback fdCallback;
     LinkedHashMap<String, Boolean> downloadQueue = new LinkedHashMap<>();
 
+    //Constructor for Instructor
     public DirHelper(Context context, Callback callback, FileDwnldCallback fdCallback){
         this.context = context;
         this.callback = callback;
         this.fdCallback = fdCallback;
     }
+    //-- Constructor for Instructor
+
+    //Constructor for Student
+    public DirHelper(Context context, FileDwnldCallback fdCallback){
+        this.context = context;
+        this.fdCallback = fdCallback;
+    }
+    //-- Constructor for Student
+
+
 
     public void getItemList(String dir){
         currDir = currDir + dir + "/";

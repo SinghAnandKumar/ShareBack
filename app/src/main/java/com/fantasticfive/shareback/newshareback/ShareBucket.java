@@ -1,5 +1,6 @@
 package com.fantasticfive.shareback.newshareback;
 
+import android.content.ClipData;
 import android.view.View;
 
 import com.fantasticfive.shareback.beans.BucketItem;
@@ -106,7 +107,17 @@ public class ShareBucket {
             init();
 
             for(int i=0; i<arrFiles.length(); i++){
-                updatePageNo(arrFiles.getString(i) , arrPageNos.getInt(i) );
+
+                BucketItem item = new BucketItem();
+                item.setDownloadFlag(false);
+                item.setPageNo(arrPageNos.getInt(i));
+                item.setView(null);
+                item.setFileName((new File(arrFiles.getString(i)).getName()));
+                item.setFilePath(arrFiles.getString(i));
+                item.setThumbnail(null);
+
+                add(arrFiles.getString(i), item);
+                //updatePageNo(arrFiles.getString(i) , arrPageNos.getInt(i) );
             }
             setCurrentFile(currentFile);
         } catch (JSONException e) {
@@ -121,6 +132,10 @@ public class ShareBucket {
          * Bucket created callback
         *
          */
+    }
+
+    public boolean isFileDownloaded(String filePath){
+        return openedFileSet.get(filePath).getDownloadFlag();
     }
 
     public View getView(String filePath){
