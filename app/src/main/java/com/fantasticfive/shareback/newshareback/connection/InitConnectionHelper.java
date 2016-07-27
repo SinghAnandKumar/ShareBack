@@ -177,7 +177,7 @@ public class InitConnectionHelper
                 //-- Register own Services
 
                 //Callback to Activity
-                callback.onServerFound(service.getHost());
+                callback.onServerFound(service.getHost(), main);
                 //-- Callback to Activity
 
             }
@@ -194,6 +194,6 @@ public class InitConnectionHelper
     //-- Receiving Methods
 
     public interface InitConnectionHelperCallback{
-        void onServerFound( InetAddress serverAddress);
+        void onServerFound( InetAddress serverAddress, JSONObject main);
     }
 }

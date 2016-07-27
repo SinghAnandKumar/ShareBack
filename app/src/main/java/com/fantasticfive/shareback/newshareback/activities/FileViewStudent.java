@@ -14,6 +14,10 @@ import com.fantasticfive.shareback.newshareback.connection.InitConnectionHelper;
 import com.fantasticfive.shareback.newshareback.helpers.PdfViewHelper;
 import com.fantasticfive.shareback.newshareback.utils.DirHelper;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.net.InetAddress;
 import java.util.LinkedHashSet;
 
@@ -99,7 +103,17 @@ public class FileViewStudent extends AppCompatActivity
     }
 
     @Override
-    public void onServerFound(InetAddress serverAddress) {
+    public void onServerFound(InetAddress serverAddress, JSONObject main) {
+        try {
+            JSONArray arr = main.getJSONArray(Constants.JSON_FILES);
+            //Download File
+            for(int i=0; i<arr.length(); i++) {
+                dirHelper.downloadFile(arr.getString(i), true);
+            }
+            //-- Download File
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         eventHelper.listenForEvents();
     }
 

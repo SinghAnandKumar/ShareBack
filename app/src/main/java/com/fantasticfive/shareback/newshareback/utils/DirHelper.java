@@ -70,6 +70,10 @@ public class DirHelper implements DirPhysical.Callback, FileReceiver.Callback{
 
     }
 
+    public String getCurrentDir(){
+        return currDir;
+    }
+
     public void getParentList(){
         currDir = (new File(currDir)).getParent() + "/";
         lister = new DirPhysical(context, this);

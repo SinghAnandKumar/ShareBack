@@ -73,10 +73,10 @@ public class DirExplorerActivity extends Dialog
         Toast.makeText(context, "Clicked File: "+item, Toast.LENGTH_SHORT).show();
 
         if(isChecked){
-            set.add(item);
+            set.add(helper.getCurrentDir() + item);
         }
         else{
-            set.remove(item);
+            set.remove(helper.getCurrentDir() + item);
         }
 
         helper.downloadFile(item, isChecked);
