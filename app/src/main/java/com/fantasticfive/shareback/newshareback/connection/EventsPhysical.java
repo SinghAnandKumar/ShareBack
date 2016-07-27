@@ -77,6 +77,7 @@ public class EventsPhysical {
                 }
                 result += temp;
             }
+            Log.e("My Tag", "Event Received: "+result);
             //-- Reading Response
 
             //Filter Latest Event
