@@ -102,7 +102,7 @@ public class FileViewInstructor extends AppCompatActivity
 
         Toast.makeText(FileViewInstructor.this, "Page Changed: "+pageNo, Toast.LENGTH_SHORT).show();
         //Send Event PAGE_CHANGED
-        eventHelper.sendEvent(Constants.EVENT_PAGE_CHANGED, filePath, pageNo, initConnectionHelper.getClientList());
+        //eventHelper.sendEvent(Constants.EVENT_PAGE_CHANGED, filePath, pageNo, initConnectionHelper.getClientList());
         //-- Send Event PAGE_CHANGED
 
     }
