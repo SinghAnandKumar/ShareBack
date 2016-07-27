@@ -31,6 +31,7 @@ public class Constants {
     public static final String JSON_LIST_DIR = "path"; //for ls json object { "path" : "/Data Structure/"} incoming
     public static final String JSON_DIRS = "dirs"; // response { "dirs" : ["dir1","dir2",...] ,
     public static final String JSON_FILES = "files"; // "files" : [ "file1" , "file2", ... ] }
+    public static final String JSON_SERVER_IP = "server_ip";
     public static final String JSON_FILE_DWNLD = "filename"; // for downloading file { "filename" : "abc.pdf" }
     public static final String JSON_TOKEN_NO = "token_no";
     public static final String JSON_PAGE_NOS = "page_nos";

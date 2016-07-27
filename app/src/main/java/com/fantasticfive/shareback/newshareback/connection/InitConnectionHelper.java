@@ -2,6 +2,7 @@ package com.fantasticfive.shareback.newshareback.connection;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.nsd.NsdServiceInfo;
 import android.util.Log;
 import android.widget.Toast;
@@ -105,9 +106,14 @@ public class InitConnectionHelper
                 main.put(Constants.JSON_TOKEN_NO, connections--);
                 JSONArray files = new JSONArray(shareBucket.getFiles());
                 JSONArray pageNos = new JSONArray(shareBucket.getPageNos());
+
+                main.put(Constants.JSON_SERVER_IP, Constants.IP_FILE_SERVER);
+
+                //Sending ShareBucket
                 main.put(Constants.JSON_FILES, files);
                 main.put(Constants.JSON_PAGE_NOS, pageNos);
                 main.put(Constants.JSON_CURR_FILE, shareBucket.getCurrentFile());
+                //Sending ShareBucket
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -151,6 +157,14 @@ public class InitConnectionHelper
                 nsdHelper.stopDiscovery();
                 //-- Stop Discovery
 
+                //Set File Server IP
+                SharedPreferences pref = context.getSharedPreferences(Constants.PREFERENCES, Context.MODE_PRIVATE);
+
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString(Constants.PREF_SERVER_IP, main.getString(Constants.JSON_SERVER_IP));
+                editor.commit();
+                Constants.IP_FILE_SERVER = main.getString(Constants.JSON_SERVER_IP);
+                //-- Set File Server IP
 
                 //Register own Services
                 Thread t = new Thread(new Runnable() {
