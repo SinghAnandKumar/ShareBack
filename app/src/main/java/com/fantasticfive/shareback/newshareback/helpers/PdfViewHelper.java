@@ -57,6 +57,18 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
         }
     }
 
+    public void addFileS(String relLocation){
+
+        if(!bucket.contains(relLocation)) {
+            //add to bucket and thumbnail
+            BucketItem item = new BucketItem();
+            item.setFileName((new File(relLocation)).getName());
+            item.setFilePath(relLocation);
+            bucket.add(relLocation, item);
+            //-- add to bucket and thumbnail
+        }
+    }
+
     public void removeFile(String file){
         //remove from bucket and thumbnail
         bucket.popFile(file);
@@ -134,7 +146,7 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
 
     public void onFilesAddedS(LinkedHashSet<String> arrFiles){
         for(String filePath : arrFiles)
-            addFile(filePath);
+            addFileS(filePath);
     }
 
     public void onSessionClosedS(){
