@@ -38,7 +38,7 @@ public class FeedbackHelper extends AsyncTask<String, Void, Void> {
 
             //Sending Request
             JSONObject main = new JSONObject();
-            main.put(Constants.JSON_FB_TYPE, Constants.FB_SESSION_NAME);
+            main.put(Constants.JSON_FB_TYPE, Constants.FB_EVENT_FEEBACK);
             main.put(Constants.JSON_FB_SESSION_ID, sessionId);
             main.put(Constants.JSON_FB_RATING, rating);
             main.put(Constants.JSON_FB_COMMENT, comment);
