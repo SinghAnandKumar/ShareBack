@@ -10,10 +10,12 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
+import com.fantasticfive.shareback.alertDialogs.SessionCloseAlert;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.ShareBucket;
 import com.fantasticfive.shareback.newshareback.connection.EventHelper;
 import com.fantasticfive.shareback.newshareback.connection.InitConnectionHelper;
+import com.fantasticfive.shareback.newshareback.dialogs.SessionCloseDialog;
 import com.fantasticfive.shareback.newshareback.helpers.PdfViewHelper;
 import com.fantasticfive.shareback.newshareback.utils.DirHelper;
 
@@ -26,7 +28,8 @@ import java.util.LinkedHashSet;
 public class FileViewInstructor extends AppCompatActivity
         implements DirHelper.FileDwnldCallback
         ,PdfViewHelper.PdfHelperCallback
-        ,DirExplorerActivity.DirExplorerActivityCallback{
+        ,DirExplorerActivity.DirExplorerActivityCallback
+        ,SessionCloseDialog.SessionCloseCallback {
 
     LinearLayout scrollView = null;
     ImageButton addFileButton = null;
@@ -64,6 +67,14 @@ public class FileViewInstructor extends AppCompatActivity
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        SessionCloseDialog alert = new SessionCloseDialog();
+        alert.show(getSupportFragmentManager(), "Dismiss");
+        //super.onBackPressed();
     }
 
     private void init(){
@@ -121,6 +132,17 @@ public class FileViewInstructor extends AppCompatActivity
         //Send Event FILES_ADDED
         eventHelper.sendFiles( files, initConnectionHelper.getClientList());
         //-- Send Event FILES_ADDED
+    }
+
+    @Override
+    public void onPositiveClick() {
+        Toast.makeText(FileViewInstructor.this, "Positive", Toast.LENGTH_SHORT).show();
+        eventHelper.sendEvent(Constants.EVENT_SESSION_CLOSED, "", -1, initConnectionHelper.getClientList());
+    }
+
+    @Override
+    public void onNegativeClick() {
+        Toast.makeText(FileViewInstructor.this, "Negative", Toast.LENGTH_SHORT).show();
     }
     //-- Callbacks
 }

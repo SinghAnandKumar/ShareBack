@@ -7,10 +7,12 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
+import com.fantasticfive.shareback.alertDialogs.FeedbackAlert;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.ShareBucket;
 import com.fantasticfive.shareback.newshareback.connection.EventHelper;
 import com.fantasticfive.shareback.newshareback.connection.InitConnectionHelper;
+import com.fantasticfive.shareback.newshareback.dialogs.FeedbackDialog;
 import com.fantasticfive.shareback.newshareback.helpers.PdfViewHelper;
 import com.fantasticfive.shareback.newshareback.utils.DirHelper;
 
@@ -99,6 +101,9 @@ public class FileViewStudent extends AppCompatActivity
 
     @Override
     public void onSessionClosedS() {
+
+        showFeedbackAlert(""); //Pop Up for Feedback
+
         pdfViewHelper.onSessionClosedS();
     }
 
@@ -125,5 +130,13 @@ public class FileViewStudent extends AppCompatActivity
     @Override
     public void onFileAdded(String fileName, boolean isSessionFile) {
 
+    }
+
+    private void showFeedbackAlert(String comment){
+        //Show Feedback Alert
+        FeedbackDialog fbDialog = new FeedbackDialog();
+        fbDialog.setComment(comment);
+        fbDialog.show(getSupportFragmentManager(), "Feedback");
+        //-- Show Feedback Alert
     }
 }

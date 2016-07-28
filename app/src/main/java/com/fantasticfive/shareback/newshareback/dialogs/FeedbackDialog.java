@@ -1,9 +1,8 @@
-package com.fantasticfive.shareback.alertDialogs;
+package com.fantasticfive.shareback.newshareback.dialogs;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.drawable.LayerDrawable;
@@ -22,9 +21,9 @@ import com.fantasticfive.shareback.Globals;
 import com.fantasticfive.shareback.R;
 
 /**
- * Created by Sagar on 14-04-2016.
+ * Created by sagar on 28/7/16.
  */
-public class FeedbackAlert extends DialogFragment {
+public class FeedbackDialog extends DialogFragment {
 
     Callback callback;
     Activity activity;
@@ -80,3 +79,4 @@ public class FeedbackAlert extends DialogFragment {
         void onFeedbackDone(String ratings, String comment);
     }
 }
+
