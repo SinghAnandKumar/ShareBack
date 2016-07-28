@@ -16,22 +16,26 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fantasticfive.shareback.Globals;
 import com.fantasticfive.shareback.R;
+import com.fantasticfive.shareback.newshareback.Constants;
+import com.fantasticfive.shareback.newshareback.utils.FeedbackHelper;
 
 /**
  * Created by sagar on 28/7/16.
  */
-public class FeedbackDialog extends DialogFragment {
+public class FeedbackDialog extends DialogFragment implements FeedbackHelper.FeedbackHelperCallback {
 
-    Callback callback;
+    FeedbackCallback callback;
     Activity activity;
     private String comment="";
+    private String sessionId = "";
 
     @Override
     public void onAttach(Activity activity) {
-        callback  = (Callback) activity;
+        callback  = (FeedbackCallback) activity;
         this.activity = activity;
         super.onAttach(activity);
     }
@@ -39,6 +43,9 @@ public class FeedbackDialog extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+        sessionId = savedInstanceState.getString(Constants.KEY_SESSION_ID);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -62,8 +69,10 @@ public class FeedbackDialog extends DialogFragment {
                 .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        callback.onFeedbackDone( ""+ratingBar.getRating(), etComment.getText().toString());
-                        Log.e("my Tag", "Here");
+
+                        FeedbackHelper fbHelper = new FeedbackHelper(FeedbackDialog.this);
+                        fbHelper.execute(sessionId, ""+ratingBar.getRating(), etComment.getText().toString());
+                        //callback.onFeedbackDone( ""+ratingBar.getRating(), etComment.getText().toString());
                     }
                 });
         return builder.create();
@@ -73,9 +82,13 @@ public class FeedbackDialog extends DialogFragment {
         this.comment = comment;
     }
 
+    @Override
+    public void onFeedbackSent() {
+        Toast.makeText(activity, "Feedback Sent", Toast.LENGTH_SHORT).show();
+    }
 
 
-    public interface Callback{
+    public interface FeedbackCallback{
         void onFeedbackDone(String ratings, String comment);
     }
 }

@@ -27,7 +27,8 @@ public class FileViewStudent extends AppCompatActivity
         implements PdfViewHelper.PdfHelperCallback
         ,EventHelper.EventReceiveCallback
         ,InitConnectionHelper.InitConnectionHelperCallback
-        ,DirHelper.FileDwnldCallback{
+        ,DirHelper.FileDwnldCallback
+        ,FeedbackDialog.FeedbackCallback{
 
     LinearLayout container = null;
 
@@ -135,8 +136,17 @@ public class FileViewStudent extends AppCompatActivity
     private void showFeedbackAlert(String comment){
         //Show Feedback Alert
         FeedbackDialog fbDialog = new FeedbackDialog();
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.KEY_SESSION_ID, bucket.getSessionId());
+        fbDialog.setArguments(bundle);
         fbDialog.setComment(comment);
         fbDialog.show(getSupportFragmentManager(), "Feedback");
         //-- Show Feedback Alert
+    }
+
+    @Override
+    public void onFeedbackDone(String ratings, String comment) {
+        Toast.makeText(FileViewStudent.this, "Rating "+ratings+" Comment:"+comment, Toast.LENGTH_SHORT).show();
+        finish();
     }
 }

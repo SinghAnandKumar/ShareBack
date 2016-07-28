@@ -16,6 +16,7 @@ import android.widget.ListView;
 import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.dialogs.DialogIp;
+import com.fantasticfive.shareback.newshareback.dialogs.SessionInfoDialog;
 
 public class NewMainActivity extends AppCompatActivity {
 
@@ -32,8 +33,8 @@ public class NewMainActivity extends AppCompatActivity {
         btnCreateSession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(NewMainActivity.this, FileViewInstructor.class);
-                startActivity(intent);
+                SessionInfoDialog dialog = new SessionInfoDialog();
+                dialog.show(getSupportFragmentManager(), "Session Info");
             }
         });
 

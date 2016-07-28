@@ -19,9 +19,10 @@ import java.util.LinkedHashMap;
  */
 public class ShareBucket {
 
+    String sessionId = "";
     String currentFile = "";
     int DEFAULT_PAGE = 1;
-//    ShareBucketCallback callback = null;
+    LinkedHashMap<String, BucketItem> openedFileSet = new LinkedHashMap<>();
 
     //Constructor for Instructor
     public ShareBucket(){
@@ -29,20 +30,17 @@ public class ShareBucket {
     }
     //-- Constructor for Instructor
 
-   /* //Constructor for Student
-    public ShareBucket(ShareBucketCallback callback){
-        this.callback = callback;
-    }
-    //-- Constructor for Student*/
 
-    LinkedHashMap<String, BucketItem> openedFileSet = new LinkedHashMap<>();
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
+
+    public String getSessionId() {
+        return sessionId;
+    }
 
     public void add(String file, BucketItem item){
         openedFileSet.put(file, item);
-
-        /*if(isStudent()){
-            callback.
-        }*/
     }
 
     public void popFile(String file) { openedFileSet.remove(file); }
@@ -51,9 +49,6 @@ public class ShareBucket {
         BucketItem item  = openedFileSet.get(file);
         item.setPageNo(pageNo);
         openedFileSet.put(file, item);
-
-        /*if(isStudent())
-            callback.onPageChanged(file, pageNo);*/
     }
 
     public LinkedHashMap<String, Integer> getOpenedFileSet(){
@@ -100,6 +95,7 @@ public class ShareBucket {
     public void copyFromJson(JSONObject main){
         //Decode JSON and create ShareBucket
         try {
+            String sessionId = main.getString(Constants.JSON_FB_SESSION_ID);
             JSONArray arrFiles = main.getJSONArray(Constants.JSON_FILES);
             JSONArray arrPageNos = main.getJSONArray(Constants.JSON_PAGE_NOS);
             String currentFile = main.getString(Constants.JSON_CURR_FILE);
@@ -119,6 +115,8 @@ public class ShareBucket {
                 add(arrFiles.getString(i), item);
                 //updatePageNo(arrFiles.getString(i) , arrPageNos.getInt(i) );
             }
+
+            setSessionId(sessionId);
             setCurrentFile(currentFile);
         } catch (JSONException e) {
             e.printStackTrace();

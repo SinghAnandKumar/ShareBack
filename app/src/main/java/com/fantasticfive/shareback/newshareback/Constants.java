@@ -16,6 +16,7 @@ public class Constants {
     public static final int PORT_FILE_S2C=8104;
     public static final int PORT_TOKEN_DIST=8105;
     public static final int PORT_EVENT_DIST = 8106;
+    public static final int PORT_FEEDBACK = 8107;
 
     public static final int BUFFER_SIZE=8192;
     public static final int MAX_CONNECTS = 4;
@@ -33,6 +34,13 @@ public class Constants {
     public static final String JSON_FILES = "files"; // "files" : [ "file1" , "file2", ... ] }
     public static final String JSON_SERVER_IP = "server_ip";
     public static final String JSON_FILE_DWNLD = "filename"; // for downloading file { "filename" : "abc.pdf" }
+    public static final String JSON_FB_TYPE = "type";
+    public static final String JSON_FB_RATING = "rating";
+    public static final String JSON_FB_COMMENT = "comment";
+    public static final String JSON_FB_SESSION_ID = "session_id";
+    public static final String JSON_FB_FILES = "files";
+    public static final String JSON_FB_SESSION_NAME = "session_name";
+
     public static final String JSON_TOKEN_NO = "token_no";
     public static final String JSON_PAGE_NOS = "page_nos";
     public static final String JSON_CURR_FILE = "curr_file";
@@ -41,8 +49,14 @@ public class Constants {
     public static final String JSON_EVENT_FILE = "file";
     public static final String JSON_EVENT_PAGE = "value";
 
+    public static final String FB_EVENT_CREATE_SESSION = "create_session";
+    public static final String FB_EVENT_FEEBACK = "feedback";
+    public static final String FB_EVENT_FILE_ADDED = "file_added";
+    public static final String FB_SESSION_NAME = "session_name";
+
     public static final String END_OF_MSG = "iluvuanand#wtf";
     public static final String NSD_BASE_NAME = "EShareback";
 
     public static final String DIR_ROOT = Environment.getExternalStorageDirectory().getAbsolutePath() + "/EShareback";
+    public static final String KEY_SESSION_ID = "session_id";
 }

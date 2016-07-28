@@ -38,6 +38,7 @@ public class FileViewInstructor extends AppCompatActivity
     PdfViewHelper pdfViewHelper;
     EventHelper eventHelper;
     ShareBucket bucket;
+    String sessionId;
     InitConnectionHelper initConnectionHelper;
 
     @Override
@@ -47,6 +48,8 @@ public class FileViewInstructor extends AppCompatActivity
         setContentView(R.layout.activity_file_view_instructor);
 
         init();
+
+        sessionId = getIntent().getStringExtra(Constants.KEY_SESSION_ID);
 
         //Opening Socket and Services
         Thread t = new Thread(new Runnable() {
@@ -83,6 +86,7 @@ public class FileViewInstructor extends AppCompatActivity
         container = (LinearLayout) findViewById(R.id.fullscreen_content);
 
         bucket = new ShareBucket();
+        bucket.setSessionId(sessionId);
         pdfViewHelper = new PdfViewHelper(this, bucket, this);
         initConnectionHelper = new InitConnectionHelper(this, bucket);
         eventHelper = new EventHelper(this);

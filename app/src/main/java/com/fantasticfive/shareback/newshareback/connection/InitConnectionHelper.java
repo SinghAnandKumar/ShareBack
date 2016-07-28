@@ -100,10 +100,11 @@ public class InitConnectionHelper
     public JSONObject onRequestReceived(Socket skt) {
         if(connections>0) {
 
-            //Creating JSON token_no, files_array, page_array
+            //Creating JSON token_no, session_id, files_array, page_array
             JSONObject main = new JSONObject();
             try {
                 main.put(Constants.JSON_TOKEN_NO, connections--);
+                main.put(Constants.JSON_FB_SESSION_ID, shareBucket.getSessionId());
                 JSONArray files = new JSONArray(shareBucket.getFiles());
                 JSONArray pageNos = new JSONArray(shareBucket.getPageNos());
 
@@ -117,7 +118,7 @@ public class InitConnectionHelper
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            //-- Creating JSON token_no, files_array, page_array
+            //-- Creating JSON token_no, session_id, files_array, page_array
 
             alClients.add(skt.getInetAddress()); //Store Client Address
             return main;
