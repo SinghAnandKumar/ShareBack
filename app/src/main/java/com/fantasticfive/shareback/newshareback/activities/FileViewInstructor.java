@@ -49,7 +49,6 @@ public class FileViewInstructor extends AppCompatActivity
 
         init();
 
-        sessionId = getIntent().getStringExtra(Constants.KEY_SESSION_ID);
 
         //Opening Socket and Services
         Thread t = new Thread(new Runnable() {
@@ -86,7 +85,9 @@ public class FileViewInstructor extends AppCompatActivity
         container = (LinearLayout) findViewById(R.id.fullscreen_content);
 
         bucket = new ShareBucket();
+        sessionId = getIntent().getStringExtra(Constants.KEY_SESSION_ID);
         bucket.setSessionId(sessionId);
+
         pdfViewHelper = new PdfViewHelper(this, bucket, this);
         initConnectionHelper = new InitConnectionHelper(this, bucket);
         eventHelper = new EventHelper(this);

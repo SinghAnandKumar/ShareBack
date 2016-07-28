@@ -44,7 +44,7 @@ public class FeedbackDialog extends DialogFragment implements FeedbackHelper.Fee
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-        sessionId = savedInstanceState.getString(Constants.KEY_SESSION_ID);
+        sessionId = getArguments().getString(Constants.KEY_SESSION_ID);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
@@ -81,6 +81,7 @@ public class FeedbackDialog extends DialogFragment implements FeedbackHelper.Fee
     public void setComment(String comment){
         this.comment = comment;
     }
+    public void setSessionId(String sessionId){ this.sessionId = sessionId; }
 
     @Override
     public void onFeedbackSent() {

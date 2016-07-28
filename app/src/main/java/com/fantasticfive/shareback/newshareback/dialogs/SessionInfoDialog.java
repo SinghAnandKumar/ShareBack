@@ -50,6 +50,7 @@ public class SessionInfoDialog extends DialogFragment implements SessionHelper.S
                     public void onClick(DialogInterface dialog, int id) {
                         String s = et.getText().toString();
                         if(!s.equals("")) {
+                            sessionHelper = new SessionHelper(SessionInfoDialog.this);
                             sessionHelper.execute(s);
                         }
                     }

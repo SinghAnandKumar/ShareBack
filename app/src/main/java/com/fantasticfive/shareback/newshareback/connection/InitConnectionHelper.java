@@ -104,13 +104,13 @@ public class InitConnectionHelper
             JSONObject main = new JSONObject();
             try {
                 main.put(Constants.JSON_TOKEN_NO, connections--);
-                main.put(Constants.JSON_FB_SESSION_ID, shareBucket.getSessionId());
                 JSONArray files = new JSONArray(shareBucket.getFiles());
                 JSONArray pageNos = new JSONArray(shareBucket.getPageNos());
 
                 main.put(Constants.JSON_SERVER_IP, Constants.IP_FILE_SERVER);
 
                 //Sending ShareBucket
+                main.put(Constants.JSON_FB_SESSION_ID, shareBucket.getSessionId());
                 main.put(Constants.JSON_FILES, files);
                 main.put(Constants.JSON_PAGE_NOS, pageNos);
                 main.put(Constants.JSON_CURR_FILE, shareBucket.getCurrentFile());
