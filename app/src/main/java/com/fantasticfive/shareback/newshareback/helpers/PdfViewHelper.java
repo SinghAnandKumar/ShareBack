@@ -39,7 +39,7 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
         this.callback = callback;
         this.bucket = bucket;
 
-        renderer = new FileRenderer(this);
+        renderer = new FileRenderer(activity, this);
 
     }
 
@@ -108,7 +108,7 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
 
                     //set current file and render
                     bucket.setCurrentFile(item.getFilePath());
-                    renderer.render(activity, pdfParent, item.getFilePath(), bucket.getCurrFilePage());
+                    renderer.render(pdfParent, item.getFilePath(), bucket.getCurrFilePage());
                     //-- set current file and render
                 }
                 else{
@@ -129,10 +129,11 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
     public void onPageChangedS(String fileName, int pageNo){
 
         if(fileName.equals(bucket.getCurrentFile())){//If Same file then JumpTo page else render
-            renderer.jumpTo(pageNo);
+            //renderer.jumpTo(pageNo);
+            renderer.renderS(fileName, pageNo);
         }
         else{
-            renderer.render(activity, pdfParent, fileName, pageNo);
+            renderer.render(pdfParent, fileName, pageNo);
         }
 
         bucket.setCurrentFile(fileName, pageNo);//Changing page no in bucket
@@ -142,7 +143,7 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
         if(bucket.isFileDownloaded(fileName)) {
             //Add to bucket and show
             bucket.setCurrentFile(fileName, pageNo);
-            renderer.renderS(activity, pdfParent, fileName, pageNo);
+            renderer.renderS(fileName, pageNo);
             //-- Add to bucket and show
         }
         else{

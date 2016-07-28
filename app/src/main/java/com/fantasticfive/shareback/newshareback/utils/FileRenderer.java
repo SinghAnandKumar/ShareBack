@@ -1,7 +1,10 @@
 package com.fantasticfive.shareback.newshareback.utils;
 
 import android.app.Activity;
+import android.app.Notification;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,8 +13,8 @@ import android.widget.LinearLayout;
 
 import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.newshareback.Constants;
-import com.joanzapata.pdfview.PDFView;
-import com.joanzapata.pdfview.listener.OnPageChangeListener;
+import com.github.barteksc.pdfviewer.PDFView;
+import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
 
 import java.io.File;
 
@@ -24,12 +27,14 @@ public class FileRenderer implements OnPageChangeListener{
     PdfViewCallback callback;
 
     boolean fakePageChangedFlag = true;
+    Activity activity;
 
-    public FileRenderer(PdfViewCallback callback) {
+    public FileRenderer(Activity activity, PdfViewCallback callback) {
         this.callback = callback;
+        this.activity = activity;
     }
 
-    public void renderS(Activity activity, LinearLayout parent, String filePath, int pageNo){
+    public void renderS(String filePath, int pageNo){
         File file = new File(Constants.DIR_ROOT + filePath);
 
         pdfView = (PDFView) activity.findViewById(R.id.pdfview);
@@ -41,14 +46,14 @@ public class FileRenderer implements OnPageChangeListener{
         con.load();
     }
 
-    public void render(Activity activity, LinearLayout parent, String filePath, int pageNo){
+    public void render(LinearLayout parent, String filePath, int pageNo){
         File file = new File(Constants.DIR_ROOT + filePath);
         String name = file.getName();
         View view = null;
 
         //Check File Type
         if(name.toLowerCase().contains(".pdf"))
-            view = renderPdf(activity.getApplicationContext(), file, pageNo);
+            view = renderPdf(file, pageNo);
         //-- Check File Type
 
         if(view != null) {
@@ -60,11 +65,11 @@ public class FileRenderer implements OnPageChangeListener{
     }
 
     public void jumpTo(int pageNo){
-        pdfView.jumpTo(pageNo);
+        jumpTo(pageNo);
     }
 
-    private View renderPdf(Context context, File file, int pageNo){
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    private View renderPdf( File file, int pageNo){
+        LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         pdfView = (PDFView) inflater.inflate(R.layout.innerlayout_pdf, null);
         PDFView.Configurator con = pdfView.fromFile(file)
                 .defaultPage(pageNo)
