@@ -108,7 +108,7 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
 
                     //set current file and render
                     bucket.setCurrentFile(item.getFilePath());
-                    renderer.render(pdfParent, item.getFilePath(), bucket.getCurrFilePage());
+                    renderer.renderS(item.getFilePath(), bucket.getCurrFilePage());
                     //-- set current file and render
                 }
                 else{
@@ -133,7 +133,7 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
             renderer.renderS(fileName, pageNo);
         }
         else{
-            renderer.render(pdfParent, fileName, pageNo);
+            renderer.renderS(fileName, pageNo);
         }
 
         bucket.setCurrentFile(fileName, pageNo);//Changing page no in bucket
