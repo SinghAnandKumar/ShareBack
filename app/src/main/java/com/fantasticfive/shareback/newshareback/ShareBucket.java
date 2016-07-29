@@ -1,9 +1,8 @@
 package com.fantasticfive.shareback.newshareback;
 
-import android.content.ClipData;
 import android.view.View;
 
-import com.fantasticfive.shareback.beans.BucketItem;
+import com.fantasticfive.shareback.newshareback.beans.ShareBucketItem;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,7 +21,7 @@ public class ShareBucket {
     String sessionId = "";
     String currentFile = "";
     int DEFAULT_PAGE = 1;
-    LinkedHashMap<String, BucketItem> openedFileSet = new LinkedHashMap<>();
+    LinkedHashMap<String, ShareBucketItem> openedFileSet = new LinkedHashMap<>();
 
     //Constructor for Instructor
     public ShareBucket(){
@@ -39,14 +38,14 @@ public class ShareBucket {
         return sessionId;
     }
 
-    public void add(String file, BucketItem item){
+    public void add(String file, ShareBucketItem item){
         openedFileSet.put(file, item);
     }
 
     public void popFile(String file) { openedFileSet.remove(file); }
 
     public void updatePageNo(String file, int pageNo){
-        BucketItem item  = openedFileSet.get(file);
+        ShareBucketItem item  = openedFileSet.get(file);
         item.setPageNo(pageNo);
         openedFileSet.put(file, item);
     }
@@ -54,7 +53,7 @@ public class ShareBucket {
     public LinkedHashMap<String, Integer> getOpenedFileSet(){
         LinkedHashMap<String, Integer> set = new LinkedHashMap<String, Integer>();
         for(String filePath : openedFileSet.keySet()){
-            BucketItem item = openedFileSet.get(filePath);
+            ShareBucketItem item = openedFileSet.get(filePath);
             set.put(filePath, item.getPageNo());
         }
         return set;
@@ -68,7 +67,7 @@ public class ShareBucket {
         Collection<Integer> pageNos = new ArrayList<>();
         Collection<String> files = openedFileSet.keySet();
         for(String s : files){
-            BucketItem item = openedFileSet.get(s);
+            ShareBucketItem item = openedFileSet.get(s);
             pageNos.add(item.getPageNo());
         }
         return pageNos;
@@ -104,7 +103,7 @@ public class ShareBucket {
 
             for(int i=0; i<arrFiles.length(); i++){
 
-                BucketItem item = new BucketItem();
+                ShareBucketItem item = new ShareBucketItem();
                 item.setDownloadFlag(false);
                 item.setPageNo(arrPageNos.getInt(i));
                 item.setView(null);

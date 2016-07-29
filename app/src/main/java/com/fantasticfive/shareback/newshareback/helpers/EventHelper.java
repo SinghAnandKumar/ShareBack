@@ -1,11 +1,11 @@
-package com.fantasticfive.shareback.newshareback.connection;
+package com.fantasticfive.shareback.newshareback.helpers;
 
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.fantasticfive.shareback.newshareback.Constants;
-import com.fantasticfive.shareback.newshareback.ShareBucket;
+import com.fantasticfive.shareback.newshareback.physical.EventsPhysical;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,13 +13,12 @@ import org.json.JSONObject;
 
 import java.net.InetAddress;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 
 /**
  * Created by sagar on 21/7/16.
  */
-public class EventHelper implements EventsPhysical.Callback{
+public class EventHelper implements EventsPhysical.Callback {
 
     int eventId = 1;
     Context context;
@@ -142,6 +141,10 @@ public class EventHelper implements EventsPhysical.Callback{
                 break;
         }
         //-- Perform corresponding action
+    }
+
+    public void packUp(){
+        sender.stopListening();
     }
 
     public interface EventReceiveCallback{

@@ -1,11 +1,7 @@
-package com.fantasticfive.shareback.newshareback.utils;
+package com.fantasticfive.shareback.newshareback.fileoperation;
 
 import android.app.Activity;
-import android.app.Notification;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;

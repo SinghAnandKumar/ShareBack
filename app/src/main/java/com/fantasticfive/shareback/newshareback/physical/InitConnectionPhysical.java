@@ -1,4 +1,4 @@
-package com.fantasticfive.shareback.newshareback.connection;
+package com.fantasticfive.shareback.newshareback.physical;
 
 import android.net.nsd.NsdServiceInfo;
 import android.util.Log;

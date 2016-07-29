@@ -12,7 +12,6 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatRatingBar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -21,7 +20,7 @@ import android.widget.Toast;
 import com.fantasticfive.shareback.Globals;
 import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.newshareback.Constants;
-import com.fantasticfive.shareback.newshareback.utils.FeedbackHelper;
+import com.fantasticfive.shareback.newshareback.helpers.FeedbackHelper;
 
 /**
  * Created by sagar on 28/7/16.
@@ -86,11 +85,12 @@ public class FeedbackDialog extends DialogFragment implements FeedbackHelper.Fee
     @Override
     public void onFeedbackSent() {
         Toast.makeText(activity, "Feedback Sent", Toast.LENGTH_SHORT).show();
+        callback.onFeedbackDone();
     }
 
 
     public interface FeedbackCallback{
-        void onFeedbackDone(String ratings, String comment);
+        void onFeedbackDone();
     }
 }
 

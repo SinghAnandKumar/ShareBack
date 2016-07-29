@@ -1,9 +1,11 @@
-package com.fantasticfive.shareback.newshareback.utils;
+package com.fantasticfive.shareback.newshareback.helpers;
 
 import android.content.Context;
 import android.util.Log;
 
 import com.fantasticfive.shareback.newshareback.beans.DirContentsBean;
+import com.fantasticfive.shareback.newshareback.physical.DirPhysical;
+import com.fantasticfive.shareback.newshareback.fileoperation.FileReceiver;
 
 import java.io.File;
 import java.util.LinkedHashMap;
@@ -12,7 +14,7 @@ import java.util.concurrent.ExecutionException;
 /**
  * Created by sagar on 14/7/16.
  */
-public class DirHelper implements DirPhysical.Callback, FileReceiver.Callback{
+public class DirHelper implements DirPhysical.Callback, FileReceiver.Callback {
 
     String currDir = "";
     DirPhysical lister = null;

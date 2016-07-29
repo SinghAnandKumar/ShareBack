@@ -2,19 +2,17 @@ package com.fantasticfive.shareback.newshareback.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
-import com.fantasticfive.shareback.alertDialogs.FeedbackAlert;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.ShareBucket;
-import com.fantasticfive.shareback.newshareback.connection.EventHelper;
-import com.fantasticfive.shareback.newshareback.connection.InitConnectionHelper;
+import com.fantasticfive.shareback.newshareback.helpers.EventHelper;
+import com.fantasticfive.shareback.newshareback.helpers.InitConnectionHelper;
 import com.fantasticfive.shareback.newshareback.dialogs.FeedbackDialog;
 import com.fantasticfive.shareback.newshareback.helpers.PdfViewHelper;
-import com.fantasticfive.shareback.newshareback.utils.DirHelper;
+import com.fantasticfive.shareback.newshareback.helpers.DirHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -145,8 +143,13 @@ public class FileViewStudent extends AppCompatActivity
     }
 
     @Override
-    public void onFeedbackDone(String ratings, String comment) {
-        Toast.makeText(FileViewStudent.this, "Rating "+ratings+" Comment:"+comment, Toast.LENGTH_SHORT).show();
+    public void onFeedbackDone() {
+
+        Toast.makeText(FileViewStudent.this, "Closing Session", Toast.LENGTH_SHORT).show();
+        //Closing Session
+        eventHelper.packUp();
+        initConnectionHelper.packUp();
         finish();
+        //-- Closing Session
     }
 }

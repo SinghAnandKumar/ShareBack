@@ -2,10 +2,8 @@ package com.fantasticfive.shareback.newshareback.dialogs;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
@@ -18,7 +16,7 @@ import android.widget.Toast;
 import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.activities.FileViewInstructor;
-import com.fantasticfive.shareback.newshareback.utils.SessionHelper;
+import com.fantasticfive.shareback.newshareback.helpers.SessionHelper;
 
 import java.util.concurrent.ExecutionException;
 

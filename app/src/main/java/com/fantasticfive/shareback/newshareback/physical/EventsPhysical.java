@@ -1,4 +1,4 @@
-package com.fantasticfive.shareback.newshareback.connection;
+package com.fantasticfive.shareback.newshareback.physical;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -47,6 +47,14 @@ public class EventsPhysical {
             }
         });
         t.start();
+    }
+
+    public void stopListening(){
+        try {
+            servSkt.close();
+        } catch (IOException e) {
+            //e.printStackTrace();
+        }
     }
 
     private void waitForEvent(){

@@ -10,14 +10,14 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
-import com.fantasticfive.shareback.alertDialogs.SessionCloseAlert;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.ShareBucket;
-import com.fantasticfive.shareback.newshareback.connection.EventHelper;
-import com.fantasticfive.shareback.newshareback.connection.InitConnectionHelper;
+import com.fantasticfive.shareback.newshareback.dialogs.DirExplorerDialog;
+import com.fantasticfive.shareback.newshareback.helpers.EventHelper;
+import com.fantasticfive.shareback.newshareback.helpers.InitConnectionHelper;
 import com.fantasticfive.shareback.newshareback.dialogs.SessionCloseDialog;
 import com.fantasticfive.shareback.newshareback.helpers.PdfViewHelper;
-import com.fantasticfive.shareback.newshareback.utils.DirHelper;
+import com.fantasticfive.shareback.newshareback.helpers.DirHelper;
 
 import java.util.LinkedHashSet;
 
@@ -28,7 +28,7 @@ import java.util.LinkedHashSet;
 public class FileViewInstructor extends AppCompatActivity
         implements DirHelper.FileDwnldCallback
         ,PdfViewHelper.PdfHelperCallback
-        ,DirExplorerActivity.DirExplorerActivityCallback
+        ,DirExplorerDialog.DirExplorerActivityCallback
         ,SessionCloseDialog.SessionCloseCallback {
 
     LinearLayout scrollView = null;
@@ -63,7 +63,7 @@ public class FileViewInstructor extends AppCompatActivity
         addFileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog dialog = new DirExplorerActivity(FileViewInstructor.this);
+                Dialog dialog = new DirExplorerDialog(FileViewInstructor.this);
                 dialog.setTitle("Server files");
                 dialog.show();
             }
@@ -143,11 +143,16 @@ public class FileViewInstructor extends AppCompatActivity
     public void onPositiveClick() {
         Toast.makeText(FileViewInstructor.this, "Positive", Toast.LENGTH_SHORT).show();
         eventHelper.sendEvent(Constants.EVENT_SESSION_CLOSED, "", -1, initConnectionHelper.getClientList());
+
+        //Closing Connections
+        initConnectionHelper.packUp();
+        finish();
+        //-- Closing Connections
     }
 
     @Override
     public void onNegativeClick() {
-        Toast.makeText(FileViewInstructor.this, "Negative", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(FileViewInstructor.this, "Negative", Toast.LENGTH_SHORT).show();
     }
     //-- Callbacks
 }

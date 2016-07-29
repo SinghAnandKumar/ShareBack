@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.fantasticfive.shareback.newshareback.utils.FileSender;
+import com.fantasticfive.shareback.newshareback.fileoperation.FileSender;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
 public class FileUploadActivity extends AppCompatActivity implements FileSender.Callback {

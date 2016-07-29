@@ -1,6 +1,5 @@
-package com.fantasticfive.shareback.newshareback.connection;
+package com.fantasticfive.shareback.newshareback.helpers;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.nsd.NsdServiceInfo;
@@ -9,6 +8,7 @@ import android.widget.Toast;
 
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.ShareBucket;
+import com.fantasticfive.shareback.newshareback.physical.InitConnectionPhysical;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -193,6 +193,11 @@ public class InitConnectionHelper
 
     }
     //-- Receiving Methods
+
+    public void packUp(){
+        nsdHelper.unregisterService();
+        conPhysical.closeSocket();
+    }
 
     public interface InitConnectionHelperCallback{
         void onServerFound( InetAddress serverAddress, JSONObject main);

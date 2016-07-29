@@ -1,4 +1,4 @@
-package com.fantasticfive.shareback.newshareback.utils;
+package com.fantasticfive.shareback.newshareback.helpers;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -19,29 +19,24 @@ import java.net.Socket;
 /**
  * Created by sagar on 28/7/16.
  */
-public class FeedbackHelper extends AsyncTask<String, Void, Void> {
+public class SessionHelper extends AsyncTask<String, Void, String> {
 
-    FeedbackHelperCallback callback;
-    public FeedbackHelper(FeedbackHelperCallback callback) {
+    SessionHelperCallback callback;
+    public SessionHelper(SessionHelperCallback callback) {
         this.callback = callback;
     }
 
     @Override
-    protected Void doInBackground(String... strings) {
-
-        String sessionId = strings[0];
-        int rating = Integer.parseInt(strings[1]);
-        String comment = strings[2];
+    protected String doInBackground(String... strings) {
 
         try {
             Socket skt = new Socket(Constants.IP_FILE_SERVER, Constants.PORT_FEEDBACK);
+            String sessionName = strings[0];
 
             //Sending Request
             JSONObject main = new JSONObject();
-            main.put(Constants.JSON_FB_TYPE, Constants.FB_EVENT_FEEBACK);
-            main.put(Constants.JSON_FB_SESSION_ID, sessionId);
-            main.put(Constants.JSON_FB_RATING, rating);
-            main.put(Constants.JSON_FB_COMMENT, comment);
+            main.put(Constants.JSON_FB_TYPE, Constants.FB_EVENT_CREATE_SESSION);
+            main.put(Constants.JSON_FB_SESSION_NAME, sessionName);
 
             PrintWriter out = new PrintWriter(
                     new BufferedWriter(
@@ -52,7 +47,21 @@ public class FeedbackHelper extends AsyncTask<String, Void, Void> {
             out.flush();
             //-- Sending Request
 
-            return null;
+            //Reading Response
+            BufferedReader br = new BufferedReader(new InputStreamReader(skt.getInputStream()));
+            String temp = "";
+            String result = "";
+            while((temp = br.readLine()) != null){
+                if(temp.contains(Constants.END_OF_MSG)){
+                    temp = temp.replace(Constants.END_OF_MSG, "");
+                    result+=temp;
+                    break;
+                }
+                result += temp;
+            }
+            //-- Reading Response
+
+            return result;
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -64,12 +73,12 @@ public class FeedbackHelper extends AsyncTask<String, Void, Void> {
     }
 
     @Override
-    protected void onPostExecute(Void aVoid) {
-        callback.onFeedbackSent();
-        super.onPostExecute(aVoid);
+    protected void onPostExecute(String sessionId) {
+        callback.onSessionIdReceived();
+        super.onPostExecute(sessionId);
     }
 
-    public interface FeedbackHelperCallback{
-        void onFeedbackSent();
+    public interface SessionHelperCallback{
+        void onSessionIdReceived();
     }
 }

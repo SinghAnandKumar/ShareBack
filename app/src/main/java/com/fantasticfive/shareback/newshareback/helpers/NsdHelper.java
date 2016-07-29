@@ -1,4 +1,4 @@
-package com.fantasticfive.shareback.newshareback.connection;
+package com.fantasticfive.shareback.newshareback.helpers;
 
 import android.content.Context;
 import android.content.pm.ServiceInfo;

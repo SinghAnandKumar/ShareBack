@@ -8,8 +8,8 @@ import android.widget.Button;
 import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.ShareBucket;
-import com.fantasticfive.shareback.newshareback.connection.EventHelper;
-import com.fantasticfive.shareback.newshareback.connection.InitConnectionHelper;
+import com.fantasticfive.shareback.newshareback.helpers.EventHelper;
+import com.fantasticfive.shareback.newshareback.helpers.InitConnectionHelper;
 
 import java.util.LinkedHashSet;
 

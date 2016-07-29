@@ -11,9 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
-import com.fantasticfive.shareback.beans.BucketItem;
+import com.fantasticfive.shareback.newshareback.beans.ShareBucketItem;
 import com.fantasticfive.shareback.newshareback.ShareBucket;
-import com.fantasticfive.shareback.newshareback.utils.FileRenderer;
+import com.fantasticfive.shareback.newshareback.fileoperation.FileRenderer;
 
 import java.io.File;
 import java.util.LinkedHashSet;
@@ -47,7 +47,7 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
 
         if(!bucket.contains(relLocation)) {
             //add to bucket and thumbnail
-            BucketItem item = new BucketItem();
+            ShareBucketItem item = new ShareBucketItem();
             item.setFileName((new File(relLocation)).getName());
             item.setFilePath(relLocation);
             View view = addFileThumbnail(item);
@@ -62,7 +62,7 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
 
         if(!bucket.contains(relLocation)) {
             //add to bucket and thumbnail
-            BucketItem item = new BucketItem();
+            ShareBucketItem item = new ShareBucketItem();
             item.setFileName((new File(relLocation)).getName());
             item.setFilePath(relLocation);
             bucket.add(relLocation, item);
@@ -81,7 +81,7 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
         bucket.setDownloadFlag(filePath);
     }
 
-    private View addFileThumbnail( final BucketItem item){
+    private View addFileThumbnail( final ShareBucketItem item){
         LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.inner_snackbar_item, null);
 
@@ -121,7 +121,7 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
         return view;
     }
 
-    public boolean isDownloaded(BucketItem item){
+    public boolean isDownloaded(ShareBucketItem item){
         return item.getDownloadFlag();
     }
 
