@@ -34,7 +34,7 @@ public class DirExplorerDialog extends Dialog
         this.context = activity;
         this.callback = (DirExplorerActivityCallback) activity;
 
-        setContentView(R.layout.activity_explorer);
+        setContentView(R.layout.dialog_dir_explorer);
         init();
 
         helper = new DirHelper(context, this, (DirHelper.FileDwnldCallback) activity);

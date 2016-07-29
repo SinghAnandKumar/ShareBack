@@ -74,7 +74,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_file_view_client"
             android:theme="@style/FullscreenTheme" />
-        <activity android:name=".FileUploadActivity"></activity>
+        <activity android:name=".newshareback.activities.ManageFilesActivity"></activity>
         <activity android:name=".newshareback.activities.NsdActivity"></activity>
         <activity android:name=".newshareback.activities.FileViewStudent"></activity>
     </application>

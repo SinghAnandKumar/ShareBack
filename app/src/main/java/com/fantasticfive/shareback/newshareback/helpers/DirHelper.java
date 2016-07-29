@@ -39,6 +39,13 @@ public class DirHelper implements DirPhysical.Callback, FileReceiver.Callback {
     }
     //-- Constructor for Student
 
+    //Constructor for Management Activity
+    public DirHelper(Context context, Callback callback){
+        this.context = context;
+        this.callback = callback;
+    }
+
+    //-- Constructor for Management Activity
 
 
     public void getItemList(String dir){

@@ -20,7 +20,7 @@ import com.fantasticfive.shareback.newshareback.dialogs.SessionInfoDialog;
 
 public class NewMainActivity extends AppCompatActivity {
 
-    AppCompatButton btnCreateSession, btnJoinSession;
+    AppCompatButton btnCreateSession, btnJoinSession, btnManageFiles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,14 @@ public class NewMainActivity extends AppCompatActivity {
             }
         });
 
+        btnManageFiles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(NewMainActivity.this, ManageFilesActivity.class);
+                startActivity(intent);
+            }
+        });
+
         ListView recyclerView = (ListView) findViewById(R.id.cachedFiles);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
         for(int i=0; i<20; i++){
@@ -57,6 +65,7 @@ public class NewMainActivity extends AppCompatActivity {
     public void init(){
         btnCreateSession = (AppCompatButton) findViewById(R.id.btnCreateSession);
         btnJoinSession = (AppCompatButton) findViewById(R.id.btnJoinSession);
+        btnManageFiles = (AppCompatButton) findViewById(R.id.btnManageFiles);
     }
 
     @Override
