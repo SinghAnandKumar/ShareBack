@@ -55,6 +55,11 @@ public class DirHelper implements DirPhysical.Callback, FileReceiver.Callback {
         Log.e("My Tag", "Getting Item List");
     }
 
+    public void refresh(){
+        lister = new DirPhysical(context, this);
+        lister.execute(currDir);
+    }
+
     private void getFile(String fileName){
         FileReceiver receiver = new FileReceiver(context, this);
         receiver.execute(fileName);

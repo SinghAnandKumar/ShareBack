@@ -52,7 +52,7 @@ public class EventsPhysical {
     public void stopListening(){
         try {
             servSkt.close();
-        } catch (IOException e) {
+        } catch (Exception e) {
             //e.printStackTrace();
         }
     }

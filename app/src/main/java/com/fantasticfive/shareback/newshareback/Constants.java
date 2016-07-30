@@ -17,6 +17,7 @@ public class Constants {
     public static final int PORT_TOKEN_DIST=8105;
     public static final int PORT_EVENT_DIST = 8106;
     public static final int PORT_FEEDBACK = 8107;
+    public static final int PORT_FILE_OEPRATIONS = 8108;
 
     public static final int BUFFER_SIZE=8192;
     public static final int MAX_CONNECTS = 4;
@@ -41,6 +42,11 @@ public class Constants {
     public static final String JSON_FB_FILES = "files";
     public static final String JSON_FB_SESSION_NAME = "session_name";
 
+    public static final String JSON_FO_OPERATION = "operation";
+    public static final String JSON_FO_OLD_FILE = "old_file";
+    public static final String JSON_FO_NEW_FILE = "new_file";
+    public static final String JSON_FO_DIR_PATH = "new_dir";
+
     public static final String JSON_TOKEN_NO = "token_no";
     public static final String JSON_PAGE_NOS = "page_nos";
     public static final String JSON_CURR_FILE = "curr_file";
@@ -53,6 +59,12 @@ public class Constants {
     public static final String FB_EVENT_FEEBACK = "feedback";
     public static final String FB_EVENT_FILE_ADDED = "file_added";
     public static final String FB_SESSION_NAME = "session_name";
+
+    public static final String FO_MKDIR = "mkdir";
+    public static final String FO_DELETE = "delete";
+    public static final String FO_MOVE = "move";
+    public static final String FO_RENAME = "rename";
+    public static final String FO_COPY = "copy";
 
     public static final String END_OF_MSG = "iluvuanand#wtf";
     public static final String NSD_BASE_NAME = "EShareback";
