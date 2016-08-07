@@ -1,16 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="16dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="4dp">
 
-    <android.support.v7.widget.AppCompatEditText
-        android:id="@+id/etSessionName"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="4dp"
-        android:hint="@string/session_name" />
+        android:id="@+id/et_layout">
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/etSessionName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:hint="@string/session_name" />
+    </android.support.design.widget.TextInputLayout>
 
-</LinearLayout>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_layout"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/progress_bar"
+        android:layout_below="@id/et_layout"
+        android:visibility="gone"
+        android:id="@+id/progress_text"
+        android:text="@string/text_wait"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btnCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/material_btn_height"
+        android:background="@android:color/transparent"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="@dimen/btn_margin_ver"
+        android:layout_marginBottom="@dimen/btn_margin_ver"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/et_layout"
+        android:text="Create" />
+
+</RelativeLayout>

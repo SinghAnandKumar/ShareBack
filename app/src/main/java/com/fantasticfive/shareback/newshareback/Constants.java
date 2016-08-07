@@ -18,6 +18,7 @@ public class Constants {
     public static final int PORT_EVENT_DIST = 8106;
     public static final int PORT_FEEDBACK = 8107;
     public static final int PORT_FILE_OEPRATIONS = 8108;
+    public static final int PORT_LOGIN = 8109;
 
     public static final int BUFFER_SIZE=8192;
     public static final int MAX_CONNECTS = 4;
@@ -54,6 +55,9 @@ public class Constants {
     public static final String JSON_EVENT_NAME = "event_name";
     public static final String JSON_EVENT_FILE = "file";
     public static final String JSON_EVENT_PAGE = "value";
+
+    public static final String JSON_USERNAME = "username";
+    public static final String JSON_PASSWORD = "password";
 
     public static final String FB_EVENT_CREATE_SESSION = "create_session";
     public static final String FB_EVENT_FEEBACK = "feedback";

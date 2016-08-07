@@ -3,8 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.fantasticfive.shareback.activity.StartActivity">
     <item
+        android:id="@+id/action_manage_files"
+        android:orderInCategory="100"
+        android:title="Manage Files"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_ip"
         android:orderInCategory="100"
-        android:title="Main Server IP"
+        android:title="Edit Server Address"
         app:showAsAction="never" />
+
 </menu>
