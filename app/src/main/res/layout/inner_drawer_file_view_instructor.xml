@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:layout_height="match_parent"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+    
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/material_drawer_img_margin"
+        android:layout_marginRight="@dimen/material_drawer_img_margin"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo_pdf"
+        android:id="@+id/img_file"/>
+    <!--android:tint="@color/darker_grey"-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:maxLines="1"
+        android:layout_marginLeft="@dimen/material_drawer_img_margin"
+        android:layout_marginRight="@dimen/material_drawer_img_margin"
+        android:layout_toRightOf="@id/img_file"
+        android:gravity="center_vertical"
+        android:ellipsize="end"
+        android:typeface="sans"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:id="@+id/text_file"
+        android:text="Data Structure and PRogramming Development Hello This is sager"/>
+</RelativeLayout>

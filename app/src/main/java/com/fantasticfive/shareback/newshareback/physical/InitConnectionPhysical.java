@@ -66,13 +66,12 @@ public class InitConnectionPhysical {
     public void closeSocket(){
         try {
             servSkt.close();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public JSONObject receiveToken(NsdServiceInfo serviceInfo){
-        String parentName = serviceInfo.getServiceName();
         String ip = serviceInfo.getHost().getHostAddress();
         int port = serviceInfo.getPort();
 
@@ -82,7 +81,7 @@ public class InitConnectionPhysical {
             Log.e("My String", "Connected");
             //Reading Response
             BufferedReader br = new BufferedReader(new InputStreamReader(skt.getInputStream()));
-            String temp = "";
+            String temp;
             String result = "";
             while((temp = br.readLine()) != null){
                 if(temp.contains(Constants.END_OF_MSG)){

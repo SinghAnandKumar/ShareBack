@@ -20,6 +20,7 @@ public class ShareBucket {
 
     String sessionId = "";
     String currentFile = "";
+    String fileServerIp = "";
     int DEFAULT_PAGE = 1;
     LinkedHashMap<String, ShareBucketItem> openedFileSet = new LinkedHashMap<>();
 
@@ -91,13 +92,14 @@ public class ShareBucket {
         return currentFile;
     }
 
-    public void copyFromJson(JSONObject main){
+    public void createFromJSON(JSONObject main){
         //Decode JSON and create ShareBucket
         try {
             String sessionId = main.getString(Constants.JSON_FB_SESSION_ID);
             JSONArray arrFiles = main.getJSONArray(Constants.JSON_FILES);
             JSONArray arrPageNos = main.getJSONArray(Constants.JSON_PAGE_NOS);
             String currentFile = main.getString(Constants.JSON_CURR_FILE);
+            String fileServerIp = main.getString(Constants.JSON_SERVER_IP);
 
             init();
 
@@ -117,6 +119,7 @@ public class ShareBucket {
 
             setSessionId(sessionId);
             setCurrentFile(currentFile);
+            setFileServerIp(fileServerIp);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -164,6 +167,20 @@ public class ShareBucket {
 
     private void init(){
         openedFileSet.clear();
+    }
+
+    public String getFileServerIp() {
+        return fileServerIp;
+    }
+
+    public void setFileServerIp(String fileServerIp) {
+        this.fileServerIp = fileServerIp;
+    }
+
+    public ShareBucketItem getItemAt(int index){
+        ArrayList<String> al = new ArrayList<>(openedFileSet.keySet());
+        ShareBucketItem item = openedFileSet.get(al.get(index));
+        return item;
     }
 
     /*private boolean isStudent(){

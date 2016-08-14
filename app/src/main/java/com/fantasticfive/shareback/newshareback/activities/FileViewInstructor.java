@@ -1,12 +1,19 @@
 package com.fantasticfive.shareback.newshareback.activities;
 
 import android.app.Dialog;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
@@ -17,7 +24,7 @@ import com.fantasticfive.shareback.newshareback.helpers.EventHelper;
 import com.fantasticfive.shareback.newshareback.helpers.InitConnectionHelper;
 import com.fantasticfive.shareback.newshareback.dialogs.SessionCloseDialog;
 import com.fantasticfive.shareback.newshareback.helpers.PdfViewHelper;
-import com.fantasticfive.shareback.newshareback.helpers.DirHelper;
+import com.fantasticfive.shareback.newshareback.helpers.DirFileViewHelper;
 
 import java.util.LinkedHashSet;
 
@@ -26,20 +33,19 @@ import java.util.LinkedHashSet;
  * status bar and navigation/system bar) with user interaction.
  */
 public class FileViewInstructor extends AppCompatActivity
-        implements DirHelper.FileDwnldCallback
+        implements DirFileViewHelper.FileDwnldCallback
         ,PdfViewHelper.PdfHelperCallback
         ,DirExplorerDialog.DirExplorerActivityCallback
         ,SessionCloseDialog.SessionCloseCallback {
-
-    LinearLayout scrollView = null;
-    ImageButton addFileButton = null;
-    LinearLayout container = null;
 
     PdfViewHelper pdfViewHelper;
     EventHelper eventHelper;
     ShareBucket bucket;
     String sessionId;
     InitConnectionHelper initConnectionHelper;
+
+    RelativeLayout overlay;
+    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,23 +55,19 @@ public class FileViewInstructor extends AppCompatActivity
 
         init();
 
-
         //Opening Socket and Services
-        Thread t = new Thread(new Runnable() {
+        new Thread(new Runnable() {
             @Override
             public void run() {
                 initConnectionHelper.openSocket();
             }
-        });
-        t.start();
+        }).start();
         //-- Opening Socket and Services
 
-        addFileButton.setOnClickListener(new View.OnClickListener() {
+        img.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Dialog dialog = new DirExplorerDialog(FileViewInstructor.this);
-                dialog.setTitle("Server files");
-                dialog.show();
+            public void onClick(View view) {
+                showAddFileDialog();
             }
         });
 
@@ -74,15 +76,44 @@ public class FileViewInstructor extends AppCompatActivity
     @Override
     public void onBackPressed() {
 
-        SessionCloseDialog alert = new SessionCloseDialog();
-        alert.show(getSupportFragmentManager(), "Dismiss");
-        //super.onBackPressed();
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            SessionCloseDialog alert = new SessionCloseDialog();
+            alert.show(getSupportFragmentManager(), "Dismiss");
+        }
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.instructor_menus, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.action_add_file: showAddFileDialog(); break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void init(){
-        scrollView = (LinearLayout) findViewById(R.id.horizontalScrollview);
-        addFileButton = (ImageButton) findViewById(R.id.add_file);
-        container = (LinearLayout) findViewById(R.id.fullscreen_content);
+
+        overlay = (RelativeLayout) findViewById(R.id.overlay);
+        img = (ImageView) overlay.findViewById(R.id.img);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
 
         bucket = new ShareBucket();
         sessionId = getIntent().getStringExtra(Constants.KEY_SESSION_ID);
@@ -126,9 +157,12 @@ public class FileViewInstructor extends AppCompatActivity
     @Override
     public void onFileChanged(String filePath, int pageNo) {
         Toast.makeText(FileViewInstructor.this, "File Changed", Toast.LENGTH_SHORT).show();
+        //Hide overlay
+        if(overlay.getVisibility() == View.VISIBLE)
+            overlay.setVisibility(View.GONE);
+
         //Send Event FILE_CHANGED
         eventHelper.sendEvent(Constants.EVENT_FILE_CHANGED, filePath, pageNo, initConnectionHelper.getClientList());
-        //-- Send Event FILE_CHANGED
     }
 
     @Override
@@ -155,4 +189,9 @@ public class FileViewInstructor extends AppCompatActivity
         //Toast.makeText(FileViewInstructor.this, "Negative", Toast.LENGTH_SHORT).show();
     }
     //-- Callbacks
+
+    public void showAddFileDialog(){
+        Dialog dialog = new DirExplorerDialog(FileViewInstructor.this);
+        dialog.show();
+    }
 }

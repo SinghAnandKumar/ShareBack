@@ -1,7 +1,7 @@
 package com.fantasticfive.shareback.newshareback.adapters;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,6 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.newshareback.beans.DirContentsBean;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Created by sagar on 14/7/16.
  */
-public class DirListAdapter extends BaseAdapter implements View.OnClickListener {
+public class DirExplorerAdapter extends BaseAdapter implements View.OnClickListener {
 
     Context context;
     ArrayList<String> dirs,files;
@@ -28,7 +27,7 @@ public class DirListAdapter extends BaseAdapter implements View.OnClickListener 
     LayoutInflater inflater;
     Callback callback;
 
-    public DirListAdapter(Context context, DirContentsBean bean, Callback callback) {
+    public DirExplorerAdapter(Context context, DirContentsBean bean, Callback callback) {
         this.context = context;
         this.callback = callback;
 
@@ -72,8 +71,10 @@ public class DirListAdapter extends BaseAdapter implements View.OnClickListener 
             vi = inflater.inflate(R.layout.inner_dirlist, null);
             holder = new ViewHolder();
             holder.fileName = (TextView) vi.findViewById(R.id.dir_name);
+            holder.fileImage = (ImageView) vi.findViewById(R.id.file_dir_icon);
             holder.checkBox = (CheckBox) vi.findViewById(R.id.checkBox);
             if(!isFile(position)){
+                holder.fileImage.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.folder_icon_small));
                 holder.checkBox.setVisibility(View.INVISIBLE);
             }
             vi.setTag(holder);
@@ -123,6 +124,7 @@ public class DirListAdapter extends BaseAdapter implements View.OnClickListener 
     }
 
     class ViewHolder{
+        ImageView fileImage;
         TextView fileName;
         CheckBox checkBox;
     }

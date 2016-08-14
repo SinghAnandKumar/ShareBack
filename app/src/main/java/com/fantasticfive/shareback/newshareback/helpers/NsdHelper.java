@@ -166,11 +166,11 @@ public class NsdHelper {
     void computeShortestService(NsdServiceInfo nsdServiceInfo){
         //Computing Shortest Service
         serviceCounter++;
-        if(nsdServiceInfo.getServiceName().equals(Constants.NSD_BASE_NAME)){  //If service name is Shareback
+        if(nsdServiceInfo.getServiceName().equals(Constants.NSD_BASE_NAME)){  //If service name is Shareback(i.e. BASE_NAME)
             callback.onServiceDiscovered(nsdServiceInfo);
         }else{
             nearestServ = (nearestServ == null) ? nsdServiceInfo : getNearestServ(nearestServ, nsdServiceInfo);
-            if(serviceCounter >= Constants.MAX_CONNECTS){
+            if(serviceCounter >= Constants.MAX_CONNECTS){  //If found best service out of 4
                 callback.onServiceDiscovered(nearestServ);
             }
         }

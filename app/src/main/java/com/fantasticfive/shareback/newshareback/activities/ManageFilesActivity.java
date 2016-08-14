@@ -7,10 +7,14 @@ import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.SparseBooleanArray;
+import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -18,25 +22,25 @@ import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.newshareback.Constants;
-import com.fantasticfive.shareback.newshareback.adapters.DirListAdapter;
+import com.fantasticfive.shareback.newshareback.adapters.DirManagerAdapter;
 import com.fantasticfive.shareback.newshareback.beans.DirContentsBean;
 import com.fantasticfive.shareback.newshareback.fileoperation.FileSender;
-import com.fantasticfive.shareback.newshareback.helpers.DirHelper;
+import com.fantasticfive.shareback.newshareback.helpers.DirManagerHelper;
 import com.fantasticfive.shareback.newshareback.helpers.FileOperationHelper;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
 import java.io.File;
 
 public class ManageFilesActivity extends AppCompatActivity
-        implements FileSender.Callback ,DirHelper.Callback
-        ,DirListAdapter.Callback
-        , FileOperationHelper.Callback {
+        implements FileSender.Callback ,DirManagerHelper.Callback
+        , DirManagerAdapter.Callback
+        , FileOperationHelper.Callback{
 
     private final int FILE_SELECT_CODE = 1;
     Button btnOk;
     ListView lvDirs;
-    DirHelper dirHelper;
-    DirListAdapter adapter;
+    DirManagerHelper dirHelper;
+    DirManagerAdapter adapter;
     FileOperationHelper fileOperationHelper = null;
 
     String selectedFile = null;
@@ -65,23 +69,23 @@ public class ManageFilesActivity extends AppCompatActivity
         lvDirs = (ListView) findViewById(R.id.list_dir);
         btnOk = (Button) findViewById(R.id.btnOk);
 
-        dirHelper = new DirHelper(getApplicationContext(), this);
+        dirHelper = new DirManagerHelper(getApplicationContext(), this);
         dirHelper.getItemList("");
         fileOperationHelper = new FileOperationHelper(this);
     }
 
     private void upload(){
 
-                //Show FileChooser
-                Intent intent = new Intent(ManageFilesActivity.this, FilePickerActivity.class);
-                intent.putExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false);
-                intent.putExtra(FilePickerActivity.EXTRA_ALLOW_CREATE_DIR, false);
-                intent.putExtra(FilePickerActivity.EXTRA_MODE, FilePickerActivity.MODE_FILE);
-                intent.setType("mime/pdf");
+        //Show FileChooser
+        Intent intent = new Intent(ManageFilesActivity.this, FilePickerActivity.class);
+        intent.putExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false);
+        intent.putExtra(FilePickerActivity.EXTRA_ALLOW_CREATE_DIR, false);
+        intent.putExtra(FilePickerActivity.EXTRA_MODE, FilePickerActivity.MODE_FILE);
+        intent.setType("mime/pdf");
 
-                intent.putExtra(FilePickerActivity.EXTRA_START_PATH, Environment.getExternalStorageDirectory().getPath());
-                startActivityForResult(intent, FILE_SELECT_CODE);
-                //-- Show FileChooser
+        intent.putExtra(FilePickerActivity.EXTRA_START_PATH, Environment.getExternalStorageDirectory().getPath());
+        startActivityForResult(intent, FILE_SELECT_CODE);
+        //-- Show FileChooser
     }
 
     @Override
@@ -199,11 +203,11 @@ public class ManageFilesActivity extends AppCompatActivity
 
     @Override
     public void onListReceive(DirContentsBean bean) {
-        adapter = new DirListAdapter(getApplicationContext(), bean, this);
+        adapter = new DirManagerAdapter(this, bean, this);
         lvDirs.setAdapter(adapter);
     }
 
-    @Override
+    /*@Override
     public void onFileClicked(String item, boolean isChecked) {
         selectedFile = isChecked ? (dirHelper.getCurrentDir()+item) : null;
     }
@@ -212,7 +216,7 @@ public class ManageFilesActivity extends AppCompatActivity
     public void onDirClicked(String item) {
         Toast.makeText(getApplicationContext(), "Clicked Dir: "+item, Toast.LENGTH_SHORT).show();
         dirHelper.getItemList(item);
-    }
+    }*/
 
     @Override
     public void onOperationPerformed() {

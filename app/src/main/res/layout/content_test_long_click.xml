@@ -9,7 +9,12 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.fantasticfive.shareback.TestDialogActivity"
-    tools:showIn="@layout/activity_test_dialog">
+    tools:context="com.fantasticfive.shareback.test.TestLongClick"
+    tools:showIn="@layout/activity_test_long_click">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/list_view"/>
 
 </RelativeLayout>

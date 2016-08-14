@@ -75,6 +75,10 @@ public class Constants {
 
     public static final String DIR_ROOT = Environment.getExternalStorageDirectory().getAbsolutePath() + "/EShareback";
     public static final String KEY_SESSION_ID = "session_id";
+    public static final String KEY_SESSION_IP = "session_ip";
+    public static final String KEY_TOKEN = "token";
+    public static final String KEY_NEW_NSD_NAME = "new_name";
+    public static final String KEY_SHAREBUCKET = "share_bucket";
 
     public static final String[] SUPPORTED_FORMATS= {".pdf", ".txt", ".ppt", ".pptx", ".doc", ".docx", ".xls", ".xlsx", ".rtf", ".wpd"};
 }

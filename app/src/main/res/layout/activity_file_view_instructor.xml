@@ -1,68 +1,42 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
-    tools:context=".newshareback.activities.FileViewInstructor">
+    android:fitsSystemWindows="true">
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
-    
-    <LinearLayout
+    <include layout="@layout/app_bar_layout"/>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/fullscreen_content">
-
-        <com.github.barteksc.pdfviewer.PDFView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/pdfview"/>
-
-    </LinearLayout>
-
-    <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
         android:fitsSystemWindows="true">
 
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="?metaButtonBarStyle"
+        <!--<RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/black_overlay"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:showIn="@layout/app_bar_layout">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Put your content View here!" />
+        </RelativeLayout>-->
 
-            <HorizontalScrollView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scrollbars="none">
+        <include layout="@layout/content_file_view_instructor"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:id="@+id/horizontalScrollview"/>
-
-             </HorizontalScrollView>
-
-            <ImageButton
-                android:layout_width="@dimen/inner_snackbar_width"
-                android:layout_height="@dimen/inner_snackbar_height"
-                android:src="@drawable/add_session_2"
-                android:tint="@color/default_color"
-                android:background="@drawable/frame_stroke"
-                android:layout_margin="@dimen/inner_snackbar_margin"
-                android:id="@+id/add_file"/>
-
-        </LinearLayout>
-    </FrameLayout>
-
-</FrameLayout>
+        <ListView
+            android:id="@+id/nav_list"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:background="#ffffff">
+        </ListView>
+    </android.support.v4.widget.DrawerLayout>
+</RelativeLayout>

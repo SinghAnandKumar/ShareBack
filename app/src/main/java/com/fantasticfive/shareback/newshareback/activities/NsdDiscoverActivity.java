@@ -1,6 +1,7 @@
 package com.fantasticfive.shareback.newshareback.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.net.nsd.NsdServiceInfo;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,9 +16,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
-import com.fantasticfive.shareback.newshareback.helpers.NsdHelper;
+import com.fantasticfive.shareback.newshareback.Constants;
+import com.fantasticfive.shareback.newshareback.helpers.InitConnectionHelper2;
 import com.skyfishjy.library.RippleBackground;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -26,28 +33,39 @@ import java.util.HashSet;
  * Created by sagar on 5/8/16.
  */
 public class NsdDiscoverActivity
-        extends AppCompatActivity implements NsdHelper.Callback{
+        extends AppCompatActivity
+        implements InitConnectionHelper2.Callback{
 
     HashMap<String, NsdServiceInfo> hmServices;
+    HashMap<String, Boolean> hmReady;
     ImageView centerImage;
     RippleBackground rippleBackground;
+    InitConnectionHelper2 connHelper;
+
+    int sessionCount = 0;
+    String parentNsdName = "NOT_INITIALIZED";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_nsd_discover);
+        init();
 
-        hmServices = new HashMap<>();
-
-        centerImage = (ImageView) findViewById(R.id.centerImage);
-        rippleBackground = (RippleBackground) findViewById(R.id.ripple_background);
         rippleBackground.startRippleAnimation();
+        connHelper.startDiscovery();
 
         testCode();
     }
 
-    int sessionCount = 0;
+    private void init(){
+        centerImage = (ImageView) findViewById(R.id.centerImage);
+        rippleBackground = (RippleBackground) findViewById(R.id.ripple_background);
+
+        connHelper = new InitConnectionHelper2(this, this);
+        hmServices = new HashMap<>();
+        hmReady = new HashMap<>();
+    }
+
     private void addSession(String sessionName){
         LayoutInflater inflater = LayoutInflater.from(this);
         View view = inflater.inflate(R.layout.inner_nsd_discover, null);
@@ -73,6 +91,7 @@ public class NsdDiscoverActivity
             @Override
             public void onClick(View view) {
                 Toast.makeText(NsdDiscoverActivity.this, tvSessionName.getText(), Toast.LENGTH_SHORT).show();
+                onSessionSelected(tvSessionName.getText().toString());
             }
         });
 
@@ -89,19 +108,57 @@ public class NsdDiscoverActivity
             String newName = service.getServiceName();
             if(newName.length() < oldName.length()){ //if newLength is smaller
                 hmServices.put(sessionName, service);
+                connHelper.resolveService(service);
             }
             else if(newName.length() == newName.length()){
                 if(newName.charAt(newName.length() -1 ) < oldName.charAt(oldName.length() - 1)){ //if last char is smaller
                     hmServices.put(sessionName, service);
+                    connHelper.resolveService(service);
                 }
             }
         }
         else{
             hmServices.put(sessionName, service);
+            hmReady.put(sessionName, false);
             addSession(sessionName);
         }
         //-- Find Most Suitable Service
 
+
+    }
+
+    @Override
+    public void onServiceResolved(NsdServiceInfo service) {
+        String sessionName = service.getServiceName().split("-")[1]; //Sample service name: EShareBack.Data Structures.1.2
+        if(hmServices.get(sessionName) == service) {
+            hmReady.put(sessionName, true);
+        }
+    }
+
+    private void onSessionSelected(String sessionName){
+
+        /*
+        SHow progress bar
+         */
+
+        NsdServiceInfo service = hmServices.get(sessionName);
+        parentNsdName = service.getServiceName();
+        connHelper.receiveMetaData(service.getHost().getHostAddress());
+    }
+
+    @Override
+    public void onBucketReceived(JSONObject jsonShareBucket) throws JSONException{
+
+        //Create New NSD NAME
+        int token = jsonShareBucket.getInt(Constants.JSON_TOKEN_NO);
+        String newSessionName = parentNsdName + "." + token;
+
+        //Start Student Activity
+        Intent intent = new Intent(this, FileViewStudent.class);
+        intent.putExtra(Constants.KEY_SHAREBUCKET, jsonShareBucket.toString());
+        intent.putExtra(Constants.KEY_NEW_NSD_NAME, newSessionName);
+        startActivity(intent);
+        finish();
 
     }
 
@@ -112,7 +169,18 @@ public class NsdDiscoverActivity
                 @Override
                 public void run() {
                     switch (c){
-                        case 1: addSession("Data Structures And Programming Development"); break;
+                        case 1: addSession("Data Structures And Programming Development");
+                            NsdServiceInfo info = new NsdServiceInfo();
+                            info.setServiceName(Constants.NSD_BASE_NAME+"-Data Structures And Programming Development");
+                        try {
+                            InetAddress address = InetAddress.getByName("192.168.137.175");
+                            Toast.makeText(NsdDiscoverActivity.this, address.getHostAddress()+"", Toast.LENGTH_SHORT).show();
+                            info.setHost(address);
+                        } catch (UnknownHostException e) {
+                            e.printStackTrace();
+                        }
+                            hmServices.put("Data Structures And Programming Development", info);
+                            break;
                         case 2: addSession("Object Oriented Programming"); break;
                         case 3: addSession("Databases And Management Systems"); break;
                         case 4: addSession("Advanced Object Oriented Technology"); break;
@@ -122,4 +190,5 @@ public class NsdDiscoverActivity
         }
 
     }
+
 }

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.newshareback.Constants;
@@ -24,6 +25,8 @@ public class FileRenderer implements OnPageChangeListener{
 
     boolean fakePageChangedFlag = true;
     Activity activity;
+
+    int prevPage = 0;
 
     public FileRenderer(Activity activity, PdfViewCallback callback) {
         this.callback = callback;
@@ -73,6 +76,8 @@ public class FileRenderer implements OnPageChangeListener{
                 .enableSwipe(true);
         con.onPageChange(this);
         con.load();
+
+        prevPage = pageNo;
         fakePageChangedFlag = true;
         return pdfView;
     }
@@ -80,7 +85,7 @@ public class FileRenderer implements OnPageChangeListener{
     @Override
     public void onPageChanged(int page, int pageCount) {
 
-        if(!fakePageChangedFlag) {
+        if(!fakePageChangedFlag) { //If page change is due to file change
             callback.onPageChanged(page);
         }else {
             fakePageChangedFlag = false;

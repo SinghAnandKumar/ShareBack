@@ -16,6 +16,7 @@ import org.json.JSONObject;
 
 import java.net.InetAddress;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 /**
@@ -133,6 +134,16 @@ public class InitConnectionHelper
         nsdHelper.discoverServices();
     }
 
+    public void startServices_S(final String newServiceName){
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                socketOpenByStudent(newServiceName);
+            }
+        });
+        t.start();
+    }
+
     @Override
     public void onServiceDiscovered(final NsdServiceInfo service) {
 
@@ -151,30 +162,22 @@ public class InitConnectionHelper
 
                 //Create ShareBucket
                 Log.e("My Tag", "Creating ShareBucket...");
-                shareBucket.copyFromJson(main);
-                //-- Create ShareBucket
+                shareBucket.createFromJSON(main);
 
-                //Stop Discovery
+                //Stop Service Discovery
                 nsdHelper.stopDiscovery();
-                //-- Stop Discovery
 
-                //Set File Server IP
+                //Set File Server IP in SharedPref
                 SharedPreferences pref = context.getSharedPreferences(Constants.PREFERENCES, Context.MODE_PRIVATE);
 
                 SharedPreferences.Editor editor = pref.edit();
                 editor.putString(Constants.PREF_SERVER_IP, main.getString(Constants.JSON_SERVER_IP));
                 editor.commit();
                 Constants.IP_FILE_SERVER = main.getString(Constants.JSON_SERVER_IP);
-                //-- Set File Server IP
+                //-- Set File Server IP in SharedPref
 
                 //Register own Services
-                Thread t = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        socketOpenByStudent(service.getServiceName() + "." + token);
-                    }
-                });
-                t.start();
+
                 //-- Register own Services
 
                 //Callback to Activity

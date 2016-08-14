@@ -12,20 +12,22 @@ import com.fantasticfive.shareback.newshareback.helpers.EventHelper;
 import com.fantasticfive.shareback.newshareback.helpers.InitConnectionHelper;
 import com.fantasticfive.shareback.newshareback.dialogs.FeedbackDialog;
 import com.fantasticfive.shareback.newshareback.helpers.PdfViewHelper;
-import com.fantasticfive.shareback.newshareback.helpers.DirHelper;
+import com.fantasticfive.shareback.newshareback.helpers.DirFileViewHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.InetAddress;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 
 public class FileViewStudent extends AppCompatActivity
         implements PdfViewHelper.PdfHelperCallback
         ,EventHelper.EventReceiveCallback
         ,InitConnectionHelper.InitConnectionHelperCallback
-        ,DirHelper.FileDwnldCallback
+        ,DirFileViewHelper.FileDwnldCallback
         ,FeedbackDialog.FeedbackCallback{
 
     LinearLayout container = null;
@@ -34,7 +36,7 @@ public class FileViewStudent extends AppCompatActivity
     EventHelper eventHelper;
     ShareBucket bucket;
     InitConnectionHelper initConnectionHelper;
-    DirHelper dirHelper;
+    DirFileViewHelper dirHelper;
 
 
     @Override
@@ -42,21 +44,46 @@ public class FileViewStudent extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_view_student);
 
+        String newNsdName = getIntent().getStringExtra(Constants.KEY_NEW_NSD_NAME);
+        String strShareBucket = getIntent().getStringExtra(Constants.KEY_SHAREBUCKET);
+
+        //Create ShareBucketBucket
+        try {
+            bucket = new ShareBucket();
+            bucket.createFromJSON(new JSONObject(strShareBucket));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        //-- Create ShareBucket
+
         init();
 
         //Search service, connect internally, start own service
-        initConnectionHelper.startDiscovery();
-        //-- Search service, connect internally, start own service
+        //initConnectionHelper.startDiscovery();
+
+        //Download Files
+        Collection<String> files = bucket.getFiles();
+        Iterator<String> itr = files.iterator();
+        while(itr.hasNext()){
+            String file = itr.next();
+            dirHelper.downloadFile(file, true);
+        }
+        //-- Download Files
+
+        //Listen For Events
+        eventHelper.listenForEvents();
+
+        //Start Services(Act as server)
+        initConnectionHelper.startServices_S(newNsdName);
     }
 
     public void init(){
         container = (LinearLayout) findViewById(R.id.fullscreen_content);
 
-        bucket = new ShareBucket();
         pdfViewHelper = new PdfViewHelper(this, bucket, this);
         initConnectionHelper = new InitConnectionHelper(this,this, bucket);
         eventHelper = new EventHelper(this, this, initConnectionHelper);
-        dirHelper = new DirHelper(this, this);
+        dirHelper = new DirFileViewHelper(this, this);
     }
 
     @Override

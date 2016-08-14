@@ -57,7 +57,7 @@ public class NewMainActivity
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(NewMainActivity.this, NsdDiscoverActivity.class);
-                startActivityForResult(intent, NSD_RESULT_CODE);
+                startActivity(intent);
             }
         });
 
@@ -137,18 +137,6 @@ public class NewMainActivity
     private void setServerIP(){
         DialogIp dialog = new DialogIp();
         dialog.show(getSupportFragmentManager(), "Server Ip Dialog");
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if(requestCode == NSD_RESULT_CODE){
-            if(resultCode == RESULT_OK){
-                String text = data.getStringExtra("test_text");
-                Toast.makeText(NewMainActivity.this, text, Toast.LENGTH_SHORT).show();
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override

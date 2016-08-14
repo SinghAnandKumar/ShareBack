@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:background="@android:color/transparent"
+    android:ellipsize="middle"
+    android:maxLines="1"
+    android:maxWidth="100dp"
+    android:textStyle="bold"
+    android:id="@+id/parent_name"/>

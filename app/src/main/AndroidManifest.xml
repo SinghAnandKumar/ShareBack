@@ -81,15 +81,19 @@
             android:name=".newshareback.activities.FileViewInstructor"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_file_view_client"
-            android:theme="@style/FullscreenTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".newshareback.activities.ManageFilesActivity" />
         <activity android:name=".newshareback.activities.NsdActivity" />
         <activity android:name=".newshareback.activities.FileViewStudent" />
         <activity
             android:name=".newshareback.activities.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
-
-        <activity android:name=".newshareback.activities.NsdDiscoverActivity"/>
+            android:label="@string/title_activity_login" />
+        <activity android:name=".newshareback.activities.NsdDiscoverActivity" />
+        <activity
+            android:name=".test.TestLongClick"
+            android:label="@string/title_activity_test_long_click"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

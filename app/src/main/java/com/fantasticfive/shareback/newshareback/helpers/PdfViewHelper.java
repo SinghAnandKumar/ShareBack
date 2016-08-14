@@ -1,16 +1,22 @@
 package com.fantasticfive.shareback.newshareback.helpers;
 
 import android.app.Activity;
-import android.content.Context;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
+import com.fantasticfive.shareback.newshareback.activities.FileViewInstructor;
 import com.fantasticfive.shareback.newshareback.beans.ShareBucketItem;
 import com.fantasticfive.shareback.newshareback.ShareBucket;
 import com.fantasticfive.shareback.newshareback.fileoperation.FileRenderer;
@@ -22,25 +28,28 @@ import java.util.LinkedHashSet;
  * Created by sagar on 24/7/16.
  */
 public class PdfViewHelper implements FileRenderer.PdfViewCallback{
-
     ShareBucket bucket;
     FileRenderer renderer;
     PdfHelperCallback callback;
+    MyAdapter adapter;
 
     Activity activity;
     LinearLayout pdfParent;
-    LinearLayout thumbnailParent;
+    ListView listView;
+    DrawerLayout drawer;
 
     public PdfViewHelper(Activity activity, ShareBucket bucket, PdfHelperCallback callback){
 
         this.pdfParent = (LinearLayout) activity.findViewById(R.id.fullscreen_content);
-        this.thumbnailParent = (LinearLayout) activity.findViewById(R.id.horizontalScrollview);
+        this.listView = (ListView) activity.findViewById(R.id.nav_list);
+        this.drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
         this.activity = activity;
         this.callback = callback;
+
         this.bucket = bucket;
-
         renderer = new FileRenderer(activity, this);
-
+        adapter = new MyAdapter();
+        listView.setAdapter(adapter);
     }
 
     public void addFile(String relLocation){
@@ -50,10 +59,10 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
             ShareBucketItem item = new ShareBucketItem();
             item.setFileName((new File(relLocation)).getName());
             item.setFilePath(relLocation);
-            View view = addFileThumbnail(item);
-            item.setView(view);
 
             bucket.add(relLocation, item);
+
+            adapter.notifyDataSetChanged();
             //-- add to bucket and thumbnail
         }
     }
@@ -63,7 +72,7 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
         if(!bucket.contains(relLocation)) {
             //add to bucket and thumbnail
             ShareBucketItem item = new ShareBucketItem();
-            item.setFileName((new File(relLocation)).getName());
+            item.setFileName(   (new File(relLocation)).getName()   );
             item.setFilePath(relLocation);
             bucket.add(relLocation, item);
             //-- add to bucket and thumbnail
@@ -73,52 +82,11 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
     public void removeFile(String file){
         //remove from bucket and thumbnail
         bucket.popFile(file);
-        thumbnailParent.removeView(bucket.getView(file));
         //-- remove from bucket and thumbnail
     }
 
     public void setDownloadFlag(String filePath){
         bucket.setDownloadFlag(filePath);
-    }
-
-    private View addFileThumbnail( final ShareBucketItem item){
-        LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.inner_snackbar_item, null);
-
-        ImageView ivThumbnail = (ImageView) view.findViewById(R.id.inner_snackbar_thumbnail);
-        TextView tvFileName = (TextView) view.findViewById(R.id.inner_snackbar_filename);
-
-        //Set Image and text
-        if(item.getThumbnail() != null){
-            ivThumbnail.setImageDrawable(item.getThumbnail());
-        }
-        tvFileName.setText(item.getFileName());
-        //-- Set Image and text
-
-        ivThumbnail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(isDownloaded(item)) {
-
-                    //Check if current file is changed
-                    if(!bucket.getCurrentFile().equals(item.getFilePath()))
-                        callback.onFileChanged(item.getFilePath(), item.getPageNo());
-                    //-- Check if current file is changed
-
-                    //set current file and render
-                    bucket.setCurrentFile(item.getFilePath());
-                    renderer.renderS(item.getFilePath(), bucket.getCurrFilePage());
-                    //-- set current file and render
-                }
-                else{
-                    Toast.makeText(activity, "Please Wait", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        thumbnailParent.addView(view);
-        return view;
     }
 
     public boolean isDownloaded(ShareBucketItem item){
@@ -166,11 +134,95 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
 
         //change page in bucket
         bucket.updatePageNo(bucket.getCurrentFile(), pageNo);
-        //-- change page in bucket
 
         //callback to parent
         callback.onPageChanged(bucket.getCurrentFile(), pageNo);
-        //-- callback to parent
+
+    }
+
+    private void fileClicked(ShareBucketItem item){
+        if(isDownloaded(item)) {
+
+            //Check if current file is changed
+            if(!bucket.getCurrentFile().equals(item.getFilePath()))
+                callback.onFileChanged(item.getFilePath(), item.getPageNo());
+
+            //set current file and render
+            bucket.setCurrentFile(item.getFilePath());
+            renderer.renderS(item.getFilePath(), bucket.getCurrFilePage());
+
+            drawer.closeDrawer(Gravity.LEFT);
+        }
+        else{
+            Toast.makeText(activity, "Please Wait", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    class MyAdapter extends BaseAdapter {
+        View prevView = null;
+        @Override
+        public int getCount() {
+            return bucket.getFiles().size()+1;
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return i;
+        }
+
+        @Override
+        public View getView(int position, View view, ViewGroup viewGroup) {
+
+            if(view == null) {
+                View v = LayoutInflater.from(activity)
+                        .inflate(R.layout.inner_drawer_file_view_instructor, null);
+                TextView tv = (TextView) v.findViewById(R.id.text_file);
+                ImageView img = (ImageView) v.findViewById(R.id.img_file);
+
+                if(position == 0){
+                    tv.setText("Add Files");
+                    img.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_library_add_white_24dp));
+                    img.setColorFilter(R.color.dark_grey);
+                    v.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            drawer.closeDrawer(Gravity.LEFT);
+                            ((FileViewInstructor)activity).showAddFileDialog();
+                        }
+                    });
+                    return v;
+                }
+
+                final ShareBucketItem item = bucket.getItemAt(position-1);
+                tv.setText(item.getFileName());
+                img.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.logo_pdf));
+
+                v.setBackground(ContextCompat.getDrawable(activity, R.drawable.ripple_selector));
+                v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        setSelected(view);
+                        fileClicked(item);
+                    }
+                });
+                return v;
+            }
+            return view;
+        }
+
+        private void setSelected(View view){
+            if(prevView != null){
+                prevView.setEnabled(true);
+            }
+
+            view.setEnabled(false);
+            prevView = view;
+        }
     }
 
     public interface PdfHelperCallback{

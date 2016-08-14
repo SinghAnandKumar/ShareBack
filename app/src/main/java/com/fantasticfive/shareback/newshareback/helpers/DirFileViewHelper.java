@@ -14,7 +14,7 @@ import java.util.concurrent.ExecutionException;
 /**
  * Created by sagar on 14/7/16.
  */
-public class DirHelper implements DirPhysical.Callback, FileReceiver.Callback {
+public class DirFileViewHelper implements DirPhysical.Callback, FileReceiver.Callback {
 
     String currDir = "";
     DirPhysical lister = null;
@@ -25,7 +25,7 @@ public class DirHelper implements DirPhysical.Callback, FileReceiver.Callback {
     LinkedHashMap<String, Boolean> downloadQueue = new LinkedHashMap<>();
 
     //Constructor for Instructor
-    public DirHelper(Context context, Callback callback, FileDwnldCallback fdCallback){
+    public DirFileViewHelper(Context context, Callback callback, FileDwnldCallback fdCallback){
         this.context = context;
         this.callback = callback;
         this.fdCallback = fdCallback;
@@ -33,14 +33,14 @@ public class DirHelper implements DirPhysical.Callback, FileReceiver.Callback {
     //-- Constructor for Instructor
 
     //Constructor for Student
-    public DirHelper(Context context, FileDwnldCallback fdCallback){
+    public DirFileViewHelper(Context context, FileDwnldCallback fdCallback){
         this.context = context;
         this.fdCallback = fdCallback;
     }
     //-- Constructor for Student
 
     //Constructor for Management Activity
-    public DirHelper(Context context, Callback callback){
+    public DirFileViewHelper(Context context, Callback callback){
         this.context = context;
         this.callback = callback;
     }
@@ -89,14 +89,17 @@ public class DirHelper implements DirPhysical.Callback, FileReceiver.Callback {
     }
 
     public void getParentList(){
-        currDir = (new File(currDir)).getParent() + "/";
-        lister = new DirPhysical(context, this);
-        lister.execute(currDir);
+        String parent = (new File(currDir)).getParent();
+        if(parent!=null) {
+            currDir = parent + "/";
+            lister = new DirPhysical(context, this);
+            lister.execute(currDir);
+        }
     }
 
     @Override
     public void onListReceive() {
-        DirContentsBean bean = null;
+        DirContentsBean bean;
         try {
             bean = lister.get();
             callback.onListReceive(bean);
