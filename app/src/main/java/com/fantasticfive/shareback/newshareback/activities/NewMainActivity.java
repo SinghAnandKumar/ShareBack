@@ -11,25 +11,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fantasticfive.shareback.Globals;
 import com.fantasticfive.shareback.R;
+import com.fantasticfive.shareback.newshareback.beans.SessionInfoBean;
 import com.fantasticfive.shareback.newshareback.errhandlers.ServerChecker;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.dialogs.DialogIp;
 import com.fantasticfive.shareback.newshareback.dialogs.SessionInfoDialog;
+import com.fantasticfive.shareback.newshareback.fileoperation.SessionInfoChecker;
+
+import java.util.ArrayList;
 
 public class NewMainActivity
         extends AppCompatActivity
-        implements ServerChecker.ServerCheckerCallback {
+        implements SessionInfoChecker.SessionInfoCallback {
 
     AppCompatButton btnCreateSession, btnJoinSession;
     AppBarLayout layout;
@@ -61,12 +68,23 @@ public class NewMainActivity
             }
         });
 
-        ListView recyclerView = (ListView) findViewById(R.id.cachedFiles);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
-        for(int i=0; i<20; i++){
-            adapter.add("Item "+i);
+        //Get Session Info
+        SessionInfoChecker sessionInfoChecker = new SessionInfoChecker(this, this);
+        sessionInfoChecker.execute();
+    }
+
+    private void refreshSessionList(ArrayList<SessionInfoBean> sessionInfoBeans){
+
+        Log.e("My Tag", "Refreshing List");
+
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.recent_session);
+        LayoutInflater inflater = getLayoutInflater();
+        for(SessionInfoBean bean: sessionInfoBeans ){
+            View view = inflater.inflate(R.layout.inner_new_main, null);
+            TextView tvSessionName = (TextView) view.findViewById(R.id.session_name);
+            tvSessionName.setText(bean.getSessionName());
+            linearLayout.addView(view);
         }
-        recyclerView.setAdapter(adapter);
     }
 
     public void init(){
@@ -103,13 +121,6 @@ public class NewMainActivity
     }
 
     @Override
-    protected void onStart() {
-        ServerChecker errChecker = new ServerChecker(this, this);
-        errChecker.execute();
-        super.onStart();
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_start, menu);
@@ -140,10 +151,7 @@ public class NewMainActivity
     }
 
     @Override
-    public void onServerCheckerResponse(boolean isOnline) {
-        if(!isOnline && !snackbar.isShownOrQueued())
-            snackbar.show();
-        else if(isOnline)
-            snackbar.dismiss();
+    public void onSessionInfoResponse(ArrayList<SessionInfoBean> sessionInfoBean) {
+        refreshSessionList(sessionInfoBean);
     }
 }

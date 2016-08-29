@@ -4,6 +4,8 @@
     android:layout_height="wrap_content"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     android:background="@drawable/ripple_selector">
 
     <ImageView
@@ -20,19 +22,21 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
+        android:padding="7dp"
         android:src="@drawable/ic_more_vert_black_24dp"
-        android:tint="@color/darker_grey"
-        android:background="@android:color/transparent"
-        android:id="@+id/options" />
+        android:tint="@color/dark_grey"
+        android:background="@drawable/default_ripple_drawable"
+        android:id="@+id/list_options" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_toRightOf="@id/file_dir_icon"
-        android:layout_toLeftOf="@id/options"
+        android:layout_toLeftOf="@id/list_options"
         android:layout_centerVertical="true"
         android:textColor="@android:color/black"
         android:textSize="16dp"
+        android:typeface="sans"
         android:gravity="center_vertical"
         android:ellipsize="middle"
         android:maxLines="1"

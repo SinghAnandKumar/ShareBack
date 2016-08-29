@@ -82,7 +82,9 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_file_view_client"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".newshareback.activities.ManageFilesActivity" />
+        <activity
+            android:name=".newshareback.activities.ManageFilesActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".newshareback.activities.NsdActivity" />
         <activity android:name=".newshareback.activities.FileViewStudent" />
         <activity

@@ -3,11 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_mkdir"
-        android:orderInCategory="100"
-        android:title="Create Folder"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/action_del"
         android:orderInCategory="100"
         android:title="Delete Selected"
@@ -26,11 +21,6 @@
         android:id="@+id/action_rm"
         android:orderInCategory="100"
         android:title="Rename"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_upload"
-        android:orderInCategory="100"
-        android:title="Upload File"
         app:showAsAction="never" />
 
 </menu>

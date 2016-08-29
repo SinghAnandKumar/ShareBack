@@ -71,6 +71,7 @@
                     android:layout_marginBottom="@dimen/btn_margin_ver"
                     android:background="@drawable/btn_frame"
                     android:id="@+id/btnJoinSession"/>
+
             </LinearLayout>
 
 

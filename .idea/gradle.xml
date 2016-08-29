@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/libs" />
             <option value="$PROJECT_DIR$/libs/filepicker" />
             <option value="$PROJECT_DIR$/libs/pdfviewlib" />
+            <option value="$PROJECT_DIR$/libs/shapeloading" />
           </set>
         </option>
         <option name="myModules">
@@ -22,6 +23,7 @@
             <option value="$PROJECT_DIR$/libs" />
             <option value="$PROJECT_DIR$/libs/filepicker" />
             <option value="$PROJECT_DIR$/libs/pdfviewlib" />
+            <option value="$PROJECT_DIR$/libs/shapeloading" />
           </set>
         </option>
       </GradleProjectSettings>

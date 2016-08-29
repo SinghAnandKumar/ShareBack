@@ -4,17 +4,17 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.SparseBooleanArray;
+import android.support.v7.widget.Toolbar;
 import android.view.ActionMode;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -39,6 +39,8 @@ public class ManageFilesActivity extends AppCompatActivity
     private final int FILE_SELECT_CODE = 1;
     Button btnOk;
     ListView lvDirs;
+    FloatingActionButton fabPaste;
+
     DirManagerHelper dirHelper;
     DirManagerAdapter adapter;
     FileOperationHelper fileOperationHelper = null;
@@ -66,6 +68,13 @@ public class ManageFilesActivity extends AppCompatActivity
     }
 
     private void init(){
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        fabPaste = (FloatingActionButton) findViewById(R.id.fabPaste);
+        fabPaste.hide();
+
         lvDirs = (ListView) findViewById(R.id.list_dir);
         btnOk = (Button) findViewById(R.id.btnOk);
 
@@ -91,7 +100,7 @@ public class ManageFilesActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.file_operations, menu);
+        inflater.inflate(R.menu.menu_upload_mkdir, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -102,7 +111,10 @@ public class ManageFilesActivity extends AppCompatActivity
         switch(item.getItemId()) {
 
             case R.id.action_cp:
-                if(copyFlag){
+                CopyMoveActionMode mode = new CopyMoveActionMode(item);
+                startActionMode(mode);
+                fabPaste.show();
+                /*if(copyFlag){
                     copyFlag = false;
                     item.setTitle("Copy Selected");
                     copy(selectedFile, dirHelper.getCurrentDir());
@@ -111,7 +123,7 @@ public class ManageFilesActivity extends AppCompatActivity
                     copyFlag = true;
                     Toast.makeText(ManageFilesActivity.this, "Go to Dir and Choose \"Paste Here\"", Toast.LENGTH_SHORT).show();
                     item.setTitle("Paste Here");
-                }
+                }*/
                 return true;
 
             case R.id.action_mv:
@@ -226,11 +238,13 @@ public class ManageFilesActivity extends AppCompatActivity
     public void showDialog(final String operationType){
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Title");
+        builder.setTitle("Create Folder");
 
         // Set up the input
-        final EditText input = new EditText(this);
-        builder.setView(input);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view = inflater.inflate(R.layout.dialog_edittext_input, null);
+        final EditText input = (EditText) view.findViewById(R.id.et_input);
+        builder.setView(view);
 
         // Set up the buttons
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -252,5 +266,43 @@ public class ManageFilesActivity extends AppCompatActivity
 
         builder.show();
 
+    }
+
+    class CopyMoveActionMode implements ActionMode.Callback{
+
+        MenuItem item;
+        public CopyMoveActionMode(MenuItem item){
+            this.item = item;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            return false;
+        }
+
+        @Override
+        public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            switch (item.getItemId()){
+                case R.id.action_cp:
+                    mode.setTitle("Choose Copy Location");
+                    fabPaste.show();
+                    break;
+                case R.id.action_mv:
+                    mode.setTitle("Choose Move Location");
+                    fabPaste.show();
+                    break;
+            }
+            return false;
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode actionMode) {
+            fabPaste.hide();
+        }
     }
 }

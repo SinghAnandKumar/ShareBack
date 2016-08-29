@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/libs/filepicker/filepicker.iml" filepath="$PROJECT_DIR$/libs/filepicker/filepicker.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/libs.iml" filepath="$PROJECT_DIR$/libs/libs.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/pdfviewlib/pdfviewlib.iml" filepath="$PROJECT_DIR$/libs/pdfviewlib/pdfviewlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/shapeloading/shapeloading.iml" filepath="$PROJECT_DIR$/libs/shapeloading/shapeloading.iml" />
     </modules>
   </component>
 </project>

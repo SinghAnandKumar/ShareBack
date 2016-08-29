@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_activated="true"
+        android:drawable="@color/colorPrimaryLight">
+        <color android:color="@color/colorPrimaryLight"/>
+    </item>
+
+    <item android:state_activated="false">
+        <ripple
+            android:color="@color/colorPrimary">
+            <item android:drawable="@android:color/white"/>
+        </ripple>
+    </item>
+</selector>

@@ -42,6 +42,10 @@ public class Constants {
     public static final String JSON_FB_SESSION_ID = "session_id";
     public static final String JSON_FB_FILES = "files";
     public static final String JSON_FB_SESSION_NAME = "session_name";
+    public static final String JSON_FB_SESSIONS_INFO = "sm_request";
+    public static final String JSON_FB_INSTRUCTOR_ID = "instructor_id";
+    public static final String JSON_FB_TIMESTAMP = "timestamp";
+
 
     public static final String JSON_FO_OPERATION = "operation";
     public static final String JSON_FO_OLD_FILE = "old_file";
@@ -79,6 +83,8 @@ public class Constants {
     public static final String KEY_TOKEN = "token";
     public static final String KEY_NEW_NSD_NAME = "new_name";
     public static final String KEY_SHAREBUCKET = "share_bucket";
+
+    public static final int NUM_OF_RATINGS = 5;
 
     public static final String[] SUPPORTED_FORMATS= {".pdf", ".txt", ".ppt", ".pptx", ".doc", ".docx", ".xls", ".xlsx", ".rtf", ".wpd"};
 }
