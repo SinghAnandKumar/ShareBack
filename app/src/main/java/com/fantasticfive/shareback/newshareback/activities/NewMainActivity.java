@@ -17,16 +17,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fantasticfive.shareback.Globals;
 import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.newshareback.beans.SessionInfoBean;
-import com.fantasticfive.shareback.newshareback.errhandlers.ServerChecker;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.dialogs.DialogIp;
 import com.fantasticfive.shareback.newshareback.dialogs.SessionInfoDialog;
@@ -50,7 +46,6 @@ public class NewMainActivity
         init();
         actionBarAnimate();
         setPreferredIp();
-
 
         btnCreateSession.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,7 +127,7 @@ public class NewMainActivity
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch(item.getItemId()) {
-            case R.id.action_ip: setServerIP();  return true;
+            case R.id.action_ip: showServerIpDialog();  return true;
             case R.id.action_manage_files: startManageFilesActivity(); return true;
 
             default: return super.onOptionsItemSelected(item);
@@ -145,7 +140,7 @@ public class NewMainActivity
         Constants.IP_FILE_SERVER = (str == null) ? "" : str;
     }
 
-    private void setServerIP(){
+    private void showServerIpDialog(){
         DialogIp dialog = new DialogIp();
         dialog.show(getSupportFragmentManager(), "Server Ip Dialog");
     }
@@ -153,5 +148,10 @@ public class NewMainActivity
     @Override
     public void onSessionInfoResponse(ArrayList<SessionInfoBean> sessionInfoBean) {
         refreshSessionList(sessionInfoBean);
+    }
+
+    @Override
+    public void onConnectErr() {
+        showServerIpDialog();
     }
 }

@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.net.ConnectException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -33,6 +34,7 @@ public class SessionInfoChecker
     SessionInfoCallback callback;
     MessagesPhysical msgs;
     ArrayList<SessionInfoBean> alSessionInfo;
+    boolean connectErr = false;
 
     public SessionInfoChecker(Context context, SessionInfoCallback callback) {
         this.context = context;
@@ -43,6 +45,7 @@ public class SessionInfoChecker
     protected ArrayList<SessionInfoBean> doInBackground(String... strings) {
 
         JSONObject main;
+        ArrayList<SessionInfoBean> al = new ArrayList<>();
         try {
             //Request Message for SESSION_INFO
             main = new JSONObject();
@@ -57,7 +60,6 @@ public class SessionInfoChecker
 
             //Prepare ArrayList
             JSONArray arrSessionInfo = new JSONArray(msg);
-            ArrayList<SessionInfoBean> al = new ArrayList<>();
             for(int i=0; i<arrSessionInfo.length(); i++){
                 SessionInfoBean bean = new SessionInfoBean();
 
@@ -76,8 +78,10 @@ public class SessionInfoChecker
                 al.add(bean);
             }
             //-- Prepare ArrayList
-            return al;
 
+        } catch(ConnectException ex){
+            connectErr = false;
+            ex.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (UnknownHostException e) {
@@ -86,12 +90,15 @@ public class SessionInfoChecker
             e.printStackTrace();
         }
 
-        return null;
+        return al;
     }
 
     @Override
     protected void onPostExecute(ArrayList<SessionInfoBean> sessionInfoBean) {
-        if(!isCancelled()){
+        if(connectErr){
+            callback.onConnectErr();
+        }
+        else if(!isCancelled()){
             callback.onSessionInfoResponse(sessionInfoBean);
         }
         super.onPostExecute(sessionInfoBean);
@@ -135,5 +142,6 @@ public class SessionInfoChecker
 
     public interface SessionInfoCallback {
         void onSessionInfoResponse(ArrayList<SessionInfoBean> sessionInfoBean);
+        void onConnectErr();
     }
 }

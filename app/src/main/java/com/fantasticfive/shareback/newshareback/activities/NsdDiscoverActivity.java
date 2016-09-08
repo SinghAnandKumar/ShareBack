@@ -54,7 +54,7 @@ public class NsdDiscoverActivity
         rippleBackground.startRippleAnimation();
         connHelper.startDiscovery();
 
-        testCode();
+       // testCode();
     }
 
     private void init(){
@@ -68,7 +68,7 @@ public class NsdDiscoverActivity
 
     private void addSession(String sessionName){
         LayoutInflater inflater = LayoutInflater.from(this);
-        View view = inflater.inflate(R.layout.inner_nsd_discover, null);
+        final View view = inflater.inflate(R.layout.inner_nsd_discover, null);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         switch (sessionCount++%4){
@@ -95,14 +95,19 @@ public class NsdDiscoverActivity
             }
         });
 
-        rippleBackground.addView(view);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                rippleBackground.addView(view);
+            }
+        });
     }
 
     @Override
     public void onServiceDiscovered(NsdServiceInfo service) {
 
         //Find Most Suitable Service
-        String sessionName = service.getServiceName().split("-")[1]; //Sample service name: EShareBack.Data Structures.1.2
+        String sessionName = service.getServiceName().split("\\.")[1]; //Sample service name: EShareBack.Data Structures.1.2
         if(hmServices.containsKey(sessionName)){
             String oldName = hmServices.get(sessionName).getServiceName();
             String newName = service.getServiceName();
@@ -141,9 +146,13 @@ public class NsdDiscoverActivity
         SHow progress bar
          */
 
-        NsdServiceInfo service = hmServices.get(sessionName);
-        parentNsdName = service.getServiceName();
-        connHelper.receiveMetaData(service.getHost().getHostAddress());
+        if(hmReady.get(sessionName)) {
+            NsdServiceInfo service = hmServices.get(sessionName);
+            parentNsdName = service.getServiceName();
+            connHelper.receiveMetaData(service.getHost().getHostAddress());
+        }else {
+            Toast.makeText(NsdDiscoverActivity.this, "Please wait...", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

@@ -8,7 +8,7 @@
     <string name="title_activity_file_viewer_activity_client">FileViewerActivityClient</string>
 
 
-    <string name="server_ip">192.168.173.228</string>
+    <string name="server_ip">192.168.100.10</string>
     <string name="title_activity_start">StartActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"

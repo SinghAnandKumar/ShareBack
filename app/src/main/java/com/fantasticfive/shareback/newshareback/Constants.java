@@ -7,7 +7,7 @@ import android.os.Environment;
  */
 public class Constants {
 
-    public static String IP_FILE_SERVER = "192.168.0.2";
+    public static String IP_FILE_SERVER = "192.168.100.10";
     public static final String PREFERENCES = "MyPrefs";
     public static final String PREF_SERVER_IP = "ip";
 
@@ -83,6 +83,7 @@ public class Constants {
     public static final String KEY_TOKEN = "token";
     public static final String KEY_NEW_NSD_NAME = "new_name";
     public static final String KEY_SHAREBUCKET = "share_bucket";
+    public static final String KEY_SESSION_NAME = "sessionName";
 
     public static final int NUM_OF_RATINGS = 5;
 

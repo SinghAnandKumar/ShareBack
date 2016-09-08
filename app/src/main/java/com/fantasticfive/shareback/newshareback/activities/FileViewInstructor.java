@@ -41,7 +41,7 @@ public class FileViewInstructor extends AppCompatActivity
     PdfViewHelper pdfViewHelper;
     EventHelper eventHelper;
     ShareBucket bucket;
-    String sessionId;
+    String sessionId, sessionName = "";
     InitConnectionHelper initConnectionHelper;
 
     RelativeLayout overlay;
@@ -59,7 +59,7 @@ public class FileViewInstructor extends AppCompatActivity
         new Thread(new Runnable() {
             @Override
             public void run() {
-                initConnectionHelper.openSocket();
+                initConnectionHelper.openSocket(sessionName);
             }
         }).start();
         //-- Opening Socket and Services
@@ -117,6 +117,7 @@ public class FileViewInstructor extends AppCompatActivity
 
         bucket = new ShareBucket();
         sessionId = getIntent().getStringExtra(Constants.KEY_SESSION_ID);
+        sessionName = getIntent().getStringExtra(Constants.KEY_SESSION_NAME);
         bucket.setSessionId(sessionId);
 
         pdfViewHelper = new PdfViewHelper(this, bucket, this);

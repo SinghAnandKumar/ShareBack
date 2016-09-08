@@ -43,6 +43,7 @@ public class SessionInfoDialog extends DialogFragment implements SessionHelper.S
     AppCompatButton btnCreate;
     AppCompatEditText et;
 
+    String sessionName = "";
     @Override
     public void onAttach(Activity activity) {
         this.activity = activity;
@@ -73,6 +74,9 @@ public class SessionInfoDialog extends DialogFragment implements SessionHelper.S
                 else if(!s.trim().equals("")) {
                     sessionHelper = new SessionHelper(SessionInfoDialog.this);
                     sessionHelper.execute(s);
+
+                    sessionName = s;
+
                     et.clearFocus();
                     showProgressBar(true);
                 }
@@ -106,6 +110,7 @@ public class SessionInfoDialog extends DialogFragment implements SessionHelper.S
             if(sessionId != null && !sessionHelper.isCancelled()) {
                 Intent intent = new Intent(activity, FileViewInstructor.class);
                 intent.putExtra(Constants.KEY_SESSION_ID, sessionId);
+                intent.putExtra(Constants.KEY_SESSION_NAME, sessionName);
                 Toast.makeText(activity, "Session Id:" + sessionId, Toast.LENGTH_SHORT).show();
                 dismiss();
                 activity.startActivity(intent);

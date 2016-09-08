@@ -32,7 +32,7 @@ public class InitConnectionHelper
     Context context;
     InitConnectionHelperCallback callback;
     ShareBucket shareBucket;
-    String nsdName = Constants.NSD_BASE_NAME;
+    String baseName = Constants.NSD_BASE_NAME;
 
     ArrayList<InetAddress> alClients = new ArrayList<>();
 
@@ -57,17 +57,18 @@ public class InitConnectionHelper
 
     //Sending Methods
 
-    public void openSocket(){  //To be called by root Node and InitConnectionHelper internally
+    public void openSocket(final String subjectName){  //To be called by root Node and InitConnectionHelper internally
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
-                socketOpenByInstructor();
+                socketOpenByInstructor(subjectName);
             }
         });
         t.start();
     }
 
-    private void socketOpenByInstructor(){
+    private void socketOpenByInstructor(String nsdName){
+        nsdName = baseName + "." + nsdName;
         conPhysical.openSocket(Constants.PORT_TOKEN_DIST);
         nsdHelper.registerService(nsdName, Constants.PORT_TOKEN_DIST);
         conPhysical.acceptConnections();
