@@ -18,31 +18,35 @@ import java.net.Socket;
 /**
  * Created by sagar on 30/7/16.
  */
-public class FileOperationPhysical extends AsyncTask<JSONObject, Void, Void> {
+public class FileOperationPhysical extends AsyncTask<JSONObject, Void, Boolean> {
 
     Callback callback;
-    public FileOperationPhysical(Callback callback){
+    String operation;
+    public FileOperationPhysical(Callback callback, String operation){
         this.callback = callback;
+        this.operation = operation;
     }
 
     @Override
-    protected Void doInBackground(JSONObject... jsonObjects) {
+    protected Boolean doInBackground(JSONObject... jsonObjects) {
 
         try {
             Socket skt = new Socket(Constants.IP_FILE_SERVER, Constants.PORT_FILE_OEPRATIONS);
             send(jsonObjects[0], skt);
 
             //receive***
+
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return false;
     }
 
     @Override
-    protected void onPostExecute(Void aVoid) {
-        callback.onOperationPerformed();
-        super.onPostExecute(aVoid);
+    protected void onPostExecute(Boolean aBoolean) {
+        callback.onOperationPerformed(operation, aBoolean);
+        super.onPostExecute(aBoolean);
     }
 
     public void send(JSONObject main, Socket skt) throws IOException {
@@ -73,6 +77,6 @@ public class FileOperationPhysical extends AsyncTask<JSONObject, Void, Void> {
     }
 
     public interface Callback{
-        void onOperationPerformed();
+        void onOperationPerformed(String operation, boolean success);
     }
 }

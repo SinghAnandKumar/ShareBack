@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -30,14 +34,16 @@ import com.fantasticfive.shareback.newshareback.helpers.FileOperationHelper;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class ManageFilesActivity extends AppCompatActivity
-        implements FileSender.Callback ,DirManagerHelper.Callback
+        implements FileSender.Callback
+        , DirManagerHelper.Callback
         , DirManagerAdapter.Callback
-        , FileOperationHelper.Callback{
+        , FileOperationHelper.Callback {
 
     private final int FILE_SELECT_CODE = 1;
-    Button btnOk;
+
     ListView lvDirs;
     FloatingActionButton fabPaste;
 
@@ -50,39 +56,38 @@ public class ManageFilesActivity extends AppCompatActivity
     boolean copyFlag = false;
     boolean moveFlag = false;
 
-    final String OPERATION_MKDIR = "mkdir", OPERATION_RENAME = "rename";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_files);
 
         init();
-
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
 
+    /**
+     * Initialization Code
+     */
     private void init(){
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         fabPaste = (FloatingActionButton) findViewById(R.id.fabPaste);
         fabPaste.hide();
 
         lvDirs = (ListView) findViewById(R.id.list_dir);
-        btnOk = (Button) findViewById(R.id.btnOk);
+//        lvDirs.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+//        lvDirs.setMultiChoiceModeListener(new ListActionMode());
 
         dirHelper = new DirManagerHelper(getApplicationContext(), this);
         dirHelper.getItemList("");
         fileOperationHelper = new FileOperationHelper(this);
     }
 
+    /**
+     * Initiates File Uploading
+     */
     private void upload(){
 
         //Show FileChooser
@@ -139,16 +144,28 @@ public class ManageFilesActivity extends AppCompatActivity
                 }
                 return true;
 
-            case R.id.action_del: deleteFiles(selectedFile); return true;
+            case R.id.action_mkdir:
+                showNewFolderDialog();
+                return true;
 
-            case R.id.action_mkdir: showDialog(OPERATION_MKDIR); return true;
-            case R.id.action_rm: showDialog(OPERATION_RENAME); return true;
-            case R.id.action_upload: upload(); return true;
+            case R.id.action_upload:
+                upload();
+                return true;
+
+            case android.R.id.home:
+                finish();
+                return true;
 
             default: return super.onOptionsItemSelected(item);
         }
     }
 
+    /**
+     * Receives file chooser result
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
@@ -168,33 +185,51 @@ public class ManageFilesActivity extends AppCompatActivity
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private void deleteFiles(String filePaths){
+    // Multi File Operations
+    private void multiDelete(ArrayList<String> fileNames){
+        ArrayList<String> filePaths = new ArrayList<>();
+        for(String fileName: fileNames){
+            filePaths.add(dirHelper.getCurrentDir() + fileName);
+        }
         fileOperationHelper.del(filePaths);
     }
+    //-- Multi File Operations
 
+
+    //Start Single File Operations
     private void copy(String oldPath, String newPath){
         newPath = newPath + (new File(oldPath)).getName();
         fileOperationHelper.copy(oldPath, newPath);
     }
-
     private void move(String oldPath, String newPath){
         newPath = newPath + (new File(oldPath)).getName();
         fileOperationHelper.move(oldPath, newPath);
     }
-
-    private void rename(String oldPath, String newName){
-
+    private void rename(String oldName, String newName){
+        String oldPath = dirHelper.getCurrentDir() + oldName;
         String newPath = dirHelper.getCurrentDir() + newName;
         fileOperationHelper.rename(oldPath, newPath);
     }
-
+    private void delete(String fileName){
+        String filePath = dirHelper.getCurrentDir() + fileName;
+        ArrayList<String> al = new ArrayList<>();
+        al.add(filePath);
+        fileOperationHelper.del(al);
+    }
     private void mkDir(String fileName){
         String filePath = dirHelper.getCurrentDir() + fileName + "/";
         fileOperationHelper.mkDir(filePath);
     }
+    //-- Stop Single File Operations
 
+    /**
+     * Check Supported format of applications
+     * @param filePath
+     * file to check
+     * @return
+     * If supported return true else false
+     */
     private boolean isValid(String filePath){
-
         String fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase();
         for(String s: Constants.SUPPORTED_FORMATS){
             if(s.equals(fileFormat))
@@ -203,6 +238,10 @@ public class ManageFilesActivity extends AppCompatActivity
         return false;
     }
 
+    /**
+     * Called When file is Uploaded
+     * @param status
+     */
     @Override
     public void onFileUploaded(boolean status) {
         if (status) {
@@ -213,37 +252,88 @@ public class ManageFilesActivity extends AppCompatActivity
             Toast.makeText(ManageFilesActivity.this, "Uploading Failed", Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Called when Directories and files are received
+     * @param bean
+     * Contents of Directory
+     */
     @Override
     public void onListReceive(DirContentsBean bean) {
         adapter = new DirManagerAdapter(this, bean, this);
         lvDirs.setAdapter(adapter);
     }
 
-    /*@Override
-    public void onFileClicked(String item, boolean isChecked) {
-        selectedFile = isChecked ? (dirHelper.getCurrentDir()+item) : null;
-    }
-
     @Override
-    public void onDirClicked(String item) {
-        Toast.makeText(getApplicationContext(), "Clicked Dir: "+item, Toast.LENGTH_SHORT).show();
-        dirHelper.getItemList(item);
-    }*/
-
-    @Override
-    public void onOperationPerformed() {
+    public void onOperationPerformed(String operation, Boolean success) {
+        String message = null;
+        switch (operation){
+            case Constants.FO_MKDIR:
+                message = "Directory Create ";
+                break;
+            case Constants.FO_COPY:
+                message = "Copy ";
+                break;
+            case Constants.FO_DELETE:
+                message = "Delete ";
+                break;
+            case Constants.FO_MOVE:
+                message = "Move ";
+                break;
+            case Constants.FO_RENAME:
+                message = "Rename ";
+                break;
+        }
+        if(message != null){
+            if(success) {
+                Toast.makeText(ManageFilesActivity.this, message + "Succeed...", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                Toast.makeText(ManageFilesActivity.this, message + "Failed...", Toast.LENGTH_SHORT).show();
+            }
+        }
         dirHelper.refresh();
     }
 
-    public void showDialog(final String operationType){
+    private void showDeleteDialog(final String fileName){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete \""+fileName+"\" ?");
 
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                delete(fileName);
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    /**
+     * Dialog to get New File Name
+     * @param oldName
+     * old name of file
+     */
+    private void showRenameDialog(final String oldName){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Create Folder");
 
         // Set up the input
         LayoutInflater inflater = LayoutInflater.from(this);
         View view = inflater.inflate(R.layout.dialog_edittext_input, null);
         final EditText input = (EditText) view.findViewById(R.id.et_input);
+        input.setText(oldName);
+
+        //Set Title
+        builder.setTitle("Rename");
+        input.setText(oldName);
+
         builder.setView(view);
 
         // Set up the buttons
@@ -251,10 +341,7 @@ public class ManageFilesActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String text = input.getText().toString();
-                switch (operationType){
-                    case OPERATION_MKDIR: mkDir(text); break;
-                    case OPERATION_RENAME: rename(selectedFile, text); break;
-                }
+                rename(oldName, text);
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -265,9 +352,86 @@ public class ManageFilesActivity extends AppCompatActivity
         });
 
         builder.show();
-
     }
 
+    /**
+     * Dialog to get new folder name
+     */
+    private void showNewFolderDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        // Set up the input
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view = inflater.inflate(R.layout.dialog_edittext_input, null);
+        final EditText input = (EditText) view.findViewById(R.id.et_input);
+
+            builder.setTitle("Create Folder");
+
+        builder.setView(view);
+
+        // Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String text = input.getText().toString();
+                mkDir(text);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+    }
+
+    @Override
+    public void onListOptionSelected(String fileName, MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.action_del:
+                showDeleteDialog(fileName);
+                break;
+            case R.id.action_cp:
+                Toast.makeText(ManageFilesActivity.this, "Not Yet Implemented", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_mv:
+                Toast.makeText(ManageFilesActivity.this, "Not Yet Implemented", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_rm:
+                showRenameDialog(fileName);
+                break;
+
+        }
+    }
+
+    @Override
+    public void onDirClicked(String dirName) {
+        dirHelper.getItemList(dirName);
+    }
+
+    @Override
+    public void onMultiOptionSelected(ArrayList<String> fileNames, MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.multi_copy:
+                Toast.makeText(ManageFilesActivity.this, "Not Implemented", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.multi_delete:
+                multiDelete(fileNames);
+                break;
+
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        dirHelper.getParentList();
+    }
+
+    //Action Mode Implementation
     class CopyMoveActionMode implements ActionMode.Callback{
 
         MenuItem item;
@@ -305,4 +469,5 @@ public class ManageFilesActivity extends AppCompatActivity
             fabPaste.hide();
         }
     }
+    //-- Action Mode Implementation
 }

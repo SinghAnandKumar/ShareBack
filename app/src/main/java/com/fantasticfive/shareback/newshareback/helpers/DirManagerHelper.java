@@ -2,6 +2,7 @@ package com.fantasticfive.shareback.newshareback.helpers;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.fantasticfive.shareback.newshareback.beans.DirContentsBean;
 import com.fantasticfive.shareback.newshareback.physical.DirPhysical;
@@ -30,9 +31,9 @@ public class DirManagerHelper
     //-- Constructor for Instructor
 
     public void getItemList(String dir) {
-        currDir = currDir + dir + "/";
+        String newDir = currDir + dir + "/";;
         lister = new DirPhysical(context, this);
-        lister.execute(currDir);
+        lister.execute(newDir);
         Log.e("My Tag", "Getting Item List");
     }
 
@@ -52,13 +53,17 @@ public class DirManagerHelper
             lister = new DirPhysical(context, this);
             lister.execute(currDir);
         }
+        else{
+            Toast.makeText(context, "In root folder", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
-    public void onListReceive() {
+    public void onListReceive(String newDir) {
         DirContentsBean bean;
         try {
             bean = lister.get();
+            currDir = newDir;
             callback.onListReceive(bean);
         } catch (InterruptedException e) {
             e.printStackTrace();

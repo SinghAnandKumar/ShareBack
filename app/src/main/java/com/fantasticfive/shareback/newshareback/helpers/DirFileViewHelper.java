@@ -49,9 +49,9 @@ public class DirFileViewHelper implements DirPhysical.Callback, FileReceiver.Cal
 
 
     public void getItemList(String dir){
-        currDir = currDir + dir + "/";
+        String newDir= currDir + dir + "/";
         lister = new DirPhysical(context, this);
-        lister.execute(currDir);
+        lister.execute(newDir);
         Log.e("My Tag", "Getting Item List");
     }
 
@@ -98,10 +98,11 @@ public class DirFileViewHelper implements DirPhysical.Callback, FileReceiver.Cal
     }
 
     @Override
-    public void onListReceive() {
+    public void onListReceive(String newDir) {
         DirContentsBean bean;
         try {
             bean = lister.get();
+            currDir = newDir;
             callback.onListReceive(bean);
         } catch (InterruptedException e) {
             e.printStackTrace();

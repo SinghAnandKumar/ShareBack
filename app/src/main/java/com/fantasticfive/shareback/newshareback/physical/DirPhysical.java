@@ -29,6 +29,7 @@ public class DirPhysical extends AsyncTask<String, Void, DirContentsBean> {
 
     Context context = null;
     Callback callback;
+    String newDir;
     public DirPhysical(Context context, Callback callback) {
         this.context = context;
         this.callback = callback;
@@ -47,6 +48,7 @@ public class DirPhysical extends AsyncTask<String, Void, DirContentsBean> {
 
     private String sendReq(String path){
 
+        newDir = path;
         String result = "";
         try {
             Log.e("My Tag", "Connecting....");
@@ -115,11 +117,11 @@ public class DirPhysical extends AsyncTask<String, Void, DirContentsBean> {
     @Override
     protected void onPostExecute(DirContentsBean dirContentsBean) {
 
-        callback.onListReceive();
+        callback.onListReceive(newDir);
         super.onPostExecute(dirContentsBean);
     }
 
     public interface Callback{
-        void onListReceive();
+        void onListReceive(String newDir);
     }
 }

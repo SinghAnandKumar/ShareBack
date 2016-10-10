@@ -88,7 +88,7 @@ public class TestLongClick extends AppCompatActivity {
                      */
                     @Override
                     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                        if (item.getItemId() == R.id.delete){
+                        if (item.getItemId() == R.id.multi_delete){
                             SparseBooleanArray selected = mAdapter.getSelectedIds();
                             short size = (short)selected.size();
                             for (byte I = 0; I<size; I++){

@@ -21,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
-import com.fantasticfive.shareback.newshareback.activities.ManageFilesActivity;
 import com.fantasticfive.shareback.newshareback.beans.DirContentsBean;
 
 import java.util.ArrayList;
@@ -83,30 +82,33 @@ public class DirManagerAdapter extends BaseAdapter
         View vi = convertView;
         ViewHolder holder;
 
-        if(convertView == null){
+        /*if(convertView == null){*/
             vi = inflater.inflate(R.layout.inner_dirmanage, null);
             holder = new ViewHolder();
             holder.fileName = (TextView) vi.findViewById(R.id.dir_name);
             holder.fileImage = (ImageView) vi.findViewById(R.id.file_dir_icon);
             holder.imgOptions = (ImageButton) vi.findViewById(R.id.list_options);
             if(!isFile(position)){
+                Log.e("My Tag", getContent(position)+" is Dir");
                 holder.fileImage.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.folder_icon_small));
+            }else {
+                Log.e("My Tag", getContent(position)+" is File");
             }
 
             holder.imgOptions.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(activity, "Clicked", Toast.LENGTH_SHORT).show();
-                    showOptions(view);
+                    if(!isLongClickEnabled)
+                        showOptions(position, view);
                 }
             });
 
             vi.setTag(holder);
             vi.setId(position);
-        }
+        /*}
         else{
             holder = (ViewHolder) vi.getTag();
-        }
+        }*/
 
         holder.fileName.setText(getContent(position));
         vi.setOnClickListener(this);
@@ -120,13 +122,19 @@ public class DirManagerAdapter extends BaseAdapter
         ImageButton imgOptions;
     }
 
+    /**
+     * This method is used to return content
+     * @param position
+     * position on item in list
+     * @return
+     * Content based on position
+     */
     private String getContent(int position){
-        String name = "";
-        if(position < dirsSize)
-            name = dirs.get(position);
-        else
-            name = files.get(position - dirsSize);
-        return name;
+        return ((position < dirsSize) ? dirs.get(position) : files.get(position - dirsSize));
+    }
+
+    public boolean isFile(int position){
+        return (position < dirsSize) ? false : true;
     }
 
     @Override
@@ -135,22 +143,25 @@ public class DirManagerAdapter extends BaseAdapter
         if(isLongClickEnabled){
             toggleSelection(view);
         }
-        Log.e("My Tag", "Position: "+ view.getId());
-    }
-
-    public boolean isFile(int position){
-        return (position < dirsSize) ? false : true;
+        else if(!isFile(view.getId())){
+            callback.onDirClicked(name);
+        }
+        Log.e("My Tag", "Position: "+ view.getId() +"Left Actions");
     }
 
     @Override
     public boolean onLongClick(View view) {
-        Toast.makeText(activity, "Long Clicked", Toast.LENGTH_SHORT).show();
+        Log.e("My Tag", "Long Clicked Position: "+view.getId());
         activity.startActionMode(new ActionBarCallBack());
+        view.setSelected(false);
         isLongClickEnabled = true;
-        view.setSelected(true);
         return false;
     }
 
+    /**
+     * Toggle UI Selection
+     * @param view
+     */
     private void toggleSelection(View view){
         if(view.isSelected()){
             selectedViews.remove(view);
@@ -162,21 +173,23 @@ public class DirManagerAdapter extends BaseAdapter
         }
     }
 
-    private void showOptions(View anchor){
+    /**
+     * Individual File Operation Menu
+     * @param position
+     * Position in List
+     * @param anchor
+     */
+    private void showOptions(final int position, View anchor){
         PopupMenu popup = new PopupMenu(activity, anchor);
         popup.getMenuInflater().inflate(R.menu.file_operations, popup.getMenu());
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                activity.onOptionsItemSelected(item);
+                callback.onListOptionSelected(getContent(position), item);
                 return false;
             }
         });
         popup.show();
-    }
-
-    public interface Callback{
-
     }
 
     class ActionBarCallBack implements ActionMode.Callback {
@@ -184,14 +197,12 @@ public class DirManagerAdapter extends BaseAdapter
         @Override
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
 
-            switch(item.getItemId()){
-                case R.id.delete:
-                    Toast.makeText(activity, "Delete "+selectedViews.size()+" Items", Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.copy:
-                    Toast.makeText(activity, "Copy "+selectedViews.size()+" Items" , Toast.LENGTH_SHORT).show();
+            ArrayList<String> alFileName = new ArrayList<>();
+            for(View view: selectedViews){
+                alFileName.add(((TextView)view.findViewById(R.id.dir_name)).getText().toString());
             }
-            // TODO Auto-generated method stub
+            callback.onMultiOptionSelected(alFileName, item);
+
             mode.finish();
             return false;
         }
@@ -220,5 +231,12 @@ public class DirManagerAdapter extends BaseAdapter
             mode.setTitle("Choose Files");
             return false;
         }
+
+    }
+
+    public interface Callback{
+        void onListOptionSelected(String fileName, MenuItem item);
+        void onDirClicked(String dirName);
+        void onMultiOptionSelected(ArrayList<String> filesName, MenuItem item);
     }
 }

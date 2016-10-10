@@ -5,6 +5,7 @@ import android.util.Log;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.physical.FileOperationPhysical;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,12 +21,14 @@ public class FileOperationHelper
     FileOperationPhysical fileOperationPhysical = null;
     Callback callback;
 
+    private String operation;
+
     public FileOperationHelper(Callback callback) {
         this.callback = callback;
     }
 
     public void mkDir(String filePath){
-        fileOperationPhysical = new FileOperationPhysical(this);
+        fileOperationPhysical = new FileOperationPhysical(this, Constants.FO_MKDIR);
         JSONObject main = new JSONObject();
         try {
             main.put(Constants.JSON_FO_OPERATION,Constants.FO_MKDIR);
@@ -36,12 +39,13 @@ public class FileOperationHelper
         }
     }
 
-    public void del(String filePath){ //replace String with arraylist
-        fileOperationPhysical = new FileOperationPhysical(this);
+    public void del(ArrayList<String> filePath){
+        fileOperationPhysical = new FileOperationPhysical(this, Constants.FO_DELETE);
         JSONObject main = new JSONObject();
         try {
             main.put(Constants.JSON_FO_OPERATION,Constants.FO_DELETE);
-            main.put(Constants.JSON_FO_OLD_FILE,filePath);
+            JSONArray arr = new JSONArray(filePath);
+            main.put(Constants.JSON_FILES,arr);
             fileOperationPhysical.execute(main);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -50,7 +54,7 @@ public class FileOperationHelper
     }
 
     public void copy(String oldPath, String newPath){
-        fileOperationPhysical = new FileOperationPhysical(this);
+        fileOperationPhysical = new FileOperationPhysical(this, Constants.FO_COPY);
 
         JSONObject main = new JSONObject();
         try {
@@ -64,7 +68,7 @@ public class FileOperationHelper
     }
 
     public void move(String oldPath, String newPath){
-        fileOperationPhysical = new FileOperationPhysical(this);
+        fileOperationPhysical = new FileOperationPhysical(this, Constants.FO_MOVE);
         JSONObject main = new JSONObject();
         try {
             main.put(Constants.JSON_FO_OPERATION,Constants.FO_MOVE);
@@ -77,7 +81,9 @@ public class FileOperationHelper
     }
 
     public void rename(String oldPath, String newPath){
-        fileOperationPhysical = new FileOperationPhysical(this);
+
+        Log.e("My Tag", "Renaming "+oldPath+" to "+newPath);
+        fileOperationPhysical = new FileOperationPhysical(this, Constants.FO_RENAME);
         JSONObject main = new JSONObject();
         try {
             main.put(Constants.JSON_FO_OPERATION,Constants.FO_RENAME);
@@ -90,12 +96,12 @@ public class FileOperationHelper
     }
 
     @Override
-    public void onOperationPerformed() {
+    public void onOperationPerformed(String operation, boolean success) {
         Log.e("My Tag","File operation done");
-        callback.onOperationPerformed();
+        callback.onOperationPerformed(operation, success);
     }
 
     public interface Callback{
-        void onOperationPerformed();
+        void onOperationPerformed(String operation, Boolean success);
     }
 }
