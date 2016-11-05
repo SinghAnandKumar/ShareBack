@@ -8,25 +8,12 @@
     android:background="@android:color/white"
     tools:context=".newshareback.activities.ManageFilesActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.9"
+            android:layout_height="match_parent"
+            android:layout_marginTop="45dp"
             android:divider="@color/dark_grey"
             android:dividerHeight="0.5dp"
             android:id = "@+id/list_dir"/>
-
-        <android.support.v7.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:text="OK"
-            android:id="@+id/btnOk"/>
-    </LinearLayout>
-
 
 </RelativeLayout>

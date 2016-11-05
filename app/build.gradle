@@ -32,4 +32,5 @@ dependencies {
     compile 'com.skyfishjy.ripplebackground:library:1.0.1'
     compile 'com.github.ivbaranov:materiallettericon:0.2.2'
     compile project(':libs:shapeloading')
+    compile 'com.google.code.gson:gson:2.8.0'
 }

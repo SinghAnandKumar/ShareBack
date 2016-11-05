@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,8 +15,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -28,6 +23,7 @@ import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.adapters.DirManagerAdapter;
 import com.fantasticfive.shareback.newshareback.beans.DirContentsBean;
+import com.fantasticfive.shareback.newshareback.dialogs.CopyMoveDialog;
 import com.fantasticfive.shareback.newshareback.fileoperation.FileSender;
 import com.fantasticfive.shareback.newshareback.helpers.DirManagerHelper;
 import com.fantasticfive.shareback.newshareback.helpers.FileOperationHelper;
@@ -40,7 +36,8 @@ public class ManageFilesActivity extends AppCompatActivity
         implements FileSender.Callback
         , DirManagerHelper.Callback
         , DirManagerAdapter.Callback
-        , FileOperationHelper.Callback {
+        , FileOperationHelper.Callback
+        , CopyMoveDialog.CopyMoveDialogCallback{
 
     private final int FILE_SELECT_CODE = 1;
 
@@ -115,45 +112,12 @@ public class ManageFilesActivity extends AppCompatActivity
 
         switch(item.getItemId()) {
 
-            case R.id.action_cp:
-                CopyMoveActionMode mode = new CopyMoveActionMode(item);
-                startActionMode(mode);
-                fabPaste.show();
-                /*if(copyFlag){
-                    copyFlag = false;
-                    item.setTitle("Copy Selected");
-                    copy(selectedFile, dirHelper.getCurrentDir());
-                }
-                else{
-                    copyFlag = true;
-                    Toast.makeText(ManageFilesActivity.this, "Go to Dir and Choose \"Paste Here\"", Toast.LENGTH_SHORT).show();
-                    item.setTitle("Paste Here");
-                }*/
-                return true;
-
-            case R.id.action_mv:
-                if(moveFlag){
-                    moveFlag = false;
-                    item.setTitle("Move Selected");
-                    move(selectedFile, dirHelper.getCurrentDir());
-                }
-                else{
-                    moveFlag = true;
-                    Toast.makeText(ManageFilesActivity.this, "Go to Dir and Choose \"Move Here\"", Toast.LENGTH_SHORT).show();
-                    item.setTitle("Move Here");
-                }
-                return true;
-
             case R.id.action_mkdir:
                 showNewFolderDialog();
                 return true;
 
             case R.id.action_upload:
                 upload();
-                return true;
-
-            case android.R.id.home:
-                finish();
                 return true;
 
             default: return super.onOptionsItemSelected(item);
@@ -186,32 +150,17 @@ public class ManageFilesActivity extends AppCompatActivity
     }
 
     // Multi File Operations
-    private void multiDelete(ArrayList<String> fileNames){
-        ArrayList<String> filePaths = new ArrayList<>();
-        for(String fileName: fileNames){
-            filePaths.add(dirHelper.getCurrentDir() + fileName);
-        }
+    private void multiDelete(ArrayList<String> filePaths){
         fileOperationHelper.del(filePaths);
     }
     //-- Multi File Operations
 
 
     //Start Single File Operations
-    private void copy(String oldPath, String newPath){
-        newPath = newPath + (new File(oldPath)).getName();
-        fileOperationHelper.copy(oldPath, newPath);
-    }
-    private void move(String oldPath, String newPath){
-        newPath = newPath + (new File(oldPath)).getName();
-        fileOperationHelper.move(oldPath, newPath);
-    }
-    private void rename(String oldName, String newName){
-        String oldPath = dirHelper.getCurrentDir() + oldName;
-        String newPath = dirHelper.getCurrentDir() + newName;
+    private void rename(String oldPath, String newPath){
         fileOperationHelper.rename(oldPath, newPath);
     }
-    private void delete(String fileName){
-        String filePath = dirHelper.getCurrentDir() + fileName;
+    private void delete(String filePath){
         ArrayList<String> al = new ArrayList<>();
         al.add(filePath);
         fileOperationHelper.del(al);
@@ -316,23 +265,44 @@ public class ManageFilesActivity extends AppCompatActivity
         dialog.show();
     }
 
+    private void showMultiDeleteDialog(final ArrayList<String> filePaths){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete "+filePaths.size()+" Files?");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                multiDelete(filePaths);
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
     /**
      * Dialog to get New File Name
-     * @param oldName
-     * old name of file
+     * @param oldPath
+     * old Path of file
      */
-    private void showRenameDialog(final String oldName){
+    private void showRenameDialog(final String oldPath){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         // Set up the input
         LayoutInflater inflater = LayoutInflater.from(this);
         View view = inflater.inflate(R.layout.dialog_edittext_input, null);
         final EditText input = (EditText) view.findViewById(R.id.et_input);
-        input.setText(oldName);
 
         //Set Title
         builder.setTitle("Rename");
-        input.setText(oldName);
+        input.setText(new File(oldPath).getName());
 
         builder.setView(view);
 
@@ -340,8 +310,9 @@ public class ManageFilesActivity extends AppCompatActivity
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String text = input.getText().toString();
-                rename(oldName, text);
+                String newName = input.getText().toString();
+                String newPath = dirHelper.getCurrentDir() + newName;
+                rename(oldPath, newPath);
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -352,6 +323,18 @@ public class ManageFilesActivity extends AppCompatActivity
         });
 
         builder.show();
+    }
+
+    public void showCopyMoveDialog(int operation, String fileName){
+        ArrayList<String> al = new ArrayList<>();
+        al.add(fileName);
+        CopyMoveDialog dialog = new CopyMoveDialog(this, dirHelper.getCurrentDir(), operation, al);
+        dialog.show();
+    }
+
+    public void showMultiCopyMoveDialog(int operation, ArrayList<String> filePaths){
+        CopyMoveDialog dialog = new CopyMoveDialog(this, dirHelper.getCurrentDir(), operation, filePaths);
+        dialog.show();
     }
 
     /**
@@ -390,18 +373,20 @@ public class ManageFilesActivity extends AppCompatActivity
     @Override
     public void onListOptionSelected(String fileName, MenuItem item) {
 
+        String filePath = dirHelper.getCurrentDir() + fileName;
+
         switch(item.getItemId()) {
             case R.id.action_del:
-                showDeleteDialog(fileName);
+                showDeleteDialog(filePath);
                 break;
             case R.id.action_cp:
-                Toast.makeText(ManageFilesActivity.this, "Not Yet Implemented", Toast.LENGTH_SHORT).show();
+                showCopyMoveDialog(CopyMoveDialog.COPY, filePath);
                 break;
             case R.id.action_mv:
-                Toast.makeText(ManageFilesActivity.this, "Not Yet Implemented", Toast.LENGTH_SHORT).show();
+                showCopyMoveDialog(CopyMoveDialog.MOVE, filePath);
                 break;
             case R.id.action_rm:
-                showRenameDialog(fileName);
+                showRenameDialog(filePath);
                 break;
 
         }
@@ -415,12 +400,21 @@ public class ManageFilesActivity extends AppCompatActivity
     @Override
     public void onMultiOptionSelected(ArrayList<String> fileNames, MenuItem item) {
 
+        ArrayList<String> filePaths = new ArrayList<>();
+        for(String name: fileNames){
+            String path = dirHelper.getCurrentDir() + name;
+            filePaths.add(path);
+        }
+
         switch (item.getItemId()){
             case R.id.multi_copy:
-                Toast.makeText(ManageFilesActivity.this, "Not Implemented", Toast.LENGTH_SHORT).show();
+                showMultiCopyMoveDialog(CopyMoveDialog.COPY, filePaths);
+                break;
+            case R.id.multi_move:
+                showMultiCopyMoveDialog(CopyMoveDialog.MOVE, filePaths);
                 break;
             case R.id.multi_delete:
-                multiDelete(fileNames);
+                showMultiDeleteDialog(filePaths);
                 break;
 
         }
@@ -429,6 +423,16 @@ public class ManageFilesActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         dirHelper.getParentList();
+    }
+
+    @Override
+    public void copyFiles(String destDir, ArrayList<String> al) {
+        fileOperationHelper.copy(destDir, al);
+    }
+
+    @Override
+    public void moveFiles(String destDir, ArrayList<String> al) {
+        fileOperationHelper.move(destDir, al);
     }
 
     //Action Mode Implementation

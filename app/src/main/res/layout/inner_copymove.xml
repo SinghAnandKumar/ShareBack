@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:background="@drawable/ripple_selector">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/logo_pdf"
+        android:id="@+id/file_dir_icon"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/file_dir_icon"
+        android:layout_centerVertical="true"
+        android:textColor="@android:color/black"
+        android:textSize="16dp"
+        android:typeface="sans"
+        android:gravity="center_vertical"
+        android:ellipsize="middle"
+        android:maxLines="1"
+        android:id="@+id/dir_name"/>
+
+</RelativeLayout>

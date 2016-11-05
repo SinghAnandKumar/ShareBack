@@ -51,6 +51,7 @@ public class Constants {
     public static final String JSON_FO_OLD_FILE = "old_file";
     public static final String JSON_FO_NEW_FILE = "new_file";
     public static final String JSON_FO_DIR_PATH = "new_dir";
+    public static final String JSON_FO_DEST_PATH = "dest_path";
 
     public static final String JSON_TOKEN_NO = "token_no";
     public static final String JSON_PAGE_NOS = "page_nos";
@@ -66,6 +67,7 @@ public class Constants {
     public static final String FB_EVENT_CREATE_SESSION = "create_session";
     public static final String FB_EVENT_FEEBACK = "feedback";
     public static final String FB_EVENT_FILE_ADDED = "file_added";
+    public static final String FB_EVENT_SESSION_DETAILS = "session_details";
     public static final String FB_SESSION_NAME = "session_name";
 
     public static final String FO_MKDIR = "mkdir";
@@ -84,6 +86,7 @@ public class Constants {
     public static final String KEY_NEW_NSD_NAME = "new_name";
     public static final String KEY_SHAREBUCKET = "share_bucket";
     public static final String KEY_SESSION_NAME = "sessionName";
+    public static final String KEY_SESSION_DETAILS = "session_details";
 
     public static final int NUM_OF_RATINGS = 5;
 

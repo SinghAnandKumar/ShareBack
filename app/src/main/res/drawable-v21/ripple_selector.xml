@@ -3,7 +3,7 @@
 
     <item android:state_selected="true"
         android:drawable="@color/colorPrimaryLight">
-        <color android:color="@color/colorPrimaryLight"/>
+        <color android:color="@color/colorSecondryLight"/>
     </item>
 
     <item android:state_selected="false">

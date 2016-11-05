@@ -31,10 +31,21 @@ public class DirManagerHelper
     //-- Constructor for Instructor
 
     public void getItemList(String dir) {
-        String newDir = currDir + dir + "/";;
+        String newDir = currDir + dir + "/";
         lister = new DirPhysical(context, this);
+        newDir = formatPath(newDir);
         lister.execute(newDir);
         Log.e("My Tag", "Getting Item List");
+    }
+
+    protected String formatPath(String path){
+        String[] p = path.split("\\/");
+        String result="";
+        for(String s: p){
+            if (s!=null && !s.isEmpty())
+                result = result+"/"+s;
+        }
+        return  result+"/";
     }
 
     public void refresh() {

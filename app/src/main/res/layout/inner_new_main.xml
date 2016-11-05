@@ -5,10 +5,9 @@
     android:layout_height="wrap_content"
     app:cardUseCompatPadding="true">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
@@ -18,25 +17,34 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginRight="16dp"
+            android:layout_alignParentLeft="true"
             app:mli_shape_color="@color/colorPrimary"
             app:mli_letter="PB"
-            android:id="@+id/icon"/>
+            android:id="@+id/letter"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_toRightOf="@id/letter"
+            android:layout_centerVertical="true"
             android:text="Item"
             android:id="@+id/session_name"/>
 
         <android.support.v7.widget.AppCompatRatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:rating="3"
             style="?ratingBarStyleSmall"
-            android:id="@+id/ratingBar2" />
+            android:id="@+id/rbSession" />
 
+        <!-- Hidden -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:id="@+id/session_id"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 </android.support.v7.widget.CardView>

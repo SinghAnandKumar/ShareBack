@@ -53,27 +53,29 @@ public class FileOperationHelper
 
     }
 
-    public void copy(String oldPath, String newPath){
+    public void copy(String destPath, ArrayList<String> filePaths){
         fileOperationPhysical = new FileOperationPhysical(this, Constants.FO_COPY);
 
         JSONObject main = new JSONObject();
         try {
             main.put(Constants.JSON_FO_OPERATION,Constants.FO_COPY);
-            main.put(Constants.JSON_FO_OLD_FILE,oldPath);
-            main.put(Constants.JSON_FO_NEW_FILE,newPath);
+            main.put(Constants.JSON_FO_DEST_PATH, destPath);
+            JSONArray arr = new JSONArray(filePaths);
+            main.put(Constants.JSON_FILES, arr);
             fileOperationPhysical.execute(main);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public void move(String oldPath, String newPath){
+    public void move(String destPath, ArrayList<String> filePaths){
         fileOperationPhysical = new FileOperationPhysical(this, Constants.FO_MOVE);
         JSONObject main = new JSONObject();
         try {
             main.put(Constants.JSON_FO_OPERATION,Constants.FO_MOVE);
-            main.put(Constants.JSON_FO_OLD_FILE,oldPath);
-            main.put(Constants.JSON_FO_NEW_FILE,newPath);
+            main.put(Constants.JSON_FO_DEST_PATH,destPath);
+            JSONArray arr = new JSONArray(filePaths);
+            main.put(Constants.JSON_FILES, arr);
             fileOperationPhysical.execute(main);
         } catch (JSONException e) {
             e.printStackTrace();

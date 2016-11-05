@@ -79,14 +79,17 @@ public class SessionInfoChecker
             }
             //-- Prepare ArrayList
 
-        } catch(ConnectException ex){
-            connectErr = false;
-            ex.printStackTrace();
-        } catch (JSONException e) {
+        }catch (ConnectException e){
+            connectErr = true;
+            e.printStackTrace();
+        }
+        catch (JSONException e) {
             e.printStackTrace();
         } catch (UnknownHostException e) {
+            connectErr = true;
             e.printStackTrace();
         } catch (IOException e) {
+            connectErr = true;
             e.printStackTrace();
         }
 

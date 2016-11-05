@@ -84,7 +84,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".newshareback.activities.ManageFilesActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:logo="@drawable/ic_done_white_24dp"
+            android:parentActivityName=".newshareback.activities.NewMainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".newshareback.activities.NsdActivity" />
         <activity android:name=".newshareback.activities.FileViewStudent" />
         <activity
@@ -94,8 +96,8 @@
         <activity
             android:name=".test.TestLongClick"
             android:label="@string/title_activity_test_long_click"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".newshareback.activities.SessionDetailsActivity"></activity>
     </application>
 
 </manifest>

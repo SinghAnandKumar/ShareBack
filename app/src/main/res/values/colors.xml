@@ -5,6 +5,12 @@
     <color name="colorAccent">#FF5252</color>
     <color name="colorPrimaryLight">#c8e6c9</color>
 
+    <color name="colorSecondryLight">#90CAF9</color>
+    <color name="colorSecondryDark">#009688</color>
+
+    <color name="lightest_blue">#E3F2FD</color>
+
+    <color name="black">#000000</color>
     <color name="black_overlay">#66000000</color>
     <color name="holo_blue">#00ACC1</color>
     <color name="sky_blue">#B7E9DD</color>
