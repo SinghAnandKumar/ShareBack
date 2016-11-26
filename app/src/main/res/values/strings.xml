@@ -46,5 +46,14 @@
     <string name="text_copy_here">Copy</string>
     <string name="text_comments">Comments</string>
     <string name="text_ratings">Ratings</string>
+    <string name="text_username">Username</string>
+    <string name="pass">Password</string>
+    <string name="text_log_in">LOG IN</string>
+    <string name="text_student">Student</string>
+    <string name="text_instructor">Instructor</string>
+    <string name="text_register">Register</string>
+    <string name="text_lastName">Last Name</string>
+    <string name="text_firstName">First Name</string>
+    <string name="text_email">Email</string>
 
 </resources>

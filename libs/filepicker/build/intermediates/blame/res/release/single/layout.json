@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/release/layout/nnf_filepicker_listitem_checkable.xml",
-        "source": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/src/main/res/layout/nnf_filepicker_listitem_checkable.xml"
-    },
-    {
         "merged": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/release/layout/abc_screen_simple.xml",
         "source": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/abc_screen_simple.xml"
+    },
+    {
+        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/release/layout/nnf_filepicker_listitem_checkable.xml",
+        "source": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/src/main/res/layout/nnf_filepicker_listitem_checkable.xml"
     },
     {
         "merged": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/release/layout/abc_list_menu_item_checkbox.xml",
@@ -36,12 +36,12 @@
         "source": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/select_dialog_singlechoice_material.xml"
     },
     {
-        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/release/layout/nnf_dialog_folder_name.xml",
-        "source": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/src/main/res/layout/nnf_dialog_folder_name.xml"
-    },
-    {
         "merged": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/release/layout/notification_template_lines.xml",
         "source": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/res/layout/notification_template_lines.xml"
+    },
+    {
+        "merged": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/release/layout/nnf_dialog_folder_name.xml",
+        "source": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/src/main/res/layout/nnf_dialog_folder_name.xml"
     },
     {
         "merged": "/home/sagar/AndroidStudioProjects/ShareBack/libs/filepicker/build/intermediates/res/merged/release/layout/notification_media_action.xml",

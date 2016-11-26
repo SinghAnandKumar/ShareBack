@@ -7,7 +7,10 @@ import android.os.Environment;
  */
 public class Constants {
 
-    public static String IP_FILE_SERVER = "192.168.100.10";
+    public static final String SHARED_PREF = "sagar_sb_pref";
+    public static final String PREF_LOGIN_TOKEN = "pref_login_token";
+
+    public static String IP_FILE_SERVER = "192.168.100.12";
     public static final String PREFERENCES = "MyPrefs";
     public static final String PREF_SERVER_IP = "ip";
 
@@ -45,6 +48,8 @@ public class Constants {
     public static final String JSON_FB_SESSIONS_INFO = "sm_request";
     public static final String JSON_FB_INSTRUCTOR_ID = "instructor_id";
     public static final String JSON_FB_TIMESTAMP = "timestamp";
+    public static final String JSON_FB_VALUE = "value";
+
 
 
     public static final String JSON_FO_OPERATION = "operation";
@@ -66,9 +71,12 @@ public class Constants {
 
     public static final String FB_EVENT_CREATE_SESSION = "create_session";
     public static final String FB_EVENT_FEEBACK = "feedback";
+    public static final String FB_EVENT_LOGIN = "login";
+    public static final String FB_EVENT_REGISTER = "register";
     public static final String FB_EVENT_FILE_ADDED = "file_added";
     public static final String FB_EVENT_SESSION_DETAILS = "session_details";
     public static final String FB_SESSION_NAME = "session_name";
+
 
     public static final String FO_MKDIR = "mkdir";
     public static final String FO_DELETE = "delete";

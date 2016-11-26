@@ -4,12 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.newshareback.Constants;
-import com.fantasticfive.shareback.newshareback.SessionDTO;
+import com.fantasticfive.shareback.newshareback.dto.SessionDTO;
 import com.fantasticfive.shareback.newshareback.adapters.CommentsAdapter;
 import com.google.gson.Gson;
 

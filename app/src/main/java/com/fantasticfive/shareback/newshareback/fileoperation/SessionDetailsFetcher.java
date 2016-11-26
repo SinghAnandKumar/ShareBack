@@ -1,8 +1,8 @@
 package com.fantasticfive.shareback.newshareback.fileoperation;
 
 import com.fantasticfive.shareback.newshareback.Constants;
-import com.fantasticfive.shareback.newshareback.SessionDTO;
-import com.fantasticfive.shareback.newshareback.physical.RequestPhysical;
+import com.fantasticfive.shareback.newshareback.dto.SessionDTO;
+import com.fantasticfive.shareback.newshareback.physical.RequestResponsePhysical;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -11,7 +11,7 @@ import org.json.JSONObject;
 /**
  * Created by sagar on 5/11/16.
  */
-public class SessionDetailsFetcher implements RequestPhysical.Callback{
+public class SessionDetailsFetcher implements RequestResponsePhysical.Callback{
 
     Callback callback;
     boolean cancelled = false;
@@ -21,7 +21,7 @@ public class SessionDetailsFetcher implements RequestPhysical.Callback{
     }
 
     public void fetch(String sessionId){
-        RequestPhysical request = new RequestPhysical(Constants.IP_FILE_SERVER, Constants.PORT_FEEDBACK, this);
+        RequestResponsePhysical request = new RequestResponsePhysical(Constants.IP_FILE_SERVER, Constants.PORT_FEEDBACK, this);
         JSONObject main = new JSONObject();
         try {
             main.put(Constants.JSON_FB_TYPE, Constants.FB_EVENT_SESSION_DETAILS);

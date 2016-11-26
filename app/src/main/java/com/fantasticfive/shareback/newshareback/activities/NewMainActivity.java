@@ -27,8 +27,7 @@ import android.widget.Toast;
 
 import com.fantasticfive.shareback.Globals;
 import com.fantasticfive.shareback.R;
-import com.fantasticfive.shareback.beans.SessionDetails;
-import com.fantasticfive.shareback.newshareback.SessionDTO;
+import com.fantasticfive.shareback.newshareback.dto.SessionDTO;
 import com.fantasticfive.shareback.newshareback.beans.SessionInfoBean;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.dialogs.DialogIp;
