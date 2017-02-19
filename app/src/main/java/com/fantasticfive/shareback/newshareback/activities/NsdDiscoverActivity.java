@@ -107,11 +107,11 @@ public class NsdDiscoverActivity
     public void onServiceDiscovered(NsdServiceInfo service) {
 
         //Find Most Suitable Service
-        String sessionName = service.getServiceName().split("\\.")[1]; //Sample service name: EShareBack.Data Structures.1.2
+        String sessionName = service.getServiceName().split(Constants.NSD_SEPERATOR)[1]; //Sample service name: EShareBack.Data Structures.1.2
         if(hmServices.containsKey(sessionName)){
             String oldName = hmServices.get(sessionName).getServiceName();
             String newName = service.getServiceName();
-            if(newName.length() < oldName.length()){ //if newLength is smaller
+            if(newName.length() < oldName.length()){ //if newLength is smaller [like EShareBack.Data Structures.1.2 & EShareBack.Data Structures.1.2.2]
                 hmServices.put(sessionName, service);
                 connHelper.resolveService(service);
             }
@@ -126,6 +126,7 @@ public class NsdDiscoverActivity
             hmServices.put(sessionName, service);
             hmReady.put(sessionName, false);
             addSession(sessionName);
+            connHelper.resolveService(service);
         }
         //-- Find Most Suitable Service
 
@@ -134,15 +135,16 @@ public class NsdDiscoverActivity
 
     @Override
     public void onServiceResolved(NsdServiceInfo service) {
-        String sessionName = service.getServiceName().split("-")[1]; //Sample service name: EShareBack.Data Structures.1.2
-        if(hmServices.get(sessionName) == service) {
-            hmReady.put(sessionName, true);
-        }
+        String temp[] = service.getServiceName().split(Constants.NSD_SEPERATOR);
+        String sessionName = temp[1]; //Sample service name: EShareBack.Data Structures.1.2
+
+        hmServices.put(sessionName, service);
+        hmReady.put(sessionName, true);
     }
 
     private void onSessionSelected(String sessionName){
 
-        /*
+        /***
         SHow progress bar
          */
 

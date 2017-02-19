@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "244049430278",
+    "firebase_url": "https://shareback-157205.firebaseio.com",
+    "project_id": "shareback-157205",
+    "storage_bucket": "shareback-157205.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244049430278:android:bdd01f7dcc2dffd9",
+        "android_client_info": {
+          "package_name": "com.fantasticfive.shareback"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244049430278-490gki1oqj3lqqq0qcrgj073bgu41bbn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLGxUG3aTOp5PKthkw5hsrw2SXRTwAjNQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

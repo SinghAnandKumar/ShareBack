@@ -52,6 +52,16 @@ public class PdfViewHelper implements FileRenderer.PdfViewCallback{
         listView.setAdapter(adapter);
     }
 
+    public PdfViewHelper(Activity activity, ShareBucket bucket, PdfHelperCallback callback, DummyClass dummy){
+
+        this.pdfParent = (LinearLayout) activity.findViewById(R.id.fullscreen_content);
+        this.activity = activity;
+        this.callback = callback;
+
+        this.bucket = bucket;
+        renderer = new FileRenderer(activity, this);
+    }
+
     public void addFile(String relLocation){
 
         if(!bucket.contains(relLocation)) {

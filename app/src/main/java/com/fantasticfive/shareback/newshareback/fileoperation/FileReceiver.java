@@ -33,10 +33,12 @@ public class FileReceiver extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... strings) {
+        Log.e("My Tag", "Downloading file ..."+strings[0]);
         String path = strings[0];   //{ /d1/d2/t1.txt }
 
         String relPath = downloadFile(path);
 
+        Log.e("My Tag", "File Downloaded ..."+strings[0]);
         return relPath;
     }
 
@@ -93,7 +95,7 @@ public class FileReceiver extends AsyncTask<String, Void, String> {
             Log.e("My Tag", "File Downloaded.");
             //--Downloading File
         } catch (IOException ex) {
-            Log.e("My Tag", ex.getMessage());
+            Log.e("My Tag", "Download Failed: "+ex.getMessage());
         }
 
         return path; //{ /opt/phone/Shareback/d1/d2/t1.txt }

@@ -1,4 +1,4 @@
-package com.fantasticfive.shareback.newshareback;
+package com.fantasticfive.shareback.concept2;
 
 import android.os.Environment;
 
@@ -6,6 +6,10 @@ import android.os.Environment;
  * Created by sagar on 13/7/16.
  */
 public class Constants {
+
+    public static final String SESSION_ID = "session_id";
+    public static final String SESSION_NAME = "session_name";
+    public static final String SESSION_LIST = "session_list";
 
     public static final String SHARED_PREF = "sagar_sb_pref";
     public static final String PREF_LOGIN_TOKEN = "pref_login_token";

@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.github.barteksc.pdfviewer.PDFView;
+import com.github.barteksc.pdfviewer.exception.FileNotFoundException;
 import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
 
 import java.io.File;
@@ -33,7 +34,7 @@ public class FileRenderer implements OnPageChangeListener{
         this.activity = activity;
     }
 
-    public void renderS(String filePath, int pageNo){
+    public void renderS(String filePath, int pageNo) throws FileNotFoundException{
         File file = new File(Constants.DIR_ROOT + filePath);
 
         pdfView = (PDFView) activity.findViewById(R.id.pdfview);

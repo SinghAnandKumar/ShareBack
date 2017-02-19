@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.newshareback.Constants;
 import com.fantasticfive.shareback.newshareback.ShareBucket;
+import com.fantasticfive.shareback.newshareback.helpers.DummyClass;
 import com.fantasticfive.shareback.newshareback.helpers.EventHelper;
 import com.fantasticfive.shareback.newshareback.helpers.InitConnectionHelper;
 import com.fantasticfive.shareback.newshareback.dialogs.FeedbackDialog;
@@ -80,7 +81,7 @@ public class FileViewStudent extends AppCompatActivity
     public void init(){
         container = (LinearLayout) findViewById(R.id.fullscreen_content);
 
-        pdfViewHelper = new PdfViewHelper(this, bucket, this);
+        pdfViewHelper = new PdfViewHelper(this, bucket, this, new DummyClass());
         initConnectionHelper = new InitConnectionHelper(this,this, bucket);
         eventHelper = new EventHelper(this, this, initConnectionHelper);
         dirHelper = new DirFileViewHelper(this, this);

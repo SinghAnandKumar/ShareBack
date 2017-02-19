@@ -47,10 +47,13 @@ public class InitConnectionHelper2
     }
 
     public void resolveService(NsdServiceInfo nsdServiceInfo){
+        Log.e("My Tag", "Resolving "+nsdServiceInfo.getServiceName()+"...");
         nsdHelper.resolveService(nsdServiceInfo);
     }
     @Override
     public void onServiceResolved(NsdServiceInfo service) {
+
+        Log.e("My Tag", "Resolved "+service.getServiceName()+"...");
         callback.onServiceResolved(service);
     }
 
