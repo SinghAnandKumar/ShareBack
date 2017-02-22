@@ -65,7 +65,7 @@ public class SessionCreateHelper implements HTTPConnectionHandler.Callback {
             String result = helper.get();
             JSONObject main = new JSONObject(result);
             String sessionId = main.getString(SESSION_ID);
-            Log.i(TAG, "onHttpResponse: Session Created: "+sessionId);
+            Log.i(TAG, "onHttpResponse: CreatedSession Created: "+sessionId);
             callback.onSessionCreated(sessionName, sessionId);
         } catch (InterruptedException | ExecutionException | JSONException e) {
             e.printStackTrace();

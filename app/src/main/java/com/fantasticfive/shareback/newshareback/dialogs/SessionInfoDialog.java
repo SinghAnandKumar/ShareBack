@@ -111,7 +111,7 @@ public class SessionInfoDialog extends DialogFragment implements SessionHelper.S
                 Intent intent = new Intent(activity, FileViewInstructor.class);
                 intent.putExtra(Constants.KEY_SESSION_ID, sessionId);
                 intent.putExtra(Constants.KEY_SESSION_NAME, sessionName);
-                Toast.makeText(activity, "Session Id:" + sessionId, Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "CreatedSession Id:" + sessionId, Toast.LENGTH_SHORT).show();
                 dismiss();
                 activity.startActivity(intent);
             }

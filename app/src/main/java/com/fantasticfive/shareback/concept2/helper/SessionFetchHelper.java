@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.fantasticfive.shareback.concept2.SharebackURLs;
-import com.fantasticfive.shareback.concept2.bean.Session;
+import com.fantasticfive.shareback.concept2.bean.CreatedSession;
 import com.fantasticfive.shareback.concept2.exception.HttpIOException;
 import com.fantasticfive.shareback.concept2.exception.NoInternetException;
 import com.fantasticfive.shareback.concept2.handler.HTTPConnectionHandler;
@@ -66,16 +66,15 @@ public class SessionFetchHelper implements HTTPConnectionHandler.Callback {
         try {
             String result = helper.get();
             JSONArray array = new JSONArray(result);
-            ArrayList<Session> sessions = new ArrayList<>();
+            ArrayList<CreatedSession> createdSessions = new ArrayList<>();
             for(int i=0; i<array.length(); i++){
-                Session session = new Session();
+                CreatedSession createdSession = new CreatedSession();
                 JSONObject obj = array.getJSONObject(i);
-                session.setSessionId(obj.getString(SESSION_ID));
-                session.setSessionName(obj.getString(SESSION_NAME));
-                session.setInstructorName(obj.getString(INSTRUCTOR_NAME));
-                sessions.add(session);
+                createdSession.setSessionId(obj.getString(SESSION_ID));
+                createdSession.setSessionName(obj.getString(SESSION_NAME));
+                createdSessions.add(createdSession);
             }
-            callback.onSessionFetched(sessions);
+            callback.onSessionFetched(createdSessions);
         } catch (InterruptedException | ExecutionException | JSONException e) {
             e.printStackTrace();
             callback.onSessionFetchFailed(e);
@@ -88,7 +87,7 @@ public class SessionFetchHelper implements HTTPConnectionHandler.Callback {
     }
 
     public interface Callback{
-        void onSessionFetched(ArrayList<Session> sessions);
+        void onSessionFetched(ArrayList<CreatedSession> createdSessions);
         void onSessionFetchFailed(Exception e);
     }
 }

@@ -41,7 +41,7 @@ public class MainActivity
             @Override
             public void onClick(View view) {
                 SessionNameDialog dialog = new SessionNameDialog();
-                dialog.show(getSupportFragmentManager(), "Session Create");
+                dialog.show(getSupportFragmentManager(), "CreatedSession Create");
             }
         });
 
@@ -49,14 +49,14 @@ public class MainActivity
             @Override
             public void onClick(View view) {
                 SessionFetchDialog dialog = new SessionFetchDialog();
-                dialog.show(getSupportFragmentManager(), "Session Fetch");
+                dialog.show(getSupportFragmentManager(), "CreatedSession Fetch");
             }
         });
     }
 
     @Override
     protected void onStart() {
-        /*//Get Session Info
+        /*//Get CreatedSession Info
         SessionInfoChecker sessionInfoChecker = new SessionInfoChecker(this, this);
         sessionInfoChecker.execute();
         loadingView.setVisibility(View.VISIBLE);*/

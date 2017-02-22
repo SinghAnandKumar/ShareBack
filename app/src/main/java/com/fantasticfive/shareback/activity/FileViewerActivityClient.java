@@ -128,7 +128,7 @@ public class FileViewerActivityClient
         alert.show(getSupportFragmentManager(), "Dismiss");*/
         //super.onBackPressed();
 
-        Snackbar.make(findViewById(R.id.fab), "Close Session?", Snackbar.LENGTH_LONG)
+        Snackbar.make(findViewById(R.id.fab), "Close CreatedSession?", Snackbar.LENGTH_LONG)
                 .setAction("Yes", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -173,9 +173,9 @@ public class FileViewerActivityClient
 
     @Override
     public void onFeedbackSent() {
-        //Close Session
+        //Close CreatedSession
         eventRecv.close();
         super.onBackPressed();
-        //-- Close Session
+        //-- Close CreatedSession
     }
 }

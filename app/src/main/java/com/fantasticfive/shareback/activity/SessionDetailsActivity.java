@@ -48,7 +48,7 @@ public class SessionDetailsActivity extends AppCompatActivity {
         ListView lv = (ListView) findViewById(R.id.lvComments);
 
         int sessionId = getIntent().getIntExtra(Globals.KEY_SESSION, 0);
-        Toast.makeText(SessionDetailsActivity.this, "Session Id: "+sessionId, Toast.LENGTH_SHORT).show();
+        Toast.makeText(SessionDetailsActivity.this, "CreatedSession Id: "+sessionId, Toast.LENGTH_SHORT).show();
         SessionDetails sessionDetails = new QueriesSessions(this).getSessionDetails(sessionId);
         int stars[] = sessionDetails.getStars();
 

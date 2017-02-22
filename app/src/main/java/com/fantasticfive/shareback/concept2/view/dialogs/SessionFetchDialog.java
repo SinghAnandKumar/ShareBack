@@ -13,7 +13,7 @@ import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.concept2.Constants;
 import com.fantasticfive.shareback.concept2.activity.RunningSessionsActivity;
 import com.fantasticfive.shareback.concept2.helper.SessionFetchHelper;
-import com.fantasticfive.shareback.concept2.bean.Session;
+import com.fantasticfive.shareback.concept2.bean.CreatedSession;
 import com.fantasticfive.shareback.concept2.exception.NoInternetException;
 import com.google.gson.Gson;
 
@@ -53,8 +53,8 @@ public class SessionFetchDialog extends DialogFragment implements SessionFetchHe
     }
 
     @Override
-    public void onSessionFetched(ArrayList<Session> sessions) {
-        String strSessions = new Gson().toJson(sessions);
+    public void onSessionFetched(ArrayList<CreatedSession> createdSessions) {
+        String strSessions = new Gson().toJson(createdSessions);
         dismiss();
         Intent intent = new Intent(activity, RunningSessionsActivity.class);
         intent.putExtra(Constants.SESSION_LIST, strSessions);

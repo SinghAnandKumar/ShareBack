@@ -15,11 +15,11 @@ import java.util.ArrayList;
 /**
  * Created by sagar on 18/2/17.
  */
-public class ShareFilesAdapter extends BaseAdapter{
+public class ShareFilesInstructorAdapter extends BaseAdapter{
 
     Context context;
     ArrayList<SharedFile> fileList;
-    public ShareFilesAdapter(Context context, ArrayList<SharedFile> fileList){
+    public ShareFilesInstructorAdapter(Context context, ArrayList<SharedFile> fileList){
         this.context = context;
         this.fileList = fileList;
     }
@@ -45,7 +45,7 @@ public class ShareFilesAdapter extends BaseAdapter{
         if(view == null){
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.c2_inner_shared_files, null);
+            view = inflater.inflate(R.layout.c2_inner_shared_files_instructor, null);
             holder.name = (TextView) view.findViewById(R.id.name);
             view.setTag(holder);
         }

@@ -173,11 +173,11 @@ public class FileViewStudent extends AppCompatActivity
     @Override
     public void onFeedbackDone() {
 
-        Toast.makeText(FileViewStudent.this, "Closing Session", Toast.LENGTH_SHORT).show();
-        //Closing Session
+        Toast.makeText(FileViewStudent.this, "Closing CreatedSession", Toast.LENGTH_SHORT).show();
+        //Closing CreatedSession
         eventHelper.packUp();
         initConnectionHelper.packUp();
         finish();
-        //-- Closing Session
+        //-- Closing CreatedSession
     }
 }

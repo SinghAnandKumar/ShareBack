@@ -101,7 +101,7 @@ public class SessionNameDialog extends DialogFragment implements SessionCreateHe
                 Intent intent = new Intent(activity, FileViewInstructor.class);
                 intent.putExtra(Constants.KEY_SESSION_ID, sessionId);
                 intent.putExtra(Constants.KEY_SESSION_NAME, sessionName);
-                Toast.makeText(activity, "Session Id:" + sessionId, Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "CreatedSession Id:" + sessionId, Toast.LENGTH_SHORT).show();
                 dismiss();
                 activity.startActivity(intent);
             }
@@ -143,7 +143,7 @@ public class SessionNameDialog extends DialogFragment implements SessionCreateHe
 
     @Override
     public void onSessionCreated(String sessionName, String sessionId) {
-        Toast.makeText(activity, "Session Created: "+sessionId, Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity, "CreatedSession Created: "+sessionId, Toast.LENGTH_SHORT).show();
         dismiss();
 
         Intent intent = new Intent(activity, SessionViewInstructor.class);
@@ -155,7 +155,7 @@ public class SessionNameDialog extends DialogFragment implements SessionCreateHe
     @Override
     public void onSessionCreationFailed(Exception e) {
         showProgressBar(false);
-        Toast.makeText(activity, "Session Creation Failed"+e.getMessage(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity, "CreatedSession Creation Failed"+e.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }
 

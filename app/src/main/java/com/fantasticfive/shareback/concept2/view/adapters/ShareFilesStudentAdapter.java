@@ -8,30 +8,30 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.fantasticfive.shareback.R;
-import com.fantasticfive.shareback.concept2.bean.ActiveSession;
+import com.fantasticfive.shareback.concept2.bean.SharedFile;
 
 import java.util.ArrayList;
 
 /**
- * Created by sagar on 19/2/17.
+ * Created by sagar on 18/2/17.
  */
-public class RunningSessionsAdapter extends BaseAdapter {
+public class ShareFilesStudentAdapter extends BaseAdapter{
 
     Context context;
-    ArrayList<ActiveSession> sessions;
-    public RunningSessionsAdapter(Context context, ArrayList<ActiveSession> sessions){
+    ArrayList<SharedFile> fileList;
+    public ShareFilesStudentAdapter(Context context, ArrayList<SharedFile> fileList){
         this.context = context;
-        this.sessions = sessions;
+        this.fileList = fileList;
     }
 
     @Override
     public int getCount() {
-        return sessions.size();
+        return fileList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return i;
+        return fileList.get(i);
     }
 
     @Override
@@ -41,25 +41,23 @@ public class RunningSessionsAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
-
         ViewHolder holder;
         if(view == null){
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.c2_inner_running_sessions, null);
-            holder.sessionName = (TextView) view.findViewById(R.id.name);
+            view = inflater.inflate(R.layout.c2_inner_shared_files_student, null);
+            holder.name = (TextView) view.findViewById(R.id.name);
             view.setTag(holder);
         }
         else{
             holder = (ViewHolder) view.getTag();
         }
-        ActiveSession session = sessions.get(position);
-        holder.sessionName.setText(session.getSessionName());
-
+        SharedFile file = fileList.get(position);
+        holder.name.setText(file.getName());
         return view;
     }
 
     class ViewHolder{
-        TextView sessionName;
+        TextView name;
     }
 }

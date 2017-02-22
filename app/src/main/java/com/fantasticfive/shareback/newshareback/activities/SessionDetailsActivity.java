@@ -42,7 +42,7 @@ public class SessionDetailsActivity extends AppCompatActivity {
         String dtoStr = getIntent().getExtras().getString(Constants.KEY_SESSION_DETAILS);
         SessionDTO dto = new Gson().fromJson(dtoStr, SessionDTO.class);
 
-        //Session Name
+        //CreatedSession Name
         getSupportActionBar().setTitle(dto.getSessionName());
 
         //Ratings

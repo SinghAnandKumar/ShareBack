@@ -143,7 +143,7 @@ public class StartActivity
                     startSession( filePath );
                 }
                 break;
-            default: Toast.makeText(this, "Cannot Start Session: Unsupported File Type", Toast.LENGTH_LONG).show();
+            default: Toast.makeText(this, "Cannot Start CreatedSession: Unsupported File Type", Toast.LENGTH_LONG).show();
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -163,7 +163,7 @@ public class StartActivity
         //Insert file in Database
         Globals.sessionId = new QueriesSessions(this).add(filePath);
         //-- Insert file in Database
-        Toast.makeText(StartActivity.this, "Session Id: "+Globals.sessionId, Toast.LENGTH_SHORT).show();
+        Toast.makeText(StartActivity.this, "CreatedSession Id: "+Globals.sessionId, Toast.LENGTH_SHORT).show();
 
         adapter.notifyChange();
 

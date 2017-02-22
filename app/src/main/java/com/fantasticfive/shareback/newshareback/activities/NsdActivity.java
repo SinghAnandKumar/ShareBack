@@ -102,7 +102,7 @@ public class NsdActivity extends AppCompatActivity
 
     @Override
     public void onSessionClosedS() {
-        //Close Session and Take Feedback
-        //-- Close Session and Take Feedback
+        //Close CreatedSession and Take Feedback
+        //-- Close CreatedSession and Take Feedback
     }
 }

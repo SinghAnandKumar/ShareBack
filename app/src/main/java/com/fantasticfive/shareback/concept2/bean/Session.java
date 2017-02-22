@@ -1,13 +1,16 @@
 package com.fantasticfive.shareback.concept2.bean;
 
 /**
- * Created by sagar on 19/2/17.
+ * Created by sagar on 22/2/17.
  */
 public class Session {
+    final String JOINED = "joined";
+    final String CREATED = "created";
+    final String ACTIVE = "active";
 
     String sessionId;
     String sessionName;
-    String instructorName;
+    String type;
 
     public String getSessionId() {
         return sessionId;
@@ -25,11 +28,11 @@ public class Session {
         this.sessionName = sessionName;
     }
 
-    public String getInstructorName() {
-        return instructorName;
+    public String getType() {
+        return type;
     }
 
-    public void setInstructorName(String instructorName) {
-        this.instructorName = instructorName;
+    public void setType(String type) {
+        this.type = type;
     }
 }

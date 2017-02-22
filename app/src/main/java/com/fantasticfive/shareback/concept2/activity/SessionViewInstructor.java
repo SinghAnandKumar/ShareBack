@@ -18,7 +18,7 @@ import com.fantasticfive.shareback.concept2.bean.SharedFile;
 import com.fantasticfive.shareback.concept2.bean.User;
 import com.fantasticfive.shareback.concept2.helper.FirebaseInstructorHelper;
 import com.fantasticfive.shareback.concept2.view.adapters.JoinedUsersAdapter;
-import com.fantasticfive.shareback.concept2.view.adapters.ShareFilesAdapter;
+import com.fantasticfive.shareback.concept2.view.adapters.ShareFilesInstructorAdapter;
 import com.nononsenseapps.filepicker.FilePickerActivity;
 
 import java.io.File;
@@ -29,13 +29,15 @@ import java.util.ArrayList;
  */
 public class SessionViewInstructor extends AppCompatActivity {
 
-    final String TAG = "MY TAH";
-    ListViewCompat lv;
-    AppCompatButton btnShare;
+    final String TAG = "MY TAG";
     final int FILE_SELECT_CODE = 123;
 
+    ListViewCompat lv;
+    AppCompatButton btnShare;
+
+    String sessionId, sessionName;
     ArrayList<SharedFile> sharedFiles;
-    ShareFilesAdapter adapter;
+    ShareFilesInstructorAdapter adapter;
     FirebaseInstructorHelper firebaseHelper;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,15 +49,23 @@ public class SessionViewInstructor extends AppCompatActivity {
         //testSharedFilesAdapter();
 
         sharedFiles = new ArrayList<>();
-        adapter = new ShareFilesAdapter(this, sharedFiles);
+        adapter = new ShareFilesInstructorAdapter(this, sharedFiles);
         lv.setAdapter(adapter);
+        firebaseHelper.createSessionEntry(sessionName);
+    }
+
+    @Override
+    protected void onDestroy() {
+        firebaseHelper.removeSessionEntry();
+        super.onDestroy();
     }
 
     protected void init(){
         lv = (ListViewCompat) findViewById(R.id.lv);
         btnShare = (AppCompatButton) findViewById(R.id.btnShare);
 
-        String sessionId = getIntent().getStringExtra(Constants.SESSION_ID);
+        sessionName = getIntent().getStringExtra(Constants.SESSION_NAME);
+        sessionId = getIntent().getStringExtra(Constants.SESSION_ID);
         firebaseHelper = new FirebaseInstructorHelper(this, sessionId);
     }
 
@@ -97,12 +107,12 @@ public class SessionViewInstructor extends AppCompatActivity {
             case FILE_SELECT_CODE:
                 if (resultCode == RESULT_OK) {
                     Uri uri = data.getData();
-                    firebaseHelper.uploadFile(uri);
+                    firebaseHelper.uploadThenShareFile(uri);
                     updateListAdapter(uri);
                 }
                 break;
             default:
-                Toast.makeText(this, "Cannot Start Session: Unsupported File Type", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Cannot Start CreatedSession: Unsupported File Type", Toast.LENGTH_LONG).show();
         }
 
         super.onActivityResult(requestCode, resultCode, data);
@@ -115,7 +125,7 @@ public class SessionViewInstructor extends AppCompatActivity {
             file.setName("File Name 1");
             fileList.add(file);
         }
-        ShareFilesAdapter adapter = new ShareFilesAdapter(this, fileList);
+        ShareFilesInstructorAdapter adapter = new ShareFilesInstructorAdapter(this, fileList);
         lv.setAdapter(adapter);
     }
 

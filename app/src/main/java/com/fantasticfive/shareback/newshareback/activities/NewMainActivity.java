@@ -63,7 +63,7 @@ public class NewMainActivity
             @Override
             public void onClick(View view) {
                 SessionInfoDialog dialog = new SessionInfoDialog();
-                dialog.show(getSupportFragmentManager(), "Session Info");
+                dialog.show(getSupportFragmentManager(), "CreatedSession Info");
             }
         });
 
@@ -78,7 +78,7 @@ public class NewMainActivity
 
     @Override
     protected void onStart() {
-        //Get Session Info
+        //Get CreatedSession Info
         SessionInfoChecker sessionInfoChecker = new SessionInfoChecker(this, this);
         sessionInfoChecker.execute();
         loadingView.setVisibility(View.VISIBLE);
