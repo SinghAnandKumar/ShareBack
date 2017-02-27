@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.fantasticfive.shareback.R;
+import com.fantasticfive.shareback.concept2.util.WordUtils;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 import java.util.ArrayList;
@@ -46,10 +47,11 @@ public class CommentsAdapter extends BaseAdapter {
         comment = comment.trim();
 
         LayoutInflater inflate = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View vi = inflate.inflate(R.layout.inner_comment, null);
+        View vi = inflate.inflate(R.layout.c2_inner_comment, null);
         TextView tv = (TextView) vi.findViewById(R.id.tvComment);
-        MaterialLetterIcon icon = (MaterialLetterIcon) vi.findViewById(R.id.letter);
-        icon.setLetter((comment.charAt(0)+"").toUpperCase());
+        TextView icon = (TextView) vi.findViewById(R.id.firstChar);
+        comment = WordUtils.capitalizeFirstChar(comment);
+        icon.setText(WordUtils.firstChar(comment)+"");
         tv.setText(comment);
         return vi;
     }

@@ -74,6 +74,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/rating_bar_margin"
                 android:text="1"
                 android:layout_toRightOf="@id/imgStar1"
                 android:id="@+id/textStar1"/>
@@ -81,6 +82,7 @@
                 android:layout_width="70dp"
                 android:layout_height="@dimen/rating_bar_height"
                 android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/rating_bar_margin"
                 android:layout_marginLeft="@dimen/rating_bar_margin"
                 android:background="@color/icon_red"
                 android:id="@+id/star1Bar"/>
@@ -104,12 +106,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/rating_bar_margin"
                 android:text="2"
                 android:id="@+id/textStar2"/>
             <View
                 android:layout_width="20dp"
                 android:layout_height="@dimen/rating_bar_height"
                 android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/rating_bar_margin"
                 android:layout_marginLeft="@dimen/rating_bar_margin"
                 android:background="@color/icon_teal"
                 android:id="@+id/star2Bar"/>
@@ -133,6 +137,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/rating_bar_margin"
                 android:text="3"
                 android:id="@+id/textStar3"/>
             <View
@@ -162,6 +167,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/rating_bar_margin"
                 android:text="4"
                 android:id="@+id/textStar4"/>
             <View
@@ -169,6 +175,7 @@
                 android:layout_height="@dimen/rating_bar_height"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/rating_bar_margin"
+                android:layout_marginRight="@dimen/rating_bar_margin"
                 android:background="@color/icon_amber"
                 android:id="@+id/star4Bar"/>
             <TextView
@@ -192,17 +199,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="5"
+                android:layout_marginRight="@dimen/rating_bar_margin"
                 android:id="@+id/textStar5"/>
             <View
-                android:layout_width="20dp"
+                android:layout_width="0dip"
+                android:layout_weight="30"
                 android:layout_height="@dimen/rating_bar_height"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/rating_bar_margin"
                 android:background="@color/icon_light_green"
                 android:id="@+id/star5Bar"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="70"
                 android:layout_height="wrap_content"
+                android:gravity="left"
                 android:text="23"
                 android:id="@+id/star5"/>
         </LinearLayout>

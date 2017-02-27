@@ -3,6 +3,7 @@ package com.fantasticfive.shareback.concept2.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatRatingBar;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -115,18 +116,32 @@ public class FeedbackViewActivity extends AppCompatActivity implements FirebaseF
         float star1pc = MathUtils.percentage(ratings.getRating1(), ratings);
         params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, star1pc);
         star1Bar.setLayoutParams(params);
+        params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 107f-star1pc);
+        star1.setLayoutParams(params);
+
         float star2pc = MathUtils.percentage(ratings.getRating2(), ratings);
         params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, star2pc);
         star2Bar.setLayoutParams(params);
+        params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 107f-star2pc);
+        star2.setLayoutParams(params);
+
         float star3pc = MathUtils.percentage(ratings.getRating3(), ratings);
         params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, star3pc);
         star3Bar.setLayoutParams(params);
+        params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 107f-star3pc);
+        star3.setLayoutParams(params);
+
         float star4pc = MathUtils.percentage(ratings.getRating4(), ratings);
         params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, star4pc);
         star4Bar.setLayoutParams(params);
+        params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 107f-star4pc);
+        star4.setLayoutParams(params);
+
         float star5pc = MathUtils.percentage(ratings.getRating5(), ratings);
         params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, star5pc);
         star5Bar.setLayoutParams(params);
+        params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 107f-star5pc);
+        star5.setLayoutParams(params);
 
     }
 

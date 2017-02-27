@@ -42,6 +42,7 @@ public class MathUtils {
                 rating.getRating3()+
                 rating.getRating4()+
                 rating.getRating5();
+        if(total==0) return 0f;
         float pc = (count*100)/total;
         return pc;
     }

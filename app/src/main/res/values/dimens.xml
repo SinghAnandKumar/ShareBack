@@ -34,5 +34,5 @@
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="tvRating">12dp</dimen>
     <dimen name="rating_bar_height">19dp</dimen>
-    <dimen name="rating_bar_margin">4dp</dimen>
+    <dimen name="rating_bar_margin">10dp</dimen>
 </resources>

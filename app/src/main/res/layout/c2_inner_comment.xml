@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingLeft="4dp"
+    android:paddingBottom="9dp"
+    android:paddingTop="4dp"
+    android:gravity="top">
+
+    <include layout="@layout/c2_comp_letter_icon"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="3dp"
+        android:paddingRight="8dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anonymous"
+            android:textSize="13dp"
+            android:textColor="@color/default_text_color"
+            android:id="@+id/user_name"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:textSize="14dp"
+            android:paddingTop="5dp"
+            android:layout_below="@id/user_name"
+            android:textColor="#DE000000"
+            android:id="@+id/tvComment"
+            android:text="No Comments Yet sadkf;laksdf asdf sadf   dfs fdas  fdas f sa d fa s fas d df weajfkjdhwer we r ew ds we  rew"/>
+    </RelativeLayout>
+</LinearLayout>

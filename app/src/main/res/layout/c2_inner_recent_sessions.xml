@@ -11,29 +11,7 @@
         android:background="@drawable/ripple_card_selector"
         android:orientation="horizontal">
 
-        <RelativeLayout
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_margin="12dp"
-            android:id="@+id/icon">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:id="@+id/letter_background"
-                android:background="@drawable/letter_icon_background"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:gravity="center"
-                android:textSize="25dp"
-                android:textColor="@color/holo_white"
-                android:text="C"
-                android:id="@+id/firstChar"/>
-
-        </RelativeLayout>
+        <include layout="@layout/c2_comp_letter_icon"/>
         <!--<com.github.ivbaranov.mli.MaterialLetterIcon
             android:layout_width="60dp"
             android:layout_height="60dp"
