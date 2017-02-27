@@ -172,7 +172,7 @@ public class ManageFilesActivity extends AppCompatActivity
     //-- Stop Single File Operations
 
     /**
-     * Check Supported format of applications
+     * Check Supported capitalizeFirstChar of applications
      * @param filePath
      * file to check
      * @return

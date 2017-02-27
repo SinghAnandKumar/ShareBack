@@ -7,9 +7,6 @@
     </item>
 
     <item android:state_selected="false">
-        <ripple
-            android:color="@color/colorPrimary">
-            <item android:drawable="@android:color/white"/>
-        </ripple>
+        <color android:color="@color/holo_white"></color>
     </item>
 </selector>

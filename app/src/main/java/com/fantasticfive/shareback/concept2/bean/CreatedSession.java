@@ -7,9 +7,9 @@ import java.util.ArrayList;
  */
 public class CreatedSession extends Session{
 
-    ArrayList<String> joinedUsers;
-    ArrayList<String> comments;
-    int[] rating;
+    ArrayList<String> joinedUsers = new ArrayList<>();
+    ArrayList<String> comments = new ArrayList<>();
+    Rating ratings = new Rating();
 
     public CreatedSession(){
         setType(CREATED);
@@ -31,11 +31,11 @@ public class CreatedSession extends Session{
         this.comments = comments;
     }
 
-    public int[] getRating() {
-        return rating;
+    public Rating getRatings() {
+        return ratings;
     }
 
-    public void setRating(int[] rating) {
-        this.rating = rating;
+    public void setRatings(Rating ratings) {
+        this.ratings = ratings;
     }
 }

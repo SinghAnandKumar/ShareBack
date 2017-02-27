@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.fantasticfive.shareback.concept2.bean.ActiveSession;
 import com.fantasticfive.shareback.concept2.bean.ActiveUser;
+import com.fantasticfive.shareback.concept2.bean.JoinedSession;
 import com.fantasticfive.shareback.concept2.bean.SharedFile;
 import com.fantasticfive.shareback.concept2.util.FileUtils;
 import com.fantasticfive.shareback.concept2.util.FirebaseKeys;
@@ -41,7 +42,6 @@ public class FirebaseStudentHelper {
     Callback callback;
     FirebaseDatabase database;
     DatabaseReference rootRef;
-    DatabaseReference joinRef;
     StorageReference storageReference;
 
     public FirebaseStudentHelper(Context context, String sessionId, Callback callback){
@@ -59,7 +59,7 @@ public class FirebaseStudentHelper {
 
         Log.i(TAG, "register: trying "+userId);
         String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
-        joinRef = rootRef.child(FirebaseKeys.joinedUsers(activeSession));
+        DatabaseReference joinRef = rootRef.child(FirebaseKeys.joinedUsers(activeSession));
         joinRef = joinRef.child(userId);
         joinRef.setValue(currentDateTimeString, new DatabaseReference.CompletionListener() {
             @Override
@@ -68,6 +68,25 @@ public class FirebaseStudentHelper {
                     databaseError.toException().printStackTrace();
                 else
                     Log.i(TAG, "onComplete: Successfully registered");
+            }
+        });
+
+        //Make Entry in JoinedSession
+        JoinedSession joinedSession = new JoinedSession();
+        joinedSession.setInstructorId(activeSession.getInstructorId());
+        joinedSession.setSessionName(activeSession.getSessionName());
+        joinedSession.setSessionId(activeSession.getSessionId());
+        joinedSession.setInstructorName(activeSession.getInstructorName());
+
+        DatabaseReference joinedSessionRef = rootRef.child(FirebaseKeys.userSessions());
+        joinedSessionRef = joinedSessionRef.child(sessionId);
+        joinedSessionRef.setValue(joinedSession, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if(databaseError != null)
+                    databaseError.toException().printStackTrace();
+                else
+                    Log.i(TAG, "onComplete: Joined Session Successfully Added in user List");
             }
         });
     }

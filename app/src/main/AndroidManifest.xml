@@ -118,6 +118,8 @@
             android:label="Available Sessions"/>
         <activity android:name=".concept2.activity.SessionViewStudent"
             android:label="Session Files"/>
+        <activity android:name=".concept2.activity.FeedbackViewActivity"
+            android:label="Feedbacks"/>
 
     </application>
 

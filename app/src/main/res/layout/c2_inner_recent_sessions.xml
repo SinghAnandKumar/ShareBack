@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ripple_card_selector"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="12dp"
+            android:id="@+id/icon">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:id="@+id/letter_background"
+                android:background="@drawable/letter_icon_background"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:textSize="25dp"
+                android:textColor="@color/holo_white"
+                android:text="C"
+                android:id="@+id/firstChar"/>
+
+        </RelativeLayout>
+        <!--<com.github.ivbaranov.mli.MaterialLetterIcon
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="12dp"
+            android:layout_alignParentLeft="true"
+            app:mli_shape_color="@color/colorPrimary"
+            app:mli_letter="PB"
+            android:id="@+id/letter"/>-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:textAllCaps="true"
+                android:text="Running"
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/session_type"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/black"
+                android:layout_marginTop="4dp"
+                android:textSize="15dp"
+                android:text="Test"
+                android:id="@+id/session_name"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/darker_grey"
+                android:visibility="gone"
+                android:textSize="12dp"
+                android:layout_marginLeft="5dp"
+                android:text="Prof. Sagar Pawar"
+                android:layout_alignParentLeft="true"
+                android:layout_above="@id/session_type"
+                android:id="@+id/instructor_name"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/vgRating"
+                android:visibility="gone"
+                android:layout_above="@id/session_type"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/tvRating"
+                    android:layout_height="@dimen/tvRating"
+                    android:layout_gravity="center_vertical"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:backgroundTint="@color/default_text_color"
+                    android:background="@drawable/ic_star_black_18dp"
+                    android:id="@+id/imgStar"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4.2"
+                    android:layout_toRightOf="@id/imgStar"
+                    android:layout_alignParentBottom="true"
+                    android:textSize="@dimen/tvRating"
+                    android:id="@+id/tvRating"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentBottom="true"
+                    android:textSize="@dimen/tvRating"
+                    android:text="23,888"
+                    android:id="@+id/tvUsers"/>
+
+                <ImageView
+                    android:layout_width="@dimen/tvRating"
+                    android:layout_height="@dimen/tvRating"
+                    android:layout_toLeftOf="@id/tvUsers"
+                    android:layout_alignParentBottom="true"
+                    android:backgroundTint="@color/default_text_color"
+                    android:background="@drawable/ic_person_black_24dp"
+                    android:id="@+id/imgUsers"/>
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <!-- Hidden -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:id="@+id/session_id"/>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

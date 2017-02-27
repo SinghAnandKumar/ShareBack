@@ -4,9 +4,9 @@ package com.fantasticfive.shareback.concept2.bean;
  * Created by sagar on 22/2/17.
  */
 public class Session {
-    final String JOINED = "joined";
-    final String CREATED = "created";
-    final String ACTIVE = "active";
+    public static final String JOINED = "joined";
+    public static final String CREATED = "created";
+    public static final String ACTIVE = "active";
 
     String sessionId;
     String sessionName;

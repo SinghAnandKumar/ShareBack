@@ -1,34 +1,53 @@
 package com.fantasticfive.shareback.concept2.activity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.fantasticfive.shareback.Globals;
 import com.fantasticfive.shareback.R;
-import com.fantasticfive.shareback.concept2.view.dialogs.SessionFetchDialog;
+import com.fantasticfive.shareback.concept2.Constants;
+import com.fantasticfive.shareback.concept2.bean.CreatedSession;
+import com.fantasticfive.shareback.concept2.bean.JoinedSession;
+import com.fantasticfive.shareback.concept2.bean.Rating;
+import com.fantasticfive.shareback.concept2.bean.Session;
+import com.fantasticfive.shareback.concept2.helper.FirebaseUserSessionHelper;
+import com.fantasticfive.shareback.concept2.util.MathUtils;
+import com.fantasticfive.shareback.concept2.util.WordUtils;
+import com.fantasticfive.shareback.concept2.view.dialogs.ActiveSessionDialog;
 import com.fantasticfive.shareback.concept2.view.dialogs.SessionNameDialog;
 
 import com.mingle.widget.LoadingView;
 
-public class MainActivity
-        extends AppCompatActivity{
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 
+public class MainActivity
+        extends AppCompatActivity
+        implements FirebaseUserSessionHelper.Callback{
+
+    private static final String TAG = "MY TAG";
     AppCompatButton btnCreateSession, btnJoinSession;
     AppBarLayout layout;
     Snackbar snackbar;
     LoadingView loadingView;
+    LinearLayout llRecentSessions;
+
+    FirebaseUserSessionHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +55,7 @@ public class MainActivity
         setContentView(R.layout.c2_activity_main);
         init();
         actionBarAnimate();
+        helper.getSessions();
 
         btnCreateSession.setOnClickListener(new OnClickListener() {
             @Override
@@ -48,8 +68,10 @@ public class MainActivity
         btnJoinSession.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                SessionFetchDialog dialog = new SessionFetchDialog();
-                dialog.show(getSupportFragmentManager(), "CreatedSession Fetch");
+                /*SessionFetchDialog dialog = new SessionFetchDialog();
+                dialog.show(getSupportFragmentManager(), "CreatedSession Fetch");*/
+                ActiveSessionDialog dialog = new ActiveSessionDialog();
+                dialog.show(getSupportFragmentManager(), "ActiveSession Dialog");
             }
         });
     }
@@ -63,25 +85,6 @@ public class MainActivity
         super.onStart();
     }
 
-    /*private float avg(int r[]){
-
-        int sum = 0;
-        int count = 0;
-        for(int i=0; i<r.length; i++){
-            sum += r[i]*(i+1);
-            count += r[i];
-        }
-
-        try {
-            float avg = (float) sum / count;
-            return avg;
-        }
-        catch (ArithmeticException e){
-            e.printStackTrace();
-        }
-        return 0f;
-    }
-*/
     public void init(){
         btnCreateSession = (AppCompatButton) findViewById(R.id.btnCreateSession);
         btnJoinSession = (AppCompatButton) findViewById(R.id.btnJoinSession);
@@ -91,6 +94,9 @@ public class MainActivity
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         loadingView = (LoadingView) findViewById(R.id.sessionInfoLodingView);
+        llRecentSessions = (LinearLayout) findViewById(R.id.recent_session);
+
+        helper = new FirebaseUserSessionHelper(this, this);
 
         snackbar = Snackbar.make(findViewById(R.id.top_parent), "Can't Connect to Server", Snackbar.LENGTH_INDEFINITE)
                 .setAction("OK", new OnClickListener() {
@@ -122,5 +128,93 @@ public class MainActivity
         switch(item.getItemId()) {
             default: return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onSessionFetched(ArrayList<Session> sessions) {
+        View view = null;
+        llRecentSessions.removeAllViews();
+        for(Session session: sessions){
+            switch (session.getType()){
+                case Session.CREATED: view = getCreatedSessionCard((CreatedSession) session); break;
+                case Session.JOINED: view = getJoinedSessionCard((JoinedSession) session); break;
+            }
+            llRecentSessions.addView(view);
+        }
+    }
+
+    public View getCreatedSessionCard(CreatedSession createdSession){
+
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.c2_inner_recent_sessions, null);
+        TextView tvSessionName = (TextView) view.findViewById(R.id.session_name);
+        TextView tvSessionId = (TextView) view.findViewById(R.id.session_id);
+        TextView tvSessionType = (TextView) view.findViewById(R.id.session_type);
+        TextView tvLetterIcon = (TextView) view.findViewById(R.id.firstChar);
+        View viewRating = view.findViewById(R.id.vgRating);
+        TextView tvRating = (TextView) view.findViewById(R.id.tvRating);
+        TextView tvUserCount = (TextView) view.findViewById(R.id.tvUsers);
+
+        String sessionName = createdSession.getSessionName();
+        sessionName = WordUtils.capitalizeFirstChar(sessionName);
+        tvSessionName.setText(sessionName);
+        tvSessionId.setText(createdSession.getSessionId());
+
+        tvLetterIcon.setText(WordUtils.firstChar(sessionName));
+        tvSessionType.setText(getSessionTypeString(createdSession));
+        tvSessionType.setTextColor(ContextCompat.getColor(this, R.color.teal));
+
+        //Setting Rating, UserCount
+        viewRating.setVisibility(View.VISIBLE);
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(1);
+        double d = MathUtils.avg(createdSession.getRatings());
+        tvRating.setText(df.format(d)+"");
+        tvUserCount.setText(createdSession.getJoinedUsers().size()+"");
+
+        view.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e(TAG, "onClick: I AM HERE" );
+                String sessionId = ((TextView) view.findViewById(R.id.session_id)).getText().toString();
+                String sessionName = ((TextView) view.findViewById(R.id.session_name)).getText().toString();
+
+                Intent intent = new Intent(MainActivity.this, FeedbackViewActivity.class);
+                intent.putExtra(Constants.SESSION_ID, sessionId);
+                intent.putExtra(Constants.SESSION_NAME, sessionName);
+                startActivity(intent);
+            }
+        });
+
+        return view;
+    }
+
+    public View getJoinedSessionCard(JoinedSession joinedSession){
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.c2_inner_recent_sessions, null);
+        TextView tvSessionName = (TextView) view.findViewById(R.id.session_name);
+        TextView tvSessionType = (TextView) view.findViewById(R.id.session_type);
+        TextView tvLetterIcon = (TextView) view.findViewById(R.id.firstChar);
+        TextView tvSessionId = (TextView) view.findViewById(R.id.session_id);
+        TextView tvInstructorName = (TextView) view.findViewById(R.id.instructor_name);
+
+        String sessionName = joinedSession.getSessionName();
+        sessionName = WordUtils.capitalizeFirstChar(sessionName);
+        tvSessionName.setText(sessionName);
+        tvLetterIcon.setText(WordUtils.firstChar(sessionName));
+        tvSessionId.setText(joinedSession.getSessionId());
+        tvSessionType.setText(getSessionTypeString(joinedSession));
+        tvInstructorName.setVisibility(View.VISIBLE);
+        tvInstructorName.setText(joinedSession.getInstructorName());
+
+        return view;
+    }
+
+    private String getSessionTypeString(Session session){
+        switch (session.getType()){
+            case Session.CREATED: return getString(R.string.session_created);
+            case Session.JOINED: return getString(R.string.session_joined);
+        }
+        return "";
     }
 }

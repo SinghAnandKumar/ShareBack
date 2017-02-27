@@ -3,12 +3,12 @@
 
     <item android:state_selected="true"
         android:drawable="@color/colorPrimaryLight">
-        <color android:color="@color/colorSecondaryLight"/>
+        <color android:color="@color/mainActivityBlueBkg"/>
     </item>
 
     <item android:state_selected="false">
         <ripple
-            android:color="@color/colorPrimary">
+            android:color="@color/mainActivityBlueBkg">
             <item android:drawable="@android:color/white"/>
         </ripple>
     </item>

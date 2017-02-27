@@ -1,6 +1,9 @@
 package com.fantasticfive.shareback.concept2.util;
 
 import com.fantasticfive.shareback.concept2.bean.ActiveSession;
+import com.fantasticfive.shareback.concept2.bean.CreatedSession;
+import com.fantasticfive.shareback.concept2.bean.JoinedSession;
+import com.fantasticfive.shareback.concept2.bean.Session;
 
 /**
  * Created by sagar on 19/2/17.
@@ -46,6 +49,9 @@ public class FirebaseKeys {
     private static final String FILES = "files";
     private static final String JOINED_USERS = "joined_users";
     private static final String USERS = "users";
+    private static final String RATINGS = "ratings";
+    private static final String COMMENTS = "comments";
+    private static final String JOINED_SESSION = "joined_session";
 
     public static String activeSessions(){
         return ACTIVE_SESSIONS;
@@ -63,10 +69,10 @@ public class FirebaseKeys {
         return ACTIVE_USERS+"/"+sessionId;
     }
 
-    public static String userSessions(){
+    /*public static String userSessions(){
         String userId = UserData.getUserId();
         return USERS+"/"+userId;
-    }
+    }*/
 
     public static String joinedUsers(ActiveSession session){
         String instructorId = session.getInstructorId();
@@ -75,10 +81,34 @@ public class FirebaseKeys {
         return USERS+"/"+instructorId+"/"+sessionId+"/"+JOINED_USERS;
     }
 
+    public static String joinedUsers(CreatedSession session){
+        String userId = UserData.getUserId();
+        String sessionId = session.getSessionId();
+
+        return USERS+"/"+userId+"/"+sessionId+"/"+JOINED_USERS;
+    }
+
     public static String sessionFiles(ActiveSession session){
         String instructorId = session.getInstructorId();
         String sessionId = session.getSessionId();
 
         return USERS+"/"+instructorId+"/"+sessionId+"/"+FILES;
+    }
+
+    public static String userSessions(){
+        String userId = UserData.getUserId();
+        return USERS+"/"+userId;
+    }
+
+    public static String userSessionComments(CreatedSession session){
+        String userId = UserData.getUserId();
+        String sessionId = session.getSessionId();
+        return USERS+"/"+userId+"/"+sessionId+"/"+COMMENTS;
+    }
+
+    public static String userSessionRating(CreatedSession session){
+        String userId = UserData.getUserId();
+        String sessionId = session.getSessionId();
+        return USERS+"/"+userId+"/"+sessionId+"/"+RATINGS;
     }
 }

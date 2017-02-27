@@ -56,7 +56,7 @@ public class SessionViewInstructor extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        firebaseHelper.removeSessionEntry();
+        //firebaseHelper.removeSessionEntry();
         super.onDestroy();
     }
 

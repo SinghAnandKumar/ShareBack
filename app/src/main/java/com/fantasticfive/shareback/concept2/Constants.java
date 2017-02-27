@@ -11,6 +11,7 @@ public class Constants {
     public static final String SESSION_NAME = "session_name";
     public static final String SESSION_LIST = "session_list";
     public static final String ACTIVE_SESSION = "active_session";
+    public static final String CREATED_SESSION = "created_session";
 
     public static final String SHARED_PREF = "sagar_sb_pref";
     public static final String PREF_LOGIN_TOKEN = "pref_login_token";

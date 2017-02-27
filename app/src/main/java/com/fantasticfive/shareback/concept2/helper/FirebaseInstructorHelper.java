@@ -98,6 +98,7 @@ public class FirebaseInstructorHelper {
         //Active CreatedSession Entry
         ActiveSession activeSession = new ActiveSession();
         activeSession.setInstructorId(instructorId);
+        activeSession.setInstructorName(UserData.getName());
         activeSession.setSessionName(sessionName);
         activeSession.setSessionId(sessionId);
 

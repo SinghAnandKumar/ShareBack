@@ -5,6 +5,7 @@ package com.fantasticfive.shareback.concept2.bean;
  */
 public class JoinedSession extends Session {
     String instructorId;
+    String instructorName;
 
     public JoinedSession(){
         setType(JOINED);
@@ -15,5 +16,13 @@ public class JoinedSession extends Session {
 
     public void setInstructorId(String instructorId) {
         this.instructorId = instructorId;
+    }
+
+    public String getInstructorName() {
+        return instructorName;
+    }
+
+    public void setInstructorName(String instructorName) {
+        this.instructorName = instructorName;
     }
 }
