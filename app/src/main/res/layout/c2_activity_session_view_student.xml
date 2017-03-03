@@ -1,19 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="20dp"
+    android:orientation="vertical"
+    android:background="@drawable/background">
 
+    <!-- Feedback block -->
+    <include
+        layout="@layout/c2_inner_feedback"
+        android:id="@+id/feedback_block"/>
 
-    <android.support.v7.widget.AppCompatButton
+    <!--Place Holder-->
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/place_holder">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/bg_img_files"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:layout_marginTop="4dp"
+            android:text="So Much Silence"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:text="Documents Will Appear Here"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/btnFeedback"
-        android:text="Feedback"/>
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Documents"
+            android:layout_marginTop="20dp"
+            android:paddingBottom="3dp"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:layout_gravity="left"
+            android:id="@+id/textDocuments"/>
+        <!--<View
+            android:layout_width="20dp"
+            android:layout_height="3dp"
+            android:background="@color/colorAccent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="7dp"/>-->
+    </LinearLayout>
 
     <android.support.v7.widget.ListViewCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/btnFeedback"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="6dp"
         android:id="@+id/lv"/>
-
-</RelativeLayout>
+</LinearLayout>

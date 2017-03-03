@@ -1,53 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/holo_white"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <include layout="@layout/c2_inner_rating_view"/>
-
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:background="@color/light_grey"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#61000000"
-        android:paddingTop="@dimen/activity_horizontal_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:visibility="gone"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/activity_vertical_margin"
         android:background="@color/holo_white"
-        android:text="@string/text_comments"
-        android:id="@+id/textComment"/>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ListView
+        android:orientation="vertical">
+
+        <include layout="@layout/c2_inner_rating_view"/>
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@color/light_grey"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#61000000"
             android:paddingTop="@dimen/activity_horizontal_margin"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:visibility="gone"
             android:background="@color/holo_white"
-            android:divider="@android:color/transparent"
-            android:id="@+id/lvComments"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@drawable/bkg_img_sun"
-            android:id="@+id/bkg_img"/>
+            android:text="@string/text_comments"
+            android:id="@+id/textComment"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:background="@color/holo_white"
+                android:divider="@android:color/transparent"
+                android:id="@+id/lvComments"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/bkg_img_sun"
+                android:layout_alignParentRight="true"
+                android:contentDescription="Place Holder"
+                android:id="@+id/bkg_img"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/holo_white"
+        app:behavior_peekHeight="@dimen/bottomsheet_visible_part"
+        app:behavior_hideable="false"
+        app:elevation="4dp"
+        android:orientation="vertical"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@drawable/shadow_up"
+            android:id="@+id/shadow"/>
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottomsheet_visible_part"
+            android:padding="16dp"
+            android:background="@drawable/ripple_card_selector"
+            android:id="@+id/bottomsheet_visible_view">
+            <TextView
+                android:id="@+id/bottomsheet_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="Documents"
+                android:textColor="@color/black"/>
 
-</LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/badge_item_count">
+                <TextView
+                    android:id="@+id/docs_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="0"
+                    android:textColor="#FFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_grey"
+            android:id="@+id/bottomsheet_divider"/>
+        <include
+            layout="@layout/c2_activity_session_view_instructor"/>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

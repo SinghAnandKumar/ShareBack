@@ -48,7 +48,7 @@ public class JoinedUsersAdapter extends BaseAdapter {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.c2_inner_joined_user, null);
-            holder.name = (TextView) view.findViewById(R.id.name);
+            holder.name = (TextView) view.findViewById(R.id.session_name);
             view.setTag(holder);
         }
         else{

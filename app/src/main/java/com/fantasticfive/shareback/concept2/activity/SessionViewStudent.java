@@ -24,6 +24,7 @@ public class SessionViewStudent extends AppCompatActivity implements FirebaseStu
 
     private static final String TAG = "MY TAG";
     ListViewCompat lv;
+    View placeHolder;
     FirebaseStudentHelper helper;
     ShareFilesStudentAdapter adapter;
     ArrayList<SharedFile> sharedFiles;
@@ -62,6 +63,7 @@ public class SessionViewStudent extends AppCompatActivity implements FirebaseStu
     protected void init(){
         //UI Data
         lv = (ListViewCompat) findViewById(R.id.lv);
+        placeHolder = findViewById(R.id.place_holder);
 
         //Backend Data
         String strActiveSession = getIntent().getExtras().getString(Constants.ACTIVE_SESSION);
@@ -74,8 +76,14 @@ public class SessionViewStudent extends AppCompatActivity implements FirebaseStu
 
     @Override
     public void onDocumentsChanged(ArrayList<SharedFile> newSharedFiles) {
-        sharedFiles.clear();
-        sharedFiles.addAll(newSharedFiles);
-        adapter.notifyDataSetChanged();
+        if(newSharedFiles.size() != 0) {
+            placeHolder.setVisibility(View.GONE);
+            sharedFiles.clear();
+            sharedFiles.addAll(newSharedFiles);
+            adapter.notifyDataSetChanged();
+        }
+        else{
+            placeHolder.setVisibility(View.VISIBLE);
+        }
     }
 }

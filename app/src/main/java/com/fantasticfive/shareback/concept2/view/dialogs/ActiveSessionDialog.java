@@ -11,7 +11,9 @@ import android.support.v7.widget.ListViewCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
@@ -22,6 +24,7 @@ import com.fantasticfive.shareback.concept2.helper.FirebaseRunningSessionHelper;
 import com.fantasticfive.shareback.concept2.util.UserData;
 import com.fantasticfive.shareback.concept2.view.adapters.RunningSessionsAdapter;
 import com.google.gson.Gson;
+import com.mingle.widget.LoadingView;
 
 /**
  * Created by sagar on 23/2/17.
@@ -34,6 +37,7 @@ public class ActiveSessionDialog extends DialogFragment implements FirebaseRunni
     FirebaseRunningSessionHelper helper;
     RunningSessionsAdapter adapter;
     ArrayList<ActiveSession> activeSessions;
+    View loadingView;
 
     @NonNull
     @Override
@@ -43,6 +47,8 @@ public class ActiveSessionDialog extends DialogFragment implements FirebaseRunni
         LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.c2_activity_session_list, null);
         ListViewCompat lv = (ListViewCompat) view.findViewById(R.id.lv);
+        loadingView = view.findViewById(R.id.loading_view);
+
         builder.setView(view);
         builder.setTitle(getString(R.string.title_active_sessions));
 
@@ -69,11 +75,19 @@ public class ActiveSessionDialog extends DialogFragment implements FirebaseRunni
 
         helper = new FirebaseRunningSessionHelper(getActivity(), this);
         helper.readSessions();
-        return builder.create();
+        Dialog dialog = builder.create();
+        dialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams .FLAG_FULLSCREEN);
+        return dialog;
     }
 
     @Override
     public void onSessionChange(ArrayList<ActiveSession> al) {
+        if(al.size()!=0){
+            loadingView.setVisibility(View.GONE);
+        }
+        else{
+            loadingView.setVisibility(View.VISIBLE);
+        }
         activeSessions.clear();
         activeSessions.addAll(al);
         adapter.notifyDataSetChanged();

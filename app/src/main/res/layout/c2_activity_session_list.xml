@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.ListViewCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:id="@+id/lv">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:orientation="vertical">
 
-</android.support.v7.widget.ListViewCompat>
+    <android.support.v7.widget.ListViewCompat xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:dividerHeight="1dp"
+        android:divider="@color/lightest_grey"
+        android:id="@+id/lv"/>
+
+    <com.mingle.widget.LoadingView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rotation="-90"
+        android:id="@+id/loading_view"/>
+</LinearLayout>

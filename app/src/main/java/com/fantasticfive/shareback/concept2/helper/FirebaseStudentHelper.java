@@ -108,11 +108,13 @@ public class FirebaseStudentHelper {
             }
         });
 
-        DatabaseReference sessionFileRef = rootRef.child(FirebaseKeys.sessionFiles(activeSession));
+        String key = FirebaseKeys.sessionFiles(activeSession);
+        DatabaseReference sessionFileRef = rootRef.child(key);
         sessionFileRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ArrayList<SharedFile> sharedFiles = new ArrayList<>();
+                Log.i(TAG, "onDataChange: Documents Changed Size");
                 for(DataSnapshot postSnapshot: dataSnapshot.getChildren()){
                     SharedFile sharedFile = postSnapshot.getValue(SharedFile.class);
                     sharedFiles.add(sharedFile);
@@ -164,6 +166,10 @@ public class FirebaseStudentHelper {
                 Toast.makeText(context, "Downloaded: "+pct, Toast.LENGTH_SHORT).show();
             }
         });
+
+    }
+
+    public void sendComments(int rating, String comment){
 
     }
 

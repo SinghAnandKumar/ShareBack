@@ -22,4 +22,8 @@ public class SharedFile {
     public void setPath(String path) {
         this.path = path;
     }
+
+    public boolean equals(SharedFile sharedFile){
+        return (name.equals(sharedFile.getName()) && (path.equals(sharedFile.getPath())));
+    }
 }

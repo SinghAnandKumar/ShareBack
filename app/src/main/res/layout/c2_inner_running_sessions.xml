@@ -2,18 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="horizontal">
-    <ImageView
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:src="@drawable/logo_main_white_bg"
-        android:padding="16dp"
-        android:id="@+id/dp"/>
-    <TextView
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="72dp"
-        android:gravity="center_vertical"
-        android:textSize="16dp"
-        android:text="File Name"
-        android:id="@+id/name"/>
+    <include layout="@layout/c2_comp_letter_icon"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/letter_icon_margin">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/black"
+            android:text="File Name"
+            android:id="@+id/session_name"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light_grey"
+            android:textSize="12sp"
+            android:layout_below="@id/session_name"
+            android:layout_alignParentLeft="true"
+            android:id="@id/instructor_name"/>
+    </RelativeLayout>
 </LinearLayout>

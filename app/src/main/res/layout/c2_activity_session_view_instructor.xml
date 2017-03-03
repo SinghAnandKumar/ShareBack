@@ -1,28 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <android.support.v7.widget.AppCompatButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="Share Files"
-        android:id="@+id/btnShare"/>
-
-    <android.support.v7.widget.AppCompatButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Show Feedbacks"
-        android:layout_toLeftOf="@id/btnShare"/>
+    android:layout_height="match_parent"    >
 
     <android.support.v7.widget.ListViewCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/btnShare"
         android:id="@+id/lv"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/place_holder_docs">
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:rotation="20"
+            android:src="@drawable/bg_img_finger"
+            android:id="@+id/img_place_holder_docs"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Share Docs With People"
+            android:layout_centerInParent="true"
+            android:textColor="@color/black"
+            android:layout_above="@id/img_place_holder_docs"
+            android:id="@+id/textLight"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_centerInParent="true"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_above="@id/textLight"
+            android:text="Tap Here"/>
+    </RelativeLayout>
 
-</RelativeLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:tint="@color/holo_white"
+        android:src="@drawable/ic_menu_share"
+        android:id="@+id/fab"/>
+</android.support.design.widget.CoordinatorLayout>

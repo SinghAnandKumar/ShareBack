@@ -15,5 +15,5 @@
         android:gravity="center_vertical"
         android:textSize="16dp"
         android:text="Hello My name is Sagar"
-        android:id="@+id/name"/>
+        android:id="@+id/session_name"/>
 </LinearLayout>

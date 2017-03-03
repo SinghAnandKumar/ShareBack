@@ -31,7 +31,7 @@ public class FirebaseKeys {
      * |                    |            |-files[] {Object of SharedFile}
      * |                    |            |    |-path
      * |                    |            |    |-name
-     * |                    |            |    |-comments[]
+     * |                    |            |-comments[]
      * |                    |            |-ratings {Array of rating}
      * |                    |                |-rating1
      * |                    |                |-rating2
@@ -95,6 +95,10 @@ public class FirebaseKeys {
         return USERS+"/"+instructorId+"/"+sessionId+"/"+FILES;
     }
 
+    public static String sessionFiles(String instructorId, String sessionId){
+        return USERS+"/"+instructorId+"/"+sessionId+"/"+FILES;
+    }
+
     public static String userSessions(){
         String userId = UserData.getUserId();
         return USERS+"/"+userId;
@@ -110,5 +114,17 @@ public class FirebaseKeys {
         String userId = UserData.getUserId();
         String sessionId = session.getSessionId();
         return USERS+"/"+userId+"/"+sessionId+"/"+RATINGS;
+    }
+
+    public static String rating(JoinedSession session){
+        String instructorId = session.getInstructorId();
+        String sessionId = session.getSessionId();
+        return USERS+"/"+instructorId+"/"+sessionId+"/"+RATINGS;
+    }
+
+    public static String comment(JoinedSession session){
+        String instructorId = session.getInstructorId();
+        String sessionId = session.getSessionId();
+        return USERS+"/"+instructorId+"/"+sessionId+"/"+COMMENTS;
     }
 }

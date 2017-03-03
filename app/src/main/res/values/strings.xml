@@ -55,7 +55,7 @@
     <string name="text_lastName">Last Name</string>
     <string name="text_firstName">First Name</string>
     <string name="text_email">Email</string>
-    <string name="title_active_sessions">Available Sessions</string>
+    <string name="title_active_sessions">Active Sessions</string>
 
     <string name="session_created">Created</string>
     <string name="session_joined">Joined</string>

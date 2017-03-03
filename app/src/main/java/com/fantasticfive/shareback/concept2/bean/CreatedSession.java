@@ -1,6 +1,7 @@
 package com.fantasticfive.shareback.concept2.bean;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by sagar on 19/2/17.
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 public class CreatedSession extends Session{
 
     ArrayList<String> joinedUsers = new ArrayList<>();
-    ArrayList<String> comments = new ArrayList<>();
+    HashMap<String, String> comments = new HashMap<>();
     Rating ratings = new Rating();
 
     public CreatedSession(){
@@ -23,11 +24,11 @@ public class CreatedSession extends Session{
         this.joinedUsers = joinedUsers;
     }
 
-    public ArrayList<String> getComments() {
+    public HashMap<String, String> getComments() {
         return comments;
     }
 
-    public void setComments(ArrayList<String> comments) {
+    public void setComments(HashMap<String, String> comments) {
         this.comments = comments;
     }
 

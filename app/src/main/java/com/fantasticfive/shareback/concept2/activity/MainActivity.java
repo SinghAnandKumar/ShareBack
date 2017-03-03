@@ -23,7 +23,6 @@ import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.concept2.Constants;
 import com.fantasticfive.shareback.concept2.bean.CreatedSession;
 import com.fantasticfive.shareback.concept2.bean.JoinedSession;
-import com.fantasticfive.shareback.concept2.bean.Rating;
 import com.fantasticfive.shareback.concept2.bean.Session;
 import com.fantasticfive.shareback.concept2.helper.FirebaseUserSessionHelper;
 import com.fantasticfive.shareback.concept2.util.MathUtils;
@@ -93,7 +92,7 @@ public class MainActivity
         toolbar.setTitle("");
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
-        loadingView = (LoadingView) findViewById(R.id.sessionInfoLodingView);
+        loadingView = (LoadingView) findViewById(R.id.sessionInfoLoadingView);
         llRecentSessions = (LinearLayout) findViewById(R.id.recent_session);
 
         helper = new FirebaseUserSessionHelper(this, this);

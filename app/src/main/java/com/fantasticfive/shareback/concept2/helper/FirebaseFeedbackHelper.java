@@ -14,6 +14,8 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by sagar on 24/2/17.
@@ -37,9 +39,16 @@ public class FirebaseFeedbackHelper {
         commentRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                GenericTypeIndicator<ArrayList<String>> type = new GenericTypeIndicator<ArrayList<String>>() {};
-                ArrayList<String> comments = dataSnapshot.getValue(type);
-                callback.onCommentChange(comments);
+                Map<String, String> map;
+                GenericTypeIndicator<Map<String, String>> type = new GenericTypeIndicator<Map<String, String>>() {};
+                map = dataSnapshot.getValue(type);
+                if(map !=null) {
+                    ArrayList<String> comments = new ArrayList<>();
+                    for (Map.Entry<String, String> temp : map.entrySet()) {
+                        comments.add(temp.getValue());
+                    }
+                    callback.onCommentChange(comments);
+                }
             }
 
             @Override

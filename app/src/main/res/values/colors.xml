@@ -17,6 +17,7 @@
     <color name="holo_blue">#00ACC1</color>
     <color name="sky_blue">#B7E9DD</color>
     <color name="orange_red">#F44336</color>
+    <color name="lightest_grey">#E0E0E0</color>
     <color name="light_grey">#9E9E9E</color>
     <color name="dark_grey">#bdbdbd</color>
     <color name="darker_grey">#757575</color>

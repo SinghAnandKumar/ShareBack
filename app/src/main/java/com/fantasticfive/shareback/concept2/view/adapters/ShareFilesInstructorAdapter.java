@@ -46,7 +46,7 @@ public class ShareFilesInstructorAdapter extends BaseAdapter{
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.c2_inner_shared_files_instructor, null);
-            holder.name = (TextView) view.findViewById(R.id.name);
+            holder.name = (TextView) view.findViewById(R.id.session_name);
             view.setTag(holder);
         }
         else{

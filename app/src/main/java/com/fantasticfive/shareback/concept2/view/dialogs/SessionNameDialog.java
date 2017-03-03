@@ -20,15 +20,18 @@ import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.concept2.Constants;
+import com.fantasticfive.shareback.concept2.activity.FeedbackViewActivity;
 import com.fantasticfive.shareback.concept2.activity.SessionViewInstructor;
+import com.fantasticfive.shareback.concept2.helper.FirebaseSessionHelper;
 import com.fantasticfive.shareback.concept2.helper.SessionCreateHelper;
 import com.fantasticfive.shareback.concept2.exception.NoInternetException;
+import com.fantasticfive.shareback.concept2.util.SessionUtil;
 
 
 /**
  * Created by sagar on 28/7/16.
  */
-public class SessionNameDialog extends DialogFragment implements SessionCreateHelper.Callback{
+public class SessionNameDialog extends DialogFragment implements FirebaseSessionHelper.Callback{
 
     Activity activity;
     ProgressBar progressBar;
@@ -63,13 +66,10 @@ public class SessionNameDialog extends DialogFragment implements SessionCreateHe
 
                 et.clearFocus();
                 showProgressBar(true);
-                SessionCreateHelper adapter = new SessionCreateHelper(activity, SessionNameDialog.this);
-                try {
-                    adapter.create(sessionName);
-                } catch (NoInternetException e) {
-                    e.printStackTrace();
-                    showNoInternetAlert();
-                }
+
+                String sessionId = SessionUtil.generateSessionKey(sessionName);
+                FirebaseSessionHelper helper = new FirebaseSessionHelper(activity, sessionId, SessionNameDialog.this);
+                helper.createSessionEntry(sessionName);
             }
         });
 
@@ -142,20 +142,14 @@ public class SessionNameDialog extends DialogFragment implements SessionCreateHe
     }
 
     @Override
-    public void onSessionCreated(String sessionName, String sessionId) {
+    public void onSessionEntrySuccess(String sessionId, String sessionName) {
         Toast.makeText(activity, "CreatedSession Created: "+sessionId, Toast.LENGTH_SHORT).show();
         dismiss();
 
-        Intent intent = new Intent(activity, SessionViewInstructor.class);
+        Intent intent = new Intent(activity, FeedbackViewActivity.class);
         intent.putExtra(Constants.SESSION_ID, sessionId);
         intent.putExtra(Constants.SESSION_NAME, sessionName);
         startActivity(intent);
-    }
-
-    @Override
-    public void onSessionCreationFailed(Exception e) {
-        showProgressBar(false);
-        Toast.makeText(activity, "CreatedSession Creation Failed"+e.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }
 

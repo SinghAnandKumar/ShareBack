@@ -137,7 +137,7 @@ public class NewMainActivity
         toolbar.setTitle("");
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
-        loadingView = (LoadingView) findViewById(R.id.sessionInfoLodingView);
+        loadingView = (LoadingView) findViewById(R.id.sessionInfoLoadingView);
 
         snackbar = Snackbar.make(findViewById(R.id.top_parent), "Can't Connect to Server", Snackbar.LENGTH_INDEFINITE)
                 .setAction("OK", new OnClickListener() {

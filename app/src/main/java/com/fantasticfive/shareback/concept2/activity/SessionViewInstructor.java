@@ -29,7 +29,7 @@ import java.util.ArrayList;
  */
 public class SessionViewInstructor extends AppCompatActivity {
 
-    final String TAG = "MY TAG";
+    /*final String TAG = "MY TAG";
     final int FILE_SELECT_CODE = 123;
 
     ListViewCompat lv;
@@ -56,13 +56,13 @@ public class SessionViewInstructor extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        //firebaseHelper.removeSessionEntry();
+        //instructorHelper.removeSessionEntry();
         super.onDestroy();
     }
 
     protected void init(){
         lv = (ListViewCompat) findViewById(R.id.lv);
-        btnShare = (AppCompatButton) findViewById(R.id.btnShare);
+        //btnShare = (AppCompatButton) findViewById(R.id.btnShare);
 
         sessionName = getIntent().getStringExtra(Constants.SESSION_NAME);
         sessionId = getIntent().getStringExtra(Constants.SESSION_ID);
@@ -83,7 +83,7 @@ public class SessionViewInstructor extends AppCompatActivity {
         intent.putExtra(FilePickerActivity.EXTRA_ALLOW_MULTIPLE, false);
         intent.putExtra(FilePickerActivity.EXTRA_ALLOW_CREATE_DIR, false);
         intent.putExtra(FilePickerActivity.EXTRA_MODE, FilePickerActivity.MODE_FILE);
-        intent.setType("file/*");
+        intent.setType("file*//*");
 
         intent.putExtra(FilePickerActivity.EXTRA_START_PATH, Environment.getExternalStorageDirectory().getPath());
         startActivityForResult(intent, FILE_SELECT_CODE);
@@ -139,5 +139,5 @@ public class SessionViewInstructor extends AppCompatActivity {
         }
         JoinedUsersAdapter adapter = new JoinedUsersAdapter(this, userList);
         lv.setAdapter(adapter);
-    }
+    }*/
 }

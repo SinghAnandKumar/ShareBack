@@ -35,4 +35,6 @@
     <dimen name="tvRating">12dp</dimen>
     <dimen name="rating_bar_height">19dp</dimen>
     <dimen name="rating_bar_margin">10dp</dimen>
+    <dimen name="bottomsheet_visible_part">60dp</dimen>
+    <dimen name="letter_icon_margin">12dp</dimen>
 </resources>
