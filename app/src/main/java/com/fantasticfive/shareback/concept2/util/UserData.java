@@ -35,5 +35,9 @@ public class UserData {
         return name;
     }
 
+    public static boolean isMe(String userId){
+        return getUserId().equals(userId);
+    }
+
 
 }

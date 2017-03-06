@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"    >
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
 
     <android.support.v7.widget.ListViewCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5dp"
+        android:layout_marginTop="12dp"
         android:id="@+id/lv"/>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,7 +40,7 @@
             android:textStyle="bold"
             android:textSize="20dp"
             android:layout_above="@id/textLight"
-            android:text="Tap Here"/>
+            android:text="Tap Share Button"/>
     </RelativeLayout>
 
     <android.support.design.widget.FloatingActionButton

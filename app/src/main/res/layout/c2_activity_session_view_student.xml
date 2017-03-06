@@ -10,7 +10,7 @@
     <!-- Feedback block -->
     <include
         layout="@layout/c2_inner_feedback"
-        android:id="@+id/feedback_block"/>
+        android:id="@+id/feedback_card"/>
 
     <!--Place Holder-->
     <LinearLayout

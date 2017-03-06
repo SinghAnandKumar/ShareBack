@@ -3,7 +3,8 @@
     <color name="colorPrimary">#4CAF50</color>
     <color name="colorPrimaryDark">#388E3C</color>
     <color name="colorAccent">#FF5252</color>
-    <color name="colorPrimaryLight">#c8e6c9</color>
+    <color name="colorPrimaryLight">#66BB6A</color>
+    <color name="colorPrimaryLightest">#c8e6c9</color>
 
     <color name="colorSecondaryLight">#90CAF9</color>
     <color name="colorSecondryDark">#009688</color>
@@ -22,6 +23,7 @@
     <color name="dark_grey">#bdbdbd</color>
     <color name="darker_grey">#757575</color>
     <color name="teal">#009688</color>
+    <color name="light_green">#00E676</color>
 
     <color name="icon_red">#F44336</color>
     <color name="icon_pink">#E91E63</color>
@@ -37,4 +39,19 @@
 
     <color name="default_text_color">#9E9E9E</color>
     <color name="default_color">#e0e0e0</color>
+
+    <!-- Firebase Login-->
+    <color name="bg_login">#26ae90</color>
+    <color name="bg_register">#2e3237</color>
+    <color name="bg_main">#428bca</color>
+    <color name="white">#ffffff</color>
+    <color name="input_login">#222222</color>
+    <color name="input_login_hint">#999999</color>
+    <color name="input_register">#888888</color>
+    <color name="input_register_bg">#3b4148</color>
+    <color name="input_register_hint">#5e6266</color>
+    <color name="btn_login">#26ae90</color>
+    <color name="btn_login_bg">#eceef1</color>
+    <color name="lbl_name">#333333</color>
+    <color name="btn_logut_bg">#ff6861</color>
 </resources>

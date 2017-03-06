@@ -2,8 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:state_activated="true"
-        android:drawable="@color/colorPrimaryLight">
-        <color android:color="@color/colorPrimaryLight"/>
+        android:drawable="@color/colorPrimaryLightest">
+        <color android:color="@color/colorPrimaryLightest"/>
     </item>
 
     <item android:state_activated="false">

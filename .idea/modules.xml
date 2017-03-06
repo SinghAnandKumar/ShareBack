@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ShareBack.iml" filepath="$PROJECT_DIR$/ShareBack.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/circularprogressview/circularprogressview.iml" filepath="$PROJECT_DIR$/libs/circularprogressview/circularprogressview.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/filepicker/filepicker.iml" filepath="$PROJECT_DIR$/libs/filepicker/filepicker.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/libs.iml" filepath="$PROJECT_DIR$/libs/libs.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/pdfviewlib/pdfviewlib.iml" filepath="$PROJECT_DIR$/libs/pdfviewlib/pdfviewlib.iml" />

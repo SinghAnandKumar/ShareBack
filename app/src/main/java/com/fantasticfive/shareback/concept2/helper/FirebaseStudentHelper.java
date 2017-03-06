@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.fantasticfive.shareback.concept2.bean.ActiveSession;
 import com.fantasticfive.shareback.concept2.bean.ActiveUser;
 import com.fantasticfive.shareback.concept2.bean.JoinedSession;
+import com.fantasticfive.shareback.concept2.bean.Rating;
 import com.fantasticfive.shareback.concept2.bean.SharedFile;
 import com.fantasticfive.shareback.concept2.util.FileUtils;
 import com.fantasticfive.shareback.concept2.util.FirebaseKeys;
@@ -18,6 +19,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.MutableData;
+import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
@@ -55,7 +58,7 @@ public class FirebaseStudentHelper {
         storageReference = FirebaseStorage.getInstance().getReference(sessionId);
     }
 
-    public void register(ActiveSession activeSession){
+    public void register(final ActiveSession activeSession){
 
         Log.i(TAG, "register: trying "+userId);
         String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
@@ -71,8 +74,45 @@ public class FirebaseStudentHelper {
             }
         });
 
+        DatabaseReference joinedSessionRef = rootRef.child(FirebaseKeys.userSessions());
+        joinedSessionRef = joinedSessionRef.child(sessionId);
+        joinedSessionRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot==null)
+                    joinEntry(activeSession);
+                else {
+                    JoinedSession session = dataSnapshot.getValue(JoinedSession.class);
+                    callback.onSessionJoined(session);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void updateJoinEntry(final JoinedSession joinedSession){
+        DatabaseReference joinedSessionRef = rootRef.child(FirebaseKeys.userSessions());
+        joinedSessionRef = joinedSessionRef.child(sessionId);
+        joinedSessionRef.setValue(joinedSession, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if(databaseError != null)
+                    databaseError.toException().printStackTrace();
+                else{
+                    callback.onSessionJoined(joinedSession);
+                }
+            }
+        });
+    }
+
+    private void joinEntry(ActiveSession activeSession){
         //Make Entry in JoinedSession
-        JoinedSession joinedSession = new JoinedSession();
+        final JoinedSession joinedSession = new JoinedSession();
         joinedSession.setInstructorId(activeSession.getInstructorId());
         joinedSession.setSessionName(activeSession.getSessionName());
         joinedSession.setSessionId(activeSession.getSessionId());
@@ -85,8 +125,9 @@ public class FirebaseStudentHelper {
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if(databaseError != null)
                     databaseError.toException().printStackTrace();
-                else
-                    Log.i(TAG, "onComplete: Joined Session Successfully Added in user List");
+                else{
+                    callback.onSessionJoined(joinedSession);
+                }
             }
         });
     }
@@ -144,37 +185,59 @@ public class FirebaseStudentHelper {
         });
     }
 
-    public void download(SharedFile sharedFile){
-        StorageReference ref = storageReference.child(sharedFile.getName());
-        File file = new File(FileUtils.getSharebackDir(sharedFile.getName()));
-        ref.getFile(file).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(context, "File Downloaded", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(context, "Failed to Download File", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnProgressListener(new OnProgressListener<FileDownloadTask.TaskSnapshot>() {
-            @Override
-            public void onProgress(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                long total = taskSnapshot.getTotalByteCount();
-                long dwn = taskSnapshot.getBytesTransferred();
-                double pct = (100d*dwn)/total;
-                Toast.makeText(context, "Downloaded: "+pct, Toast.LENGTH_SHORT).show();
-            }
-        });
+    public void sendComments(ActiveSession joinedSession, int rating, String comment){
+        DatabaseReference ratingRef = rootRef.child(FirebaseKeys.rating(joinedSession, rating));
+        updateRating(ratingRef, rating);
 
+        if(comment!=null && !comment.trim().isEmpty()) {
+            DatabaseReference commentRef = rootRef.child(FirebaseKeys.comment(joinedSession));
+            commentRef.push().setValue(comment, new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                    if(databaseError!=null) {
+                        Log.e(TAG, "onComplete: "+databaseError.getMessage());
+                        databaseError.toException().printStackTrace();
+                    }
+                    else
+                        Log.i(TAG, "onComplete: Comment Successfully Sent");
+                }
+            });
+        }
     }
 
-    public void sendComments(int rating, String comment){
+    private void updateRating(DatabaseReference ratingRef, final int rating){
 
+        ratingRef.runTransaction(new Transaction.Handler() {
+            @Override
+            public Transaction.Result doTransaction(MutableData mutableData) {
+                Rating currRating = mutableData.getValue(Rating.class);
+                switch (rating){
+                    case 1: currRating.setRating1(currRating.getRating1()+1); break;
+                    case 2: currRating.setRating2(currRating.getRating2()+1); break;
+                    case 3: currRating.setRating3(currRating.getRating3()+1); break;
+                    case 4: currRating.setRating4(currRating.getRating4()+1); break;
+                    case 5: currRating.setRating5(currRating.getRating5()+1); break;
+                }
+                mutableData.setValue(currRating);
+                return Transaction.success(mutableData);
+            }
+
+            @Override
+            public void onComplete(DatabaseError databaseError, boolean b, DataSnapshot dataSnapshot) {
+                if(databaseError!=null){
+                    Log.e(TAG, "onComplete: "+databaseError.getMessage() );
+                    databaseError.toException().printStackTrace();
+                }
+                else {
+                    Log.e(TAG, "onComplete: Success"+ dataSnapshot.getValue() );
+                }
+            }
+        });
     }
 
     public interface Callback{
         void onDocumentsChanged(ArrayList<SharedFile> sharedFiles);
+        void onSessionJoined(JoinedSession session);
     }
 
 }

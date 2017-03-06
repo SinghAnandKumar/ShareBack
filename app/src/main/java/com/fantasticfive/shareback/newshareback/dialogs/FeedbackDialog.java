@@ -51,17 +51,17 @@ public class FeedbackDialog extends DialogFragment implements FeedbackHelper.Fee
         View view = inflater.inflate(R.layout.dialog_feedback, null);
         Typeface tf = Typeface.createFromAsset(activity.getAssets(), Globals.font);
         Typeface tfBold = Typeface.createFromAsset(activity.getAssets(), Globals.font_bold);
-        ((AppCompatEditText)view.findViewById(R.id.etFeedbackComment)).setTypeface(tf);
+        ((AppCompatEditText)view.findViewById(R.id.et_feedback_comment)).setTypeface(tf);
         ((TextView)view.findViewById(R.id.textFeedback)).setTypeface(tfBold);
 
 
-        final AppCompatRatingBar ratingBar = (AppCompatRatingBar) view.findViewById(R.id.ratingBar);
+        final AppCompatRatingBar ratingBar = (AppCompatRatingBar) view.findViewById(R.id.rb_feedback_rating);
         LayerDrawable layerDrawable = (LayerDrawable) ratingBar.getProgressDrawable();
         layerDrawable.getDrawable(2).setColorFilter(getResources().getColor(R.color.orange_red), PorterDuff.Mode.SRC_ATOP);
 
         setCancelable(false);
 
-        final AppCompatEditText etComment = (AppCompatEditText) view.findViewById(R.id.etFeedbackComment);
+        final AppCompatEditText etComment = (AppCompatEditText) view.findViewById(R.id.et_feedback_comment);
         etComment.setText(comment);
 
         builder.setView(view)

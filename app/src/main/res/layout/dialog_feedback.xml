@@ -27,7 +27,7 @@
             android:layout_gravity="center_horizontal"
             style="?android:attr/ratingBarStyle"
             android:stepSize="1"
-            android:id="@+id/ratingBar" />
+            android:id="@+id/rb_feedback_rating" />
 
         <android.support.v7.widget.AppCompatEditText
             android:layout_width="match_parent"
@@ -42,6 +42,6 @@
             android:gravity="bottom"
             android:padding="10dp"
             android:hint="Comment (Optional)..."
-            android:id="@+id/etFeedbackComment" />
+            android:id="@+id/et_feedback_comment" />
 
     </LinearLayout>

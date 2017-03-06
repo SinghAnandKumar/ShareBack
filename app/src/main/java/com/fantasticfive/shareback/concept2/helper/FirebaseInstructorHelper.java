@@ -56,49 +56,12 @@ public class FirebaseInstructorHelper {
         taskMap = new HashMap<>();
     }
 
-    public void uploadThenShareFile(Uri uri){
-        StorageReference fileRef = storageRef.child(uri.getLastPathSegment());
-        UploadTask task = fileRef.putFile(uri);
-        task.addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(context, "Failed to Upload: "+e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        })
-        .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                Toast.makeText(context, "Uploaded Successfully: "+downloadUrl, Toast.LENGTH_SHORT).show();
-
-                String relativePath = downloadUrl.getLastPathSegment();
-                SharedFile sharedFile = new SharedFile();
-                sharedFile.setName( new File(relativePath).getName());
-                sharedFile.setPath(relativePath);
-                addSessionFileEntry(sharedFile);
-            }
-        })
-        .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                long total = taskSnapshot.getTotalByteCount();
-                long transferred = taskSnapshot.getBytesTransferred();
-                double pcage = ((double)transferred/total)*100d;
-                Toast.makeText(context, "Transferred: "+pcage, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        taskMap.put(uri.getPath(), task);
-    }
-
-
-
     public void removeSessionEntry(){
         DatabaseReference ref = dbRootRef.child(FirebaseKeys.activeSessions());
         ref.child(sessionId).removeValue();
     }
 
-    public void addSessionFileEntry(SharedFile sharedFile){
+    public void insertInSharedFile(SharedFile sharedFile){
         String instructorId = UserData.getUserId();
         ActiveSession activeSession = new ActiveSession();
         activeSession.setInstructorId(instructorId);

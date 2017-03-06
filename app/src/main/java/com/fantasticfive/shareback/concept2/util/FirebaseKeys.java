@@ -52,6 +52,11 @@ public class FirebaseKeys {
     private static final String RATINGS = "ratings";
     private static final String COMMENTS = "comments";
     private static final String JOINED_SESSION = "joined_session";
+    private static final String RATING_1 = "rating1";
+    private static final String RATING_2 = "rating2";
+    private static final String RATING_3 = "rating3";
+    private static final String RATING_4 = "rating4";
+    private static final String RATING_5 = "rating5";
 
     public static String activeSessions(){
         return ACTIVE_SESSIONS;
@@ -116,13 +121,27 @@ public class FirebaseKeys {
         return USERS+"/"+userId+"/"+sessionId+"/"+RATINGS;
     }
 
-    public static String rating(JoinedSession session){
+    public static String rating(ActiveSession session, int rating){
         String instructorId = session.getInstructorId();
         String sessionId = session.getSessionId();
         return USERS+"/"+instructorId+"/"+sessionId+"/"+RATINGS;
     }
 
-    public static String comment(JoinedSession session){
+    /*public static String rating(ActiveSession session, int rating){
+        String instructorId = session.getInstructorId();
+        String sessionId = session.getSessionId();
+        String ratingKey = "";
+        switch (rating){
+            case 1: ratingKey = RATING_1; break;
+            case 2: ratingKey = RATING_2; break;
+            case 3: ratingKey = RATING_3; break;
+            case 4: ratingKey = RATING_4; break;
+            case 5: ratingKey = RATING_5; break;
+        }
+        return USERS+"/"+instructorId+"/"+sessionId+"/"+ratingKey;
+    }*/
+
+    public static String comment(ActiveSession session){
         String instructorId = session.getInstructorId();
         String sessionId = session.getSessionId();
         return USERS+"/"+instructorId+"/"+sessionId+"/"+COMMENTS;

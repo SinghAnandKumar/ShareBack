@@ -2,9 +2,11 @@ package com.fantasticfive.shareback.concept2.helper;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.fantasticfive.shareback.concept2.bean.ActiveSession;
 import com.fantasticfive.shareback.concept2.util.FirebaseKeys;
+import com.fantasticfive.shareback.concept2.util.UserData;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,14 +41,16 @@ public class FirebaseRunningSessionHelper {
                 ArrayList<ActiveSession> sessions = new ArrayList<>();
                 for(DataSnapshot postSnapshot: dataSnapshot.getChildren()){
                     ActiveSession aSession = postSnapshot.getValue(ActiveSession.class);
-                    sessions.add(aSession);
+                    if(!UserData.isMe(aSession.getInstructorId()))
+                        sessions.add(aSession);
                 }
                 callback.onSessionChange(sessions);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                if(databaseError!=null)
+                    Toast.makeText(context, "Cancelled: "+databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

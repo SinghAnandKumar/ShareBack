@@ -1,12 +1,14 @@
 package com.fantasticfive.shareback.concept2.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatRatingBar;
 import android.support.v7.widget.ListViewCompat;
 import android.util.Log;
@@ -24,8 +26,10 @@ import com.fantasticfive.shareback.concept2.Constants;
 import com.fantasticfive.shareback.concept2.bean.CreatedSession;
 import com.fantasticfive.shareback.concept2.bean.Rating;
 import com.fantasticfive.shareback.concept2.bean.SharedFile;
+import com.fantasticfive.shareback.concept2.bean.UploadingFile;
 import com.fantasticfive.shareback.concept2.helper.FirebaseFeedbackHelper;
 import com.fantasticfive.shareback.concept2.helper.FirebaseInstructorHelper;
+import com.fantasticfive.shareback.concept2.helper.FirebaseUploadHelper;
 import com.fantasticfive.shareback.concept2.util.MathUtils;
 import com.fantasticfive.shareback.concept2.view.adapters.CommentsAdapter;
 import com.fantasticfive.shareback.concept2.view.adapters.ShareFilesInstructorAdapter;
@@ -37,8 +41,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class FeedbackViewActivity extends AppCompatActivity implements FirebaseFeedbackHelper.Callback, FirebaseInstructorHelper.Callback {
+public class FeedbackViewActivity extends AppCompatActivity
+        implements ShareFilesInstructorAdapter.Callback,
+        FirebaseFeedbackHelper.Callback,
+        FirebaseInstructorHelper.Callback {
 
+    private static final int STORAGE_REQUEST = 1;
     final String TAG = "MY TAG";
     final int FILE_SELECT_CODE = 123;
 
@@ -64,24 +72,31 @@ public class FeedbackViewActivity extends AppCompatActivity implements FirebaseF
     ShareFilesInstructorAdapter shareFilesAdapter;
     CreatedSession createdSession;
     FirebaseInstructorHelper instructorHelper;
-    FirebaseFeedbackHelper helper;
+    FirebaseFeedbackHelper feedbackHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.c2_activity_feedback);
         init();
+        askPermissions();
         addListeners();
 
         lvComments.setAdapter(commentsAdapter);
-        helper.listenForFeedbacks(createdSession);
+        feedbackHelper.listenForFeedbacks(createdSession);
         getSupportActionBar().setTitle(sessionName);
 
         sharedFiles = new ArrayList<>();
-        shareFilesAdapter = new ShareFilesInstructorAdapter(this, sharedFiles);
+        shareFilesAdapter = new ShareFilesInstructorAdapter(this, sharedFiles, this);
         lv.setAdapter(shareFilesAdapter);
 
         instructorHelper.listenForDocChange();
+    }
+
+    private void askPermissions(){
+        Toast.makeText(FeedbackViewActivity.this, "Need Some Permissions to download File", Toast.LENGTH_SHORT).show();
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_REQUEST);
     }
 
     private void init(){
@@ -99,7 +114,7 @@ public class FeedbackViewActivity extends AppCompatActivity implements FirebaseF
         imgBkg = (ImageView) findViewById(R.id.bkg_img);
         textComment = (TextView) findViewById(R.id.textComment);
         tvRating = (TextView) findViewById(R.id.tvRating);
-        rbAvgRating = (AppCompatRatingBar) findViewById(R.id.ratingBar);
+        rbAvgRating = (AppCompatRatingBar) findViewById(R.id.rb_feedback_rating);
         tvUsers = (TextView) findViewById(R.id.tvUsers);
 
         //From Instructor Activity
@@ -111,7 +126,7 @@ public class FeedbackViewActivity extends AppCompatActivity implements FirebaseF
 
         sessionId = getIntent().getExtras().getString(Constants.SESSION_ID);
         sessionName = getIntent().getExtras().getString(Constants.SESSION_NAME);
-        helper = new FirebaseFeedbackHelper(this, this);
+        feedbackHelper = new FirebaseFeedbackHelper(this, this);
         comments = new ArrayList<>();
         commentsAdapter = new CommentsAdapter(this, comments);
         createdSession = new CreatedSession();
@@ -162,12 +177,12 @@ public class FeedbackViewActivity extends AppCompatActivity implements FirebaseF
         String fileName = new File(filePath).getName();
         Log.i(TAG, "onActivityResult: "+filePath+" Choosed");
 
-        SharedFile file = new SharedFile();
-        file.setPath(filePath);
-        file.setName(fileName);
+        UploadingFile uploadingFile = new UploadingFile();
+        uploadingFile.setLocalUri(uri);
+        uploadingFile.setName(fileName);
 
-        uploadingFileSet.add(file);
-        sharedFiles.add(file);
+        uploadingFileSet.add(uploadingFile);
+        sharedFiles.add(uploadingFile);
         docCount.setText(sharedFiles.size()+"");
         shareFilesAdapter.notifyDataSetChanged();
     }
@@ -178,7 +193,6 @@ public class FeedbackViewActivity extends AppCompatActivity implements FirebaseF
             case FILE_SELECT_CODE:
                 if (resultCode == RESULT_OK) {
                     Uri uri = data.getData();
-                    instructorHelper.uploadThenShareFile(uri);
                     updateListAdapter(uri);
                 }
                 break;
@@ -264,5 +278,41 @@ public class FeedbackViewActivity extends AppCompatActivity implements FirebaseF
                 docsPlaceHolder.setVisibility(View.GONE);
             }
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(FeedbackViewActivity.this, "Cool", Toast.LENGTH_SHORT).show();
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                    Toast.makeText(this, "Permission denied to read your External storage", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
+    }
+
+    @Override
+    public void onUploadComplete(String downloadPath) {
+        String name = new File(downloadPath).getName();
+        SharedFile sharedFile = new SharedFile();
+        sharedFile.setName(name);
+        sharedFile.setPath(downloadPath);
+        instructorHelper.insertInSharedFile(sharedFile);
     }
 }

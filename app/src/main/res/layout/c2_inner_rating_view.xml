@@ -29,11 +29,11 @@
             style="?android:ratingBarStyleSmall"
             android:layout_below="@id/tvRating"
             android:layout_centerInParent="true"
-            android:id="@+id/ratingBar" />
+            android:id="@+id/rb_feedback_rating" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ratingBar"
+            android:layout_below="@id/rb_feedback_rating"
             android:layout_marginLeft="2dp"
             android:text="total"
             android:layout_centerInParent="true"
@@ -44,13 +44,13 @@
             android:text="2"
             android:layout_toLeftOf="@id/textTotal"
             android:layout_marginLeft="2dp"
-            android:layout_below="@id/ratingBar"
+            android:layout_below="@id/rb_feedback_rating"
             android:id="@+id/tvUsers"/>
         <ImageView
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_toLeftOf="@id/tvUsers"
-            android:layout_below="@+id/ratingBar"
+            android:layout_below="@+id/rb_feedback_rating"
             android:foregroundGravity="center_vertical"
             android:backgroundTint="@color/dark_grey"
             android:background="@drawable/ic_person_black_24dp"/>

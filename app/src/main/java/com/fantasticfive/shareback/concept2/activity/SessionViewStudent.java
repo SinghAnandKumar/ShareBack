@@ -3,13 +3,18 @@ package com.fantasticfive.shareback.concept2.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.AppCompatRatingBar;
 import android.support.v7.widget.ListViewCompat;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.concept2.Constants;
 import com.fantasticfive.shareback.concept2.bean.ActiveSession;
+import com.fantasticfive.shareback.concept2.bean.JoinedSession;
 import com.fantasticfive.shareback.concept2.bean.SharedFile;
 import com.fantasticfive.shareback.concept2.helper.FirebaseStudentHelper;
 import com.fantasticfive.shareback.concept2.view.adapters.ShareFilesStudentAdapter;
@@ -25,11 +30,17 @@ public class SessionViewStudent extends AppCompatActivity implements FirebaseStu
     private static final String TAG = "MY TAG";
     ListViewCompat lv;
     View placeHolder;
+    View feedbackCard;
+    AppCompatButton btnFeedbackSave;
+    AppCompatEditText etFeedbackComment;
+    AppCompatRatingBar rbFeedbackRating;
+
     FirebaseStudentHelper helper;
     ShareFilesStudentAdapter adapter;
     ArrayList<SharedFile> sharedFiles;
 
     ActiveSession activeSession;
+    JoinedSession joinedSession;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,13 +50,7 @@ public class SessionViewStudent extends AppCompatActivity implements FirebaseStu
 
         helper.register(activeSession);
         lv.setAdapter(adapter);
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                SharedFile file = sharedFiles.get(position);
-                helper.download(file);
-            }
-        });
+        addListeners();
     }
 
     @Override
@@ -64,6 +69,10 @@ public class SessionViewStudent extends AppCompatActivity implements FirebaseStu
         //UI Data
         lv = (ListViewCompat) findViewById(R.id.lv);
         placeHolder = findViewById(R.id.place_holder);
+        btnFeedbackSave = (AppCompatButton) findViewById(R.id.btn_save);
+        etFeedbackComment = (AppCompatEditText) findViewById(R.id.et_feedback_comment);
+        rbFeedbackRating = (AppCompatRatingBar) findViewById(R.id.rb_feedback_rating);
+        feedbackCard = findViewById(R.id.feedback_card);
 
         //Backend Data
         String strActiveSession = getIntent().getExtras().getString(Constants.ACTIVE_SESSION);
@@ -72,6 +81,25 @@ public class SessionViewStudent extends AppCompatActivity implements FirebaseStu
         helper = new FirebaseStudentHelper(this, sessionId, this);
         sharedFiles = new ArrayList<>();
         adapter = new ShareFilesStudentAdapter(this, sharedFiles);
+    }
+
+    protected void addListeners(){
+        btnFeedbackSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int rating = (int)Math.floor((double)rbFeedbackRating.getRating());
+                if(rating<=0) {
+                    Toast.makeText(SessionViewStudent.this, "Please Rate First", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                String comment = etFeedbackComment.getText().toString();
+                helper.sendComments(activeSession, rating, comment);
+                feedbackCard.setVisibility(View.GONE);
+                joinedSession.setRating(rating);
+                joinedSession.setComment(comment);
+                helper.updateJoinEntry(joinedSession);
+            }
+        });
     }
 
     @Override
@@ -84,6 +112,14 @@ public class SessionViewStudent extends AppCompatActivity implements FirebaseStu
         }
         else{
             placeHolder.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void onSessionJoined(JoinedSession session) {
+        joinedSession = session;
+        if(session.getRating() !=0){
+            feedbackCard.setVisibility(View.GONE);
         }
     }
 }

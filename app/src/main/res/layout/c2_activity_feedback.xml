@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/bottomsheet_visible_part"
             android:padding="16dp"
-            android:background="@drawable/ripple_card_selector"
+            android:background="@color/colorPrimaryLight"
             android:id="@+id/bottomsheet_visible_view">
             <TextView
                 android:id="@+id/bottomsheet_text"
@@ -84,7 +84,7 @@
                 android:textSize="16dp"
                 android:textStyle="bold"
                 android:text="Documents"
-                android:textColor="@color/black"/>
+                android:textColor="@color/holo_white"/>
 
 
             <RelativeLayout
