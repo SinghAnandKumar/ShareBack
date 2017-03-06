@@ -143,6 +143,7 @@ public class SignupActivity extends AppCompatActivity
             } else {
                 // Google Sign In failed, update UI appropriately
                 // ...
+                Toast.makeText(SignupActivity.this, "Failed to Login", Toast.LENGTH_SHORT).show();
             }
         }
     }
