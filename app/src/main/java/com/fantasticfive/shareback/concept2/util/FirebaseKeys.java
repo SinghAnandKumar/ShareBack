@@ -87,7 +87,7 @@ public class FirebaseKeys {
     }
 
     public static String joinedUsers(CreatedSession session){
-        String userId = UserData.getUserId();
+        String userId = UserData.getInstance().getUserId();
         String sessionId = session.getSessionId();
 
         return USERS+"/"+userId+"/"+sessionId+"/"+JOINED_USERS;
@@ -105,18 +105,18 @@ public class FirebaseKeys {
     }
 
     public static String userSessions(){
-        String userId = UserData.getUserId();
+        String userId = UserData.getInstance().getUserId();
         return USERS+"/"+userId;
     }
 
     public static String userSessionComments(CreatedSession session){
-        String userId = UserData.getUserId();
+        String userId = UserData.getInstance().getUserId();
         String sessionId = session.getSessionId();
         return USERS+"/"+userId+"/"+sessionId+"/"+COMMENTS;
     }
 
     public static String userSessionRating(CreatedSession session){
-        String userId = UserData.getUserId();
+        String userId = UserData.getInstance().getUserId();
         String sessionId = session.getSessionId();
         return USERS+"/"+userId+"/"+sessionId+"/"+RATINGS;
     }

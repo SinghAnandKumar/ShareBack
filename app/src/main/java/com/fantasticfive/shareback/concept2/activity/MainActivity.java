@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,15 +22,19 @@ import android.widget.TextView;
 import com.fantasticfive.shareback.Globals;
 import com.fantasticfive.shareback.R;
 import com.fantasticfive.shareback.concept2.Constants;
+import com.fantasticfive.shareback.concept2.bean.ActiveSession;
 import com.fantasticfive.shareback.concept2.bean.CreatedSession;
 import com.fantasticfive.shareback.concept2.bean.JoinedSession;
 import com.fantasticfive.shareback.concept2.bean.Session;
 import com.fantasticfive.shareback.concept2.helper.FirebaseUserSessionHelper;
 import com.fantasticfive.shareback.concept2.util.MathUtils;
+import com.fantasticfive.shareback.concept2.util.UserData;
 import com.fantasticfive.shareback.concept2.util.WordUtils;
 import com.fantasticfive.shareback.concept2.view.dialogs.ActiveSessionDialog;
 import com.fantasticfive.shareback.concept2.view.dialogs.SessionNameDialog;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.gson.Gson;
 import com.mingle.widget.LoadingView;
 
 import java.text.DecimalFormat;
@@ -113,10 +118,10 @@ public class MainActivity
             tv.setTypeface(tf);
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        /*MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_start, menu);*/
+        *//*MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_start, menu);*//*
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -127,7 +132,7 @@ public class MainActivity
         switch(item.getItemId()) {
             default: return super.onOptionsItemSelected(item);
         }
-    }
+    }*/
 
     @Override
     public void onSessionFetched(ArrayList<Session> sessions) {
@@ -196,6 +201,7 @@ public class MainActivity
         TextView tvLetterIcon = (TextView) view.findViewById(R.id.firstChar);
         TextView tvSessionId = (TextView) view.findViewById(R.id.session_id);
         TextView tvInstructorName = (TextView) view.findViewById(R.id.instructor_name);
+        TextView tvInstructorId = (TextView) view.findViewById(R.id.instructor_id);
 
         String sessionName = joinedSession.getSessionName();
         sessionName = WordUtils.capitalizeFirstChar(sessionName);
@@ -205,6 +211,25 @@ public class MainActivity
         tvSessionType.setText(getSessionTypeString(joinedSession));
         tvInstructorName.setVisibility(View.VISIBLE);
         tvInstructorName.setText(joinedSession.getInstructorName());
+        tvInstructorId.setText(joinedSession.getInstructorId());
+
+        view.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e(TAG, "onClick: I AM HERE" );
+                String sessionId = ((TextView) view.findViewById(R.id.session_id)).getText().toString();
+                String sessionName = ((TextView) view.findViewById(R.id.session_name)).getText().toString();
+                String instructorId = ((TextView) view.findViewById(R.id.instructor_id)).getText().toString();
+
+                Intent intent = new Intent(MainActivity.this, SessionViewStudent.class);
+                ActiveSession activeSession = new ActiveSession();
+                activeSession.setSessionId(sessionId);
+                activeSession.setSessionName(sessionName);
+                activeSession.setInstructorId(instructorId);
+                intent.putExtra(Constants.ACTIVE_SESSION, new Gson().toJson(activeSession));
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
@@ -215,5 +240,31 @@ public class MainActivity
             case Session.JOINED: return getString(R.string.session_joined);
         }
         return "";
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.c2_menu_main, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()) {
+            case R.id.logout: logout();
+
+            default: return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void logout(){
+        FirebaseAuth.getInstance().signOut();
+        UserData.getInstance().removeInstance();
+        finish();
+        Intent intent = new Intent(this, SignupActivity.class);
+        startActivity(intent);
     }
 }

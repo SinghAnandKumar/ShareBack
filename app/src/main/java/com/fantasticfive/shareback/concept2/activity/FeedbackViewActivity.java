@@ -12,6 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatRatingBar;
 import android.support.v7.widget.ListViewCompat;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -50,15 +53,11 @@ public class FeedbackViewActivity extends AppCompatActivity
     final String TAG = "MY TAG";
     final int FILE_SELECT_CODE = 123;
 
-    TextView star1, star2, star3, star4, star5;
+    TextView star1, star2, star3, star4, star5, textComment, tvRating, tvUsers, docCount;
     View star1Bar, star2Bar, star3Bar, star4Bar, star5Bar;
     ListView lvComments;
     CommentsAdapter commentsAdapter;
     ImageView imgBkg;
-    TextView textComment;
-    TextView tvRating;
-    TextView tvUsers;
-    TextView docCount;
     ListViewCompat lv;
     FloatingActionButton fabShare;
     AppCompatRatingBar rbAvgRating;
@@ -94,7 +93,7 @@ public class FeedbackViewActivity extends AppCompatActivity
     }
 
     private void askPermissions(){
-        Toast.makeText(FeedbackViewActivity.this, "Need Some Permissions to download File", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(FeedbackViewActivity.this, "Need Some Permissions to download File", Toast.LENGTH_SHORT).show();
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_REQUEST);
     }
@@ -183,6 +182,9 @@ public class FeedbackViewActivity extends AppCompatActivity
 
         uploadingFileSet.add(uploadingFile);
         sharedFiles.add(uploadingFile);
+        if(sharedFiles.size() <= 0){
+            docsPlaceHolder.setVisibility(View.GONE);
+        }
         docCount.setText(sharedFiles.size()+"");
         shareFilesAdapter.notifyDataSetChanged();
     }
@@ -253,6 +255,11 @@ public class FeedbackViewActivity extends AppCompatActivity
 
     @Override
     public void onUsersJoined(ArrayList<String> users) {
+        if(users == null){
+            //Toast.makeText(this, "Session is Closed Permanently", Toast.LENGTH_SHORT).show();
+            //finish();
+            return;
+        }
         tvUsers.setText(users.size()+"");
     }
     @Override
@@ -267,8 +274,16 @@ public class FeedbackViewActivity extends AppCompatActivity
                 SharedFile file = itr.next();
                 sharedFiles.add(file);
             }
+
             this.sharedFiles.clear();
-            this.sharedFiles.addAll(sharedFiles);
+            HashSet<String> set = new HashSet<>();
+            for(SharedFile sf: sharedFiles){
+                if(!sharedFiles.contains(sf.getName())){
+                    this.sharedFiles.add(sf);
+                    set.add(sf.getName());
+                }
+            }
+
             shareFilesAdapter.notifyDataSetChanged();
             docCount.setText(this.sharedFiles.size()+"");
             if(this.sharedFiles.size() == 0) {
@@ -289,7 +304,7 @@ public class FeedbackViewActivity extends AppCompatActivity
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(FeedbackViewActivity.this, "Cool", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(FeedbackViewActivity.this, "Cool", Toast.LENGTH_SHORT).show();
                     // permission was granted, yay! Do the
                     // contacts-related task you need to do.
                 } else {
@@ -314,5 +329,25 @@ public class FeedbackViewActivity extends AppCompatActivity
         sharedFile.setName(name);
         sharedFile.setPath(downloadPath);
         instructorHelper.insertInSharedFile(sharedFile);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.c2_menu_instructor, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.close_session: closeSession(); break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void closeSession(){
+        instructorHelper.removeSessionEntry();
+        finish();
     }
 }

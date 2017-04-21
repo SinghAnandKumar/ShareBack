@@ -30,7 +30,7 @@ public class FirebaseSessionHelper {
 
     boolean created=false, activated=false;
     public void createSessionEntry(final String sessionName){
-        String instructorId = UserData.getUserId();
+        String instructorId = UserData.getInstance().getUserId();
         //CreatedSession Entry
         final CreatedSession createdSession = new CreatedSession();
         createdSession.setSessionId(sessionId);
@@ -49,7 +49,7 @@ public class FirebaseSessionHelper {
         //Active CreatedSession Entry
         ActiveSession activeSession = new ActiveSession();
         activeSession.setInstructorId(instructorId);
-        activeSession.setInstructorName(UserData.getName());
+        activeSession.setInstructorName(UserData.getInstance().getName());
         activeSession.setSessionName(sessionName);
         activeSession.setSessionId(sessionId);
 

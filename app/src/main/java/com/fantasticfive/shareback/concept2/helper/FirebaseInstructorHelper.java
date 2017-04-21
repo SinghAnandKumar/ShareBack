@@ -58,11 +58,16 @@ public class FirebaseInstructorHelper {
 
     public void removeSessionEntry(){
         DatabaseReference ref = dbRootRef.child(FirebaseKeys.activeSessions());
-        ref.child(sessionId).removeValue();
+        ref.child(sessionId).removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                Toast.makeText(context, "Session Closed", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public void insertInSharedFile(SharedFile sharedFile){
-        String instructorId = UserData.getUserId();
+        String instructorId = UserData.getInstance().getUserId();
         ActiveSession activeSession = new ActiveSession();
         activeSession.setInstructorId(instructorId);
         activeSession.setSessionId(sessionId);
@@ -72,7 +77,7 @@ public class FirebaseInstructorHelper {
     }
 
     public void listenForDocChange(){
-        String userId = UserData.getUserId();
+        String userId = UserData.getInstance().getUserId();
         String key = FirebaseKeys.sessionFiles(userId, sessionId);
         DatabaseReference sessionFileRef = dbRootRef.child(key);
         sessionFileRef.addValueEventListener(new ValueEventListener() {

@@ -41,7 +41,7 @@ public class FirebaseRunningSessionHelper {
                 ArrayList<ActiveSession> sessions = new ArrayList<>();
                 for(DataSnapshot postSnapshot: dataSnapshot.getChildren()){
                     ActiveSession aSession = postSnapshot.getValue(ActiveSession.class);
-                    if(!UserData.isMe(aSession.getInstructorId()))
+                    if(!UserData.getInstance().isMe(aSession.getInstructorId()))
                         sessions.add(aSession);
                 }
                 callback.onSessionChange(sessions);

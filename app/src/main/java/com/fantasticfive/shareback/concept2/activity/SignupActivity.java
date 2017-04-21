@@ -9,6 +9,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
+import com.fantasticfive.shareback.concept2.util.UserData;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -35,9 +39,6 @@ public class SignupActivity extends AppCompatActivity
 
     private static final int RC_SIGN_IN = 1234;
     private static final String TAG = "MY TAG";
-    private EditText inputEmail, inputPassword;
-    private Button btnSignIn, btnSignUp, btnResetPassword;
-    private ProgressBar progressBar;
     //private FirebaseAuth auth;
 
     private FirebaseAuth mAuth;
@@ -56,6 +57,7 @@ public class SignupActivity extends AppCompatActivity
                 .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+        //mGoogleApiClient.connect();
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -65,8 +67,12 @@ public class SignupActivity extends AppCompatActivity
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if(user!=null){
-                    Toast.makeText(SignupActivity.this, "Signed in as"+user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(SignupActivity.this, "Signed in as"+user.getDisplayName(), Toast.LENGTH_SHORT).show();
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    instantiateUserData(user);
+                    finish();
+                    Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
                 else{
                     Log.d(TAG, "onAuthStateChanged:signed_out");
@@ -131,6 +137,10 @@ public class SignupActivity extends AppCompatActivity
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
+    private void instantiateUserData(FirebaseUser user){
+        UserData.getInstance(user,mGoogleApiClient);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -147,8 +157,6 @@ public class SignupActivity extends AppCompatActivity
             }
         }
     }
-
-
 
     //Get Firebase auth instance
         /*auth = FirebaseAuth.getInstance();

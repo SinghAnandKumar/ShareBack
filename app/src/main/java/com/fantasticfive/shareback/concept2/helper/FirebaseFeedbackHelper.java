@@ -15,6 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -75,7 +76,21 @@ public class FirebaseFeedbackHelper {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 GenericTypeIndicator<ArrayList<String>> type = new GenericTypeIndicator<ArrayList<String>>() {};
-                ArrayList<String> users = dataSnapshot.getValue(type);
+                //ArrayList<String> users = dataSnapshot.getValue(type);
+                ArrayList<String> users = new ArrayList<String>();
+
+
+                Map<String, String> userMap = (Map<String, String>) dataSnapshot.getValue();
+
+                if(userMap == null){
+                    callback.onUsersJoined(null);
+                    return;
+                }
+
+                for(Map.Entry<String, String> entry: userMap.entrySet()){
+                    users.add(entry.getValue());
+                }
+
                 if(users !=null)
                     callback.onUsersJoined(users);
                 else

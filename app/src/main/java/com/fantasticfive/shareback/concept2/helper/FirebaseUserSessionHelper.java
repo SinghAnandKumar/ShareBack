@@ -27,7 +27,7 @@ public class FirebaseUserSessionHelper {
     public FirebaseUserSessionHelper(Context context, Callback callback){
         db = FirebaseDatabase.getInstance();
         rootRef = db.getReference();
-        userId = UserData.getUserId();
+        userId = UserData.getInstance().getUserId();
         this.callback = callback;
     }
 

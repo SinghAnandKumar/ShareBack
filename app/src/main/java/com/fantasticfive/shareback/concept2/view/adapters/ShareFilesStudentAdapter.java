@@ -1,5 +1,6 @@
 package com.fantasticfive.shareback.concept2.view.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.support.v4.content.ContextCompat;
@@ -12,8 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fantasticfive.shareback.R;
+import com.fantasticfive.shareback.concept2.Constants;
 import com.fantasticfive.shareback.concept2.bean.SharedFile;
 import com.fantasticfive.shareback.concept2.helper.FirebaseDownloadHelper;
+import com.fantasticfive.shareback.concept2.util.FileUtils;
 
 import java.util.ArrayList;
 
@@ -22,10 +25,10 @@ import java.util.ArrayList;
  */
 public class ShareFilesStudentAdapter extends BaseAdapter implements FirebaseDownloadHelper.Callback{
 
-    Context context;
+    Activity context;
     ArrayList<SharedFile> fileList;
     FirebaseDownloadHelper downloadHelper;
-    public ShareFilesStudentAdapter(Context context, ArrayList<SharedFile> fileList){
+    public ShareFilesStudentAdapter(Activity context, ArrayList<SharedFile> fileList){
         this.context = context;
         this.fileList = fileList;
         downloadHelper = new FirebaseDownloadHelper(context, this);
@@ -62,14 +65,31 @@ public class ShareFilesStudentAdapter extends BaseAdapter implements FirebaseDow
         }
         SharedFile file = fileList.get(position);
         holder.name.setText(file.getName());
+        final ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
+        if(FileUtils.exists(file.getName())) {
+            progressBar.setProgress(100);
+            progressBar.setVisibility(View.VISIBLE);
+            progressBar.setIndeterminate(false);
+        }
+        else{
+            progressBar.setProgress(0);
+            progressBar.setVisibility(View.INVISIBLE);
+            progressBar.setIndeterminate(false);
+        }
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedFile sharedFile = fileList.get(position);
-                ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
+                String name = sharedFile.getName();
                 progressBar.setVisibility(View.VISIBLE);
-                progressBar.setProgress(0);
-                downloadHelper.download(sharedFile, view);
+                if(FileUtils.exists(name)){
+                    progressBar.setProgress(100);
+                    FileUtils.openFile(context, name);
+                }
+                else {
+                    progressBar.setProgress(0);
+                    downloadHelper.download(sharedFile, view);
+                }
             }
         });
         return view;
@@ -80,8 +100,8 @@ public class ShareFilesStudentAdapter extends BaseAdapter implements FirebaseDow
         ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
         int progress = (int)Math.floor(downloadPC);
         progressBar.setProgress(progress);
-        if (progress > 99)
-            progressBar.setIndeterminate(true);
+        /*if (progress > 99)
+            progressBar.setIndeterminate(true);*/
     }
 
     @Override

@@ -34,13 +34,13 @@ public class FirebaseDownloadHelper {
     public void download(final SharedFile sharedFile, final View view){
 
         StorageReference ref = storageReference.child(sharedFile.getPath());
-        Toast.makeText(context, "Downloading From: "+sharedFile.getPath(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, "Downloading From: "+sharedFile.getPath(), Toast.LENGTH_SHORT).show();
         File file = new File(FileUtils.getSharebackDir(sharedFile.getName()));
         ref.getFile(file).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
                 callback.onComplete(view);
-                Toast.makeText(context, "File Downloaded", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "File Downloaded", Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

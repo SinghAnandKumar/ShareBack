@@ -63,6 +63,7 @@
         app:behavior_peekHeight="@dimen/bottomsheet_visible_part"
         app:behavior_hideable="false"
         app:elevation="4dp"
+        android:visibility="gone"
         android:orientation="vertical"
         app:layout_behavior="@string/bottom_sheet_behavior">
         <View

@@ -38,6 +38,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
         <activity
             android:name=".activity.FileViewerActivityServer"
             android:label="@string/title_activity_file_viewer"
@@ -116,7 +125,8 @@
             android:label="Session Files"/>
         <activity android:name=".concept2.activity.FeedbackViewActivity"
             android:label="Feedbacks"/>
-        <activity android:name=".concept2.activity.SignupActivity">
+        <activity android:name=".concept2.activity.SignupActivity"
+            android:theme="@style/AppTheme.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

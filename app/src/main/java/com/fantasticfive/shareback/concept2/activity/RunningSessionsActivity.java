@@ -58,7 +58,7 @@ public class RunningSessionsActivity extends AppCompatActivity implements Fireba
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 ActiveSession session = sessions.get(position);
-                Toast.makeText(RunningSessionsActivity.this, "Clicked Position "+position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(RunningSessionsActivity.this, "Clicked Position "+position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(RunningSessionsActivity.this, SessionViewStudent.class);
 
                 String strActiveSession = new Gson().toJson(session);

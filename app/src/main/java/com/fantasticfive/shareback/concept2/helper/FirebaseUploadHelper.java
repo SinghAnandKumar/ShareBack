@@ -44,7 +44,7 @@ public class FirebaseUploadHelper {
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                         Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                        Toast.makeText(context, "Uploaded Successfully: "+downloadUrl, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(context, "Uploaded Successfully: "+downloadUrl, Toast.LENGTH_SHORT).show();
 
                         String relativePath = downloadUrl.getLastPathSegment();
                         callback.onUploadComplete(view, relativePath);

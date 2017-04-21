@@ -1,7 +1,10 @@
 package com.fantasticfive.shareback.concept2.activity;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatEditText;
@@ -28,6 +31,7 @@ import java.util.ArrayList;
 public class SessionViewStudent extends AppCompatActivity implements FirebaseStudentHelper.Callback {
 
     private static final String TAG = "MY TAG";
+    private static final int STORAGE_REQUEST = 1234;
     ListViewCompat lv;
     View placeHolder;
     View feedbackCard;
@@ -41,12 +45,16 @@ public class SessionViewStudent extends AppCompatActivity implements FirebaseStu
 
     ActiveSession activeSession;
     JoinedSession joinedSession;
+    View loadingView;
+
+    boolean clicked = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.c2_activity_session_view_student);
         init();
+        askPermissions();
 
         helper.register(activeSession);
         lv.setAdapter(adapter);
@@ -73,6 +81,7 @@ public class SessionViewStudent extends AppCompatActivity implements FirebaseStu
         etFeedbackComment = (AppCompatEditText) findViewById(R.id.et_feedback_comment);
         rbFeedbackRating = (AppCompatRatingBar) findViewById(R.id.rb_feedback_rating);
         feedbackCard = findViewById(R.id.feedback_card);
+        loadingView = findViewById(R.id.loading_view);
 
         //Backend Data
         String strActiveSession = getIntent().getExtras().getString(Constants.ACTIVE_SESSION);
@@ -81,6 +90,39 @@ public class SessionViewStudent extends AppCompatActivity implements FirebaseStu
         helper = new FirebaseStudentHelper(this, sessionId, this);
         sharedFiles = new ArrayList<>();
         adapter = new ShareFilesStudentAdapter(this, sharedFiles);
+    }
+
+    private void askPermissions(){
+        //Toast.makeText(this, "Need Some Permissions to download File", Toast.LENGTH_SHORT).show();
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},STORAGE_REQUEST);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(SessionViewStudent.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                    Toast.makeText(this, "Permission denied to read your External storage", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
     }
 
     protected void addListeners(){
@@ -94,7 +136,11 @@ public class SessionViewStudent extends AppCompatActivity implements FirebaseStu
                 }
                 String comment = etFeedbackComment.getText().toString();
                 helper.sendComments(activeSession, rating, comment);
-                feedbackCard.setVisibility(View.GONE);
+
+                clicked = true;
+                loadingView.setVisibility(View.VISIBLE);
+
+                //feedbackCard.setVisibility(View.GONE);
                 joinedSession.setRating(rating);
                 joinedSession.setComment(comment);
                 helper.updateJoinEntry(joinedSession);
@@ -111,7 +157,7 @@ public class SessionViewStudent extends AppCompatActivity implements FirebaseStu
             adapter.notifyDataSetChanged();
         }
         else{
-            placeHolder.setVisibility(View.VISIBLE);
+            //placeHolder.setVisibility(View.VISIBLE);
         }
     }
 
@@ -119,7 +165,15 @@ public class SessionViewStudent extends AppCompatActivity implements FirebaseStu
     public void onSessionJoined(JoinedSession session) {
         joinedSession = session;
         if(session.getRating() !=0){
-            feedbackCard.setVisibility(View.GONE);
+            //feedbackCard.setVisibility(View.GONE);
+            etFeedbackComment.setText(session.getComment());
+            rbFeedbackRating.setRating(session.getRating());
+            loadingView.setVisibility(View.GONE);
+
+            if(clicked){
+                clicked = false;
+                Toast.makeText(this, "Thank You", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

@@ -60,7 +60,7 @@ public class ActiveSessionDialog extends DialogFragment implements FirebaseRunni
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Log.i(TAG, "onItemClick: Position:"+i);
                 ActiveSession activeSession = activeSessions.get(i);
-                if(activeSession.getInstructorId().equals(UserData.getUserId() )){
+                if(activeSession.getInstructorId().equals(UserData.getInstance().getUserId() )){
                     Toast.makeText(getActivity(), "You Started this Activity. You cannot Join", Toast.LENGTH_SHORT).show();
                     return;
                 }

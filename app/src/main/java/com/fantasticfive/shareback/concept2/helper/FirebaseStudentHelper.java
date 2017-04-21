@@ -49,8 +49,8 @@ public class FirebaseStudentHelper {
 
     public FirebaseStudentHelper(Context context, String sessionId, Callback callback){
         this.sessionId = sessionId;
-        this.userId = UserData.getUserId();
-        this.userName = UserData.getName();
+        this.userId = UserData.getInstance().getUserId();
+        this.userName = UserData.getInstance().getName();
         this.context = context;
         this.callback = callback;
         database = FirebaseDatabase.getInstance();
@@ -79,7 +79,7 @@ public class FirebaseStudentHelper {
         joinedSessionRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot==null)
+                if(dataSnapshot.getValue()==null)
                     joinEntry(activeSession);
                 else {
                     JoinedSession session = dataSnapshot.getValue(JoinedSession.class);
